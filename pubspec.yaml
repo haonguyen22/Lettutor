@@ -1,0 +1,36 @@
+name: let_tutor
+description: A new Flutter project.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+    sdk: ">=3.1.0 <4.0.0"
+dependencies:
+    flutter:
+        sdk: flutter
+    flutter_localizations:
+        sdk: flutter
+    localization:
+        path: ./modules/localization
+
+    cupertino_icons: ^1.0.2
+    adaptive_theme: ^3.4.0
+    flutter_bloc: ^8.1.3
+    intl: ^0.18.1
+    bloc: ^8.1.2
+    collection: ^1.17.2
+    flutter_localization: ^0.1.14
+    intl_utils: ^2.8.4
+    shared_preferences: ^2.2.1
+    logger: ^2.0.2+1
+    meta: ^1.9.1
+
+dev_dependencies:
+    flutter_test:
+        sdk: flutter
+
+    flutter_lints: ^2.0.0
+
+flutter:
+    uses-material-design: true
