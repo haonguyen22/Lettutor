@@ -4,9 +4,9 @@ import 'dart:developer';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/constants/route_list.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
-import 'package:let_tutor/presentation/auth/login/login_screen.dart';
 
 import 'application.dart';
 
@@ -24,7 +24,7 @@ class AppDelegate {
         BlocProvider<AppSettingBloc>(create: (_) => injector.get()),
       ],
       themeSaved: savedThemeMode,
-      initialRoute: LoginScreen.routeName,
+      initialRoute: RouteList.login,
     );
   }
 
@@ -38,7 +38,7 @@ class AppDelegate {
 
       runApp(app);
     }, (e, trace) {
-      log('[AppDelegate]: ${e.toString()}  ${trace.toString()}');
+      log('${e.toString()}  ${trace.toString()}');
     });
   }
 }

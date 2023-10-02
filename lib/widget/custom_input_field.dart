@@ -1,0 +1,66 @@
+import 'package:flutter/material.dart';
+
+class CustomInputLabelField extends StatefulWidget {
+  final String label;
+  final TextEditingController controller;
+  final bool isObscure;
+  final String? hintText;
+
+  const CustomInputLabelField({
+    super.key,
+    required this.label,
+    required this.controller,
+    this.hintText,
+    this.isObscure = false,
+  });
+
+  @override
+  State<CustomInputLabelField> createState() => _CustomInputLabelFieldState();
+}
+
+class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
+  bool _showCancelIconInState = true;
+
+  void tapShowHideText() {
+    setState(() {
+      _showCancelIconInState = !_showCancelIconInState;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsetsDirectional.only(bottom: 8.0),
+          child: Text(
+            widget.label,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).hintColor,
+            ),
+          ),
+        ),
+        TextField(
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            border: const OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.grey)),
+            suffixIcon: widget.isObscure
+                ? GestureDetector(
+                    onTap: tapShowHideText,
+                    child: _showCancelIconInState
+                        ? const Icon(Icons.visibility_off)
+                        : const Icon(Icons.visibility),
+                  )
+                : null,
+          ),
+          controller: widget.controller,
+          obscureText: widget.isObscure && _showCancelIconInState,
+        ),
+      ],
+    );
+  }
+}

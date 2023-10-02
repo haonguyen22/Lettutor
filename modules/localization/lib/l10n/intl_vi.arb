@@ -1,1 +1,12 @@
-{}
+{
+    "@@locale": "vi",
+    "login": "Đăng nhập",
+    "signUp": "Đăng ký",
+    "loginDescription": "Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn.",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "forgotPassword": "Quên mật khẩu?",
+    "orContinueWith": "Hoặc tiếp tục với",
+    "notAMember": "Chưa là thành viên?",
+    "alreadyHaveAnAccount": "Đã có tài khoản?"
+}

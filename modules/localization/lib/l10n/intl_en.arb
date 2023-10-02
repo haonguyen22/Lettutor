@@ -1,1 +1,12 @@
-{}
+{
+    "@@locale": "en",
+    "logIn": "Log In",
+    "signUp": "Sign Up",
+    "loginDescription": "Become fluent faster through one on one video chat lessons tailored to your goals.",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "orContinueWith": "Or continue with",
+    "notAMember": "Not a member yet?",
+    "alreadyHaveAnAccount": "Already have an account?"
+}

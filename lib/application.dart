@@ -53,8 +53,18 @@ class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-      light: ThemeData.light(useMaterial3: true),
-      dark: ThemeData.dark(useMaterial3: true),
+      light: ThemeData.light(useMaterial3: true).copyWith(
+        primaryColor: const Color.fromARGB(1, 0, 113, 240),
+        colorScheme: const ColorScheme.light(
+          primary: Color.fromARGB(1, 0, 113, 240),
+        ),
+      ),
+      dark: ThemeData.dark(useMaterial3: true).copyWith(
+        primaryColor: const Color.fromARGB(1, 0, 113, 240),
+        colorScheme: const ColorScheme.light(
+          primary: Color.fromARGB(1, 0, 113, 240),
+        ),
+      ),
       initial: widget.themeSaved ?? AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
