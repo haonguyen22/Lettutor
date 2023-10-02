@@ -3,6 +3,9 @@ import 'dart:developer';
 
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
+import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:let_tutor/presentation/auth/login/login_screen.dart';
 
 import 'application.dart';
@@ -17,7 +20,9 @@ class AppDelegate {
     return Application(
       title: 'LetTutor',
       navigationKey: rootNavigationKey,
-      providers: const [],
+      providers: [
+        BlocProvider<AppSettingBloc>(create: (_) => injector.get()),
+      ],
       themeSaved: savedThemeMode,
       initialRoute: LoginScreen.routeName,
     );
@@ -26,6 +31,8 @@ class AppDelegate {
   Future<void> run() async {
     await runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
+
+      configurationInjection();
 
       final app = await build();
 

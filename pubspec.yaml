@@ -25,6 +25,11 @@ dependencies:
     shared_preferences: ^2.2.1
     logger: ^2.0.2+1
     meta: ^1.9.1
+    get_it: ^7.6.4
+    injector: ^3.0.0
+    injectable: ^2.3.0
+    injectable_generator: ^2.4.0
+    build_runner: ^2.4.6
 
 dev_dependencies:
     flutter_test:
