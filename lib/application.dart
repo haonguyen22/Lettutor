@@ -61,7 +61,7 @@ class _ApplicationState extends State<Application> {
       ),
       dark: ThemeData.dark(useMaterial3: true).copyWith(
         primaryColor: const Color.fromARGB(1, 0, 113, 240),
-        colorScheme: const ColorScheme.light(
+        colorScheme: const ColorScheme.dark(
           primary: Color.fromARGB(1, 0, 113, 240),
         ),
       ),

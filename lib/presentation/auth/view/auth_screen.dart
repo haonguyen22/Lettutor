@@ -53,11 +53,13 @@ class _AuthScreenState extends State<AuthScreen> {
                   const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
               child: Column(
                 children: [
-                  Image.asset(
-                    'assets/images/login.png',
-                    fit: BoxFit.fitWidth,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Image.asset(
+                      'assets/images/login.png',
+                      fit: BoxFit.fitWidth,
+                    ),
                   ),
-                  const SizedBox(height: 8.0),
                   Text(
                     isLoginScreen ? S.of(context).logIn : S.of(context).signUp,
                     style: textTheme.headlineMedium?.copyWith(
@@ -73,45 +75,47 @@ class _AuthScreenState extends State<AuthScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 16),
-                  CustomInputLabelField(
-                    label: S.of(context).email,
-                    controller: email,
-                    hintText: 'abc@example.com',
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: CustomInputLabelField(
+                      label: S.of(context).email,
+                      controller: email,
+                      hintText: 'abc@example.com',
+                    ),
                   ),
-                  const SizedBox(height: 8),
                   CustomInputLabelField(
                     label: S.of(context).password,
                     controller: password,
                     isObscure: true,
                   ),
-                  if (message.isNotEmpty)
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Container(
-                            margin: const EdgeInsetsDirectional.only(
-                                top: 10, bottom: 6),
-                            decoration: BoxDecoration(
-                              color: Color(int.parse('ffffccc7', radix: 16)),
-                              borderRadius: BorderRadius.circular(3),
+                  message.isNotEmpty
+                      ? Row(
+                          children: [
+                            Expanded(
+                              child: Container(
+                                margin: const EdgeInsetsDirectional.only(
+                                    top: 10, bottom: 6),
+                                decoration: BoxDecoration(
+                                  color:
+                                      Color(int.parse('ffffccc7', radix: 16)),
+                                  borderRadius: BorderRadius.circular(3),
+                                ),
+                                width: double.infinity,
+                                padding: const EdgeInsetsDirectional.symmetric(
+                                    horizontal: 12, vertical: 12),
+                                child: Row(
+                                  children: [
+                                    const Icon(Icons.remove_circle_sharp,
+                                        color: Colors.red),
+                                    const SizedBox(width: 10),
+                                    Text(message),
+                                  ],
+                                ),
+                              ),
                             ),
-                            width: double.infinity,
-                            padding: const EdgeInsetsDirectional.symmetric(
-                                horizontal: 12, vertical: 12),
-                            child: Row(
-                              children: [
-                                const Icon(Icons.remove_circle_sharp,
-                                    color: Colors.red),
-                                const SizedBox(width: 10),
-                                Text(message),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  const SizedBox(height: 16.0),
+                          ],
+                        )
+                      : const SizedBox(height: 16),
                   if (isLoginScreen)
                     Row(
                       children: [
@@ -172,56 +176,29 @@ class _AuthScreenState extends State<AuthScreen> {
                         .toList(),
                   ),
                   const SizedBox(height: 10),
-                  if (isLoginScreen)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(S.of(context).notAMember),
-                        TextButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) =>
-                            //           const AuthScreen.signUp()),
-                            // );
-                            Navigator.pushReplacementNamed(
-                                context, RouteList.signUp);
-                          },
-                          child: Text(
-                            S.of(context).signUp,
-                            style: TextStyle(
-                              color: primaryColor,
-                            ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(S.of(context).notAMember),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context,
+                              isLoginScreen
+                                  ? RouteList.signUp
+                                  : RouteList.login);
+                        },
+                        child: Text(
+                          isLoginScreen
+                              ? S.of(context).signUp
+                              : S.of(context).logIn,
+                          style: TextStyle(
+                            color: primaryColor,
                           ),
                         ),
-                      ],
-                    ),
-                  if (!isLoginScreen)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(S.of(context).alreadyHaveAnAccount),
-                        TextButton(
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //       builder: (context) =>
-                            //           const AuthScreen.login()),
-                            // );
-                            Navigator.pushReplacementNamed(
-                                context, RouteList.login);
-                          },
-                          child: Text(
-                            S.of(context).logIn,
-                            style: TextStyle(
-                              color: primaryColor,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),
