@@ -19,9 +19,14 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
 
   FutureOr<void> mapSaveLanguageEvent(
       SaveLanguageEvent event, Emitter<AppSettingState> emit) async {
-    final isSave = await sharedPreferencesUseCase.setLanguage(event.language);
+    var newLangCode = 'en'; // Default
+    if (state.langCode == 'en') {
+      newLangCode = 'vi';
+    }
+
+    final isSave = await sharedPreferencesUseCase.setLanguage(newLangCode);
     if (isSave) {
-      emit(SaveLanguageSuccess(event.language));
+      emit(SaveLanguageSuccess(newLangCode));
     }
   }
 }

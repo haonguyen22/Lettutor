@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:let_tutor/constants/route_list.dart';
+import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
 import 'package:let_tutor/widget/custom_input_field.dart';
 import 'package:localization/localization.dart';
 
@@ -36,9 +37,13 @@ class _AuthScreenState extends State<AuthScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: SvgPicture.asset('assets/images/logo.svg'),
+        leading: Padding(
+          padding: const EdgeInsetsDirectional.only(start: 8.0),
+          child: SvgPicture.asset('assets/images/logo.svg'),
+        ),
         leadingWidth: 150,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        actions: const [IconLanguageWidget()],
       ),
       body: CustomScrollView(
         slivers: [

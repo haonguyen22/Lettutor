@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
+        "logIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn."),
         "notAMember":
