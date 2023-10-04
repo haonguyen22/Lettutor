@@ -139,6 +139,176 @@ class S {
       args: [],
     );
   }
+
+  /// `You have no upcoming lesson.`
+  String get noUpcommingLesson {
+    return Intl.message(
+      'You have no upcoming lesson.',
+      name: 'noUpcommingLesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to LetTutor!`
+  String get welcomeToLetTutor {
+    return Intl.message(
+      'Welcome to LetTutor!',
+      name: 'welcomeToLetTutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tutors`
+  String get tutors {
+    return Intl.message(
+      'Tutors',
+      name: 'tutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Courses`
+  String get courses {
+    return Intl.message(
+      'Courses',
+      name: 'courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Schedule`
+  String get schedule {
+    return Intl.message(
+      'Schedule',
+      name: 'schedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find a tutor`
+  String get findATutor {
+    return Intl.message(
+      'Find a tutor',
+      name: 'findATutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter tutor name`
+  String get enterTutorName {
+    return Intl.message(
+      'Enter tutor name',
+      name: 'enterTutorName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select tutor nationality`
+  String get selectTutorNationality {
+    return Intl.message(
+      'Select tutor nationality',
+      name: 'selectTutorNationality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select available tutoring time:`
+  String get selectTutorTime {
+    return Intl.message(
+      'Select available tutoring time:',
+      name: 'selectTutorTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select a day`
+  String get selectDay {
+    return Intl.message(
+      'Select a day',
+      name: 'selectDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start time`
+  String get startTime {
+    return Intl.message(
+      'Start time',
+      name: 'startTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End time`
+  String get endTime {
+    return Intl.message(
+      'End time',
+      name: 'endTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Filters`
+  String get resetFilters {
+    return Intl.message(
+      'Reset Filters',
+      name: 'resetFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recommended Tutors`
+  String get recommendedTutors {
+    return Intl.message(
+      'Recommended Tutors',
+      name: 'recommendedTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book`
+  String get book {
+    return Intl.message(
+      'Book',
+      name: 'book',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

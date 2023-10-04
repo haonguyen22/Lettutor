@@ -54,15 +54,15 @@ class _ApplicationState extends State<Application> {
   Widget build(BuildContext context) {
     return AdaptiveTheme(
       light: ThemeData.light(useMaterial3: true).copyWith(
-        primaryColor: const Color.fromARGB(1, 0, 113, 240),
+        primaryColor: Color.fromARGB(1, 1, 82, 176),
         colorScheme: const ColorScheme.light(
-          primary: Color.fromARGB(1, 0, 113, 240),
+          primary: Color.fromARGB(1, 1, 82, 176),
         ),
       ),
       dark: ThemeData.dark(useMaterial3: true).copyWith(
-        primaryColor: const Color.fromARGB(1, 0, 113, 240),
+        primaryColor: const Color.fromARGB(1, 1, 82, 176),
         colorScheme: const ColorScheme.dark(
-          primary: Color.fromARGB(1, 0, 113, 240),
+          primary: Color.fromARGB(1, 1, 82, 176),
         ),
       ),
       initial: widget.themeSaved ?? AdaptiveThemeMode.light,

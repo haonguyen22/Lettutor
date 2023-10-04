@@ -24,17 +24,40 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Đã có tài khoản?"),
+        "book": MessageLookupByLibrary.simpleMessage("Đặt lịch"),
+        "courses": MessageLookupByLibrary.simpleMessage("Khóa học"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "endTime": MessageLookupByLibrary.simpleMessage("Thời gian kết thúc"),
+        "enterTutorName":
+            MessageLookupByLibrary.simpleMessage("Nhập tên gia sư"),
+        "findATutor": MessageLookupByLibrary.simpleMessage("Tìm gia sư"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
+        "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
         "logIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn."),
+        "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
+            "Bạn không có bài học sắp tới."),
         "notAMember":
             MessageLookupByLibrary.simpleMessage("Chưa là thành viên?"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục với"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký")
+        "recommendedTutors":
+            MessageLookupByLibrary.simpleMessage("Gia sư được đề xuất"),
+        "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
+        "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
+        "selectDay": MessageLookupByLibrary.simpleMessage("Chọn ngày"),
+        "selectTutorNationality":
+            MessageLookupByLibrary.simpleMessage("Chọn quốc tịch của gia sư"),
+        "selectTutorTime": MessageLookupByLibrary.simpleMessage(
+            "Chọn thời gian học sẵn có của gia sư:"),
+        "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
+        "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),
+        "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
+        "welcomeToLetTutor": MessageLookupByLibrary.simpleMessage(
+            "Chào mừng bạn đến với LetTutor!")
       };
 }

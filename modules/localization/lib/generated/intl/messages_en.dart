@@ -24,16 +24,39 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "endTime": MessageLookupByLibrary.simpleMessage("End time"),
+        "enterTutorName":
+            MessageLookupByLibrary.simpleMessage("Enter tutor name"),
+        "findATutor": MessageLookupByLibrary.simpleMessage("Find a tutor"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "home": MessageLookupByLibrary.simpleMessage("Home"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Become fluent faster through one on one video chat lessons tailored to your goals."),
+        "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
+            "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Or continue with"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
-        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up")
+        "recommendedTutors":
+            MessageLookupByLibrary.simpleMessage("Recommended Tutors"),
+        "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
+        "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
+        "selectDay": MessageLookupByLibrary.simpleMessage("Select a day"),
+        "selectTutorNationality":
+            MessageLookupByLibrary.simpleMessage("Select tutor nationality"),
+        "selectTutorTime": MessageLookupByLibrary.simpleMessage(
+            "Select available tutoring time:"),
+        "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
+        "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
+        "welcomeToLetTutor":
+            MessageLookupByLibrary.simpleMessage("Welcome to LetTutor!")
       };
 }

@@ -20,7 +20,7 @@ class IconLanguageWidget extends StatelessWidget {
           },
           child: CircleButton(
             radius: 16,
-            color: Theme.of(context).scaffoldBackgroundColor,
+            color: Colors.transparent,
             imageWidget: Image.asset(
               state.langIcon,
               width: 25,

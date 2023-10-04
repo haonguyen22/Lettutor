@@ -8,5 +8,22 @@
     "forgotPassword": "Forgot Password?",
     "orContinueWith": "Or continue with",
     "notAMember": "Not a member yet?",
-    "alreadyHaveAnAccount": "Already have an account?"
+    "alreadyHaveAnAccount": "Already have an account?",
+    "noUpcommingLesson": "You have no upcoming lesson.",
+    "welcomeToLetTutor": "Welcome to LetTutor!",
+    "home": "Home",
+    "tutors": "Tutors",
+    "courses": "Courses",
+    "schedule": "Schedule",
+    "settings": "Settings",
+    "findATutor": "Find a tutor",
+    "enterTutorName": "Enter tutor name",
+    "selectTutorNationality": "Select tutor nationality",
+    "selectTutorTime": "Select available tutoring time:",
+    "selectDay": "Select a day",
+    "startTime": "Start time",
+    "endTime": "End time",
+    "resetFilters": "Reset Filters",
+    "recommendedTutors": "Recommended Tutors",
+    "book": "Book"
 }

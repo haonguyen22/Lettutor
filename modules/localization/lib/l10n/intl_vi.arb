@@ -8,5 +8,22 @@
     "forgotPassword": "Quên mật khẩu?",
     "orContinueWith": "Hoặc tiếp tục với",
     "notAMember": "Chưa là thành viên?",
-    "alreadyHaveAnAccount": "Đã có tài khoản?"
+    "alreadyHaveAnAccount": "Đã có tài khoản?",
+    "noUpcommingLesson": "Bạn không có bài học sắp tới.",
+    "welcomeToLetTutor": "Chào mừng bạn đến với LetTutor!",
+    "home": "Trang chủ",
+    "tutors": "Gia sư",
+    "courses": "Khóa học",
+    "schedule": "Lịch học",
+    "settings": "Cài đặt",
+    "findATutor": "Tìm gia sư",
+    "enterTutorName": "Nhập tên gia sư",
+    "selectTutorNationality": "Chọn quốc tịch",
+    "selectTutorTime": "Chọn thời gian học:",
+    "selectDay": "Chọn ngày",
+    "startTime": "Thời gian bắt đầu",
+    "endTime": "Thời gian kết thúc",
+    "resetFilters": "Đặt lại bộ lọc",
+    "recommendedTutors": "Đề xuất gia sư",
+    "book": "Đặt lịch"
 }
