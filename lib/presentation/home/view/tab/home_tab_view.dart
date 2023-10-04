@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/extensions/context_ext.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:localization/generated/l10n.dart';
 
 import '../../../../components/tutors/tutor_card.dart';

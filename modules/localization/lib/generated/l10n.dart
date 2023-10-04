@@ -309,6 +309,86 @@ class S {
       args: [],
     );
   }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English for kids`
+  String get englishForKids {
+    return Intl.message(
+      'English for kids',
+      name: 'englishForKids',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English for Business`
+  String get englishForBusiness {
+    return Intl.message(
+      'English for Business',
+      name: 'englishForBusiness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Conversational`
+  String get conversational {
+    return Intl.message(
+      'Conversational',
+      name: 'conversational',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nationality`
+  String get nationality {
+    return Intl.message(
+      'Nationality',
+      name: 'nationality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Specialities`
+  String get specialities {
+    return Intl.message(
+      'Specialities',
+      name: 'specialities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Found {num} result(s)`
+  String foundNResult(Object num) {
+    return Intl.message(
+      'Found $num result(s)',
+      name: 'foundNResult',
+      desc: '',
+      args: [num],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

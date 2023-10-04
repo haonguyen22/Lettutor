@@ -25,5 +25,13 @@
     "endTime": "End time",
     "resetFilters": "Reset Filters",
     "recommendedTutors": "Recommended Tutors",
-    "book": "Book"
+    "book": "Book",
+    "all": "All",
+    "englishForKids": "English for kids",
+    "englishForBusiness": "English for Business",
+    "conversational": "Conversational",
+    "nationality": "Nationality",
+    "specialities": "Specialities",
+    "search": "Search",
+    "foundNResult": "Found {num} result(s)"
 }

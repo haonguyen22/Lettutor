@@ -20,23 +20,34 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(num) => "Found ${num} result(s)";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "all": MessageLookupByLibrary.simpleMessage("All"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "conversational":
+            MessageLookupByLibrary.simpleMessage("Conversational"),
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "endTime": MessageLookupByLibrary.simpleMessage("End time"),
+        "englishForBusiness":
+            MessageLookupByLibrary.simpleMessage("English for Business"),
+        "englishForKids":
+            MessageLookupByLibrary.simpleMessage("English for kids"),
         "enterTutorName":
             MessageLookupByLibrary.simpleMessage("Enter tutor name"),
         "findATutor": MessageLookupByLibrary.simpleMessage("Find a tutor"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
+        "foundNResult": m0,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Become fluent faster through one on one video chat lessons tailored to your goals."),
+        "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
@@ -47,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Recommended Tutors"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
         "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
         "selectDay": MessageLookupByLibrary.simpleMessage("Select a day"),
         "selectTutorNationality":
             MessageLookupByLibrary.simpleMessage("Select tutor nationality"),
@@ -54,6 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Select available tutoring time:"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
         "welcomeToLetTutor":

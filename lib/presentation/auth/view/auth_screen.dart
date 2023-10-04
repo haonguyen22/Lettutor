@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
-import 'package:let_tutor/widget/custom_input_field.dart';
-import 'package:let_tutor/widget/logo_icon.dart';
+import 'package:let_tutor/core/widget/custom_input_field.dart';
+import 'package:let_tutor/core/widget/logo_icon.dart';
 import 'package:localization/localization.dart';
 
 class AuthScreen extends StatefulWidget {

@@ -45,14 +45,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục với"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "recommendedTutors":
-            MessageLookupByLibrary.simpleMessage("Gia sư được đề xuất"),
+            MessageLookupByLibrary.simpleMessage("Đề xuất gia sư"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
         "selectDay": MessageLookupByLibrary.simpleMessage("Chọn ngày"),
         "selectTutorNationality":
-            MessageLookupByLibrary.simpleMessage("Chọn quốc tịch của gia sư"),
-        "selectTutorTime": MessageLookupByLibrary.simpleMessage(
-            "Chọn thời gian học sẵn có của gia sư:"),
+            MessageLookupByLibrary.simpleMessage("Chọn quốc tịch"),
+        "selectTutorTime":
+            MessageLookupByLibrary.simpleMessage("Chọn thời gian học:"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),

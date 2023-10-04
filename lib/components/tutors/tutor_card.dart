@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/constants/colors.dart';
-import 'package:let_tutor/extensions/context_ext.dart';
+import 'package:let_tutor/core/constants/colors.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:localization/generated/l10n.dart';
 
 const _kDefaultImage = "assets/icons/logo.png";
@@ -109,28 +110,7 @@ class TutorCardWidget extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Wrap(
-                direction: Axis.horizontal,
-                spacing: 5,
-                runSpacing: 10,
-                children: List.generate(
-                  tags?.length ?? 0,
-                  (index) => Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
-                    decoration: BoxDecoration(
-                      color: context.primaryColor.withOpacity(0.15),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Text(
-                      tags![index],
-                      style: context.textTheme.bodySmall?.copyWith(
-                        color: context.primaryColor,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              WrapListWidget(listItem: tags),
               if (description?.isNotEmpty ?? false)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 16.0),

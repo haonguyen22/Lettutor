@@ -24,7 +24,7 @@ class AppDelegate {
         BlocProvider<AppSettingBloc>(create: (_) => injector.get()),
       ],
       themeSaved: savedThemeMode,
-      initialRoute: RouteList.login,
+      initialRoute: RouteList.home,
     );
   }
 
