@@ -24,13 +24,20 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("About"),
+        "account": MessageLookupByLibrary.simpleMessage("Account"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "appearance": MessageLookupByLibrary.simpleMessage("Appearance"),
+        "becomeATutor": MessageLookupByLibrary.simpleMessage("Become A Tutor"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "conversational":
             MessageLookupByLibrary.simpleMessage("Conversational"),
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
+        "eBooks": MessageLookupByLibrary.simpleMessage("E-books"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "endTime": MessageLookupByLibrary.simpleMessage("End time"),
         "englishForBusiness":
@@ -44,7 +51,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "foundNResult": m0,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "language": MessageLookupByLibrary.simpleMessage("Language"),
+        "languages": MessageLookupByLibrary.simpleMessage("Languages"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Light theme"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Become fluent faster through one on one video chat lessons tailored to your goals."),
         "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
@@ -54,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Or continue with"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
+        "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "recommendedTutors":
             MessageLookupByLibrary.simpleMessage("Recommended Tutors"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
@@ -68,6 +80,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
+        "termAndConditions":
+            MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
         "welcomeToLetTutor":
             MessageLookupByLibrary.simpleMessage("Welcome to LetTutor!")

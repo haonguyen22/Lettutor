@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/presentation/home/view/home_screen.dart';
+import 'package:let_tutor/presentation/tutor/views/tutor_detail_screen.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/view/auth_screen.dart';
 
@@ -10,5 +11,6 @@ class Routes {
     RouteList.home: (context) => const HomeScreen(),
     RouteList.login: (context) => const AuthScreen.login(),
     RouteList.signUp: (context) => const AuthScreen.signUp(),
+    RouteList.tutorDetail: (context) => const TutorDetailScreen(),
   };
 }

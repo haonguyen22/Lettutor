@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/components/tutors/tutor_card.dart';
+import 'package:let_tutor/core/components/tutors/tutor_card.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:localization/generated/l10n.dart';
@@ -24,7 +24,7 @@ class _TutorTabViewState extends State<TutorTabView> {
       S.of(context).englishForKids,
       S.of(context).englishForBusiness,
       S.of(context).conversational,
-      ...TypeTest.values.map((e) => e.name.toUpperCase()),
+      ...TestPreparations.values.map((e) => e.name.toUpperCase()),
     ];
     return Scaffold(
       body: Padding(
@@ -173,7 +173,7 @@ enum Nationality {
   ;
 }
 
-enum TypeTest {
+enum TestPreparations {
   starters,
   movers,
   flyers,

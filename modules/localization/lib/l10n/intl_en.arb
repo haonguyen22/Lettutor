@@ -33,5 +33,19 @@
     "nationality": "Nationality",
     "specialities": "Specialities",
     "search": "Search",
-    "foundNResult": "Found {num} result(s)"
+    "foundNResult": "Found {num} result(s)",
+    "eBooks": "E-books",
+    "about": "About",
+    "darkTheme": "Dark theme",
+    "lightTheme": "Light theme",
+    "languages": "Languages",
+    "appearance": "Appearance",
+    "account": "Account",
+    "language": "Language",
+    "becomeATutor": "Become A Tutor",
+    "privacyPolicy": "Privacy Policy",
+    "termAndConditions": "Terms & Conditions",
+    "contact": "Contact",
+    "logOut": "Log Out"
+
 }

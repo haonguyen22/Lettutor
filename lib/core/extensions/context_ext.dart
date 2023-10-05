@@ -10,4 +10,8 @@ extension ContextTheme on BuildContext {
   Color get backgroundColor => Theme.of(this).scaffoldBackgroundColor;
 
   Color? get textColor => Theme.of(this).textTheme.bodyLarge?.color;
+
+  double get widthDevice => MediaQuery.sizeOf(this).width;
+
+  double get heightDevice => MediaQuery.sizeOf(this).height;
 }
