@@ -579,6 +579,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Overview`
+  String get overview {
+    return Intl.message(
+      'Overview',
+      name: 'overview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Why take this courses`
+  String get whyTakeThisCourse {
+    return Intl.message(
+      'Why take this courses',
+      name: 'whyTakeThisCourse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What will you be able to do`
+  String get whatWillAbleToDo {
+    return Intl.message(
+      'What will you be able to do',
+      name: 'whatWillAbleToDo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Length`
+  String get courseLength {
+    return Intl.message(
+      'Course Length',
+      name: 'courseLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{num} topics`
+  String numOfTopics(Object num) {
+    return Intl.message(
+      '$num topics',
+      name: 'numOfTopics',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `List Topics`
+  String get listTopics {
+    return Intl.message(
+      'List Topics',
+      name: 'listTopics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{num} lessons`
+  String numOfLessons(Object num) {
+    return Intl.message(
+      '$num lessons',
+      name: 'numOfLessons',
+      desc: '',
+      args: [num],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

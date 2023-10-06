@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/widget/column_info_detail.dart';
 import 'package:let_tutor/core/widget/video.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:localization/generated/l10n.dart';
@@ -13,6 +14,13 @@ class TutorDetailScreen extends StatefulWidget {
   final String? imageUrl;
   final String name;
   final String? country;
+  final String description;
+  final String tutorVideoInfoUrl;
+  final String? education;
+  final List<String>? languages;
+  final List<String>? specialities;
+  final String? interests;
+  final String? experience;
 
   const TutorDetailScreen({
     super.key,
@@ -20,6 +28,17 @@ class TutorDetailScreen extends StatefulWidget {
         'https://api.app.lettutor.com/avatar/7f663cef-2529-4f01-9c25-e71300727b56avatar1686546526450.jpg',
     this.name = "Dang Thu Ha",
     this.country = "Viet nam",
+    this.description =
+        'I was teaching English for almost 3 years. I am a Licensed Professional Teacher and a TESOL certified, I teach kids, adult and professionals. I make sure my class is students-centered. I will help you with your English goal. ',
+    this.tutorVideoInfoUrl =
+        "https://sandbox.api.lettutor.com/video/af5df96e-53d4-433b-9f4a-59e736d05796video1641220103635.mp4",
+    this.education = "BAchelor of information technology",
+    this.languages = const ["english", "france"],
+    this.specialities = const ["english for kids", "france for babe"],
+    this.interests =
+        'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
+    this.experience =
+        'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
   });
 
   @override
@@ -127,7 +146,7 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                     ),
                     const SizedBox(height: 12),
                     Text(
-                      'I was teaching English for almost 3 years. I am a Licensed Professional Teacher and a TESOL certified, I teach kids, adult and professionals. I make sure my class is students-centered. I will help you with your English goal. ',
+                      widget.description,
                       style: context.textTheme.labelLarge,
                       textAlign: TextAlign.justify,
                     ),
@@ -151,42 +170,43 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                         ],
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
                       child: CustomVideoPlayerWidget(
-                          'https://www.youtube.com/watch?v=KyXKGurjX_4&list=RDGpmOn4RyzZI&index=6'),
+                        widget.tutorVideoInfoUrl,
+                      ),
                     ),
                     const SizedBox(height: 12),
-                    TuturInfoItemWidget(
+                    ColumnInfoDetailWidget(
                       label: S.of(context).education,
                       content: Text(
-                        "BAchelor of information technology",
+                        widget.education ?? '',
                         style: context.textTheme.bodyMedium,
                       ),
                     ),
-                    TuturInfoItemWidget(
+                    ColumnInfoDetailWidget(
                       label: S.of(context).language,
-                      content: const WrapListWidget(
-                        listItem: ["english", "france"],
+                      content: WrapListWidget(
+                        listItem: widget.languages,
                       ),
                     ),
-                    TuturInfoItemWidget(
+                    ColumnInfoDetailWidget(
                       label: S.of(context).specialities,
-                      content: const WrapListWidget(
-                        listItem: ["english for kids", "france for babe"],
+                      content: WrapListWidget(
+                        listItem: widget.specialities,
                       ),
                     ),
-                    TuturInfoItemWidget(
+                    ColumnInfoDetailWidget(
                       label: S.of(context).interests,
                       content: Text(
-                        'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
+                        widget.interests ?? '',
                         style: context.textTheme.bodyMedium,
                       ),
                     ),
-                    TuturInfoItemWidget(
+                    ColumnInfoDetailWidget(
                       label: S.of(context).teachingExperience,
                       content: Text(
-                        'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
+                        widget.experience ?? '',
                         style: context.textTheme.bodyMedium,
                       ),
                     ),
@@ -197,39 +217,6 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class TuturInfoItemWidget extends StatelessWidget {
-  final String label;
-  final Widget? content;
-
-  const TuturInfoItemWidget({
-    super.key,
-    required this.label,
-    this.content,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: context.textTheme.bodyLarge?.copyWith(
-            fontWeight: FontWeight.bold,
-          ),
-          textAlign: TextAlign.start,
-        ),
-        const SizedBox(height: 12),
-        Padding(
-          padding: const EdgeInsetsDirectional.only(start: 10),
-          child: content,
-        ),
-        const SizedBox(height: 12)
-      ],
     );
   }
 }

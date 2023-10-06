@@ -20,34 +20,73 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'vi';
 
+  static String m0(num) => "Tìm thấy ${num} kết quả";
+
+  static String m1(num) => "${num} bài học";
+
+  static String m2(num) => "${num} chủ đề";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "about": MessageLookupByLibrary.simpleMessage("Về chúng tôi"),
+        "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
+        "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Đã có tài khoản?"),
+        "appearance": MessageLookupByLibrary.simpleMessage("Giao diện"),
+        "becomeATutor":
+            MessageLookupByLibrary.simpleMessage("Trở thành Gia sư"),
         "book": MessageLookupByLibrary.simpleMessage("Đặt lịch"),
+        "contact": MessageLookupByLibrary.simpleMessage("Liên hệ"),
+        "conversational": MessageLookupByLibrary.simpleMessage("Giao tiếp"),
+        "courseLength": MessageLookupByLibrary.simpleMessage("Độ dài khóa học"),
         "courses": MessageLookupByLibrary.simpleMessage("Khóa học"),
+        "darkTheme": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
+        "eBooks": MessageLookupByLibrary.simpleMessage("Sách điện tử"),
+        "education": MessageLookupByLibrary.simpleMessage("Học vấn"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "endTime": MessageLookupByLibrary.simpleMessage("Thời gian kết thúc"),
+        "englishForBusiness":
+            MessageLookupByLibrary.simpleMessage("Tiếng Anh cho Doanh nghiệp"),
+        "englishForKids":
+            MessageLookupByLibrary.simpleMessage("Tiếng Anh cho trẻ em"),
         "enterTutorName":
             MessageLookupByLibrary.simpleMessage("Nhập tên gia sư"),
+        "favorite": MessageLookupByLibrary.simpleMessage("Yêu thích"),
         "findATutor": MessageLookupByLibrary.simpleMessage("Tìm gia sư"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
+        "foundNResult": m0,
         "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
+        "interests": MessageLookupByLibrary.simpleMessage("Sở thích"),
+        "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "lightTheme": MessageLookupByLibrary.simpleMessage("Chế độ sáng"),
+        "listTopics": MessageLookupByLibrary.simpleMessage("Danh sách chủ đề"),
         "logIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
+        "logOut": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn."),
+        "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":
             MessageLookupByLibrary.simpleMessage("Chưa là thành viên?"),
+        "numOfLessons": m1,
+        "numOfTopics": m2,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục với"),
+        "overview": MessageLookupByLibrary.simpleMessage("Tổng quan"),
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
+        "privacyPolicy":
+            MessageLookupByLibrary.simpleMessage("Chính sách bảo mật"),
         "recommendedTutors":
             MessageLookupByLibrary.simpleMessage("Đề xuất gia sư"),
+        "report": MessageLookupByLibrary.simpleMessage("Báo cáo"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
+        "review": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
+        "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
         "selectDay": MessageLookupByLibrary.simpleMessage("Chọn ngày"),
         "selectTutorNationality":
             MessageLookupByLibrary.simpleMessage("Chọn quốc tịch"),
@@ -55,9 +94,18 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chọn thời gian học:"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
+        "specialities": MessageLookupByLibrary.simpleMessage("Chuyên môn"),
         "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),
+        "teachingExperience":
+            MessageLookupByLibrary.simpleMessage("Kinh nghiệm giảng dạy"),
+        "termAndConditions":
+            MessageLookupByLibrary.simpleMessage("Điều khoản và Điều kiện"),
         "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
         "welcomeToLetTutor": MessageLookupByLibrary.simpleMessage(
-            "Chào mừng bạn đến với LetTutor!")
+            "Chào mừng bạn đến với LetTutor!"),
+        "whatWillAbleToDo":
+            MessageLookupByLibrary.simpleMessage("Bạn sẽ có khả năng làm gì"),
+        "whyTakeThisCourse":
+            MessageLookupByLibrary.simpleMessage("Tại sao nên học khóa học này")
       };
 }

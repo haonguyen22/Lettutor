@@ -2,6 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/widget/custom_card.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -89,12 +90,12 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 style: context.textTheme.bodyMedium,
               ),
               const SizedBox(height: 14),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).account,
                 icon: const Icon(Icons.person_2_outlined, size: 30),
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).language,
                 icon: const Icon(Icons.language, size: 30),
                 trailing: Row(
@@ -114,7 +115,7 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 },
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 onTap: () {
                   if (state.appearance.isLight) {
                     AdaptiveTheme.of(context).setDark();
@@ -137,22 +138,22 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 showArrowIcon: false,
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).becomeATutor,
                 icon: const Icon(Icons.assignment, size: 30),
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).privacyPolicy,
                 icon: const Icon(Icons.privacy_tip_outlined, size: 30),
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).termAndConditions,
                 icon: const Icon(Icons.newspaper_outlined, size: 30),
               ),
               const SizedBox(height: 4),
-              SettingOptionWidget(
+              CustomCardWidget(
                 label: S.of(context).contact,
                 icon: const Icon(Icons.contact_mail_outlined, size: 30),
               ),
@@ -207,67 +208,4 @@ Future<bool> _showLogOutConfirmDialog(BuildContext context) async {
       );
     },
   ).then((value) => value ?? false);
-}
-
-class SettingOptionWidget extends StatelessWidget {
-  final String label;
-  final VoidCallback? onTap;
-  final Icon icon;
-  final Color? backgroundColor;
-  final Widget? trailing;
-  final bool showArrowIcon;
-
-  const SettingOptionWidget({
-    super.key,
-    required this.label,
-    required this.icon,
-    this.onTap,
-    this.backgroundColor,
-    this.trailing,
-    this.showArrowIcon = true,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Card(
-        surfaceTintColor: context.primaryColor,
-        color: backgroundColor,
-        elevation: 2,
-        child: Padding(
-          padding: const EdgeInsetsDirectional.all(12),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  icon,
-                  const SizedBox(width: 12),
-                  Text(
-                    label,
-                    style: context.textTheme.titleMedium,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  if (trailing != null) ...[
-                    trailing!,
-                    const SizedBox(width: 10),
-                  ],
-                  if (showArrowIcon)
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      size: 20,
-                      color: context.textColor?.withOpacity(0.3),
-                    ),
-                ],
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
 }

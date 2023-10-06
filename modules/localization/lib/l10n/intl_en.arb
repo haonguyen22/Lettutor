@@ -52,6 +52,12 @@
     "education": "Education",
     "interests": "Interests",
     "teachingExperience": "Teaching Experience",
-    "review": "Review"
-
+    "review": "Review",
+    "overview": "Overview",
+    "whyTakeThisCourse": "Why take this courses",
+    "whatWillAbleToDo": "What will you be able to do",
+    "courseLength": "Course Length",
+    "numOfTopics": "{num} topics",
+    "listTopics": "List Topics",
+    "numOfLessons": "{num} lessons"
 }

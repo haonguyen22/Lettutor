@@ -72,57 +72,63 @@ class TutorCardWidget extends StatelessWidget {
                       child: imageUrl != null
                           ? Image.network(
                               imageUrl!,
-                              width: 50,
-                              height: 50,
+                              width: 70,
+                              height: 70,
                               fit: BoxFit.cover,
                             )
                           : Image.asset(
                               _kDefaultImage,
-                              width: 50,
-                              height: 50,
+                              width: 70,
+                              height: 70,
                               fit: BoxFit.cover,
                             ),
                     ),
                     const SizedBox(width: 20),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          width: MediaQuery.sizeOf(context).width * 0.55,
-                          child: Text(
-                            name,
-                            style: context.textTheme.titleLarge
-                                ?.copyWith(fontWeight: FontWeight.bold),
-                            textAlign: TextAlign.start,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        if (country?.isNotEmpty ?? false)
-                          Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 3.0),
+                    SizedBox(
+                      height: 70,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.sizeOf(context).width * 0.5,
                             child: Text(
-                              country!,
-                              style: context.textTheme.titleMedium?.copyWith(
-                                color: Theme.of(context).hintColor,
-                              ),
+                              name,
+                              style: context.textTheme.titleMedium
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.start,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                        Row(
-                          children: List.generate(
-                            _kMaxRating,
-                            (index) {
-                              return Icon(
-                                index < rating ? Icons.star : Icons.star_border,
-                                size: 16,
-                                color: starColor,
-                              );
-                            },
+                          if (country?.isNotEmpty ?? false)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 3.0),
+                              child: Text(
+                                country!,
+                                style: context.textTheme.titleMedium?.copyWith(
+                                  color: Theme.of(context).hintColor,
+                                ),
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                          Row(
+                            children: List.generate(
+                              _kMaxRating,
+                              (index) {
+                                return Icon(
+                                  index < rating
+                                      ? Icons.star
+                                      : Icons.star_border,
+                                  size: 16,
+                                  color: starColor,
+                                );
+                              },
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ],
                 ),

@@ -46,6 +46,7 @@ class _ApplicationState extends State<Application> {
       locale: locale,
       debugShowCheckedModeBanner: false,
       routes: Routes.getAll(),
+      onGenerateRoute: Routes.getRouteGenerate,
       initialRoute: widget.initialRoute,
     );
   }
@@ -53,24 +54,8 @@ class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-      light: ThemeData.light(useMaterial3: true)
-      // .copyWith(
-      //   primaryColor: const Color.fromARGB(1, 1, 82, 176),
-      //   colorScheme: const ColorScheme.light().copyWith(
-      //     primary: Color.fromARGB(1, 1, 82, 176),
-      //     onPrimary: Color.fromARGB(1, 1, 82, 176),
-      //   ),
-      // )
-      ,
-      dark: ThemeData.dark(useMaterial3: true)
-      // .copyWith(
-      //   primaryColor: Color.fromARGB(1, 53, 136, 231),
-      //   colorScheme: ColorScheme.dark().copyWith(
-      //     primary: Color.fromARGB(1, 1, 82, 176),
-      //     onPrimary: Color.fromARGB(1, 53, 136, 231),
-      //   ),
-      // )
-      ,
+      light: ThemeData.light(useMaterial3: true),
+      dark: ThemeData.dark(useMaterial3: true),
       initial: widget.themeSaved ?? AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,

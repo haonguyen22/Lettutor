@@ -22,6 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(num) => "Found ${num} result(s)";
 
+  static String m1(num) => "${num} lessons";
+
+  static String m2(num) => "${num} topics";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -35,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "conversational":
             MessageLookupByLibrary.simpleMessage("Conversational"),
+        "courseLength": MessageLookupByLibrary.simpleMessage("Course Length"),
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
         "eBooks": MessageLookupByLibrary.simpleMessage("E-books"),
@@ -57,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Light theme"),
+        "listTopics": MessageLookupByLibrary.simpleMessage("List Topics"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
@@ -65,8 +71,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
+        "numOfLessons": m1,
+        "numOfTopics": m2,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Or continue with"),
+        "overview": MessageLookupByLibrary.simpleMessage("Overview"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "recommendedTutors":
@@ -91,6 +100,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
         "welcomeToLetTutor":
-            MessageLookupByLibrary.simpleMessage("Welcome to LetTutor!")
+            MessageLookupByLibrary.simpleMessage("Welcome to LetTutor!"),
+        "whatWillAbleToDo":
+            MessageLookupByLibrary.simpleMessage("What will you be able to do"),
+        "whyTakeThisCourse":
+            MessageLookupByLibrary.simpleMessage("Why take this courses")
       };
 }
