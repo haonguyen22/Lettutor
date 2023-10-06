@@ -30,16 +30,16 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                       height: 120,
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
-                          color: context.primaryColor.withOpacity(.3),
+                          color: context.backgroundColor,
                           shape: BoxShape.circle,
                           border: Border.all(color: Colors.transparent),
                           boxShadow: [
                             BoxShadow(
                               color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 1,
-                              blurRadius: 1,
+                              spreadRadius: 2,
+                              blurRadius: 2,
                               offset: const Offset(
-                                  0, 2), // changes position of shadow
+                                  0, 1), // changes position of shadow
                             ),
                           ]),
                       child: Image.asset(
@@ -129,6 +129,11 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                   state.appearance.isDark ? Icons.dark_mode : Icons.light_mode,
                   size: 30,
                 ),
+                trailing: Text(
+                  state.appearance.isLight
+                      ? S.of(context).lightTheme
+                      : S.of(context).darkTheme,
+                ),
                 showArrowIcon: false,
               ),
               const SizedBox(height: 4),
@@ -136,7 +141,7 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 label: S.of(context).becomeATutor,
                 icon: const Icon(Icons.assignment, size: 30),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 4),
               SettingOptionWidget(
                 label: S.of(context).privacyPolicy,
                 icon: const Icon(Icons.privacy_tip_outlined, size: 30),
@@ -151,7 +156,6 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 label: S.of(context).contact,
                 icon: const Icon(Icons.contact_mail_outlined, size: 30),
               ),
-              const SizedBox(height: 4),
               const SizedBox(height: 48),
               TextButton(
                 onPressed: () {},

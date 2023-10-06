@@ -38,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
         "eBooks": MessageLookupByLibrary.simpleMessage("E-books"),
+        "education": MessageLookupByLibrary.simpleMessage("Education"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "endTime": MessageLookupByLibrary.simpleMessage("End time"),
         "englishForBusiness":
@@ -46,11 +47,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("English for kids"),
         "enterTutorName":
             MessageLookupByLibrary.simpleMessage("Enter tutor name"),
+        "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "findATutor": MessageLookupByLibrary.simpleMessage("Find a tutor"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "foundNResult": m0,
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "interests": MessageLookupByLibrary.simpleMessage("Interests"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Light theme"),
@@ -68,7 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "recommendedTutors":
             MessageLookupByLibrary.simpleMessage("Recommended Tutors"),
+        "report": MessageLookupByLibrary.simpleMessage("Report"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
+        "review": MessageLookupByLibrary.simpleMessage("Review"),
         "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
         "search": MessageLookupByLibrary.simpleMessage("Search"),
         "selectDay": MessageLookupByLibrary.simpleMessage("Select a day"),
@@ -80,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
+        "teachingExperience":
+            MessageLookupByLibrary.simpleMessage("Teaching Experience"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Terms & Conditions"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),

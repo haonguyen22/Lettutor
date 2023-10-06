@@ -46,6 +46,12 @@
     "privacyPolicy": "Privacy Policy",
     "termAndConditions": "Terms & Conditions",
     "contact": "Contact",
-    "logOut": "Log Out"
+    "logOut": "Log Out",
+    "favorite": "Favorite",
+    "report": "Report",
+    "education": "Education",
+    "interests": "Interests",
+    "teachingExperience": "Teaching Experience",
+    "review": "Review"
 
 }
