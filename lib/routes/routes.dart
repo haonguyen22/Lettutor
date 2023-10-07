@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
 import 'package:let_tutor/presentation/home/view/home_screen.dart';
+import 'package:let_tutor/presentation/profile/views/profile_screen.dart';
 import 'package:let_tutor/presentation/tutor/views/tutor_detail_screen.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/view/auth_screen.dart';
@@ -15,6 +16,7 @@ class Routes {
     RouteList.signUp: (context) => const AuthScreen.signUp(),
     RouteList.tutorDetail: (context) => const TutorDetailScreen(),
     RouteList.courseDetail: (context) => const CourseDetailScreen(),
+    RouteList.profile: (context) => const ProfileScreen(),
   };
 
   static Route getRouteGenerate(RouteSettings settings) {

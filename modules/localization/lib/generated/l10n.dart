@@ -649,6 +649,136 @@ class S {
       args: [num],
     );
   }
+
+  /// `Vietnamese Tutors`
+  String get vietnameseTutors {
+    return Intl.message(
+      'Vietnamese Tutors',
+      name: 'vietnameseTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Foreign Tutors`
+  String get foreignTutors {
+    return Intl.message(
+      'Foreign Tutors',
+      name: 'foreignTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get emailAddress {
+    return Intl.message(
+      'Email Address',
+      name: 'emailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get phone {
+    return Intl.message(
+      'Phone number',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Topic`
+  String get topic {
+    return Intl.message(
+      'Topic',
+      name: 'topic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test preparations`
+  String get testPreparations {
+    return Intl.message(
+      'Test preparations',
+      name: 'testPreparations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Study schedule`
+  String get studySchedule {
+    return Intl.message(
+      'Study schedule',
+      name: 'studySchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birthday`
+  String get birthday {
+    return Intl.message(
+      'Birthday',
+      name: 'birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Level`
+  String get myLevel {
+    return Intl.message(
+      'My Level',
+      name: 'myLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

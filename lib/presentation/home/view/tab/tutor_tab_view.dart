@@ -68,7 +68,7 @@ class _TutorTabViewState extends State<TutorTabView> {
                       });
                     },
                   ),
-                  const Text('Vietnamese Tutors'),
+                  Text(S.of(context).vietnameseTutors),
                 ],
               ),
               Row(
@@ -82,7 +82,7 @@ class _TutorTabViewState extends State<TutorTabView> {
                       });
                     },
                   ),
-                  const Text('Foreign Tutors'),
+                  Text(S.of(context).foreignTutors),
                 ],
               ),
               const SizedBox(height: 5),
@@ -111,6 +111,7 @@ class _TutorTabViewState extends State<TutorTabView> {
                     onPressed: () {},
                     child: Text(S.of(context).resetFilters),
                   ),
+                  const SizedBox(width: 12),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(

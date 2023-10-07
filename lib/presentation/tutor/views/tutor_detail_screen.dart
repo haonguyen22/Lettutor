@@ -21,6 +21,8 @@ class TutorDetailScreen extends StatefulWidget {
   final List<String>? specialities;
   final String? interests;
   final String? experience;
+  final int numOfRating;
+  final double ratingAverage;
 
   const TutorDetailScreen({
     super.key,
@@ -39,6 +41,8 @@ class TutorDetailScreen extends StatefulWidget {
         'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
     this.experience =
         'I want to help my students broaden their opportunities, such as advancing in their careers or excelling in school, through learning English. I want to make a positive impact on the future of children and hopefully encourage them to be lifelong learners.',
+    this.numOfRating = 0,
+    this.ratingAverage = 0,
   });
 
   @override
@@ -48,174 +52,171 @@ class TutorDetailScreen extends StatefulWidget {
 class _TutorDetailScreenState extends State<TutorDetailScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              pinned: true,
-              flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  widget.name,
-                  style: TextStyle(color: context.textColor),
-                ),
-                background: Container(
-                  color: context.primaryColor.withOpacity(0.4),
-                  width: double.infinity,
-                ),
+    return Scaffold(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              title: Text(
+                widget.name,
+                style: TextStyle(color: context.textColor),
+              ),
+              background: Container(
+                color: context.primaryColor.withOpacity(0.4),
+                width: double.infinity,
               ),
             ),
-            SliverPadding(
-              padding: const EdgeInsetsDirectional.symmetric(
-                  horizontal: 12.0, vertical: 16.0),
-              sliver: SliverToBoxAdapter(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 100,
-                      child: Row(
-                        children: [
-                          ClipRRect(
-                            borderRadius: BorderRadius.circular(50),
-                            child: widget.imageUrl != null
-                                ? Image.network(
-                                    widget.imageUrl!,
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  )
-                                : Image.asset(
-                                    _kDefaultImage,
-                                    width: 100,
-                                    height: 100,
-                                    fit: BoxFit.cover,
-                                  ),
-                          ),
-                          const SizedBox(width: 20),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                widget.name,
-                                style: context.textTheme.titleLarge
-                                    ?.copyWith(fontWeight: FontWeight.bold),
-                                textAlign: TextAlign.start,
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Row(
-                                children: [
-                                  ...List.generate(
-                                    5,
-                                    (index) {
-                                      return Icon(
-                                        index < 3
-                                            ? Icons.star
-                                            : Icons.star_border,
-                                        size: 16,
-                                        color: starColor,
-                                      );
-                                    },
-                                  ),
-                                  const SizedBox(width: 4),
-                                  const Text(
-                                    '(282)',
-                                  ),
-                                ],
-                              ),
-                              if (widget.country?.isNotEmpty ?? false)
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(vertical: 3.0),
-                                  child: Text(
-                                    widget.country!,
-                                    style:
-                                        context.textTheme.bodyLarge?.copyWith(
-                                      color: Theme.of(context).hintColor,
-                                    ),
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
+          ),
+          SliverPadding(
+            padding: const EdgeInsetsDirectional.symmetric(
+                horizontal: 12.0, vertical: 16.0),
+            sliver: SliverToBoxAdapter(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 100,
+                    child: Row(
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: widget.imageUrl != null
+                              ? Image.network(
+                                  widget.imageUrl!,
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(
+                                  _kDefaultImage,
+                                  width: 100,
+                                  height: 100,
+                                  fit: BoxFit.cover,
                                 ),
-                            ],
-                          ),
-                        ],
-                      ),
+                        ),
+                        const SizedBox(width: 20),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.name,
+                              style: context.textTheme.titleLarge
+                                  ?.copyWith(fontWeight: FontWeight.bold),
+                              textAlign: TextAlign.start,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                            Row(
+                              children: [
+                                ...List.generate(
+                                  5,
+                                  (index) {
+                                    return Icon(
+                                      index < widget.ratingAverage
+                                          ? Icons.star
+                                          : Icons.star_border,
+                                      size: 16,
+                                      color: starColor,
+                                    );
+                                  },
+                                ),
+                                const SizedBox(width: 4),
+                                Text(
+                                  '(${widget.numOfRating})',
+                                ),
+                              ],
+                            ),
+                            if (widget.country?.isNotEmpty ?? false)
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 3.0),
+                                child: Text(
+                                  widget.country!,
+                                  style: context.textTheme.bodyLarge?.copyWith(
+                                    color: Theme.of(context).hintColor,
+                                  ),
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 12),
-                    Text(
-                      widget.description,
-                      style: context.textTheme.labelLarge,
-                      textAlign: TextAlign.justify,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    widget.description,
+                    style: context.textTheme.labelLarge,
+                    textAlign: TextAlign.justify,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconLabelWidget(
+                          icon: Icons.favorite_outline,
+                          label: S.of(context).favorite,
+                        ),
+                        IconLabelWidget(
+                          icon: Icons.info_outline,
+                          label: S.of(context).report,
+                        ),
+                        IconLabelWidget(
+                          icon: Icons.reviews_outlined,
+                          label: S.of(context).review,
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          IconLabelWidget(
-                            icon: Icons.favorite_outline,
-                            label: S.of(context).favorite,
-                          ),
-                          IconLabelWidget(
-                            icon: Icons.info_outline,
-                            label: S.of(context).report,
-                          ),
-                          IconLabelWidget(
-                            icon: Icons.reviews_outlined,
-                            label: S.of(context).review,
-                          ),
-                        ],
-                      ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0),
+                    child: CustomVideoPlayerWidget(
+                      widget.tutorVideoInfoUrl,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      child: CustomVideoPlayerWidget(
-                        widget.tutorVideoInfoUrl,
-                      ),
+                  ),
+                  const SizedBox(height: 12),
+                  ColumnInfoDetailWidget(
+                    label: S.of(context).education,
+                    content: Text(
+                      widget.education ?? '',
+                      style: context.textTheme.bodyMedium,
                     ),
-                    const SizedBox(height: 12),
-                    ColumnInfoDetailWidget(
-                      label: S.of(context).education,
-                      content: Text(
-                        widget.education ?? '',
-                        style: context.textTheme.bodyMedium,
-                      ),
+                  ),
+                  ColumnInfoDetailWidget(
+                    label: S.of(context).language,
+                    content: WrapListWidget(
+                      listItem: widget.languages,
                     ),
-                    ColumnInfoDetailWidget(
-                      label: S.of(context).language,
-                      content: WrapListWidget(
-                        listItem: widget.languages,
-                      ),
+                  ),
+                  ColumnInfoDetailWidget(
+                    label: S.of(context).specialities,
+                    content: WrapListWidget(
+                      listItem: widget.specialities,
                     ),
-                    ColumnInfoDetailWidget(
-                      label: S.of(context).specialities,
-                      content: WrapListWidget(
-                        listItem: widget.specialities,
-                      ),
+                  ),
+                  ColumnInfoDetailWidget(
+                    label: S.of(context).interests,
+                    content: Text(
+                      widget.interests ?? '',
+                      style: context.textTheme.bodyMedium,
                     ),
-                    ColumnInfoDetailWidget(
-                      label: S.of(context).interests,
-                      content: Text(
-                        widget.interests ?? '',
-                        style: context.textTheme.bodyMedium,
-                      ),
+                  ),
+                  ColumnInfoDetailWidget(
+                    label: S.of(context).teachingExperience,
+                    content: Text(
+                      widget.experience ?? '',
+                      style: context.textTheme.bodyMedium,
                     ),
-                    ColumnInfoDetailWidget(
-                      label: S.of(context).teachingExperience,
-                      content: Text(
-                        widget.experience ?? '',
-                        style: context.textTheme.bodyMedium,
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

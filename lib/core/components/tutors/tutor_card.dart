@@ -45,6 +45,7 @@ class TutorCardWidget extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsetsDirectional.all(8.0),
+      margin: const EdgeInsets.all(2),
       decoration: BoxDecoration(
         color: context.backgroundColor,
         border: Border.all(color: Colors.transparent),

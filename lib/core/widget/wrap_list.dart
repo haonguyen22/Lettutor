@@ -3,12 +3,14 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 
 class WrapListWidget<T> extends StatefulWidget {
   final int? currentIndex;
+  final List<T>? listItemChoice;
   final List<T>? listItem;
   final Function(int)? onTap;
 
   const WrapListWidget({
     super.key,
     this.currentIndex,
+    this.listItemChoice,
     this.listItem,
     this.onTap,
   });

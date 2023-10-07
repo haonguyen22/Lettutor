@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:video_player/video_player.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 import 'package:youtube_player_iframe/youtube_player_iframe.dart';
@@ -13,14 +12,7 @@ class CustomVideoPlayerWidget extends StatefulWidget {
   final double? aspectRatio;
   final bool enableTimeIndicator;
   final bool tapToPlayPause;
-  final bool holdToPlayPause;
-  final bool isSoundOn;
   final bool isPlaying;
-  final bool isFullScreen;
-  final bool doubleTapToFullScreen;
-  final Duration? startAt;
-  final bool showVolumeButton;
-  final bool showFullScreenButton;
 
   const CustomVideoPlayerWidget(
     this.url, {
@@ -29,30 +21,8 @@ class CustomVideoPlayerWidget extends StatefulWidget {
     this.aspectRatio,
     this.enableTimeIndicator = false,
     this.tapToPlayPause = true,
-    this.holdToPlayPause = false,
-    this.isSoundOn = false,
     this.isPlaying = false,
-    this.doubleTapToFullScreen = false,
-    this.startAt,
-    this.showVolumeButton = false,
-    this.showFullScreenButton = false,
-  }) : isFullScreen = false;
-
-  const CustomVideoPlayerWidget.fullScreen(
-    this.url, {
-    super.key,
-    this.autoPlay,
-    this.aspectRatio,
-    this.enableTimeIndicator = false,
-    this.tapToPlayPause = true,
-    this.holdToPlayPause = false,
-    this.isSoundOn = false,
-    this.isPlaying = false,
-    this.doubleTapToFullScreen = false,
-    this.startAt,
-    this.showVolumeButton = false,
-    this.showFullScreenButton = false,
-  }) : isFullScreen = true;
+  });
 
   @override
   State<CustomVideoPlayerWidget> createState() =>
@@ -65,8 +35,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
   bool initialized = false;
   double? aspectRatio;
   bool isYoutube = false;
-  bool isSoundOn = false;
-  int lastTap = DateTime.now().millisecondsSinceEpoch;
   bool isVideoAvailable = true;
 
   late YoutubePlayerController _youtubeController;
@@ -77,19 +45,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
     if (_timer?.isActive ?? false) {
       _timer?.cancel();
     }
-  }
-
-  void _startTimer() {
-    _cancelTimer();
-
-    _timer = Timer(const Duration(milliseconds: 100), () async {
-      if (_controller != null && _controller!.value.isPlaying) {
-        await _controller!.pause();
-      }
-      if ((await _youtubeController.playerState) == PlayerState.playing) {
-        await _youtubeController.pauseVideo();
-      }
-    });
   }
 
   Future<void> initVideoController() async {
@@ -103,11 +58,11 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
             initialized = true;
             aspectRatio = widget.aspectRatio ?? _controller?.value.aspectRatio;
           });
-          if (widget.autoPlay == true && widget.startAt == null) {
+          if (widget.autoPlay == true) {
             _controller?.play();
             return;
           }
-          if (widget.startAt != null && widget.isPlaying) {
+          if (widget.isPlaying) {
             _controller?.play();
           } else {
             _controller?.pause();
@@ -115,8 +70,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
         }
       },
     );
-    await _controller?.seekTo(widget.startAt ?? Duration.zero);
-    setVolume(widget.isSoundOn);
   }
 
   @override
@@ -163,20 +116,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
     }
   }
 
-  void setVolume(bool value) {
-    if (mounted) {
-      setState(() {
-        isSoundOn = value;
-      });
-    }
-
-    isSoundOn ? _controller?.setVolume(1.0) : _controller?.setVolume(0.0);
-  }
-
-  void setIsPlaying(bool status) {
-    status == true ? _controller?.play() : _controller?.pause();
-  }
-
   @override
   void dispose() {
     if (!isYoutube) {
@@ -188,28 +127,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
     WidgetsBinding.instance.removeObserver(this);
     _cancelTimer();
     super.dispose();
-  }
-
-  void updateStatusBarColor() {
-    // If fullscreen video mode, always set light status bar
-    widget.isFullScreen == true ||
-            Theme.of(context).brightness == Brightness.dark
-        ? SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light)
-        : SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
-  }
-
-  @override
-  void didChangeDependencies() {
-    updateStatusBarColor();
-    super.didChangeDependencies();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-    if (state == AppLifecycleState.resumed) {
-      updateStatusBarColor();
-    }
   }
 
   Widget playPauseButton(bool isPlaying) {
@@ -228,183 +145,53 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
           );
   }
 
-  void updateVideoStatus() {
-    if (widget.holdToPlayPause == false) {
-      _controller!.value.isPlaying ? _controller?.pause() : _controller?.play();
-    }
-  }
-
-  void onTapVolume() {
-    if (mounted) {
-      setState(() {
-        isSoundOn = !isSoundOn;
-        // If the sound button is pressed, the video widget is also pressed (change isPlaying value)
-        updateVideoStatus();
-        isSoundOn ? _controller?.setVolume(1.0) : _controller?.setVolume(0.0);
-      });
-    }
-  }
-
-  void onTapFullScreen() async {
-    // If  fullScreen button is pressed, the video widget is also pressed (change isPlaying value)
-    updateVideoStatus();
-
-    final previousStatus = await Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) => CustomVideoPlayerWidget.fullScreen(
-          widget.url,
-          isSoundOn: isSoundOn,
-          isPlaying: _controller!.value.isPlaying,
-          startAt: _controller!.value.position,
-          aspectRatio: widget.aspectRatio,
-          autoPlay: widget.autoPlay,
-          enableTimeIndicator: widget.enableTimeIndicator,
-          doubleTapToFullScreen: widget.doubleTapToFullScreen,
-          showVolumeButton: widget.showVolumeButton,
-          showFullScreenButton: widget.showFullScreenButton,
-          holdToPlayPause: widget.holdToPlayPause,
-          tapToPlayPause: widget.tapToPlayPause,
-        ),
-      ),
-    );
-    if (previousStatus != null) {
-      setIsPlaying(previousStatus[0] ?? false);
-      setVolume(previousStatus[2] ?? false);
-      await _controller!.seekTo(previousStatus[1] ?? Duration.zero);
-      updateStatusBarColor();
-    }
-  }
-
-  void onTapExitFullScreen() {
-    // If the exit fullScreen button is pressed, the video widget is also pressed (change isPlaying value)
-    updateVideoStatus();
-    Navigator.pop(context,
-        [_controller?.value.isPlaying, _controller?.value.position, isSoundOn]);
-  }
 
   @override
   Widget build(BuildContext context) {
     if (!isYoutube) {
       if (initialized && _controller != null) {
-        return WillPopScope(
-          onWillPop: () async {
-            Theme.of(context).brightness == Brightness.dark
-                ? SystemChrome.setSystemUIOverlayStyle(
-                    SystemUiOverlayStyle.light)
-                : SystemChrome.setSystemUIOverlayStyle(
-                    SystemUiOverlayStyle.dark);
-            return true;
+        return VisibilityDetector(
+          onVisibilityChanged: (VisibilityInfo info) {
+            if (info.visibleFraction == 0) {
+              _controller?.pause();
+            }
           },
-          child: VisibilityDetector(
-            onVisibilityChanged: (VisibilityInfo info) {
-              if (info.visibleFraction == 0) {
-                _controller?.pause();
-              }
-            },
-            key: ValueKey('mp4_player_iframe-${widget.url}'),
-            child: Container(
-              color: widget.isFullScreen ? Colors.black : Colors.transparent,
-              child: Center(
-                child: AspectRatio(
-                  aspectRatio: aspectRatio ?? _controller!.value.aspectRatio,
-                  child: Listener(
-                    onPointerDown: (_) {
-                      if (widget.holdToPlayPause) {
-                        _startTimer();
-                      }
-                    },
-                    onPointerUp: (_) {
-                      var now = DateTime.now().millisecondsSinceEpoch;
-                      if (widget.doubleTapToFullScreen) {
-                        // https://api.flutter.dev/flutter/gestures/kDoubleTapTimeout-constant.html
-                        if (now - lastTap < 300) {
-                          _cancelTimer();
-                          lastTap = now;
-                          if (!widget.isFullScreen) {
-                            onTapFullScreen();
-                          } else {
-                            onTapExitFullScreen();
-                          }
-                          return;
-                        }
-                      }
-                      if (widget.holdToPlayPause) {
-                        _cancelTimer();
+          key: ValueKey('mp4_player_iframe-${widget.url}'),
+          child: Container(
+            color: Colors.transparent,
+            child: Center(
+              child: AspectRatio(
+                aspectRatio: aspectRatio ?? _controller!.value.aspectRatio,
+                child: Listener(
+                  onPointerUp: (_) {
+                    if (widget.tapToPlayPause) {
+                      if (_controller!.value.isPlaying) {
+                        _controller!.pause();
+                      } else {
                         _controller!.play();
                       }
-                      if (widget.tapToPlayPause) {
-                        if (_controller!.value.isPlaying) {
-                          _controller!.pause();
-                        } else {
-                          _controller!.play();
-                        }
-                      }
-                      lastTap = now;
-                    },
-                    child: Stack(
-                      children: [
-                        Hero(
-                          tag: 'video',
-                          transitionOnUserGestures: true,
-                          child: VideoPlayer(_controller!),
+                    }
+                  },
+                  child: Stack(
+                    children: [
+                      Hero(
+                        tag: 'video',
+                        transitionOnUserGestures: true,
+                        child: VideoPlayer(_controller!),
+                      ),
+                      if (widget.tapToPlayPause)
+                        AnimatedSwitcher(
+                          duration: const Duration(milliseconds: 50),
+                          reverseDuration: const Duration(milliseconds: 200),
+                          child: playPauseButton(_controller!.value.isPlaying),
                         ),
-                        if (widget.tapToPlayPause)
-                          AnimatedSwitcher(
-                            duration: const Duration(milliseconds: 50),
-                            reverseDuration: const Duration(milliseconds: 200),
-                            child:
-                                playPauseButton(_controller!.value.isPlaying),
-                          ),
-                        if (widget.enableTimeIndicator)
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: VideoProgressIndicator(_controller!,
-                                allowScrubbing: true),
-                          ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: Row(
-                            children: [
-                              widget.showVolumeButton
-                                  ? GestureDetector(
-                                      behavior: HitTestBehavior.translucent,
-                                      onTap: onTapVolume,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Icon(
-                                          isSoundOn
-                                              ? Icons.volume_up
-                                              : Icons.volume_off,
-                                          color: Colors.white,
-                                          size: 25.0,
-                                        ),
-                                      ),
-                                    )
-                                  : const SizedBox(),
-                              widget.showFullScreenButton
-                                  ? GestureDetector(
-                                      behavior: HitTestBehavior.translucent,
-                                      onTap: widget.isFullScreen
-                                          ? onTapExitFullScreen
-                                          : onTapFullScreen,
-                                      child: Padding(
-                                        padding: const EdgeInsets.all(12.0),
-                                        child: Icon(
-                                          widget.isFullScreen
-                                              ? Icons.fullscreen_exit
-                                              : Icons.fullscreen,
-                                          color: Colors.white,
-                                          size: 25.0,
-                                        ),
-                                      ),
-                                    )
-                                  : const SizedBox(),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
+                      if (widget.enableTimeIndicator)
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: VideoProgressIndicator(_controller!,
+                              allowScrubbing: true),
+                        ),
+                    ],
                   ),
                 ),
               ),
@@ -431,16 +218,7 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
       },
       key: ValueKey('youtube_player_iframe-${widget.url}'),
       child: Listener(
-        onPointerDown: (_) {
-          if (widget.holdToPlayPause) {
-            _startTimer();
-          }
-        },
         onPointerUp: (_) async {
-          if (widget.holdToPlayPause) {
-            _cancelTimer();
-            await _youtubeController.playVideo();
-          }
           if (widget.tapToPlayPause) {
             var playerState = await _youtubeController.playerState;
             if (playerState == PlayerState.playing) {

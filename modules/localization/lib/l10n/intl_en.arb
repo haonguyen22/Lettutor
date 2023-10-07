@@ -59,5 +59,18 @@
     "courseLength": "Course Length",
     "numOfTopics": "{num} topics",
     "listTopics": "List Topics",
-    "numOfLessons": "{num} lessons"
+    "numOfLessons": "{num} lessons",
+    "vietnameseTutors": "Vietnamese Tutors",
+    "foreignTutors": "Foreign Tutors",
+    "profile": "Profile",
+    "name": "Name",
+    "emailAddress": "Email Address",
+    "country": "Country",
+    "phone": "Phone number",
+    "topic": "Topic",
+    "testPreparations": "Test preparations",
+    "studySchedule": "Study schedule",
+    "birthday": "Birthday",
+    "myLevel": "My Level",
+    "save": "Save"
 }

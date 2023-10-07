@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/custom_card.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
+import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
 class SettingsTabView extends StatefulWidget {
@@ -24,51 +25,29 @@ class _SettingsTabViewState extends State<SettingsTabView> {
             children: [
               Align(
                 alignment: Alignment.center,
-                child: Stack(
-                  children: [
-                    Container(
-                      width: 120,
-                      height: 120,
-                      clipBehavior: Clip.hardEdge,
-                      decoration: BoxDecoration(
-                          color: context.backgroundColor,
-                          shape: BoxShape.circle,
-                          border: Border.all(color: Colors.transparent),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              spreadRadius: 2,
-                              blurRadius: 2,
-                              offset: const Offset(
-                                  0, 1), // changes position of shadow
-                            ),
-                          ]),
-                      child: Image.asset(
-                        'assets/icons/logo.png',
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) =>
-                            const Icon(Icons.person_rounded),
-                      ),
-                    ),
-                    Positioned.directional(
-                      textDirection: Directionality.of(context),
-                      bottom: 0,
-                      end: 0,
-                      child: Container(
-                        width: 30,
-                        height: 30,
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: context.primaryColor,
+                child: Container(
+                  width: 120,
+                  height: 120,
+                  clipBehavior: Clip.hardEdge,
+                  decoration: BoxDecoration(
+                      color: context.backgroundColor,
+                      shape: BoxShape.circle,
+                      border: Border.all(color: Colors.transparent),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.5),
+                          spreadRadius: 2,
+                          blurRadius: 2,
+                          offset:
+                              const Offset(0, 1), // changes position of shadow
                         ),
-                        child: const Icon(
-                          Icons.edit,
-                          size: 20,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+                      ]),
+                  child: Image.asset(
+                    'assets/icons/logo.png',
+                    fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) =>
+                        const Icon(Icons.person_rounded),
+                  ),
                 ),
               ),
               const SizedBox(height: 10),
@@ -91,8 +70,9 @@ class _SettingsTabViewState extends State<SettingsTabView> {
               ),
               const SizedBox(height: 14),
               CustomCardWidget(
-                label: S.of(context).account,
+                label: S.of(context).profile,
                 icon: const Icon(Icons.person_2_outlined, size: 30),
+                onTap: () => Navigator.of(context).pushNamed(RouteList.profile),
               ),
               const SizedBox(height: 4),
               CustomCardWidget(
@@ -102,8 +82,9 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                   children: [
                     Image.asset(
                       state.langIcon,
-                      width: 25,
-                      height: 25,
+                      width: 20,
+                      height: 20,
+                      fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 5),
                     Text('(${state.langCode})'),
