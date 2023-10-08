@@ -60,6 +60,7 @@ class _TutorTabViewState extends State<TutorTabView> {
               Row(
                 children: [
                   Radio<Nationality>(
+                    activeColor: Colors.blue,
                     value: Nationality.vietnamese,
                     groupValue: nationality,
                     onChanged: (value) {
@@ -74,6 +75,7 @@ class _TutorTabViewState extends State<TutorTabView> {
               Row(
                 children: [
                   Radio<Nationality>(
+                    activeColor: Colors.blue,
                     value: Nationality.foreign,
                     groupValue: nationality,
                     onChanged: (value) {
@@ -109,12 +111,16 @@ class _TutorTabViewState extends State<TutorTabView> {
                 children: [
                   TextButton(
                     onPressed: () {},
+                    style: TextButton.styleFrom(
+                      foregroundColor: context.primaryColor,
+                    ),
                     child: Text(S.of(context).resetFilters),
                   ),
                   const SizedBox(width: 12),
                   ElevatedButton(
                     onPressed: () {},
                     style: ElevatedButton.styleFrom(
+                      foregroundColor: context.primaryColor,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),

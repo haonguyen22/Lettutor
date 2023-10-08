@@ -15,6 +15,8 @@ class ScheduleTabView extends StatelessWidget {
         child: Column(
           children: [
             TabBar(
+              indicatorColor: context.primaryColor,
+              indicatorSize: TabBarIndicatorSize.tab,
               tabs: [
                 Tab(
                   icon: Row(
