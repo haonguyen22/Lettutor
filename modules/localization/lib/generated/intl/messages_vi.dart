@@ -20,11 +20,11 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'vi';
 
-  static String m0(num) => "Tìm thấy ${num} kết quả";
+  static String m1(num) => "Tìm thấy ${num} kết quả";
 
-  static String m1(num) => "${num} bài học";
+  static String m2(num) => "${num} bài học";
 
-  static String m2(num) => "${num} chủ đề";
+  static String m3(num) => "${num} chủ đề";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -56,7 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "findATutor": MessageLookupByLibrary.simpleMessage("Tìm gia sư"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
-        "foundNResult": m0,
+        "foundNResult": m1,
         "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
         "interests": MessageLookupByLibrary.simpleMessage("Sở thích"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
@@ -72,8 +72,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Bạn không có bài học sắp tới."),
         "notAMember":
             MessageLookupByLibrary.simpleMessage("Chưa là thành viên?"),
-        "numOfLessons": m1,
-        "numOfTopics": m2,
+        "numOfLessons": m2,
+        "numOfTopics": m3,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục với"),
         "overview": MessageLookupByLibrary.simpleMessage("Tổng quan"),

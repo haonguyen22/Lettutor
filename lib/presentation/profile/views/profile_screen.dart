@@ -4,12 +4,9 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/custom_input_field.dart';
 import 'package:let_tutor/core/widget/multi_choice.dart';
 import 'package:let_tutor/core/widget/selection_input.dart';
-import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:let_tutor/dummy/country.dart';
 import 'package:let_tutor/dummy/data.dart';
 import 'package:localization/generated/l10n.dart';
-import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
-import 'package:multi_select_flutter/util/multi_select_item.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({
@@ -167,7 +164,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   padding:
                       const EdgeInsets.symmetric(vertical: 18, horizontal: 14),
                   decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black),
+                    border:
+                        Border.all(color: context.textColor!.withOpacity(0.6)),
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Row(

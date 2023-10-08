@@ -72,5 +72,11 @@
     "studySchedule": "Study schedule",
     "birthday": "Birthday",
     "myLevel": "My Level",
-    "save": "Save"
+    "save": "Save",
+    "upcoming": "Upcoming",
+    "history": "History",
+    "cancel": "Cancel",
+    "goToMeeting": "Go To Meeting",
+    "addAReview": "Add A Review",
+    "bookNumClasses": "You have booked {num} class(es)"
 }

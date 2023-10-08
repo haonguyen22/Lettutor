@@ -20,16 +20,19 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(num) => "Found ${num} result(s)";
+  static String m0(num) => "You have booked ${num} class(es)";
 
-  static String m1(num) => "${num} lessons";
+  static String m1(num) => "Found ${num} result(s)";
 
-  static String m2(num) => "${num} topics";
+  static String m2(num) => "${num} lessons";
+
+  static String m3(num) => "${num} topics";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
         "account": MessageLookupByLibrary.simpleMessage("Account"),
+        "addAReview": MessageLookupByLibrary.simpleMessage("Add A Review"),
         "all": MessageLookupByLibrary.simpleMessage("All"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
@@ -37,6 +40,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "becomeATutor": MessageLookupByLibrary.simpleMessage("Become A Tutor"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "bookNumClasses": m0,
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "conversational":
             MessageLookupByLibrary.simpleMessage("Conversational"),
@@ -60,7 +65,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "foreignTutors": MessageLookupByLibrary.simpleMessage("Foreign Tutors"),
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
-        "foundNResult": m0,
+        "foundNResult": m1,
+        "goToMeeting": MessageLookupByLibrary.simpleMessage("Go To Meeting"),
+        "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
         "interests": MessageLookupByLibrary.simpleMessage("Interests"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
@@ -77,8 +84,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
-        "numOfLessons": m1,
-        "numOfTopics": m2,
+        "numOfLessons": m2,
+        "numOfTopics": m3,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Or continue with"),
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
@@ -112,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Test preparations"),
         "topic": MessageLookupByLibrary.simpleMessage("Topic"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
+        "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "vietnameseTutors":
             MessageLookupByLibrary.simpleMessage("Vietnamese Tutors"),
         "welcomeToLetTutor":

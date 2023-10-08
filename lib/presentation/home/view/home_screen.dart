@@ -65,6 +65,8 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: ValueListenableBuilder(
         valueListenable: _index,
         builder: (_, index, __) => NavigationBar(
+          backgroundColor: context.primaryColor.withOpacity(0.1),
+          indicatorColor: context.primaryColor.withOpacity(0.5),
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
           selectedIndex: index,
           onDestinationSelected: (int index) {

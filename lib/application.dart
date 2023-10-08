@@ -37,8 +37,8 @@ class _ApplicationState extends State<Application> {
 
     return MaterialApp(
       title: widget.title,
-      theme: light,
-      darkTheme: dark,
+      theme: light?.copyWith(primaryColor: Colors.blue),
+      darkTheme: dark?.copyWith(primaryColor: Colors.blue),
       localizationsDelegates: [
         ...AppLocalization.localizationsDelegates,
       ],

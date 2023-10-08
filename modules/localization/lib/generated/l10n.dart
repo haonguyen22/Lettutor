@@ -779,6 +779,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Upcoming`
+  String get upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get history {
+    return Intl.message(
+      'History',
+      name: 'history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go To Meeting`
+  String get goToMeeting {
+    return Intl.message(
+      'Go To Meeting',
+      name: 'goToMeeting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add A Review`
+  String get addAReview {
+    return Intl.message(
+      'Add A Review',
+      name: 'addAReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have booked {num} class(es)`
+  String bookNumClasses(Object num) {
+    return Intl.message(
+      'You have booked $num class(es)',
+      name: 'bookNumClasses',
+      desc: '',
+      args: [num],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
