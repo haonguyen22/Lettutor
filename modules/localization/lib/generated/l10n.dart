@@ -139,6 +139,706 @@ class S {
       args: [],
     );
   }
+
+  /// `You have no upcoming lesson.`
+  String get noUpcommingLesson {
+    return Intl.message(
+      'You have no upcoming lesson.',
+      name: 'noUpcommingLesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to LetTutor!`
+  String get welcomeToLetTutor {
+    return Intl.message(
+      'Welcome to LetTutor!',
+      name: 'welcomeToLetTutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message(
+      'Home',
+      name: 'home',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tutors`
+  String get tutors {
+    return Intl.message(
+      'Tutors',
+      name: 'tutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Courses`
+  String get courses {
+    return Intl.message(
+      'Courses',
+      name: 'courses',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Schedule`
+  String get schedule {
+    return Intl.message(
+      'Schedule',
+      name: 'schedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Find a tutor`
+  String get findATutor {
+    return Intl.message(
+      'Find a tutor',
+      name: 'findATutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter tutor name`
+  String get enterTutorName {
+    return Intl.message(
+      'Enter tutor name',
+      name: 'enterTutorName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select tutor nationality`
+  String get selectTutorNationality {
+    return Intl.message(
+      'Select tutor nationality',
+      name: 'selectTutorNationality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select available tutoring time:`
+  String get selectTutorTime {
+    return Intl.message(
+      'Select available tutoring time:',
+      name: 'selectTutorTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Select a day`
+  String get selectDay {
+    return Intl.message(
+      'Select a day',
+      name: 'selectDay',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start time`
+  String get startTime {
+    return Intl.message(
+      'Start time',
+      name: 'startTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `End time`
+  String get endTime {
+    return Intl.message(
+      'End time',
+      name: 'endTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Filters`
+  String get resetFilters {
+    return Intl.message(
+      'Reset Filters',
+      name: 'resetFilters',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Recommended Tutors`
+  String get recommendedTutors {
+    return Intl.message(
+      'Recommended Tutors',
+      name: 'recommendedTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book`
+  String get book {
+    return Intl.message(
+      'Book',
+      name: 'book',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `All`
+  String get all {
+    return Intl.message(
+      'All',
+      name: 'all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English for kids`
+  String get englishForKids {
+    return Intl.message(
+      'English for kids',
+      name: 'englishForKids',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English for Business`
+  String get englishForBusiness {
+    return Intl.message(
+      'English for Business',
+      name: 'englishForBusiness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Conversational`
+  String get conversational {
+    return Intl.message(
+      'Conversational',
+      name: 'conversational',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nationality`
+  String get nationality {
+    return Intl.message(
+      'Nationality',
+      name: 'nationality',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Specialities`
+  String get specialities {
+    return Intl.message(
+      'Specialities',
+      name: 'specialities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search`
+  String get search {
+    return Intl.message(
+      'Search',
+      name: 'search',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Found {num} result(s)`
+  String foundNResult(Object num) {
+    return Intl.message(
+      'Found $num result(s)',
+      name: 'foundNResult',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `E-books`
+  String get eBooks {
+    return Intl.message(
+      'E-books',
+      name: 'eBooks',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message(
+      'About',
+      name: 'about',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark theme`
+  String get darkTheme {
+    return Intl.message(
+      'Dark theme',
+      name: 'darkTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Light theme`
+  String get lightTheme {
+    return Intl.message(
+      'Light theme',
+      name: 'lightTheme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Languages`
+  String get languages {
+    return Intl.message(
+      'Languages',
+      name: 'languages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Appearance`
+  String get appearance {
+    return Intl.message(
+      'Appearance',
+      name: 'appearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account`
+  String get account {
+    return Intl.message(
+      'Account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Become A Tutor`
+  String get becomeATutor {
+    return Intl.message(
+      'Become A Tutor',
+      name: 'becomeATutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms & Conditions`
+  String get termAndConditions {
+    return Intl.message(
+      'Terms & Conditions',
+      name: 'termAndConditions',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact`
+  String get contact {
+    return Intl.message(
+      'Contact',
+      name: 'contact',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Log Out`
+  String get logOut {
+    return Intl.message(
+      'Log Out',
+      name: 'logOut',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Favorite`
+  String get favorite {
+    return Intl.message(
+      'Favorite',
+      name: 'favorite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report`
+  String get report {
+    return Intl.message(
+      'Report',
+      name: 'report',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Education`
+  String get education {
+    return Intl.message(
+      'Education',
+      name: 'education',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interests`
+  String get interests {
+    return Intl.message(
+      'Interests',
+      name: 'interests',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Teaching Experience`
+  String get teachingExperience {
+    return Intl.message(
+      'Teaching Experience',
+      name: 'teachingExperience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Review`
+  String get review {
+    return Intl.message(
+      'Review',
+      name: 'review',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overview`
+  String get overview {
+    return Intl.message(
+      'Overview',
+      name: 'overview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Why take this courses`
+  String get whyTakeThisCourse {
+    return Intl.message(
+      'Why take this courses',
+      name: 'whyTakeThisCourse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `What will you be able to do`
+  String get whatWillAbleToDo {
+    return Intl.message(
+      'What will you be able to do',
+      name: 'whatWillAbleToDo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Course Length`
+  String get courseLength {
+    return Intl.message(
+      'Course Length',
+      name: 'courseLength',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{num} topics`
+  String numOfTopics(Object num) {
+    return Intl.message(
+      '$num topics',
+      name: 'numOfTopics',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `List Topics`
+  String get listTopics {
+    return Intl.message(
+      'List Topics',
+      name: 'listTopics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{num} lessons`
+  String numOfLessons(Object num) {
+    return Intl.message(
+      '$num lessons',
+      name: 'numOfLessons',
+      desc: '',
+      args: [num],
+    );
+  }
+
+  /// `Vietnamese Tutors`
+  String get vietnameseTutors {
+    return Intl.message(
+      'Vietnamese Tutors',
+      name: 'vietnameseTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Foreign Tutors`
+  String get foreignTutors {
+    return Intl.message(
+      'Foreign Tutors',
+      name: 'foreignTutors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message(
+      'Profile',
+      name: 'profile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message(
+      'Name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Address`
+  String get emailAddress {
+    return Intl.message(
+      'Email Address',
+      name: 'emailAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get country {
+    return Intl.message(
+      'Country',
+      name: 'country',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Phone number`
+  String get phone {
+    return Intl.message(
+      'Phone number',
+      name: 'phone',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Topic`
+  String get topic {
+    return Intl.message(
+      'Topic',
+      name: 'topic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Test preparations`
+  String get testPreparations {
+    return Intl.message(
+      'Test preparations',
+      name: 'testPreparations',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Study schedule`
+  String get studySchedule {
+    return Intl.message(
+      'Study schedule',
+      name: 'studySchedule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Birthday`
+  String get birthday {
+    return Intl.message(
+      'Birthday',
+      name: 'birthday',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `My Level`
+  String get myLevel {
+    return Intl.message(
+      'My Level',
+      name: 'myLevel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Upcoming`
+  String get upcoming {
+    return Intl.message(
+      'Upcoming',
+      name: 'upcoming',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `History`
+  String get history {
+    return Intl.message(
+      'History',
+      name: 'history',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Go To Meeting`
+  String get goToMeeting {
+    return Intl.message(
+      'Go To Meeting',
+      name: 'goToMeeting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add A Review`
+  String get addAReview {
+    return Intl.message(
+      'Add A Review',
+      name: 'addAReview',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have booked {num} class(es)`
+  String bookNumClasses(Object num) {
+    return Intl.message(
+      'You have booked $num class(es)',
+      name: 'bookNumClasses',
+      desc: '',
+      args: [num],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

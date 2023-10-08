@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:let_tutor/constants/route_list.dart';
+import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
-import 'package:let_tutor/widget/custom_input_field.dart';
+import 'package:let_tutor/core/widget/custom_input_field.dart';
+import 'package:let_tutor/core/widget/logo_icon.dart';
 import 'package:localization/localization.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -37,10 +38,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsetsDirectional.only(start: 8.0),
-          child: SvgPicture.asset('assets/images/logo.svg'),
-        ),
+        leading: const LogoAppWidget(),
         leadingWidth: 150,
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actions: const [IconLanguageWidget()],
@@ -101,8 +99,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                   borderRadius: BorderRadius.circular(3),
                                 ),
                                 width: double.infinity,
-                                padding: const EdgeInsetsDirectional.symmetric(
-                                    horizontal: 12, vertical: 12),
+                                padding: const EdgeInsetsDirectional.all(12),
                                 child: Row(
                                   children: [
                                     const Icon(Icons.remove_circle_sharp,
@@ -135,7 +132,10 @@ class _AuthScreenState extends State<AuthScreen> {
                           style: ElevatedButton.styleFrom(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 12)),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(RouteList.home);
+                          },
                           child: Text(
                             (isLoginScreen
                                     ? S.of(context).logIn

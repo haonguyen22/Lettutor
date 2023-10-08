@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 
 class CircleButton extends StatelessWidget {
   final String? image;
@@ -22,14 +23,14 @@ class CircleButton extends StatelessWidget {
       height: radius * 2,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(radius),
-        color: color ?? Theme.of(context).primaryColor,
+        color: color ?? context.primaryColor,
       ),
       child: (image?.isNotEmpty ?? false) || imageWidget != null
           ? imageWidget ??
               Image.asset(
                 image!,
                 width: 25,
-                height: 20,
+                height: 25,
                 fit: BoxFit.cover,
               )
           : const SizedBox(),

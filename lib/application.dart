@@ -37,8 +37,8 @@ class _ApplicationState extends State<Application> {
 
     return MaterialApp(
       title: widget.title,
-      theme: light,
-      darkTheme: dark,
+      theme: light?.copyWith(primaryColor: Colors.blue),
+      darkTheme: dark?.copyWith(primaryColor: Colors.blue),
       localizationsDelegates: [
         ...AppLocalization.localizationsDelegates,
       ],
@@ -46,6 +46,7 @@ class _ApplicationState extends State<Application> {
       locale: locale,
       debugShowCheckedModeBanner: false,
       routes: Routes.getAll(),
+      onGenerateRoute: Routes.getRouteGenerate,
       initialRoute: widget.initialRoute,
     );
   }
@@ -53,23 +54,17 @@ class _ApplicationState extends State<Application> {
   @override
   Widget build(BuildContext context) {
     return AdaptiveTheme(
-      light: ThemeData.light(useMaterial3: true).copyWith(
-        primaryColor: const Color.fromARGB(1, 0, 113, 240),
-        colorScheme: const ColorScheme.light(
-          primary: Color.fromARGB(1, 0, 113, 240),
-        ),
-      ),
-      dark: ThemeData.dark(useMaterial3: true).copyWith(
-        primaryColor: const Color.fromARGB(1, 0, 113, 240),
-        colorScheme: const ColorScheme.dark(
-          primary: Color.fromARGB(1, 0, 113, 240),
-        ),
-      ),
+      light: ThemeData.light(useMaterial3: true),
+      dark: ThemeData.dark(useMaterial3: true),
       initial: widget.themeSaved ?? AdaptiveThemeMode.light,
       builder: (ThemeData light, ThemeData dark) => MultiBlocProvider(
         providers: widget.providers,
         child: BlocBuilder<AppSettingBloc, AppSettingState>(
-          builder: (_, state) => _buildMaterialApp(lang: state.langCode),
+          builder: (_, state) => _buildMaterialApp(
+            lang: state.langCode,
+            light: light,
+            dark: dark,
+          ),
         ),
       ),
     );

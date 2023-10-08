@@ -13,8 +13,12 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
   final SharedPreferencesUseCase sharedPreferencesUseCase;
 
   AppSettingBloc(this.sharedPreferencesUseCase)
-      : super(AppSettingInitial(sharedPreferencesUseCase.getLanguage())) {
+      : super(AppSettingInitial(
+          sharedPreferencesUseCase.getLanguage(),
+          sharedPreferencesUseCase.getAppearance().convertToAppearance(),
+        )) {
     on<SaveLanguageEvent>(mapSaveLanguageEvent);
+    on<SaveAppearanceEvent>(mapSaveAppearanceEvent);
   }
 
   FutureOr<void> mapSaveLanguageEvent(
@@ -26,7 +30,21 @@ class AppSettingBloc extends Bloc<AppSettingEvent, AppSettingState> {
 
     final isSave = await sharedPreferencesUseCase.setLanguage(newLangCode);
     if (isSave) {
-      emit(SaveLanguageSuccess(newLangCode));
+      emit(SaveSuccess(newLangCode, state.appearance));
+    }
+  }
+
+  FutureOr<void> mapSaveAppearanceEvent(
+      SaveAppearanceEvent event, Emitter<AppSettingState> emit) async {
+    var newModeTheme = Appearance.light;
+    if (state.appearance.isLight) {
+      newModeTheme = Appearance.dark;
+    }
+
+    final isSave =
+        await sharedPreferencesUseCase.setAppearance(newModeTheme.name);
+    if (isSave) {
+      emit(SaveSuccess(state.langCode, newModeTheme));
     }
   }
 }
