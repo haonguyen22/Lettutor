@@ -13,16 +13,16 @@ class UserModel with _$UserModel {
     required String id,
     required String email,
     required String name,
-    required String avatar,
-    required String country,
-    required String phone,
-    required String language,
-    required DateTime birthday,
-    required String requireNote,
-    required String level,
-    required List<TopicModel> learnTopics,
-    required List<TopicModel> testPreparations,
-    required String studySchedule,
+    String? avatar,
+    String? country,
+    String? phone,
+    String? language,
+    DateTime? birthday,
+    String? requireNote,
+    String? level,
+    List<TopicModel>? learnTopics,
+    List<TopicModel>? testPreparations,
+    String? studySchedule,
   }) = _UserModel;
 
   factory UserModel.fromJson(Map<String, Object?> json) =>
@@ -40,8 +40,8 @@ class UserModel with _$UserModel {
       birthday: birthday,
       requireNote: requireNote,
       level: level,
-      learnTopics: learnTopics.map((e) => e.toEntity()).toList(),
-      testPreparations: testPreparations.map((e) => e.toEntity()).toList(),
+      learnTopics: learnTopics?.map((e) => e.toEntity()).toList(),
+      testPreparations: testPreparations?.map((e) => e.toEntity()).toList(),
       studySchedule: studySchedule,
     );
   }

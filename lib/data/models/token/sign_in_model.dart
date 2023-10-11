@@ -1,9 +1,13 @@
 import 'package:let_tutor/data/models/token/token.dart';
+import 'package:let_tutor/data/models/user_model.dart';
 
-class SignInResponse {
+class AuthResponse {
+  final UserModel user;
   final Token token;
-  SignInResponse(this.token);
+  AuthResponse(this.user, this.token);
 
-  factory SignInResponse.fromJson(Map<String, dynamic> json) =>
-      SignInResponse(Token.fromJson(json['tokens'] as Map<String, dynamic>));
+  factory AuthResponse.fromJson(Map<String, dynamic> json) => AuthResponse(
+        UserModel.fromJson(json['user'] as Map<String, dynamic>),
+        Token.fromJson(json['tokens'] as Map<String, dynamic>),
+      );
 }

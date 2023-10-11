@@ -26,4 +26,25 @@ class SharedPreferencesUseCase {
     return _sharedPreferences.getString(Preference.appearance) ??
         _kThemeModeDefault;
   }
+
+  Future<bool> setAccessToken(String token) =>
+      _sharedPreferences.setString(Preference.accessToken, token);
+
+  String getAccessToken() {
+    return _sharedPreferences.getString(Preference.accessToken) ?? "";
+  }
+
+  Future<bool> setExpired(String token) =>
+      _sharedPreferences.setString(Preference.refreshToken, token);
+
+  String getRefreshToken() {
+    return _sharedPreferences.getString(Preference.refreshToken) ?? "";
+  }
+
+  Future<bool> setExpireTime(String token) =>
+      _sharedPreferences.setString(Preference.expireTime, token);
+
+  int getExpireTime() {
+    return _sharedPreferences.getInt(Preference.expireTime) ?? 0;
+  }
 }

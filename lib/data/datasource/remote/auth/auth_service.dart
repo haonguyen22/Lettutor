@@ -16,21 +16,17 @@ abstract class AuthService {
   static const String loginByFacebookApi = '/auth/facebook';
   static const String registerByPhoneApi = '/auth/phone-register';
   static const String forgotPwApi = '/user/forgotPassword';
-  static const String logOutApi = '/user/logout';
 
   @factoryMethod
   factory AuthService(Dio dio) = _AuthService;
 
   @POST(loginApi)
-  Future<SignInResponse?> login({@Body() required Map<String, dynamic> body});
+  Future<AuthResponse?> login({@Body() required Map<String, dynamic> body});
 
   @POST(forgotPwApi)
   Future<UserModel> forgotPassword(
       {@Body() required Map<String, dynamic> body});
 
   @POST(registerApi)
-  Future<UserModel> register({@Body() required Map<String, dynamic> body});
-
-  @POST(logOutApi)
-  Future<UserModel> logOut({@Body() required Map<String, dynamic> body});
+  Future<AuthResponse?> register({@Body() required Map<String, dynamic> body});
 }

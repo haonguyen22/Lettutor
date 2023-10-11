@@ -23,16 +23,16 @@ mixin _$UserModel {
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get avatar => throw _privateConstructorUsedError;
-  String get country => throw _privateConstructorUsedError;
-  String get phone => throw _privateConstructorUsedError;
-  String get language => throw _privateConstructorUsedError;
-  DateTime get birthday => throw _privateConstructorUsedError;
-  String get requireNote => throw _privateConstructorUsedError;
-  String get level => throw _privateConstructorUsedError;
-  List<TopicModel> get learnTopics => throw _privateConstructorUsedError;
-  List<TopicModel> get testPreparations => throw _privateConstructorUsedError;
-  String get studySchedule => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
+  String? get country => throw _privateConstructorUsedError;
+  String? get phone => throw _privateConstructorUsedError;
+  String? get language => throw _privateConstructorUsedError;
+  DateTime? get birthday => throw _privateConstructorUsedError;
+  String? get requireNote => throw _privateConstructorUsedError;
+  String? get level => throw _privateConstructorUsedError;
+  List<TopicModel>? get learnTopics => throw _privateConstructorUsedError;
+  List<TopicModel>? get testPreparations => throw _privateConstructorUsedError;
+  String? get studySchedule => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,16 +49,16 @@ abstract class $UserModelCopyWith<$Res> {
       {String id,
       String email,
       String name,
-      String avatar,
-      String country,
-      String phone,
-      String language,
-      DateTime birthday,
-      String requireNote,
-      String level,
-      List<TopicModel> learnTopics,
-      List<TopicModel> testPreparations,
-      String studySchedule});
+      String? avatar,
+      String? country,
+      String? phone,
+      String? language,
+      DateTime? birthday,
+      String? requireNote,
+      String? level,
+      List<TopicModel>? learnTopics,
+      List<TopicModel>? testPreparations,
+      String? studySchedule});
 }
 
 /// @nodoc
@@ -77,16 +77,16 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? id = null,
     Object? email = null,
     Object? name = null,
-    Object? avatar = null,
-    Object? country = null,
-    Object? phone = null,
-    Object? language = null,
-    Object? birthday = null,
-    Object? requireNote = null,
-    Object? level = null,
-    Object? learnTopics = null,
-    Object? testPreparations = null,
-    Object? studySchedule = null,
+    Object? avatar = freezed,
+    Object? country = freezed,
+    Object? phone = freezed,
+    Object? language = freezed,
+    Object? birthday = freezed,
+    Object? requireNote = freezed,
+    Object? level = freezed,
+    Object? learnTopics = freezed,
+    Object? testPreparations = freezed,
+    Object? studySchedule = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -101,46 +101,46 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
+              as String?,
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      birthday: null == birthday
+              as String?,
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      requireNote: null == requireNote
+              as DateTime?,
+      requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      learnTopics: null == learnTopics
+              as String?,
+      learnTopics: freezed == learnTopics
           ? _value.learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<TopicModel>,
-      testPreparations: null == testPreparations
+              as List<TopicModel>?,
+      testPreparations: freezed == testPreparations
           ? _value.testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TopicModel>,
-      studySchedule: null == studySchedule
+              as List<TopicModel>?,
+      studySchedule: freezed == studySchedule
           ? _value.studySchedule
           : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -156,16 +156,16 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
       {String id,
       String email,
       String name,
-      String avatar,
-      String country,
-      String phone,
-      String language,
-      DateTime birthday,
-      String requireNote,
-      String level,
-      List<TopicModel> learnTopics,
-      List<TopicModel> testPreparations,
-      String studySchedule});
+      String? avatar,
+      String? country,
+      String? phone,
+      String? language,
+      DateTime? birthday,
+      String? requireNote,
+      String? level,
+      List<TopicModel>? learnTopics,
+      List<TopicModel>? testPreparations,
+      String? studySchedule});
 }
 
 /// @nodoc
@@ -182,16 +182,16 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? id = null,
     Object? email = null,
     Object? name = null,
-    Object? avatar = null,
-    Object? country = null,
-    Object? phone = null,
-    Object? language = null,
-    Object? birthday = null,
-    Object? requireNote = null,
-    Object? level = null,
-    Object? learnTopics = null,
-    Object? testPreparations = null,
-    Object? studySchedule = null,
+    Object? avatar = freezed,
+    Object? country = freezed,
+    Object? phone = freezed,
+    Object? language = freezed,
+    Object? birthday = freezed,
+    Object? requireNote = freezed,
+    Object? level = freezed,
+    Object? learnTopics = freezed,
+    Object? testPreparations = freezed,
+    Object? studySchedule = freezed,
   }) {
     return _then(_$_UserModel(
       id: null == id
@@ -206,46 +206,46 @@ class __$$_UserModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      avatar: null == avatar
+      avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
-              as String,
-      country: null == country
+              as String?,
+      country: freezed == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
-              as String,
-      phone: null == phone
+              as String?,
+      phone: freezed == phone
           ? _value.phone
           : phone // ignore: cast_nullable_to_non_nullable
-              as String,
-      language: null == language
+              as String?,
+      language: freezed == language
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
-              as String,
-      birthday: null == birthday
+              as String?,
+      birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      requireNote: null == requireNote
+              as DateTime?,
+      requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
-              as String,
-      level: null == level
+              as String?,
+      level: freezed == level
           ? _value.level
           : level // ignore: cast_nullable_to_non_nullable
-              as String,
-      learnTopics: null == learnTopics
+              as String?,
+      learnTopics: freezed == learnTopics
           ? _value._learnTopics
           : learnTopics // ignore: cast_nullable_to_non_nullable
-              as List<TopicModel>,
-      testPreparations: null == testPreparations
+              as List<TopicModel>?,
+      testPreparations: freezed == testPreparations
           ? _value._testPreparations
           : testPreparations // ignore: cast_nullable_to_non_nullable
-              as List<TopicModel>,
-      studySchedule: null == studySchedule
+              as List<TopicModel>?,
+      studySchedule: freezed == studySchedule
           ? _value.studySchedule
           : studySchedule // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -257,16 +257,16 @@ class _$_UserModel extends _UserModel {
       {required this.id,
       required this.email,
       required this.name,
-      required this.avatar,
-      required this.country,
-      required this.phone,
-      required this.language,
-      required this.birthday,
-      required this.requireNote,
-      required this.level,
-      required final List<TopicModel> learnTopics,
-      required final List<TopicModel> testPreparations,
-      required this.studySchedule})
+      this.avatar,
+      this.country,
+      this.phone,
+      this.language,
+      this.birthday,
+      this.requireNote,
+      this.level,
+      final List<TopicModel>? learnTopics,
+      final List<TopicModel>? testPreparations,
+      this.studySchedule})
       : _learnTopics = learnTopics,
         _testPreparations = testPreparations,
         super._();
@@ -281,38 +281,42 @@ class _$_UserModel extends _UserModel {
   @override
   final String name;
   @override
-  final String avatar;
+  final String? avatar;
   @override
-  final String country;
+  final String? country;
   @override
-  final String phone;
+  final String? phone;
   @override
-  final String language;
+  final String? language;
   @override
-  final DateTime birthday;
+  final DateTime? birthday;
   @override
-  final String requireNote;
+  final String? requireNote;
   @override
-  final String level;
-  final List<TopicModel> _learnTopics;
+  final String? level;
+  final List<TopicModel>? _learnTopics;
   @override
-  List<TopicModel> get learnTopics {
+  List<TopicModel>? get learnTopics {
+    final value = _learnTopics;
+    if (value == null) return null;
     if (_learnTopics is EqualUnmodifiableListView) return _learnTopics;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_learnTopics);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<TopicModel> _testPreparations;
+  final List<TopicModel>? _testPreparations;
   @override
-  List<TopicModel> get testPreparations {
+  List<TopicModel>? get testPreparations {
+    final value = _testPreparations;
+    if (value == null) return null;
     if (_testPreparations is EqualUnmodifiableListView)
       return _testPreparations;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_testPreparations);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final String studySchedule;
+  final String? studySchedule;
 
   @override
   String toString() {
@@ -382,16 +386,16 @@ abstract class _UserModel extends UserModel {
       {required final String id,
       required final String email,
       required final String name,
-      required final String avatar,
-      required final String country,
-      required final String phone,
-      required final String language,
-      required final DateTime birthday,
-      required final String requireNote,
-      required final String level,
-      required final List<TopicModel> learnTopics,
-      required final List<TopicModel> testPreparations,
-      required final String studySchedule}) = _$_UserModel;
+      final String? avatar,
+      final String? country,
+      final String? phone,
+      final String? language,
+      final DateTime? birthday,
+      final String? requireNote,
+      final String? level,
+      final List<TopicModel>? learnTopics,
+      final List<TopicModel>? testPreparations,
+      final String? studySchedule}) = _$_UserModel;
   const _UserModel._() : super._();
 
   factory _UserModel.fromJson(Map<String, dynamic> json) =
@@ -404,25 +408,25 @@ abstract class _UserModel extends UserModel {
   @override
   String get name;
   @override
-  String get avatar;
+  String? get avatar;
   @override
-  String get country;
+  String? get country;
   @override
-  String get phone;
+  String? get phone;
   @override
-  String get language;
+  String? get language;
   @override
-  DateTime get birthday;
+  DateTime? get birthday;
   @override
-  String get requireNote;
+  String? get requireNote;
   @override
-  String get level;
+  String? get level;
   @override
-  List<TopicModel> get learnTopics;
+  List<TopicModel>? get learnTopics;
   @override
-  List<TopicModel> get testPreparations;
+  List<TopicModel>? get testPreparations;
   @override
-  String get studySchedule;
+  String? get studySchedule;
   @override
   @JsonKey(ignore: true)
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>

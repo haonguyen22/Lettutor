@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/domain/usecase/shared/shared_preferences_usecase.dart';
+import 'package:let_tutor/domain/usecase/shared_preferences_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'app_setting_event.dart';

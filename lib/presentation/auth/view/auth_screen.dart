@@ -20,7 +20,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController email =
-      TextEditingController(text: "1@gmail.com");
+      TextEditingController(text: "phhai@ymail.com");
   final TextEditingController password = TextEditingController(text: "123456");
 
   String message = '';
@@ -141,12 +141,15 @@ class _AuthScreenState extends State<AuthScreen> {
                                   padding:
                                       const EdgeInsets.symmetric(vertical: 12)),
                               onPressed: () {
-                                context.read<AuthBloc>().add(
-                                      AuthEvent.login(
-                                        email.text,
-                                        password.text,
-                                      ),
-                                    );
+                                isLoginScreen
+                                    ? context.read<AuthBloc>().add(Login(
+                                          email.text,
+                                          password.text,
+                                        ))
+                                    : context.read<AuthBloc>().add(Register(
+                                          email.text,
+                                          password.text,
+                                        ));
                               },
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
@@ -161,7 +164,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                       fontSize: 18,
                                     ),
                                   ),
-                                  state == const AuthState.loading()
+                                  state.isLoading
                                       ? Container(
                                           margin:
                                               const EdgeInsetsDirectional.only(
@@ -237,19 +240,14 @@ class _AuthScreenState extends State<AuthScreen> {
         },
         buildWhen: (previous, current) => current != previous,
         listener: (BuildContext context, AuthState state) {
-          state.maybeWhen(
-            loginFailed: (message) {
-              ScaffoldMessenger.of(context)
-                  .showSnackBar(SnackBar(content: Text(message)));
-            },
-            loginSuccess: () {
-              Navigator.of(context).pushNamedAndRemoveUntil(
-                RouteList.home,
-                (route) => false,
-              );
-            },
-            orElse: () {},
-          );
+          if (state is AuthSuccess) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil(RouteList.home, (route) => false);
+          }
+          if (state is AuthFailed) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.message ?? '')));
+          }
         },
       ),
     );

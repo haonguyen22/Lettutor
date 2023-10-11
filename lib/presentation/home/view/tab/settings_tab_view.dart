@@ -18,10 +18,13 @@ class SettingsTabView extends StatefulWidget {
 class _SettingsTabViewState extends State<SettingsTabView> {
   @override
   Widget build(BuildContext context) {
+    final appSettingstate = context.read<AppSettingBloc>().state;
+
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: BlocBuilder<AppSettingBloc, AppSettingState>(
-        builder: (BuildContext context, AppSettingState state) {
+      child: BlocBuilder<AuthBloc, AuthState>(
+        builder: (BuildContext context, AuthState authState) {
+          final user = authState.user;
           return Column(
             children: [
               Align(
@@ -43,31 +46,41 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                               const Offset(0, 1), // changes position of shadow
                         ),
                       ]),
-                  child: Image.asset(
-                    'assets/icons/logo.png',
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) =>
-                        const Icon(Icons.person_rounded),
-                  ),
+                  child: user?.avatar != null
+                      ? Image.network(
+                          user!.avatar!,
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Icon(Icons.person_rounded),
+                        )
+                      : Image.asset(
+                          'assets/icons/logo.png',
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) =>
+                              const Icon(Icons.person_rounded),
+                        ),
                 ),
               ),
               const SizedBox(height: 10),
               Text(
-                'Nguyen Van Hao',
+                user?.name ?? "",
                 style: context.textTheme.headlineSmall?.copyWith(
                   fontWeight: FontWeight.bold,
                   color: context.textColor,
                 ),
+                textAlign: TextAlign.center,
               ),
               const SizedBox(height: 10),
               Text(
-                'Haonguyencp2@@gmail.com',
+                user?.email ?? "",
                 style: context.textTheme.bodyMedium,
               ),
               const SizedBox(height: 10),
               Text(
-                'Account ID: 12341234 1234 123412 34',
+                'Account ID: ${user?.id}',
                 style: context.textTheme.bodyMedium,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
               const SizedBox(height: 14),
               CustomCardWidget(
@@ -82,13 +95,13 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 trailing: Row(
                   children: [
                     Image.asset(
-                      state.langIcon,
+                      appSettingstate.langIcon,
                       width: 20,
                       height: 20,
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 5),
-                    Text('(${state.langCode})'),
+                    Text('(${appSettingstate.langCode})'),
                   ],
                 ),
                 showArrowIcon: false,
@@ -99,7 +112,7 @@ class _SettingsTabViewState extends State<SettingsTabView> {
               const SizedBox(height: 4),
               CustomCardWidget(
                 onTap: () {
-                  if (state.appearance.isLight) {
+                  if (appSettingstate.appearance.isLight) {
                     AdaptiveTheme.of(context).setDark();
                   } else {
                     AdaptiveTheme.of(context).setLight();
@@ -109,11 +122,13 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 },
                 label: S.of(context).appearance,
                 icon: Icon(
-                  state.appearance.isDark ? Icons.dark_mode : Icons.light_mode,
+                  appSettingstate.appearance.isDark
+                      ? Icons.dark_mode
+                      : Icons.light_mode,
                   size: 30,
                 ),
                 trailing: Text(
-                  state.appearance.isLight
+                  appSettingstate.appearance.isLight
                       ? S.of(context).lightTheme
                       : S.of(context).darkTheme,
                 ),
@@ -140,21 +155,12 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 icon: const Icon(Icons.contact_mail_outlined, size: 30),
               ),
               const SizedBox(height: 48),
-              BlocConsumer<AuthBloc, AuthState>(
-                listener: (_, state) {
-                  state.maybeWhen(
-                    orElse: () {},
-                    initial: () =>
-                        Navigator.of(context).pushNamedAndRemoveUntil(
-                      RouteList.login,
-                      (route) => false,
-                    ),
-                  );
-                },
+              BlocBuilder<AuthBloc, AuthState>(
                 builder: (_, __) {
                   return TextButton(
                     onPressed: () {
-                      context.read<AuthBloc>().add(const AuthEvent.logOut());
+                      Navigator.of(context).pushNamedAndRemoveUntil(
+                          RouteList.login, (__) => false);
                     },
                     style: TextButton.styleFrom(
                       minimumSize: const Size.fromHeight(44),
@@ -182,28 +188,4 @@ class _SettingsTabViewState extends State<SettingsTabView> {
       ),
     );
   }
-}
-
-Future<bool> _showLogOutConfirmDialog(BuildContext context) async {
-  return showDialog<bool>(
-    context: context,
-    builder: (context) {
-      return AlertDialog(
-        title: const Text('Log Out'),
-        content: const Text('Are you sure you want to log out?'),
-        actions: [
-          TextButton(
-              onPressed: () {
-                Navigator.pop(context, false);
-              },
-              child: const Text('NO')),
-          TextButton(
-              onPressed: () {
-                Navigator.pop(context, true);
-              },
-              child: const Text('YES')),
-        ],
-      );
-    },
-  ).then((value) => value ?? false);
 }

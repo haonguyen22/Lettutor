@@ -19,14 +19,14 @@ class _AuthService implements AuthService {
   String? baseUrl;
 
   @override
-  Future<SignInResponse?> login({required Map<String, dynamic> body}) async {
+  Future<AuthResponse?> login({required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
     final _result = await _dio
-        .fetch<Map<String, dynamic>?>(_setStreamType<SignInResponse>(Options(
+        .fetch<Map<String, dynamic>?>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -43,7 +43,7 @@ class _AuthService implements AuthService {
               baseUrl,
             ))));
     final value =
-        _result.data == null ? null : SignInResponse.fromJson(_result.data!);
+        _result.data == null ? null : AuthResponse.fromJson(_result.data!);
     return value;
   }
 
@@ -76,14 +76,14 @@ class _AuthService implements AuthService {
   }
 
   @override
-  Future<UserModel> register({required Map<String, dynamic> body}) async {
+  Future<AuthResponse?> register({required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserModel>(Options(
+        .fetch<Map<String, dynamic>?>(_setStreamType<AuthResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -99,35 +99,8 @@ class _AuthService implements AuthService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserModel.fromJson(_result.data!);
-    return value;
-  }
-
-  @override
-  Future<UserModel> logOut({required Map<String, dynamic> body}) async {
-    const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
-    _data.addAll(body);
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserModel>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
-            .compose(
-              _dio.options,
-              '/user/logout',
-              queryParameters: queryParameters,
-              data: _data,
-            )
-            .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
-    final value = UserModel.fromJson(_result.data!);
+    final value =
+        _result.data == null ? null : AuthResponse.fromJson(_result.data!);
     return value;
   }
 
