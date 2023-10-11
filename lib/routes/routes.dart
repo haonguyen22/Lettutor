@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
 import 'package:let_tutor/presentation/home/view/home_screen.dart';
@@ -12,8 +15,6 @@ class Routes {
 
   static final Map<String, WidgetBuilder> _routes = {
     RouteList.home: (context) => const HomeScreen(),
-    RouteList.login: (context) => const AuthScreen.login(),
-    RouteList.signUp: (context) => const AuthScreen.signUp(),
     RouteList.tutorDetail: (context) => const TutorDetailScreen(),
     RouteList.courseDetail: (context) => const CourseDetailScreen(),
     RouteList.profile: (context) => const ProfileScreen(),
@@ -21,6 +22,24 @@ class Routes {
 
   static Route getRouteGenerate(RouteSettings settings) {
     switch (settings.name) {
+      case RouteList.login:
+        return _buildRoute(
+          settings,
+          (_) => BlocProvider<AuthBloc>(
+            create: (context) => injector.get(),
+            child: const AuthScreen.login(),
+          ),
+        );
+
+      case RouteList.signUp:
+        return _buildRoute(
+          settings,
+          (_) => BlocProvider<AuthBloc>(
+            create: (context) => injector.get(),
+            child: const AuthScreen.signUp(),
+          ),
+        );
+
       case RouteList.courseTopicDetail:
         if (settings.arguments is CourseTopicDetailArgument) {
           final data = settings.arguments as CourseTopicDetailArgument;

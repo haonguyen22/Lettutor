@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
 import 'package:let_tutor/core/widget/custom_input_field.dart';
@@ -17,8 +19,9 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final TextEditingController email = TextEditingController();
-  final TextEditingController password = TextEditingController();
+  final TextEditingController email =
+      TextEditingController(text: "1@gmail.com");
+  final TextEditingController password = TextEditingController(text: "123456");
 
   String message = '';
 
@@ -43,167 +46,211 @@ class _AuthScreenState extends State<AuthScreen> {
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
         actions: const [IconLanguageWidget()],
       ),
-      body: CustomScrollView(
-        slivers: [
-          SliverToBoxAdapter(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 16.0, horizontal: 10.0),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
-                    child: Image.asset(
-                      'assets/images/login.png',
-                      fit: BoxFit.fitWidth,
-                    ),
-                  ),
-                  Text(
-                    isLoginScreen ? S.of(context).logIn : S.of(context).signUp,
-                    style: textTheme.headlineMedium?.copyWith(
-                      color: Theme.of(context).primaryColor,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    S.of(context).loginDescription,
-                    textAlign: TextAlign.center,
-                    style: textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: CustomInputLabelField(
-                      label: S.of(context).email,
-                      controller: email,
-                      hintText: 'abc@example.com',
-                    ),
-                  ),
-                  CustomInputLabelField(
-                    label: S.of(context).password,
-                    controller: password,
-                    isObscure: true,
-                  ),
-                  message.isNotEmpty
-                      ? Row(
+      body: BlocConsumer<AuthBloc, AuthState>(
+        builder: (context, state) {
+          return CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      vertical: 16.0, horizontal: 10.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 16),
+                        child: Image.asset(
+                          'assets/images/login.png',
+                          fit: BoxFit.fitWidth,
+                        ),
+                      ),
+                      Text(
+                        isLoginScreen
+                            ? S.of(context).logIn
+                            : S.of(context).signUp,
+                        style: textTheme.headlineMedium?.copyWith(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Text(
+                        S.of(context).loginDescription,
+                        textAlign: TextAlign.center,
+                        style: textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
+                        child: CustomInputLabelField(
+                          label: S.of(context).email,
+                          controller: email,
+                          hintText: 'abc@example.com',
+                        ),
+                      ),
+                      CustomInputLabelField(
+                        label: S.of(context).password,
+                        controller: password,
+                        isObscure: true,
+                      ),
+                      message.isNotEmpty
+                          ? Row(
+                              children: [
+                                Expanded(
+                                  child: Container(
+                                    margin: const EdgeInsetsDirectional.only(
+                                        top: 10, bottom: 6),
+                                    decoration: BoxDecoration(
+                                      color: Color(
+                                          int.parse('ffffccc7', radix: 16)),
+                                      borderRadius: BorderRadius.circular(3),
+                                    ),
+                                    width: double.infinity,
+                                    padding:
+                                        const EdgeInsetsDirectional.all(12),
+                                    child: Row(
+                                      children: [
+                                        const Icon(Icons.remove_circle_sharp,
+                                            color: Colors.red),
+                                        const SizedBox(width: 10),
+                                        Text(message),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            )
+                          : const SizedBox(height: 16),
+                      if (isLoginScreen)
+                        Row(
                           children: [
-                            Expanded(
-                              child: Container(
-                                margin: const EdgeInsetsDirectional.only(
-                                    top: 10, bottom: 6),
-                                decoration: BoxDecoration(
-                                  color:
-                                      Color(int.parse('ffffccc7', radix: 16)),
-                                  borderRadius: BorderRadius.circular(3),
-                                ),
-                                width: double.infinity,
-                                padding: const EdgeInsetsDirectional.all(12),
-                                child: Row(
-                                  children: [
-                                    const Icon(Icons.remove_circle_sharp,
-                                        color: Colors.red),
-                                    const SizedBox(width: 10),
-                                    Text(message),
-                                  ],
-                                ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                S.of(context).forgotPassword,
+                                textAlign: TextAlign.start,
                               ),
                             ),
                           ],
-                        )
-                      : const SizedBox(height: 16),
-                  if (isLoginScreen)
-                    Row(
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            S.of(context).forgotPassword,
-                            textAlign: TextAlign.start,
-                          ),
                         ),
-                      ],
-                    ),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              padding:
-                                  const EdgeInsets.symmetric(vertical: 12)),
-                          onPressed: () {
-                            Navigator.of(context)
-                                .pushReplacementNamed(RouteList.home);
-                          },
-                          child: Text(
-                            (isLoginScreen
-                                    ? S.of(context).logIn
-                                    : S.of(context).signUp)
-                                .toUpperCase(),
-                            style: textTheme.bodyLarge?.copyWith(
-                              color: Colors.white,
-                              fontSize: 18,
+                      Row(
+                        children: [
+                          Expanded(
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 12)),
+                              onPressed: () {
+                                context.read<AuthBloc>().add(
+                                      AuthEvent.login(
+                                        email.text,
+                                        password.text,
+                                      ),
+                                    );
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    (isLoginScreen
+                                            ? S.of(context).logIn
+                                            : S.of(context).signUp)
+                                        .toUpperCase(),
+                                    style: textTheme.bodyLarge?.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                    ),
+                                  ),
+                                  state == const AuthState.loading()
+                                      ? Container(
+                                          margin:
+                                              const EdgeInsetsDirectional.only(
+                                                  start: 10),
+                                          width: 20,
+                                          height: 20,
+                                          child:
+                                              const CircularProgressIndicator(),
+                                        )
+                                      : const SizedBox(),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
+                        ],
                       ),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0),
-                    child: Text(
-                      S.of(context).orContinueWith,
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: ['facebook', 'gmail']
-                        .expand(
-                          (element) => [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 12.0),
-                              child: SvgPicture.asset(
-                                'assets/icons/$element.svg',
-                                width: 40,
-                                height: 40,
-                              ),
-                            ),
-                          ],
-                        )
-                        .toList(),
-                  ),
-                  const SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(S.of(context).notAMember),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(
-                              context,
-                              isLoginScreen
-                                  ? RouteList.signUp
-                                  : RouteList.login);
-                        },
+                      const SizedBox(height: 8),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 16.0),
                         child: Text(
-                          isLoginScreen
-                              ? S.of(context).signUp
-                              : S.of(context).logIn,
-                          style: TextStyle(
-                            color: primaryColor,
-                          ),
+                          S.of(context).orContinueWith,
                         ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: ['facebook', 'gmail']
+                            .expand(
+                              (element) => [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 12.0),
+                                  child: SvgPicture.asset(
+                                    'assets/icons/$element.svg',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                ),
+                              ],
+                            )
+                            .toList(),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(S.of(context).notAMember),
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pushReplacementNamed(
+                                context,
+                                isLoginScreen
+                                    ? RouteList.signUp
+                                    : RouteList.login,
+                              );
+                            },
+                            child: Text(
+                              isLoginScreen
+                                  ? S.of(context).signUp
+                                  : S.of(context).logIn,
+                              style: TextStyle(
+                                color: primaryColor,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
-              ),
-            ),
-          )
-        ],
+                ),
+              )
+            ],
+          );
+        },
+        buildWhen: (previous, current) => current != previous,
+        listener: (BuildContext context, AuthState state) {
+          state.maybeWhen(
+            loginFailed: (message) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(message)));
+            },
+            loginSuccess: () {
+              Navigator.of(context).pushNamedAndRemoveUntil(
+                RouteList.home,
+                (route) => false,
+              );
+            },
+            orElse: () {},
+          );
+        },
       ),
     );
   }

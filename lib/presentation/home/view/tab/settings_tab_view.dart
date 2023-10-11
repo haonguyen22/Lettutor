@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/custom_card.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -139,24 +140,40 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 icon: const Icon(Icons.contact_mail_outlined, size: 30),
               ),
               const SizedBox(height: 48),
-              TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  minimumSize: const Size.fromHeight(44),
-                  backgroundColor: const Color.fromRGBO(255, 0, 0, 0.2),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Icon(Icons.logout, color: Colors.red),
-                    const SizedBox(width: 8),
-                    Text(
-                      S.of(context).logOut,
-                      style: context.textTheme.titleLarge
-                          ?.copyWith(color: Colors.red),
+              BlocConsumer<AuthBloc, AuthState>(
+                listener: (_, state) {
+                  state.maybeWhen(
+                    orElse: () {},
+                    initial: () =>
+                        Navigator.of(context).pushNamedAndRemoveUntil(
+                      RouteList.login,
+                      (route) => false,
                     ),
-                  ],
-                ),
+                  );
+                },
+                builder: (_, __) {
+                  return TextButton(
+                    onPressed: () {
+                      context.read<AuthBloc>().add(const AuthEvent.logOut());
+                    },
+                    style: TextButton.styleFrom(
+                      minimumSize: const Size.fromHeight(44),
+                      backgroundColor: const Color.fromRGBO(255, 0, 0, 0.2),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.logout, color: Colors.red),
+                        const SizedBox(width: 8),
+                        Text(
+                          S.of(context).logOut,
+                          style: context.textTheme.titleLarge
+                              ?.copyWith(color: Colors.red),
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: 48),
             ],
