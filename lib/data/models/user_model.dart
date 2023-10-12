@@ -46,3 +46,15 @@ class UserModel with _$UserModel {
     );
   }
 }
+
+@freezed
+class EditUserResponse with _$EditUserResponse {
+  const EditUserResponse._();
+
+  const factory EditUserResponse({
+    required UserModel user,
+  }) = _EditUserResponse;
+
+  factory EditUserResponse.fromJson(Map<String, Object?> json) =>
+      _$EditUserResponseFromJson(json);
+}

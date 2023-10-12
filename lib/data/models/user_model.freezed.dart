@@ -432,3 +432,154 @@ abstract class _UserModel extends UserModel {
   _$$_UserModelCopyWith<_$_UserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+EditUserResponse _$EditUserResponseFromJson(Map<String, dynamic> json) {
+  return _EditUserResponse.fromJson(json);
+}
+
+/// @nodoc
+mixin _$EditUserResponse {
+  UserModel get user => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $EditUserResponseCopyWith<EditUserResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $EditUserResponseCopyWith<$Res> {
+  factory $EditUserResponseCopyWith(
+          EditUserResponse value, $Res Function(EditUserResponse) then) =
+      _$EditUserResponseCopyWithImpl<$Res, EditUserResponse>;
+  @useResult
+  $Res call({UserModel user});
+
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class _$EditUserResponseCopyWithImpl<$Res, $Val extends EditUserResponse>
+    implements $EditUserResponseCopyWith<$Res> {
+  _$EditUserResponseCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_value.copyWith(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserModelCopyWith<$Res> get user {
+    return $UserModelCopyWith<$Res>(_value.user, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$_EditUserResponseCopyWith<$Res>
+    implements $EditUserResponseCopyWith<$Res> {
+  factory _$$_EditUserResponseCopyWith(
+          _$_EditUserResponse value, $Res Function(_$_EditUserResponse) then) =
+      __$$_EditUserResponseCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({UserModel user});
+
+  @override
+  $UserModelCopyWith<$Res> get user;
+}
+
+/// @nodoc
+class __$$_EditUserResponseCopyWithImpl<$Res>
+    extends _$EditUserResponseCopyWithImpl<$Res, _$_EditUserResponse>
+    implements _$$_EditUserResponseCopyWith<$Res> {
+  __$$_EditUserResponseCopyWithImpl(
+      _$_EditUserResponse _value, $Res Function(_$_EditUserResponse) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? user = null,
+  }) {
+    return _then(_$_EditUserResponse(
+      user: null == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserModel,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_EditUserResponse extends _EditUserResponse {
+  const _$_EditUserResponse({required this.user}) : super._();
+
+  factory _$_EditUserResponse.fromJson(Map<String, dynamic> json) =>
+      _$$_EditUserResponseFromJson(json);
+
+  @override
+  final UserModel user;
+
+  @override
+  String toString() {
+    return 'EditUserResponse(user: $user)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_EditUserResponse &&
+            (identical(other.user, user) || other.user == user));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, user);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$_EditUserResponseCopyWith<_$_EditUserResponse> get copyWith =>
+      __$$_EditUserResponseCopyWithImpl<_$_EditUserResponse>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_EditUserResponseToJson(
+      this,
+    );
+  }
+}
+
+abstract class _EditUserResponse extends EditUserResponse {
+  const factory _EditUserResponse({required final UserModel user}) =
+      _$_EditUserResponse;
+  const _EditUserResponse._() : super._();
+
+  factory _EditUserResponse.fromJson(Map<String, dynamic> json) =
+      _$_EditUserResponse.fromJson;
+
+  @override
+  UserModel get user;
+  @override
+  @JsonKey(ignore: true)
+  _$$_EditUserResponseCopyWith<_$_EditUserResponse> get copyWith =>
+      throw _privateConstructorUsedError;
+}

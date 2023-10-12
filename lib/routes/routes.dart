@@ -14,23 +14,13 @@ class Routes {
     RouteList.home: (context) => const HomeScreen(),
     RouteList.tutorDetail: (context) => const TutorDetailScreen(),
     RouteList.courseDetail: (context) => const CourseDetailScreen(),
+    RouteList.login: (context) => const AuthScreen.login(),
+    RouteList.signUp: (context) => const AuthScreen.signUp(),
     RouteList.profile: (context) => const ProfileScreen(),
   };
 
   static Route getRouteGenerate(RouteSettings settings) {
     switch (settings.name) {
-      case RouteList.login:
-        return _buildRoute(
-          settings,
-          (_) => const AuthScreen.login(),
-        );
-
-      case RouteList.signUp:
-        return _buildRoute(
-          settings,
-          (_) => const AuthScreen.signUp(),
-        );
-
       case RouteList.courseTopicDetail:
         if (settings.arguments is CourseTopicDetailArgument) {
           final data = settings.arguments as CourseTopicDetailArgument;

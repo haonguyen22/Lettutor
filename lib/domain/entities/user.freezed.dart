@@ -14,6 +14,10 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+User _$UserFromJson(Map<String, dynamic> json) {
+  return _User.fromJson(json);
+}
+
 /// @nodoc
 mixin _$User {
   String get id => throw _privateConstructorUsedError;
@@ -30,6 +34,7 @@ mixin _$User {
   List<Topic>? get testPreparations => throw _privateConstructorUsedError;
   String? get studySchedule => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UserCopyWith<User> get copyWith => throw _privateConstructorUsedError;
 }
@@ -242,7 +247,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_User implements _User {
   const _$_User(
       {required this.id,
@@ -260,6 +265,8 @@ class _$_User implements _User {
       this.studySchedule})
       : _learnTopics = learnTopics,
         _testPreparations = testPreparations;
+
+  factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
   final String id;
@@ -336,6 +343,7 @@ class _$_User implements _User {
                 other.studySchedule == studySchedule));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -358,6 +366,13 @@ class _$_User implements _User {
   @pragma('vm:prefer-inline')
   _$$_UserCopyWith<_$_User> get copyWith =>
       __$$_UserCopyWithImpl<_$_User>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_UserToJson(
+      this,
+    );
+  }
 }
 
 abstract class _User implements User {
@@ -375,6 +390,8 @@ abstract class _User implements User {
       final List<Topic>? learnTopics,
       final List<Topic>? testPreparations,
       final String? studySchedule}) = _$_User;
+
+  factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
   String get id;

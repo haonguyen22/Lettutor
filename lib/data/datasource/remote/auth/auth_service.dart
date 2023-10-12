@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/models/token/sign_in_model.dart';
+import 'package:let_tutor/data/models/token/token.dart';
 import 'package:let_tutor/data/models/user_model.dart';
 import 'package:retrofit/http.dart';
 
@@ -16,6 +17,7 @@ abstract class AuthService {
   static const String loginByFacebookApi = '/auth/facebook';
   static const String registerByPhoneApi = '/auth/phone-register';
   static const String forgotPwApi = '/user/forgotPassword';
+  static const String refreshTokenApi = '/user/refreshToken';
 
   @factoryMethod
   factory AuthService(Dio dio) = _AuthService;
@@ -29,4 +31,7 @@ abstract class AuthService {
 
   @POST(registerApi)
   Future<AuthResponse?> register({@Body() required Map<String, dynamic> body});
+
+  @POST(refreshTokenApi)
+  Future<Token?> refreshToken({@Body() required Map<String, dynamic> body});
 }

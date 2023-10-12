@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'user_model.dart';
+part of 'user.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
+_$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
       id: json['id'] as String,
       email: json['email'] as String,
       name: json['name'] as String,
@@ -20,16 +20,15 @@ _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
       requireNote: json['requireNote'] as String?,
       level: json['level'] as String?,
       learnTopics: (json['learnTopics'] as List<dynamic>?)
-          ?.map((e) => TopicModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Topic.fromJson(e as Map<String, dynamic>))
           .toList(),
       testPreparations: (json['testPreparations'] as List<dynamic>?)
-          ?.map((e) => TopicModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => Topic.fromJson(e as Map<String, dynamic>))
           .toList(),
       studySchedule: json['studySchedule'] as String?,
     );
 
-Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
-    <String, dynamic>{
+Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'id': instance.id,
       'email': instance.email,
       'name': instance.name,
@@ -43,14 +42,4 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'learnTopics': instance.learnTopics,
       'testPreparations': instance.testPreparations,
       'studySchedule': instance.studySchedule,
-    };
-
-_$_EditUserResponse _$$_EditUserResponseFromJson(Map<String, dynamic> json) =>
-    _$_EditUserResponse(
-      user: UserModel.fromJson(json['user'] as Map<String, dynamic>),
-    );
-
-Map<String, dynamic> _$$_EditUserResponseToJson(_$_EditUserResponse instance) =>
-    <String, dynamic>{
-      'user': instance.user,
     };

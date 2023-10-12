@@ -34,6 +34,10 @@ class SharedPreferencesUseCase {
     return _sharedPreferences.getString(Preference.accessToken) ?? "";
   }
 
+  Future<bool> setRefreshToken(String token) =>
+      _sharedPreferences.setString(Preference.refreshToken, token);
+
+
   Future<bool> setExpired(String token) =>
       _sharedPreferences.setString(Preference.refreshToken, token);
 
@@ -41,8 +45,8 @@ class SharedPreferencesUseCase {
     return _sharedPreferences.getString(Preference.refreshToken) ?? "";
   }
 
-  Future<bool> setExpireTime(String token) =>
-      _sharedPreferences.setString(Preference.expireTime, token);
+  Future<bool> setExpireTime(int time) =>
+      _sharedPreferences.setInt(Preference.expireTime, time);
 
   int getExpireTime() {
     return _sharedPreferences.getInt(Preference.expireTime) ?? 0;

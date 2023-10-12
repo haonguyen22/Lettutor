@@ -14,12 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+Topic _$TopicFromJson(Map<String, dynamic> json) {
+  return _Topic.fromJson(json);
+}
+
 /// @nodoc
 mixin _$Topic {
   int get id => throw _privateConstructorUsedError;
   String get key => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TopicCopyWith<Topic> get copyWith => throw _privateConstructorUsedError;
 }
@@ -106,9 +111,12 @@ class __$$_TopicCopyWithImpl<$Res> extends _$TopicCopyWithImpl<$Res, _$_Topic>
 }
 
 /// @nodoc
-
+@JsonSerializable()
 class _$_Topic implements _Topic {
   const _$_Topic({required this.id, required this.key, required this.name});
+
+  factory _$_Topic.fromJson(Map<String, dynamic> json) =>
+      _$$_TopicFromJson(json);
 
   @override
   final int id;
@@ -132,6 +140,7 @@ class _$_Topic implements _Topic {
             (identical(other.name, name) || other.name == name));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, key, name);
 
@@ -140,6 +149,13 @@ class _$_Topic implements _Topic {
   @pragma('vm:prefer-inline')
   _$$_TopicCopyWith<_$_Topic> get copyWith =>
       __$$_TopicCopyWithImpl<_$_Topic>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_TopicToJson(
+      this,
+    );
+  }
 }
 
 abstract class _Topic implements Topic {
@@ -147,6 +163,8 @@ abstract class _Topic implements Topic {
       {required final int id,
       required final String key,
       required final String name}) = _$_Topic;
+
+  factory _Topic.fromJson(Map<String, dynamic> json) = _$_Topic.fromJson;
 
   @override
   int get id;

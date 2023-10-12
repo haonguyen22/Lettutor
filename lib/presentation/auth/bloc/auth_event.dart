@@ -18,3 +18,9 @@ class Register extends AuthEvent {
 
   Register(this.username, this.password);
 }
+
+class EditUserProfile extends AuthEvent {
+  final Map<String, dynamic> body;
+
+  EditUserProfile(this.body);
+}

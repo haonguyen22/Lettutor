@@ -1,26 +1,92 @@
 const levels = [
-  'Pre A1 (Beginner)',
-  'A1 (Higher Beginner)',
-  'A2 (Pre-Intermediate)',
-  'B1 (Intermediate)',
-  'B2 (Upper-Intermediate)',
-  'C1 (Advanced)',
-  'C2 (Proficiency)',
+  'Beginner',
+  'Higher Beginner',
+  'Pre-Intermediate',
+  'Intermediate',
+  'Upper-Intermediate',
+  'Advanced',
+  'Proficiency',
 ];
 
 const learnTopics = [
-  'English for kids',
-  'English for Business',
-  'Conversational',
+  {
+    "id": 3,
+    "key": "english-for-kids",
+    "name": "English for Kids",
+    "createdAt": "2021-09-03T13:27:18.266Z",
+    "updatedAt": "2021-09-03T13:27:18.266Z"
+  },
+  {
+    "id": 4,
+    "key": "business-english",
+    "name": "Business English",
+    "createdAt": "2021-09-03T13:27:18.266Z",
+    "updatedAt": "2021-09-03T13:27:18.266Z"
+  },
+  {
+    "id": 5,
+    "key": "conversational-english",
+    "name": "Conversational English",
+    "createdAt": "2021-09-03T13:27:18.266Z",
+    "updatedAt": "2021-09-03T13:27:18.266Z"
+  }
 ];
 
 const testPreparations = [
-  'STARTERS',
-  'MOVERS',
-  'FLYERS',
-  'KET',
-  'PET',
-  'IELTS',
-  'TOEFL',
-  'TOEIC'
+  {
+    "id": 1,
+    "key": "starters",
+    "name": "STARTERS",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 2,
+    "key": "movers",
+    "name": "MOVERS",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 3,
+    "key": "flyers",
+    "name": "FLYERS",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 4,
+    "key": "ket",
+    "name": "KET",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 5,
+    "key": "pet",
+    "name": "PET",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 6,
+    "key": "ielts",
+    "name": "IELTS",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 7,
+    "key": "toefl",
+    "name": "TOEFL",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  },
+  {
+    "id": 8,
+    "key": "toeic",
+    "name": "TOEIC",
+    "createdAt": "2021-09-03T13:27:18.820Z",
+    "updatedAt": "2021-09-03T13:27:18.820Z"
+  }
 ];
