@@ -59,5 +59,8 @@
     "courseLength": "Độ dài khóa học",
     "numOfTopics": "{num} chủ đề",
     "listTopics": "Danh sách chủ đề",
-    "numOfLessons": "{num} bài học"
+    "numOfLessons": "{num} bài học",
+    "notValidEmail": "Vui lòng nhập một địa chỉ email hợp lệ.",
+    "checkValidate": "Vui lòng kiểm tra lại tất cả các thông tin đã nhập.",
+    "min8Characters": "Mật khẩu phải có ít nhất 8 ký tự."
 }

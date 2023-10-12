@@ -839,6 +839,36 @@ class S {
       args: [num],
     );
   }
+
+  /// `Please enter a valid email address.`
+  String get notValidEmail {
+    return Intl.message(
+      'Please enter a valid email address.',
+      name: 'notValidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check all of the input again`
+  String get checkValidate {
+    return Intl.message(
+      'Please check all of the input again',
+      name: 'checkValidate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters long.`
+  String get min8Characters {
+    return Intl.message(
+      'Password must be at least 8 characters long.',
+      name: 'min8Characters',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

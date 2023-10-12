@@ -78,5 +78,8 @@
     "cancel": "Cancel",
     "goToMeeting": "Go To Meeting",
     "addAReview": "Add A Review",
-    "bookNumClasses": "You have booked {num} class(es)"
+    "bookNumClasses": "You have booked {num} class(es)",
+    "notValidEmail": "Please enter a valid email address.",
+    "checkValidate": "Please check all of the input again",
+    "min8Characters": "Password must be at least 8 characters long."
 }

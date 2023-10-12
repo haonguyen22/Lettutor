@@ -37,6 +37,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "becomeATutor":
             MessageLookupByLibrary.simpleMessage("Trở thành Gia sư"),
         "book": MessageLookupByLibrary.simpleMessage("Đặt lịch"),
+        "checkValidate": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng kiểm tra lại tất cả các thông tin đã nhập."),
         "contact": MessageLookupByLibrary.simpleMessage("Liên hệ"),
         "conversational": MessageLookupByLibrary.simpleMessage("Giao tiếp"),
         "courseLength": MessageLookupByLibrary.simpleMessage("Độ dài khóa học"),
@@ -67,11 +69,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Đăng xuất"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Phát triển kỹ năng tiếng Anh nhanh nhất bằng cách học 1 kèm 1 trực tuyến theo mục tiêu và lộ trình dành cho riêng bạn."),
+        "min8Characters": MessageLookupByLibrary.simpleMessage(
+            "Mật khẩu phải có ít nhất 8 ký tự."),
         "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":
             MessageLookupByLibrary.simpleMessage("Chưa là thành viên?"),
+        "notValidEmail": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng nhập một địa chỉ email hợp lệ."),
         "numOfLessons": m2,
         "numOfTopics": m3,
         "orContinueWith":

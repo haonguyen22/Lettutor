@@ -23,7 +23,7 @@ class _SettingsTabViewState extends State<SettingsTabView> {
     return SingleChildScrollView(
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: BlocBuilder<AuthBloc, AuthState>(
-        builder: (BuildContext context, AuthState authState) {
+        builder: (_, AuthState authState) {
           final user = authState.user;
           return Column(
             children: [

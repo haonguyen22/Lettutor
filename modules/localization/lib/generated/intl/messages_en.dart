@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "book": MessageLookupByLibrary.simpleMessage("Book"),
         "bookNumClasses": m0,
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "checkValidate": MessageLookupByLibrary.simpleMessage(
+            "Please check all of the input again"),
         "contact": MessageLookupByLibrary.simpleMessage("Contact"),
         "conversational":
             MessageLookupByLibrary.simpleMessage("Conversational"),
@@ -78,12 +80,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "logOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "loginDescription": MessageLookupByLibrary.simpleMessage(
             "Become fluent faster through one on one video chat lessons tailored to your goals."),
+        "min8Characters": MessageLookupByLibrary.simpleMessage(
+            "Password must be at least 8 characters long."),
         "myLevel": MessageLookupByLibrary.simpleMessage("My Level"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
         "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
+        "notValidEmail": MessageLookupByLibrary.simpleMessage(
+            "Please enter a valid email address."),
         "numOfLessons": m2,
         "numOfTopics": m3,
         "orContinueWith":

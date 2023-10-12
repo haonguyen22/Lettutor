@@ -5,6 +5,7 @@ class CustomInputLabelField extends StatefulWidget {
   final TextEditingController controller;
   final bool isObscure;
   final String? hintText;
+  final String? Function(String? input)? onValidator;
 
   const CustomInputLabelField({
     super.key,
@@ -12,6 +13,7 @@ class CustomInputLabelField extends StatefulWidget {
     required this.controller,
     this.hintText,
     this.isObscure = false,
+    this.onValidator,
   });
 
   @override
@@ -43,7 +45,7 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
             ),
           ),
         ),
-        TextField(
+        TextFormField(
           decoration: InputDecoration(
             hintText: widget.hintText,
             border: const OutlineInputBorder(
@@ -57,8 +59,10 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
                   )
                 : null,
           ),
+          autovalidateMode: AutovalidateMode.always,
           controller: widget.controller,
           obscureText: widget.isObscure && _showCancelIconInState,
+          validator: widget.onValidator,
         ),
       ],
     );
