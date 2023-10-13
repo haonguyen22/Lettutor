@@ -72,6 +72,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "min8Characters": MessageLookupByLibrary.simpleMessage(
             "Mật khẩu phải có ít nhất 8 ký tự."),
         "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
+        "noDataResponse":
+            MessageLookupByLibrary.simpleMessage("Không có dữ liệu trả về"),
+        "noResultSearch":
+            MessageLookupByLibrary.simpleMessage("Không có kết quả tìm kiếm"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":

@@ -869,6 +869,26 @@ class S {
       args: [],
     );
   }
+
+  /// `No data response`
+  String get noDataResponse {
+    return Intl.message(
+      'No data response',
+      name: 'noDataResponse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No result search`
+  String get noResultSearch {
+    return Intl.message(
+      'No result search',
+      name: 'noResultSearch',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

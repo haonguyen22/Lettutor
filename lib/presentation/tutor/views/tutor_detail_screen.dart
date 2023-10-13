@@ -189,13 +189,13 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                   ColumnInfoDetailWidget(
                     label: S.of(context).language,
                     content: WrapListWidget(
-                      listItem: widget.languages,
+                      listLabel: widget.languages,
                     ),
                   ),
                   ColumnInfoDetailWidget(
                     label: S.of(context).specialities,
                     content: WrapListWidget(
-                      listItem: widget.specialities,
+                      listLabel: widget.specialities,
                     ),
                   ),
                   ColumnInfoDetailWidget(

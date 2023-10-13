@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:let_tutor/data/models/tutor/search_tutor_response.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/domain/repositories/tutor_repository.dart';
 
@@ -20,7 +21,7 @@ class TutorUseCase {
     return await _tutorRepository.getTutors(page: page, perPage: perPage);
   }
 
-  Future<List<Tutor>?> searchTutor({required Map<String, dynamic> body}) async {
+  Future<SearchTutorsResponse?> searchTutor({required Map<String, dynamic> body}) async {
     return await _tutorRepository.searchTutor(body: body);
   }
 }

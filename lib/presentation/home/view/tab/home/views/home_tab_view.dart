@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/home/view/tab/home/bloc/tutor_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -13,34 +14,12 @@ class HomeTabView extends StatefulWidget {
   State<HomeTabView> createState() => _HomeTabViewState();
 }
 
-class _HomeTabViewState extends State<HomeTabView> {
-  final ScrollController _scrollController = ScrollController();
-
-  void _onScroll() {
-    if (_isBottom && context.read<TutorBloc>().state.isLoading == false) {
+class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
+  @override
+  void listener() {
+    if (isBottom && context.read<TutorBloc>().state.isLoading == false) {
       context.read<TutorBloc>().add(FetchTutor());
     }
-  }
-
-  bool get _isBottom {
-    if (!_scrollController.hasClients) return false;
-    final maxScroll = _scrollController.position.maxScrollExtent;
-    final currentScroll = _scrollController.offset;
-    return currentScroll >= maxScroll;
-  }
-
-  @override
-  void initState() {
-    _scrollController.addListener(_onScroll);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    _scrollController
-      ..removeListener(_onScroll)
-      ..dispose();
-    super.dispose();
   }
 
   @override
@@ -50,7 +29,7 @@ class _HomeTabViewState extends State<HomeTabView> {
         context.read<TutorBloc>().add(RefreshTutor());
       },
       child: CustomScrollView(
-        controller: _scrollController,
+        controller: scrollController,
         slivers: [
           SliverAppBar(
             pinned: false,
@@ -126,17 +105,17 @@ class _HomeTabViewState extends State<HomeTabView> {
                           },
                         ),
                       if (state.isLoading)
-                        const Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16.0),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(vertical: 16.0),
+                          child: Center(
                             child: CircularProgressIndicator(),
                           ),
                         ),
                       if (state.hasReachedMax)
-                        const Center(
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(vertical: 16.0),
-                            child: Text("End data"),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 16.0),
+                          child: Center(
+                            child: Text(S.of(context).noDataResponse),
                           ),
                         ),
                     ],

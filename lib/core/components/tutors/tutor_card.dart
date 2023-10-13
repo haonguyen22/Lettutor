@@ -144,7 +144,7 @@ class TutorCardWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                WrapListWidget(listItem: tags),
+                WrapListWidget(listLabel: tags),
                 if (description?.isNotEmpty ?? false) ...[
                   Padding(
                     padding: const EdgeInsets.only(top: 16.0, bottom: 20),

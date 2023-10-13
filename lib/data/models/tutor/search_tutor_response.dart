@@ -10,11 +10,9 @@ class SearchTutorsResponse {
     final data = json["rows"];
     if (data == null) return SearchTutorsResponse(0, null);
     return SearchTutorsResponse(
-      data["count"],
-      data["rows"] != null
-          ? (data["rows"] as List<dynamic>)
-              .map((e) => TutorModel.fromJson(e))
-              .toList()
+      json["count"],
+      data != null
+          ? (data as List<dynamic>).map((e) => TutorModel.fromJson(e)).toList()
           : null,
     );
   }

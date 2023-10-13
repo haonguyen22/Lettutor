@@ -62,5 +62,7 @@
     "numOfLessons": "{num} bài học",
     "notValidEmail": "Vui lòng nhập một địa chỉ email hợp lệ.",
     "checkValidate": "Vui lòng kiểm tra lại tất cả các thông tin đã nhập.",
-    "min8Characters": "Mật khẩu phải có ít nhất 8 ký tự."
+    "min8Characters": "Mật khẩu phải có ít nhất 8 ký tự.",
+    "noResultSearch": "Không có kết quả tìm kiếm",
+    "noDataResponse": "Không có dữ liệu trả về"
 }

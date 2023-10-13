@@ -46,10 +46,10 @@ class TutorRepositoryImpl implements TutorRepository {
   }
 
   @override
-  Future<List<Tutor>?> searchTutor({required Map<String, dynamic> body}) async {
+  Future<SearchTutorsResponse?> searchTutor({required Map<String, dynamic> body}) async {
     try {
       SearchTutorsResponse? res = await _tutorService.searchTutor(body: body);
-      return res?.tutors?.map((e) => e.toEntity()).toList();
+      return res;
     } catch (e) {
       log(e.toString());
       return null;

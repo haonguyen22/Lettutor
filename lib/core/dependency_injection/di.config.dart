@@ -28,9 +28,11 @@ import '../../domain/usecase/shared_preferences_usecase.dart' as _i4;
 import '../../domain/usecase/tutor_usecase.dart' as _i12;
 import '../../domain/usecase/user_usecase.dart' as _i15;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
-import '../../presentation/auth/bloc/auth_bloc.dart' as _i20;
-import '../../presentation/home/view/tab/home/bloc/tutor_bloc.dart' as _i19;
-import 'modules/service_modules.dart' as _i21;
+import '../../presentation/auth/bloc/auth_bloc.dart' as _i21;
+import '../../presentation/home/view/tab/home/bloc/tutor_bloc.dart' as _i20;
+import '../../presentation/home/view/tab/tutors/bloc/search_tutor_bloc.dart'
+    as _i19;
+import 'modules/service_modules.dart' as _i22;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -75,8 +77,10 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i16.AuthRepository>(),
           gh<_i3.SharedPreferences>(),
         ));
-    gh.factory<_i19.TutorBloc>(() => _i19.TutorBloc(gh<_i12.TutorUseCase>()));
-    gh.factory<_i20.AuthBloc>(() => _i20.AuthBloc(
+    gh.factory<_i19.SearchTutorBloc>(
+        () => _i19.SearchTutorBloc(gh<_i12.TutorUseCase>()));
+    gh.factory<_i20.TutorBloc>(() => _i20.TutorBloc(gh<_i12.TutorUseCase>()));
+    gh.factory<_i21.AuthBloc>(() => _i21.AuthBloc(
           gh<_i18.AuthUseCase>(),
           gh<_i15.UserUseCase>(),
         ));
@@ -84,4 +88,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$ServiceModules extends _i21.ServiceModules {}
+class _$ServiceModules extends _i22.ServiceModules {}

@@ -5,7 +5,7 @@ import 'package:let_tutor/presentation/home/view/tab/courses_tab_view.dart';
 import 'package:let_tutor/presentation/home/view/tab/home/views/home_tab_view.dart';
 import 'package:let_tutor/presentation/home/view/tab/schedule_tab_view.dart';
 import 'package:let_tutor/presentation/home/view/tab/settings_tab_view.dart';
-import 'package:let_tutor/presentation/home/view/tab/tutors/tutor_tab_view.dart';
+import 'package:let_tutor/presentation/home/view/tab/tutors/views/tutor_tab_view.dart';
 import 'package:let_tutor/core/widget/logo_icon.dart';
 import 'package:localization/generated/l10n.dart';
 

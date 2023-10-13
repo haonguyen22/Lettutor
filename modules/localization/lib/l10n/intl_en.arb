@@ -81,5 +81,7 @@
     "bookNumClasses": "You have booked {num} class(es)",
     "notValidEmail": "Please enter a valid email address.",
     "checkValidate": "Please check all of the input again",
-    "min8Characters": "Password must be at least 8 characters long."
+    "min8Characters": "Password must be at least 8 characters long.",
+    "noDataResponse": "No data response",
+    "noResultSearch": "No result search"
 }
