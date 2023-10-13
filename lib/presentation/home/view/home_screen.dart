@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
 import 'package:let_tutor/presentation/home/view/tab/courses_tab_view.dart';
-import 'package:let_tutor/presentation/home/view/tab/home_tab_view.dart';
+import 'package:let_tutor/presentation/home/view/tab/home/views/home_tab_view.dart';
 import 'package:let_tutor/presentation/home/view/tab/schedule_tab_view.dart';
 import 'package:let_tutor/presentation/home/view/tab/settings_tab_view.dart';
-import 'package:let_tutor/presentation/home/view/tab/tutor_tab_view.dart';
+import 'package:let_tutor/presentation/home/view/tab/tutors/tutor_tab_view.dart';
 import 'package:let_tutor/core/widget/logo_icon.dart';
 import 'package:localization/generated/l10n.dart';
 

@@ -18,6 +18,7 @@ class TutorCardWidget extends StatelessWidget {
   final VoidCallback? onCardTap;
   final VoidCallback? onFavoriteTap;
   final VoidCallback? onBookTap;
+  final bool isFavorite;
 
   const TutorCardWidget({
     super.key,
@@ -30,6 +31,7 @@ class TutorCardWidget extends StatelessWidget {
     this.onCardTap,
     this.onFavoriteTap,
     this.onBookTap,
+    this.isFavorite = false,
   });
 
   @override
@@ -190,7 +192,7 @@ class TutorCardWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Icon(
-                  Icons.favorite_outline,
+                  isFavorite ? Icons.favorite : Icons.favorite_outline,
                   color: context.primaryColor,
                   size: 30,
                 ),

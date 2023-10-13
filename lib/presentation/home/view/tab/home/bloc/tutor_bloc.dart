@@ -15,20 +15,43 @@ class TutorBloc extends Bloc<TutorEvent, TutorState> {
 
   TutorBloc(this._tutorUseCase) : super(const TutorInitial()) {
     on<FetchTutor>(fetchTutors);
+    on<RefreshTutor>(refreshTutor);
   }
 
   FutureOr<void> fetchTutors(FetchTutor event, Emitter<TutorState> emit) async {
     if (state.hasReachedMax) return;
     emit(
       TutorSuccess(
+        currentPage: state.currentPage,
         isLoading: true,
         tutors: state.tutors,
+        hasReachedMax: false,
       ),
     );
-    List<Tutor>? tutors =
-        await _tutorUseCase.getTutors(page: event.page, perPage: event.perPage);
+    List<Tutor>? tutors = await _tutorUseCase.getTutors(
+        page: state.currentPage, perPage: event.perPage);
     emit(
       TutorSuccess(
+        currentPage: state.currentPage + 1,
+        isLoading: false,
+        tutors: List<Tutor>.from(state.tutors ?? [])..addAll(tutors ?? []),
+        hasReachedMax: (tutors == null || tutors.isEmpty) ? true : false,
+      ),
+    );
+  }
+
+  FutureOr<void> refreshTutor(
+      RefreshTutor event, Emitter<TutorState> emit) async {
+    emit(const TutorInitial(
+      isLoading: true,
+      hasReachedMax: false,
+      currentPage: 1,
+      ));
+    List<Tutor>? tutors = await _tutorUseCase.getTutors(
+        page: state.currentPage, perPage: event.perPage);
+    emit(
+      TutorSuccess(
+        currentPage: state.currentPage + 1,
         isLoading: false,
         tutors: List<Tutor>.from(state.tutors ?? [])..addAll(tutors ?? []),
         hasReachedMax: (tutors == null || tutors.isEmpty) ? true : false,

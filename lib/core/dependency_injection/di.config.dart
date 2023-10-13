@@ -29,7 +29,7 @@ import '../../domain/usecase/tutor_usecase.dart' as _i12;
 import '../../domain/usecase/user_usecase.dart' as _i15;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
 import '../../presentation/auth/bloc/auth_bloc.dart' as _i20;
-import '../../presentation/tutor/bloc/tutor_bloc.dart' as _i19;
+import '../../presentation/home/view/tab/home/bloc/tutor_bloc.dart' as _i19;
 import 'modules/service_modules.dart' as _i21;
 
 extension GetItInjectableX on _i1.GetIt {

@@ -11,7 +11,6 @@ class Routes {
   static Map<String, WidgetBuilder> getAll() => _routes;
 
   static final Map<String, WidgetBuilder> _routes = {
-    RouteList.home: (context) => const HomeScreen(),
     RouteList.tutorDetail: (context) => const TutorDetailScreen(),
     RouteList.courseDetail: (context) => const CourseDetailScreen(),
     RouteList.login: (context) => const AuthScreen.login(),
@@ -21,6 +20,12 @@ class Routes {
 
   static Route getRouteGenerate(RouteSettings settings) {
     switch (settings.name) {
+      case RouteList.home:
+        return _buildRoute(
+          settings,
+          (context) => const HomeScreen(),
+        );
+
       case RouteList.courseTopicDetail:
         if (settings.arguments is CourseTopicDetailArgument) {
           final data = settings.arguments as CourseTopicDetailArgument;

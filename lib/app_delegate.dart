@@ -5,7 +5,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
-import 'package:let_tutor/presentation/tutor/bloc/tutor_bloc.dart';
+import 'package:let_tutor/presentation/home/view/tab/home/bloc/tutor_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
@@ -24,8 +24,9 @@ class AppDelegate {
       navigationKey: rootNavigationKey,
       providers: [
         BlocProvider<AppSettingBloc>(create: (_) => injector.get()),
-        BlocProvider<AuthBloc>(create: (_) => injector.get()) ,
-        BlocProvider<TutorBloc>(create: (_) => injector.get()),
+        BlocProvider<AuthBloc>(create: (_) => injector.get()),
+        BlocProvider<TutorBloc>(
+            create: (_) => injector.get<TutorBloc>()..add(FetchTutor())),
       ],
       themeSaved: savedThemeMode,
       initialRoute: RouteList.login,
