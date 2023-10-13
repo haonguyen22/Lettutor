@@ -10,7 +10,7 @@ const _kMaxRating = 5;
 
 class TutorCardWidget extends StatelessWidget {
   final String? imageUrl;
-  final String name;
+  final String? name;
   final String? country;
   final int rating;
   final List<String>? tags;
@@ -76,6 +76,14 @@ class TutorCardWidget extends StatelessWidget {
                               width: 70,
                               height: 70,
                               fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Image.asset(
+                                  _kDefaultImage,
+                                  width: 70,
+                                  height: 70,
+                                  fit: BoxFit.cover,
+                                );
+                              },
                             )
                           : Image.asset(
                               _kDefaultImage,
@@ -93,7 +101,7 @@ class TutorCardWidget extends StatelessWidget {
                           SizedBox(
                             width: MediaQuery.sizeOf(context).width * 0.5,
                             child: Text(
-                              name,
+                              name ?? '',
                               style: context.textTheme.titleMedium
                                   ?.copyWith(fontWeight: FontWeight.bold),
                               textAlign: TextAlign.start,
