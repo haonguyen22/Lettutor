@@ -73,8 +73,9 @@ class CourseCardWidget extends StatelessWidget {
                   ),
                 ],
               ),
-            SizedBox(
+            Container(
               width: MediaQuery.sizeOf(context).width,
+              padding: const EdgeInsetsDirectional.symmetric(vertical: 14.0),
               child: Text(
                 name,
                 style: context.textTheme.titleLarge
@@ -84,7 +85,6 @@ class CourseCardWidget extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
               ),
             ),
-            const SizedBox(height: 10),
             if (description?.isNotEmpty ?? false)
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 16.0),

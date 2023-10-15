@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
-import 'package:let_tutor/presentation/home/view/tab/home/bloc/tutor_bloc.dart';
+import 'package:let_tutor/presentation/home/home_tab/bloc/tutor_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
-import '../../../../../../core/components/tutors/tutor_card.dart';
+import '../../../../core/components/tutors/tutor_card.dart';
 
 class HomeTabView extends StatefulWidget {
   const HomeTabView({super.key});

@@ -5,7 +5,7 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:let_tutor/dummy/data.dart';
-import 'package:let_tutor/presentation/home/view/tab/tutors/bloc/search_tutor_bloc.dart';
+import 'package:let_tutor/presentation/home/tutor_tab/bloc/search_tutor_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
 class TutorTabView extends StatefulWidget {

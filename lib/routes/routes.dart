@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
-import 'package:let_tutor/presentation/home/view/home_screen.dart';
+import 'package:let_tutor/presentation/home/home_screen.dart';
 import 'package:let_tutor/presentation/profile/views/profile_screen.dart';
 import 'package:let_tutor/presentation/tutor/views/tutor_detail_screen.dart';
 import 'package:let_tutor/routes/route_list.dart';

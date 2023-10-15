@@ -15,24 +15,28 @@ import 'package:injectable/injectable.dart' as _i2;
 import 'package:shared_preferences/shared_preferences.dart' as _i3;
 
 import '../../data/datasource/remote/auth/auth_service.dart' as _i9;
+import '../../data/datasource/remote/course/course_service.dart' as _i10;
 import '../../data/datasource/remote/tutor/tutor_service.dart' as _i7;
 import '../../data/datasource/remote/user/user_service.dart' as _i8;
-import '../../data/repositories/auth_repository_impl.dart' as _i17;
-import '../../data/repositories/tutor_repository_impl.dart' as _i11;
-import '../../data/repositories/user_repository_impl.dart' as _i14;
-import '../../domain/repositories/auth_repository.dart' as _i16;
-import '../../domain/repositories/tutor_repository.dart' as _i10;
-import '../../domain/repositories/user_repository.dart' as _i13;
-import '../../domain/usecase/auth_usecase.dart' as _i18;
+import '../../data/repositories/auth_repository_impl.dart' as _i18;
+import '../../data/repositories/course_repository_impl.dart' as _i21;
+import '../../data/repositories/tutor_repository_impl.dart' as _i12;
+import '../../data/repositories/user_repository_impl.dart' as _i15;
+import '../../domain/repositories/auth_repository.dart' as _i17;
+import '../../domain/repositories/course_repository.dart' as _i20;
+import '../../domain/repositories/tutor_repository.dart' as _i11;
+import '../../domain/repositories/user_repository.dart' as _i14;
+import '../../domain/usecase/auth_usecase.dart' as _i19;
+import '../../domain/usecase/course_usecase.dart' as _i22;
 import '../../domain/usecase/shared_preferences_usecase.dart' as _i4;
-import '../../domain/usecase/tutor_usecase.dart' as _i12;
-import '../../domain/usecase/user_usecase.dart' as _i15;
+import '../../domain/usecase/tutor_usecase.dart' as _i13;
+import '../../domain/usecase/user_usecase.dart' as _i16;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
-import '../../presentation/auth/bloc/auth_bloc.dart' as _i21;
-import '../../presentation/home/view/tab/home/bloc/tutor_bloc.dart' as _i20;
-import '../../presentation/home/view/tab/tutors/bloc/search_tutor_bloc.dart'
-    as _i19;
-import 'modules/service_modules.dart' as _i22;
+import '../../presentation/auth/bloc/auth_bloc.dart' as _i25;
+import '../../presentation/home/course/bloc/course_bloc.dart' as _i26;
+import '../../presentation/home/home_tab/bloc/tutor_bloc.dart' as _i24;
+import '../../presentation/home/tutor_tab/bloc/search_tutor_bloc.dart' as _i23;
+import 'modules/service_modules.dart' as _i27;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -63,29 +67,36 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i7.TutorService>(() => _i7.TutorService(gh<_i6.Dio>()));
     gh.factory<_i8.UserService>(() => _i8.UserService(gh<_i6.Dio>()));
     gh.factory<_i9.AuthService>(() => _i9.AuthService(gh<_i6.Dio>()));
-    gh.factory<_i10.TutorRepository>(
-        () => _i11.TutorRepositoryImpl(gh<_i7.TutorService>()));
-    gh.factory<_i12.TutorUseCase>(
-        () => _i12.TutorUseCase(gh<_i10.TutorRepository>()));
-    gh.factory<_i13.UserRepository>(
-        () => _i14.UserRepositoryImplement(gh<_i8.UserService>()));
-    gh.factory<_i15.UserUseCase>(
-        () => _i15.UserUseCase(gh<_i13.UserRepository>()));
-    gh.factory<_i16.AuthRepository>(
-        () => _i17.AuthRepositoryImpl(gh<_i9.AuthService>()));
-    gh.factory<_i18.AuthUseCase>(() => _i18.AuthUseCase(
-          gh<_i16.AuthRepository>(),
+    gh.factory<_i10.CourseService>(() => _i10.CourseService(gh<_i6.Dio>()));
+    gh.factory<_i11.TutorRepository>(
+        () => _i12.TutorRepositoryImpl(gh<_i7.TutorService>()));
+    gh.factory<_i13.TutorUseCase>(
+        () => _i13.TutorUseCase(gh<_i11.TutorRepository>()));
+    gh.factory<_i14.UserRepository>(
+        () => _i15.UserRepositoryImplement(gh<_i8.UserService>()));
+    gh.factory<_i16.UserUseCase>(
+        () => _i16.UserUseCase(gh<_i14.UserRepository>()));
+    gh.factory<_i17.AuthRepository>(
+        () => _i18.AuthRepositoryImpl(gh<_i9.AuthService>()));
+    gh.factory<_i19.AuthUseCase>(() => _i19.AuthUseCase(
+          gh<_i17.AuthRepository>(),
           gh<_i3.SharedPreferences>(),
         ));
-    gh.factory<_i19.SearchTutorBloc>(
-        () => _i19.SearchTutorBloc(gh<_i12.TutorUseCase>()));
-    gh.factory<_i20.TutorBloc>(() => _i20.TutorBloc(gh<_i12.TutorUseCase>()));
-    gh.factory<_i21.AuthBloc>(() => _i21.AuthBloc(
-          gh<_i18.AuthUseCase>(),
-          gh<_i15.UserUseCase>(),
+    gh.factory<_i20.CourseRepository>(
+        () => _i21.CourseRepositoryImpl(gh<_i10.CourseService>()));
+    gh.factory<_i22.CourseUseCase>(
+        () => _i22.CourseUseCase(gh<_i20.CourseRepository>()));
+    gh.factory<_i23.SearchTutorBloc>(
+        () => _i23.SearchTutorBloc(gh<_i13.TutorUseCase>()));
+    gh.factory<_i24.TutorBloc>(() => _i24.TutorBloc(gh<_i13.TutorUseCase>()));
+    gh.factory<_i25.AuthBloc>(() => _i25.AuthBloc(
+          gh<_i19.AuthUseCase>(),
+          gh<_i16.UserUseCase>(),
         ));
+    gh.factory<_i26.CourseBloc>(
+        () => _i26.CourseBloc(gh<_i22.CourseUseCase>()));
     return this;
   }
 }
 
-class _$ServiceModules extends _i22.ServiceModules {}
+class _$ServiceModules extends _i27.ServiceModules {}
