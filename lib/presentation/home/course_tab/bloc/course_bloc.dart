@@ -21,36 +21,47 @@ class CourseBloc extends Bloc<CourseEvent, CourseState> {
   FutureOr<void> _fetchCourseEvent(
       FetchCourseEvent event, Emitter<CourseState> emit) async {
     if (state.hasReachedMax) return;
+    final page = state.search != event.search ? 1 : state.currentPage;
+    final newCourses =
+        state.search != event.search ? <Course>[] : state.courses;
 
     emit(CourseSuccess(
-      currentPage: state.currentPage,
+      currentPage: page,
       isLoading: true,
-      courses: state.courses,
+      courses: newCourses,
       hasReachedMax: false,
+      search: event.search,
     ));
     List<Course>? courses = await _courseUseCase.getCoursesByPage(
-        page: state.currentPage, perPage: event.perPage);
+        page: page, perPage: event.perPage, search: event.search);
 
     emit(CourseSuccess(
       courses: List<Course>.from(state.courses ?? [])..addAll(courses ?? []),
-      currentPage: state.currentPage + 1,
+      currentPage: page + 1,
       hasReachedMax: (courses?.isEmpty ?? false) ? true : false,
       isLoading: false,
+      search: event.search,
     ));
   }
 
   FutureOr<void> _refreshCourseEvent(
       RefreshCourseEvent event, Emitter<CourseState> emit) async {
-    emit(const CourseInitial(isLoading: true));
+    emit(CourseInitial(
+      isLoading: true,
+      search: state.search,
+      currentPage: 1,
+      hasReachedMax: false,
+    ));
 
     List<Course>? courses = await _courseUseCase.getCoursesByPage(
-        page: state.currentPage, perPage: event.perPage);
+        page: state.currentPage, perPage: event.perPage, search: state.search);
 
     emit(CourseSuccess(
       courses: courses,
       currentPage: state.currentPage + 1,
       hasReachedMax: (courses?.isEmpty ?? false) ? true : false,
       isLoading: false,
+      search: state.search,
     ));
   }
 }

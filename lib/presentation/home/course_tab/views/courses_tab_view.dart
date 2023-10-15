@@ -1,8 +1,9 @@
+import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/components/courses/course_card.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
-import 'package:let_tutor/presentation/home/course/bloc/course_bloc.dart';
+import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
 class CoursesTabView extends StatefulWidget {
@@ -20,7 +21,7 @@ class _CoursesTabViewState extends State<CoursesTabView>
   @override
   void listener() {
     if (isBottom && context.read<CourseBloc>().state.isLoading == false) {
-      context.read<CourseBloc>().add(FetchCourseEvent());
+      context.read<CourseBloc>().add(FetchCourseEvent(search: _search.text));
     }
   }
 
@@ -60,6 +61,14 @@ class _CoursesTabViewState extends State<CoursesTabView>
                             borderSide: BorderSide(color: Colors.grey)),
                       ),
                       controller: _search,
+                      onChanged: (value) {
+                        EasyDebounce.debounce("course_search_debounec",
+                            const Duration(milliseconds: 500), () {
+                          context
+                              .read<CourseBloc>()
+                              .add(FetchCourseEvent(search: _search.text));
+                        });
+                      },
                     ),
                     const SizedBox(height: 10),
                     ...List.generate(

@@ -5,8 +5,10 @@ abstract class CourseEvent {}
 
 class FetchCourseEvent extends CourseEvent{
   final int perPage;
+  final String search;
   FetchCourseEvent({
     this.perPage = 10,
+    this.search = "",
   });
 }
 

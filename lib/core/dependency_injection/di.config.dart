@@ -33,7 +33,7 @@ import '../../domain/usecase/tutor_usecase.dart' as _i13;
 import '../../domain/usecase/user_usecase.dart' as _i16;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
 import '../../presentation/auth/bloc/auth_bloc.dart' as _i25;
-import '../../presentation/home/course/bloc/course_bloc.dart' as _i26;
+import '../../presentation/home/course_tab/bloc/course_bloc.dart' as _i26;
 import '../../presentation/home/home_tab/bloc/tutor_bloc.dart' as _i24;
 import '../../presentation/home/tutor_tab/bloc/search_tutor_bloc.dart' as _i23;
 import 'modules/service_modules.dart' as _i27;

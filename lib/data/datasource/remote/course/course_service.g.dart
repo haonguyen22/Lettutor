@@ -22,11 +22,13 @@ class _CourseService implements CourseService {
   Future<CourseResponse?> getCourses({
     required int page,
     required int size,
+    required String search,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'page': page,
       r'size': size,
+      r'q': search,
     };
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;

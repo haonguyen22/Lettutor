@@ -19,6 +19,7 @@ abstract class CourseService {
   Future<CourseResponse?> getCourses({
     @Query("page") required int page,
     @Query("size") required int size,
+    @Query("q") required String search,
   });
 
   @GET(getCourseByIDApi)

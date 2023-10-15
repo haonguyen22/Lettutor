@@ -18,9 +18,13 @@ class CourseRepositoryImpl implements CourseRepository {
   }
 
   @override
-  Future<List<Course>?> getCourses({required int page, int size = 10}) async {
+  Future<List<Course>?> getCourses({
+    required int page,
+    int size = 10,
+    String search = "",
+  }) async {
     CourseResponse? res =
-        await _courseService.getCourses(page: page, size: size);
+        await _courseService.getCourses(page: page, size: size, search: search);
     return res?.data?.rows?.map((e) => e.toEntity()).toList();
   }
 }

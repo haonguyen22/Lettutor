@@ -5,7 +5,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
-import 'package:let_tutor/presentation/home/course/bloc/course_bloc.dart';
+import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
 import 'package:let_tutor/presentation/home/tutor_tab/bloc/search_tutor_bloc.dart';
 import 'package:let_tutor/presentation/home/home_tab/bloc/tutor_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';

@@ -13,7 +13,11 @@ class CourseUseCase {
   }
 
   Future<List<Course>?> getCoursesByPage(
-      {required int page, int perPage = 10}) async {
-    return await _courseRepository.getCourses(page: page, size: perPage);
+      {required int page, int perPage = 10, String search = ""}) async {
+    return await _courseRepository.getCourses(
+      page: page,
+      size: perPage,
+      search: search,
+    );
   }
 }

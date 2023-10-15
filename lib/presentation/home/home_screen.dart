@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/presentation/auth/widgets/icon_language.dart';
-import 'package:let_tutor/presentation/home/course/views/courses_tab_view.dart';
+import 'package:let_tutor/presentation/home/course_tab/views/courses_tab_view.dart';
 import 'package:let_tutor/presentation/home/tutor_tab/views/tutor_tab_view.dart';
 import 'package:let_tutor/presentation/home/home_tab/views/home_tab_view.dart';
 import 'package:let_tutor/presentation/home/schedule_tab_view.dart';

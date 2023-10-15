@@ -6,12 +6,14 @@ abstract class CourseState {
   final bool isLoading;
   final bool hasReachedMax;
   final int currentPage;
+  final String search;
 
   const CourseState({
     this.isLoading = false,
     this.courses,
     this.hasReachedMax = false,
     this.currentPage = 1,
+    this.search = "",
   });
 }
 
@@ -20,6 +22,7 @@ class CourseInitial extends CourseState {
     super.isLoading,
     super.hasReachedMax,
     super.currentPage,
+    super.search,
   });
 }
 
@@ -29,5 +32,6 @@ class CourseSuccess extends CourseState {
     super.courses,
     super.hasReachedMax,
     super.currentPage,
+    super.search,
   });
 }
