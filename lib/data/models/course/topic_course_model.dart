@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'topic_course_model.freezed.dart';
 part 'topic_course_model.g.dart';
+
 @freezed
 class TopicCourseModel with _$TopicCourseModel {
   const TopicCourseModel._();
@@ -21,5 +22,6 @@ class TopicCourseModel with _$TopicCourseModel {
     String? updatedAt,
   }) = _TopicCourseModel;
 
-  factory TopicCourseModel.fromJson(Map<String, dynamic> json)=> _$TopicCourseModelFromJson(json);
+  factory TopicCourseModel.fromJson(Map<String, dynamic> json) =>
+      _$TopicCourseModelFromJson(json);
 }

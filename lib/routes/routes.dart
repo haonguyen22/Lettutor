@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:let_tutor/domain/entities/course.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
 import 'package:let_tutor/presentation/home/home_screen.dart';
@@ -12,7 +13,6 @@ class Routes {
 
   static final Map<String, WidgetBuilder> _routes = {
     RouteList.tutorDetail: (context) => const TutorDetailScreen(),
-    RouteList.courseDetail: (context) => const CourseDetailScreen(),
     RouteList.login: (context) => const AuthScreen.login(),
     RouteList.signUp: (context) => const AuthScreen.signUp(),
     RouteList.profile: (context) => const ProfileScreen(),
@@ -25,6 +25,16 @@ class Routes {
           settings,
           (context) => const HomeScreen(),
         );
+
+      case RouteList.courseDetail:
+        if (settings.arguments is Course) {
+          final data = settings.arguments as Course;
+          return _buildRoute(
+            settings,
+            (context) => CourseDetailScreen(course: data),
+          );
+        }
+        return _errorRoute();
 
       case RouteList.courseTopicDetail:
         if (settings.arguments is CourseTopicDetailArgument) {

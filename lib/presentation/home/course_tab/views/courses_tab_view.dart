@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/components/courses/course_card.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
+import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
 class CoursesTabView extends StatefulWidget {
@@ -15,26 +16,25 @@ class CoursesTabView extends StatefulWidget {
 
 class _CoursesTabViewState extends State<CoursesTabView>
     with TickerProviderStateMixin, LoadMoreMixin {
-  late final TabController _tabController;
   late final TextEditingController _search;
+
+  CourseBloc get _courseBloc => context.read<CourseBloc>();
 
   @override
   void listener() {
-    if (isBottom && context.read<CourseBloc>().state.isLoading == false) {
-      context.read<CourseBloc>().add(FetchCourseEvent(search: _search.text));
+    if (isBottom && _courseBloc.state.isLoading == false) {
+      _courseBloc.add(FetchCourseEvent(search: _search.text));
     }
   }
 
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 2, vsync: this);
     _search = TextEditingController();
   }
 
   @override
   void dispose() {
-    _tabController.dispose();
     _search.dispose();
     super.dispose();
   }
@@ -44,7 +44,7 @@ class _CoursesTabViewState extends State<CoursesTabView>
     return Scaffold(
       body: RefreshIndicator(
         onRefresh: () async {
-          context.read<CourseBloc>().add(RefreshCourseEvent());
+          _courseBloc.add(RefreshCourseEvent());
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -64,9 +64,9 @@ class _CoursesTabViewState extends State<CoursesTabView>
                       onChanged: (value) {
                         EasyDebounce.debounce("course_search_debounec",
                             const Duration(milliseconds: 500), () {
-                          context
-                              .read<CourseBloc>()
-                              .add(FetchCourseEvent(search: _search.text));
+                          _courseBloc.add(
+                            FetchCourseEvent(search: _search.text),
+                          );
                         });
                       },
                     ),
@@ -78,12 +78,14 @@ class _CoursesTabViewState extends State<CoursesTabView>
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
                           child: CourseCardWidget(
-                            name: course.name ?? "",
-                            imageUrl: course.imageUrl,
-                            description: course.description,
-                            level: course.level,
-                            numOfLesson: course.topics?.length ?? 0,
-                          ),
+                              name: course.name ?? "",
+                              imageUrl: course.imageUrl,
+                              description: course.description,
+                              level: course.level,
+                              numOfLesson: course.topics?.length,
+                              onTap: () => Navigator.of(context).pushNamed(
+                                  RouteList.courseDetail,
+                                  arguments: state.courses![index])),
                         );
                       },
                     ),

@@ -25,6 +25,6 @@ class CourseRepositoryImpl implements CourseRepository {
   }) async {
     CourseResponse? res =
         await _courseService.getCourses(page: page, size: size, search: search);
-    return res?.data?.rows?.map((e) => e.toEntity()).toList();
+    return res?.data?.rows?.toList().map((e) => e.toEntity()).toList();
   }
 }

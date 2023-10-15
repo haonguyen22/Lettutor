@@ -11,7 +11,7 @@ class CourseCardWidget extends StatelessWidget {
   final String? level;
   final int? numOfLesson;
   final VoidCallback? onTap;
-  final int totalLesson;
+  final int? totalLesson;
 
   const CourseCardWidget({
     super.key,
@@ -22,7 +22,7 @@ class CourseCardWidget extends StatelessWidget {
     this.numOfLesson,
     this.level,
     this.onTap,
-    this.totalLesson = 0,
+    this.totalLesson,
   });
 
   @override
@@ -106,7 +106,7 @@ class CourseCardWidget extends StatelessWidget {
                     style: TextStyle(color: Theme.of(context).hintColor),
                   ),
                   Text(
-                    S.of(context).numOfLessons(totalLesson),
+                    S.of(context).numOfLessons(totalLesson ?? 0),
                     style: TextStyle(color: Theme.of(context).hintColor),
                   )
                 ],
