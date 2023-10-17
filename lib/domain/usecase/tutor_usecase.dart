@@ -21,7 +21,14 @@ class TutorUseCase {
     return await _tutorRepository.getTutors(page: page, perPage: perPage);
   }
 
-  Future<SearchTutorsResponse?> searchTutor({required Map<String, dynamic> body}) async {
+  Future<SearchTutorsResponse?> searchTutor(
+      {required Map<String, dynamic> body}) async {
     return await _tutorRepository.searchTutor(body: body);
+  }
+
+  Future<void> reportTutor(
+      {required String tutorId, required String content}) async {
+    return await _tutorRepository.reportTutor(
+        tutorId: tutorId, content: content);
   }
 }

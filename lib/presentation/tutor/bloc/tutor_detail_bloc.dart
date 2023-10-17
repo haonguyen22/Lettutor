@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/domain/usecase/tutor_usecase.dart';
@@ -19,6 +20,7 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
   ) : super(const TutorDetailInitial()) {
     on<FetchTutorByIdEvent>(_fetchTutorByIdEvent);
     on<FavoriteTutorEvent>(_favoriteTutorEvent);
+    on<ReportTutorEvent>(_reportTutorEvent);
   }
 
   FutureOr<void> _fetchTutorByIdEvent(
@@ -48,5 +50,24 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
         tutor: mergeTutors(tutorParam, tutor),
         name: state.name,
         processing: false));
+  }
+
+  FutureOr<void> _reportTutorEvent(
+      ReportTutorEvent event, Emitter<TutorDetailState> emit) async {
+    emit(TutorDetailSuccess(
+      isLoading: state.isLoading,
+      tutor: state.tutor,
+      name: state.name,
+      processing: true,
+    ));
+    await _tutorUseCase.reportTutor(
+        tutorId: event.tutorId, content: event.content);
+    emit(TutorDetailSuccess(
+      isLoading: state.isLoading,
+      tutor: state.tutor,
+      name: state.name,
+      processing: false,
+    ));
+    event.onSuccess();
   }
 }

@@ -65,5 +65,14 @@
     "min8Characters": "Mật khẩu phải có ít nhất 8 ký tự.",
     "noResultSearch": "Không có kết quả tìm kiếm",
     "noDataResponse": "Không có dữ liệu trả về",
-    "noReview": "Không có đánh giá"
+    "noReview": "Không có đánh giá",
+    "reportTutor": "Báo cáo {tutor}",
+    "helpUsToUnderstand": "Hãy giúp chúng tôi hiểu sự việc",
+    "inappropriatePhoto": "Ảnh hồ sơ không phù hợp",
+    "profilePretendingOrFake": "Hồ sơ này giả vờ là người khác hoặc là giả mạo",
+    "tutorAnnoyMe": "Gia sư này làm phiền tôi",
+    "letUsKnowDetailsYourProblem": "Hãy cho chúng tôi biết chi tiết về vấn đề của bạn",
+    "submit": "Gửi",
+    "reportSuccessfully": "Báo cáo thành công !!",
+    "reportError": "Lỗi khi báo cáo, vui lòng kiểm tra lại"
 }

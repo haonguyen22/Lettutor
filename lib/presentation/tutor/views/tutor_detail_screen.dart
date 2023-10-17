@@ -1,5 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/components/tutors/tutor_report_dialog.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/column_info_detail.dart';
@@ -24,11 +27,46 @@ class TutorDetailScreen extends StatefulWidget {
 
 class _TutorDetailScreenState extends State<TutorDetailScreen> {
   TutorDetailBloc get tutorDetailBloc => context.read<TutorDetailBloc>();
+  late TextEditingController reportTextController;
 
   @override
   void initState() {
+    reportTextController = TextEditingController();
     tutorDetailBloc.add(FetchTutorByIdEvent());
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    reportTextController.dispose();
+    super.dispose();
+  }
+
+  Future<void> onTapReport() async {
+    final tutor = tutorDetailBloc.state.tutor;
+    final isSubmit = await showDialog(
+      context: context,
+      builder: (context) => TutorReportDialog(
+        tutor: tutorDetailBloc.state.tutor,
+        controller: reportTextController,
+      ),
+    );
+    if (isSubmit) {
+      try {
+        tutorDetailBloc.add(
+          ReportTutorEvent(
+            tutorId: tutor?.userId ?? "",
+            content: reportTextController.text,
+            onSuccess: () => ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text(S.of(context).reportSuccessfully)),
+            ),
+          ),
+        );
+      } catch (e) {
+        ScaffoldMessenger.of(context)
+            .showSnackBar(SnackBar(content: Text(S.of(context).reportError)));
+      }
+    }
   }
 
   @override
@@ -179,12 +217,14 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                                 IconLabelWidget(
                                   icon: Icons.info_outline,
                                   label: S.of(context).report,
+                                  onTap: onTapReport,
                                 ),
                                 IconLabelWidget(
                                   icon: Icons.reviews_outlined,
                                   label: S.of(context).review,
-                                  onTap: () => Navigator.of(context)
-                                      .pushNamed(RouteList.review, arguments: tutor),
+                                  onTap: () => Navigator.of(context).pushNamed(
+                                      RouteList.review,
+                                      arguments: tutor),
                                 ),
                               ],
                             ),

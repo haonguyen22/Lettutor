@@ -14,6 +14,7 @@ abstract class TutorService {
   static const String tutorByID = '/tutor/{id}';
   static const String searchTutors = '/tutor/search';
   static const String addToFavorite = '/user/manageFavoriteTutor';
+  static const String reportApi = '/report';
 
   @factoryMethod
   factory TutorService(Dio dio) = _TutorService;
@@ -36,6 +37,11 @@ abstract class TutorService {
 
   @POST(addToFavorite)
   Future<void> addTutorToFavorite({
+    @Body() required Map<String, dynamic> body,
+  });
+
+  @POST(reportApi)
+  Future<void> reportTutor({
     @Body() required Map<String, dynamic> body,
   });
 }

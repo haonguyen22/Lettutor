@@ -899,6 +899,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Report {tutor}`
+  String reportTutor(Object tutor) {
+    return Intl.message(
+      'Report $tutor',
+      name: 'reportTutor',
+      desc: '',
+      args: [tutor],
+    );
+  }
+
+  /// `Help us understand what's happening`
+  String get helpUsToUnderstand {
+    return Intl.message(
+      'Help us understand what\'s happening',
+      name: 'helpUsToUnderstand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Inappropriate profile photo`
+  String get inappropriatePhoto {
+    return Intl.message(
+      'Inappropriate profile photo',
+      name: 'inappropriatePhoto',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This profile is pretending be someone or is fake`
+  String get profilePretendingOrFake {
+    return Intl.message(
+      'This profile is pretending be someone or is fake',
+      name: 'profilePretendingOrFake',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This tutor is annoying me`
+  String get tutorAnnoyMe {
+    return Intl.message(
+      'This tutor is annoying me',
+      name: 'tutorAnnoyMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please let us know details about your problems`
+  String get letUsKnowDetailsYourProblem {
+    return Intl.message(
+      'Please let us know details about your problems',
+      name: 'letUsKnowDetailsYourProblem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Submit`
+  String get submit {
+    return Intl.message(
+      'Submit',
+      name: 'submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Successfully !!`
+  String get reportSuccessfully {
+    return Intl.message(
+      'Report Successfully !!',
+      name: 'reportSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report Error, please check again`
+  String get reportError {
+    return Intl.message(
+      'Report Error, please check again',
+      name: 'reportError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

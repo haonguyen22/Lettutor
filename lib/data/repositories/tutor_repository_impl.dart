@@ -16,7 +16,7 @@ class TutorRepositoryImpl implements TutorRepository {
   @override
   Future<void> addTutorToFavorite({required String id}) async {
     try {
-        await _tutorService.addTutorToFavorite(body: {"tutorId": id});
+      await _tutorService.addTutorToFavorite(body: {"tutorId": id});
     } catch (e) {
       log(e.toString());
     }
@@ -46,13 +46,28 @@ class TutorRepositoryImpl implements TutorRepository {
   }
 
   @override
-  Future<SearchTutorsResponse?> searchTutor({required Map<String, dynamic> body}) async {
+  Future<SearchTutorsResponse?> searchTutor(
+      {required Map<String, dynamic> body}) async {
     try {
       SearchTutorsResponse? res = await _tutorService.searchTutor(body: body);
       return res;
     } catch (e) {
       log(e.toString());
       return null;
+    }
+  }
+
+  @override
+  Future<void> reportTutor(
+      {required String tutorId, required String content}) async {
+    try {
+      await _tutorService.reportTutor(body: {
+        "tutorId": tutorId,
+        "content": content,
+      });
+    } catch (e) {
+      log(e.toString());
+      return;
     }
   }
 }

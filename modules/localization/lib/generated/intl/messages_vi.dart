@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(num) => "${num} chủ đề";
 
+  static String m4(tutor) => "Báo cáo ${tutor}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Về chúng tôi"),
@@ -59,10 +61,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "forgotPassword":
             MessageLookupByLibrary.simpleMessage("Quên mật khẩu?"),
         "foundNResult": m1,
+        "helpUsToUnderstand": MessageLookupByLibrary.simpleMessage(
+            "Hãy giúp chúng tôi hiểu sự việc"),
         "home": MessageLookupByLibrary.simpleMessage("Trang chủ"),
+        "inappropriatePhoto":
+            MessageLookupByLibrary.simpleMessage("Ảnh hồ sơ không phù hợp"),
         "interests": MessageLookupByLibrary.simpleMessage("Sở thích"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
+            "Hãy cho chúng tôi biết chi tiết về vấn đề của bạn"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Chế độ sáng"),
         "listTopics": MessageLookupByLibrary.simpleMessage("Danh sách chủ đề"),
         "logIn": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
@@ -91,9 +99,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "privacyPolicy":
             MessageLookupByLibrary.simpleMessage("Chính sách bảo mật"),
+        "profilePretendingOrFake": MessageLookupByLibrary.simpleMessage(
+            "Hồ sơ này giả vờ là người khác hoặc là giả mạo"),
         "recommendedTutors":
             MessageLookupByLibrary.simpleMessage("Đề xuất gia sư"),
         "report": MessageLookupByLibrary.simpleMessage("Báo cáo"),
+        "reportError": MessageLookupByLibrary.simpleMessage(
+            "Lỗi khi báo cáo, vui lòng kiểm tra lại"),
+        "reportSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Báo cáo thành công !!"),
+        "reportTutor": m4,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
         "review": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
@@ -107,10 +122,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "specialities": MessageLookupByLibrary.simpleMessage("Chuyên môn"),
         "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),
+        "submit": MessageLookupByLibrary.simpleMessage("Gửi"),
         "teachingExperience":
             MessageLookupByLibrary.simpleMessage("Kinh nghiệm giảng dạy"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Điều khoản và Điều kiện"),
+        "tutorAnnoyMe":
+            MessageLookupByLibrary.simpleMessage("Gia sư này làm phiền tôi"),
         "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
         "welcomeToLetTutor": MessageLookupByLibrary.simpleMessage(
             "Chào mừng bạn đến với LetTutor!"),

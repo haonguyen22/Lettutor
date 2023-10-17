@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(num) => "${num} topics";
 
+  static String m4(tutor) => "Report ${tutor}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -69,11 +71,17 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Forgot Password?"),
         "foundNResult": m1,
         "goToMeeting": MessageLookupByLibrary.simpleMessage("Go To Meeting"),
+        "helpUsToUnderstand": MessageLookupByLibrary.simpleMessage(
+            "Help us understand what\'s happening"),
         "history": MessageLookupByLibrary.simpleMessage("History"),
         "home": MessageLookupByLibrary.simpleMessage("Home"),
+        "inappropriatePhoto":
+            MessageLookupByLibrary.simpleMessage("Inappropriate profile photo"),
         "interests": MessageLookupByLibrary.simpleMessage("Interests"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
+        "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
+            "Please let us know details about your problems"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Light theme"),
         "listTopics": MessageLookupByLibrary.simpleMessage("List Topics"),
         "logIn": MessageLookupByLibrary.simpleMessage("Log In"),
@@ -104,9 +112,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "phone": MessageLookupByLibrary.simpleMessage("Phone number"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "profilePretendingOrFake": MessageLookupByLibrary.simpleMessage(
+            "This profile is pretending be someone or is fake"),
         "recommendedTutors":
             MessageLookupByLibrary.simpleMessage("Recommended Tutors"),
         "report": MessageLookupByLibrary.simpleMessage("Report"),
+        "reportError": MessageLookupByLibrary.simpleMessage(
+            "Report Error, please check again"),
+        "reportSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
+        "reportTutor": m4,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
@@ -122,6 +137,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
         "studySchedule": MessageLookupByLibrary.simpleMessage("Study schedule"),
+        "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "teachingExperience":
             MessageLookupByLibrary.simpleMessage("Teaching Experience"),
         "termAndConditions":
@@ -129,6 +145,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "testPreparations":
             MessageLookupByLibrary.simpleMessage("Test preparations"),
         "topic": MessageLookupByLibrary.simpleMessage("Topic"),
+        "tutorAnnoyMe":
+            MessageLookupByLibrary.simpleMessage("This tutor is annoying me"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "vietnameseTutors":

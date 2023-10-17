@@ -84,5 +84,14 @@
     "min8Characters": "Password must be at least 8 characters long.",
     "noDataResponse": "No data response",
     "noResultSearch": "No result search",
-    "noReview": "There is no review"
+    "noReview": "There is no review",
+    "reportTutor": "Report {tutor}",
+    "helpUsToUnderstand": "Help us understand what's happening",
+    "inappropriatePhoto": "Inappropriate profile photo",
+    "profilePretendingOrFake": "This profile is pretending be someone or is fake",
+    "tutorAnnoyMe": "This tutor is annoying me",
+    "letUsKnowDetailsYourProblem": "Please let us know details about your problems",
+    "submit": "Submit",
+    "reportSuccessfully": "Report Successfully !!",
+    "reportError": "Report Error, please check again"
 }
