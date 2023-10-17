@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/domain/entities/course.dart';
+import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
 import 'package:let_tutor/presentation/home/home_screen.dart';
 import 'package:let_tutor/presentation/profile/views/profile_screen.dart';
+import 'package:let_tutor/presentation/tutor/bloc/tutor_detail_bloc.dart';
+import 'package:let_tutor/presentation/tutor/views/review_screen.dart';
 import 'package:let_tutor/presentation/tutor/views/tutor_detail_screen.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/presentation/auth/view/auth_screen.dart';
@@ -12,7 +17,6 @@ class Routes {
   static Map<String, WidgetBuilder> getAll() => _routes;
 
   static final Map<String, WidgetBuilder> _routes = {
-    RouteList.tutorDetail: (context) => const TutorDetailScreen(),
     RouteList.login: (context) => const AuthScreen.login(),
     RouteList.signUp: (context) => const AuthScreen.signUp(),
     RouteList.profile: (context) => const ProfileScreen(),
@@ -25,6 +29,16 @@ class Routes {
           settings,
           (context) => const HomeScreen(),
         );
+
+      case RouteList.review:
+        if (settings.arguments is Tutor) {
+          final data = settings.arguments as Tutor;
+          return _buildRoute(
+            settings,
+            (context) => ReviewScreen(tutor: data),
+          );
+        }
+        return _errorRoute();
 
       case RouteList.courseDetail:
         if (settings.arguments is Course) {
@@ -42,6 +56,21 @@ class Routes {
           return _buildRoute(
             settings,
             (context) => CourseTopicDetailScreen(data: data),
+          );
+        }
+        return _errorRoute();
+
+      case RouteList.tutorDetail:
+        if (settings.arguments is Tutor) {
+          final data = settings.arguments as Tutor;
+          return _buildRoute(
+            settings,
+            (context) => BlocProvider<TutorDetailBloc>(
+              create: (context) => injector.get<TutorDetailBloc>(
+                param1: data,
+              ),
+              child: const TutorDetailScreen(),
+            ),
           );
         }
         return _errorRoute();

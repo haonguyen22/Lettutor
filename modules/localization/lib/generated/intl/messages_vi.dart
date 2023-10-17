@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Không có dữ liệu trả về"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("Không có kết quả tìm kiếm"),
+        "noReview": MessageLookupByLibrary.simpleMessage("Không có đánh giá"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":

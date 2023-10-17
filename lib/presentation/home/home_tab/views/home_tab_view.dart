@@ -88,18 +88,11 @@ class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
                         ...List.generate(
                           state.tutors!.length,
                           (index) {
-                            final tutor = state.tutors![index];
                             return Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 12.0),
                               child: TutorCardWidget(
-                                name: tutor.name,
-                                imageUrl: tutor.imageUrl,
-                                description: tutor.bio,
-                                tags: tutor.specialties?.split(','),
-                                country: tutor.country,
-                                rating: tutor.rating?.floor() ?? 0,
-                                isFavorite: tutor.isFavorite ?? false,
+                                tutor: state.tutors![index],
                               ),
                             );
                           },

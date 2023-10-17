@@ -889,6 +889,16 @@ class S {
       args: [],
     );
   }
+
+  /// `There is no review`
+  String get noReview {
+    return Intl.message(
+      'There is no review',
+      name: 'noReview',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

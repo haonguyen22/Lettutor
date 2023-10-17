@@ -89,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("No data response"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("No result search"),
+        "noReview": MessageLookupByLibrary.simpleMessage("There is no review"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),

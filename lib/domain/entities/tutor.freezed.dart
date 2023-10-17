@@ -39,6 +39,8 @@ mixin _$Tutor {
   double? get price => throw _privateConstructorUsedError;
   int? get totalFeedback => throw _privateConstructorUsedError;
   bool? get isFavorite => throw _privateConstructorUsedError;
+  UserTutorModel? get user => throw _privateConstructorUsedError;
+  List<FeedBackModel>? get feedbacks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +71,11 @@ abstract class $TutorCopyWith<$Res> {
       double? rating,
       double? price,
       int? totalFeedback,
-      bool? isFavorite});
+      bool? isFavorite,
+      UserTutorModel? user,
+      List<FeedBackModel>? feedbacks});
+
+  $UserTutorModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -104,6 +110,8 @@ class _$TutorCopyWithImpl<$Res, $Val extends Tutor>
     Object? price = freezed,
     Object? totalFeedback = freezed,
     Object? isFavorite = freezed,
+    Object? user = freezed,
+    Object? feedbacks = freezed,
   }) {
     return _then(_value.copyWith(
       imageUrl: freezed == imageUrl
@@ -182,7 +190,27 @@ class _$TutorCopyWithImpl<$Res, $Val extends Tutor>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserTutorModel?,
+      feedbacks: freezed == feedbacks
+          ? _value.feedbacks
+          : feedbacks // ignore: cast_nullable_to_non_nullable
+              as List<FeedBackModel>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UserTutorModelCopyWith<$Res>? get user {
+    if (_value.user == null) {
+      return null;
+    }
+
+    return $UserTutorModelCopyWith<$Res>(_value.user!, (value) {
+      return _then(_value.copyWith(user: value) as $Val);
+    });
   }
 }
 
@@ -211,7 +239,12 @@ abstract class _$$_TutorCopyWith<$Res> implements $TutorCopyWith<$Res> {
       double? rating,
       double? price,
       int? totalFeedback,
-      bool? isFavorite});
+      bool? isFavorite,
+      UserTutorModel? user,
+      List<FeedBackModel>? feedbacks});
+
+  @override
+  $UserTutorModelCopyWith<$Res>? get user;
 }
 
 /// @nodoc
@@ -242,6 +275,8 @@ class __$$_TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res, _$_Tutor>
     Object? price = freezed,
     Object? totalFeedback = freezed,
     Object? isFavorite = freezed,
+    Object? user = freezed,
+    Object? feedbacks = freezed,
   }) {
     return _then(_$_Tutor(
       imageUrl: freezed == imageUrl
@@ -320,6 +355,14 @@ class __$$_TutorCopyWithImpl<$Res> extends _$TutorCopyWithImpl<$Res, _$_Tutor>
           ? _value.isFavorite
           : isFavorite // ignore: cast_nullable_to_non_nullable
               as bool?,
+      user: freezed == user
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as UserTutorModel?,
+      feedbacks: freezed == feedbacks
+          ? _value._feedbacks
+          : feedbacks // ignore: cast_nullable_to_non_nullable
+              as List<FeedBackModel>?,
     ));
   }
 }
@@ -346,7 +389,10 @@ class _$_Tutor implements _Tutor {
       this.rating,
       this.price,
       this.totalFeedback,
-      this.isFavorite});
+      this.isFavorite,
+      this.user,
+      final List<FeedBackModel>? feedbacks})
+      : _feedbacks = feedbacks;
 
   factory _$_Tutor.fromJson(Map<String, dynamic> json) =>
       _$$_TutorFromJson(json);
@@ -389,10 +435,21 @@ class _$_Tutor implements _Tutor {
   final int? totalFeedback;
   @override
   final bool? isFavorite;
+  @override
+  final UserTutorModel? user;
+  final List<FeedBackModel>? _feedbacks;
+  @override
+  List<FeedBackModel>? get feedbacks {
+    final value = _feedbacks;
+    if (value == null) return null;
+    if (_feedbacks is EqualUnmodifiableListView) return _feedbacks;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {
-    return 'Tutor(imageUrl: $imageUrl, name: $name, id: $id, userId: $userId, country: $country, phone: $phone, bio: $bio, video: $video, education: $education, languages: $languages, specialties: $specialties, interests: $interests, experience: $experience, profession: $profession, targetStudent: $targetStudent, rating: $rating, price: $price, totalFeedback: $totalFeedback, isFavorite: $isFavorite)';
+    return 'Tutor(imageUrl: $imageUrl, name: $name, id: $id, userId: $userId, country: $country, phone: $phone, bio: $bio, video: $video, education: $education, languages: $languages, specialties: $specialties, interests: $interests, experience: $experience, profession: $profession, targetStudent: $targetStudent, rating: $rating, price: $price, totalFeedback: $totalFeedback, isFavorite: $isFavorite, user: $user, feedbacks: $feedbacks)';
   }
 
   @override
@@ -428,7 +485,10 @@ class _$_Tutor implements _Tutor {
             (identical(other.totalFeedback, totalFeedback) ||
                 other.totalFeedback == totalFeedback) &&
             (identical(other.isFavorite, isFavorite) ||
-                other.isFavorite == isFavorite));
+                other.isFavorite == isFavorite) &&
+            (identical(other.user, user) || other.user == user) &&
+            const DeepCollectionEquality()
+                .equals(other._feedbacks, _feedbacks));
   }
 
   @JsonKey(ignore: true)
@@ -453,7 +513,9 @@ class _$_Tutor implements _Tutor {
         rating,
         price,
         totalFeedback,
-        isFavorite
+        isFavorite,
+        user,
+        const DeepCollectionEquality().hash(_feedbacks)
       ]);
 
   @JsonKey(ignore: true)
@@ -490,7 +552,9 @@ abstract class _Tutor implements Tutor {
       final double? rating,
       final double? price,
       final int? totalFeedback,
-      final bool? isFavorite}) = _$_Tutor;
+      final bool? isFavorite,
+      final UserTutorModel? user,
+      final List<FeedBackModel>? feedbacks}) = _$_Tutor;
 
   factory _Tutor.fromJson(Map<String, dynamic> json) = _$_Tutor.fromJson;
 
@@ -532,6 +596,10 @@ abstract class _Tutor implements Tutor {
   int? get totalFeedback;
   @override
   bool? get isFavorite;
+  @override
+  UserTutorModel? get user;
+  @override
+  List<FeedBackModel>? get feedbacks;
   @override
   @JsonKey(ignore: true)
   _$$_TutorCopyWith<_$_Tutor> get copyWith =>

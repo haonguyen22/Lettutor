@@ -83,5 +83,6 @@
     "checkValidate": "Please check all of the input again",
     "min8Characters": "Password must be at least 8 characters long.",
     "noDataResponse": "No data response",
-    "noResultSearch": "No result search"
+    "noResultSearch": "No result search",
+    "noReview": "There is no review"
 }

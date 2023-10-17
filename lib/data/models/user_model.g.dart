@@ -7,16 +7,14 @@ part of 'user_model.dart';
 // **************************************************************************
 
 _$_UserModel _$$_UserModelFromJson(Map<String, dynamic> json) => _$_UserModel(
-      id: json['id'] as String,
-      email: json['email'] as String,
-      name: json['name'] as String,
+      id: json['id'] as String?,
+      email: json['email'] as String?,
+      name: json['name'] as String?,
       avatar: json['avatar'] as String?,
       country: json['country'] as String?,
       phone: json['phone'] as String?,
       language: json['language'] as String?,
-      birthday: json['birthday'] == null
-          ? null
-          : DateTime.parse(json['birthday'] as String),
+      birthday: json['birthday'] as String?,
       requireNote: json['requireNote'] as String?,
       level: json['level'] as String?,
       learnTopics: (json['learnTopics'] as List<dynamic>?)
@@ -37,7 +35,7 @@ Map<String, dynamic> _$$_UserModelToJson(_$_UserModel instance) =>
       'country': instance.country,
       'phone': instance.phone,
       'language': instance.language,
-      'birthday': instance.birthday?.toIso8601String(),
+      'birthday': instance.birthday,
       'requireNote': instance.requireNote,
       'level': instance.level,
       'learnTopics': instance.learnTopics,

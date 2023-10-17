@@ -1,13 +1,52 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
+import 'package:injectable/injectable.dart';
+import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/domain/usecase/tutor_usecase.dart';
 import 'package:meta/meta.dart';
 
 part 'tutor_detail_event.dart';
 part 'tutor_detail_state.dart';
 
+@injectable
 class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
-  TutorDetailBloc() : super(TutorDetailInitial()) {
-    on<TutorDetailEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+  final Tutor tutorParam;
+  final TutorUseCase _tutorUseCase;
+  TutorDetailBloc(
+    @factoryParam this.tutorParam,
+    this._tutorUseCase,
+  ) : super(const TutorDetailInitial()) {
+    on<FetchTutorByIdEvent>(_fetchTutorByIdEvent);
+    on<FavoriteTutorEvent>(_favoriteTutorEvent);
+  }
+
+  FutureOr<void> _fetchTutorByIdEvent(
+      FetchTutorByIdEvent event, Emitter<TutorDetailState> emit) async {
+    emit(TutorDetailInitial(
+        isLoading: true,
+        name: tutorParam.user?.name ?? tutorParam.name ?? "",
+        tutor: tutorParam));
+    Tutor? tutor = await _tutorUseCase.getTutorById(id: tutorParam.userId!);
+    emit(TutorDetailSuccess(
+        isLoading: false,
+        tutor: mergeTutors(state.tutor, tutor),
+        name: state.name));
+  }
+
+  FutureOr<void> _favoriteTutorEvent(
+      FavoriteTutorEvent event, Emitter<TutorDetailState> emit) async {
+    emit(TutorDetailSuccess(
+        isLoading: false,
+        tutor: state.tutor,
+        name: state.name,
+        processing: true));
+    await _tutorUseCase.addTutorToFavorite(id: tutorParam.userId!);
+    Tutor? tutor = await _tutorUseCase.getTutorById(id: tutorParam.userId!);
+    emit(TutorDetailSuccess(
+        isLoading: false,
+        tutor: mergeTutors(tutorParam, tutor),
+        name: state.name,
+        processing: false));
   }
 }

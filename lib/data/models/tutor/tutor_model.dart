@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:let_tutor/data/models/tutor/feedback_model.dart';
+import 'package:let_tutor/data/models/tutor/user_tutor_model.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 part 'tutor_model.freezed.dart';
 part 'tutor_model.g.dart';
@@ -27,6 +29,8 @@ class TutorModel with _$TutorModel {
     double? price,
     int? totalFeedback,
     bool? isFavorite,
+    @JsonKey(name: "User") UserTutorModel? user,
+    List<FeedBackModel>? feedbacks,
   }) = _TutorModel;
 
   factory TutorModel.fromJson(Map<String, Object?> json) =>
@@ -53,6 +57,8 @@ class TutorModel with _$TutorModel {
       totalFeedback: totalFeedback,
       userId: userId,
       video: video,
+      user: user,
+      feedbacks: feedbacks,
     );
   }
 }

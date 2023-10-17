@@ -20,14 +20,14 @@ UserModel _$UserModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserModel {
-  String get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
   String? get language => throw _privateConstructorUsedError;
-  DateTime? get birthday => throw _privateConstructorUsedError;
+  String? get birthday => throw _privateConstructorUsedError;
   String? get requireNote => throw _privateConstructorUsedError;
   String? get level => throw _privateConstructorUsedError;
   List<TopicModel>? get learnTopics => throw _privateConstructorUsedError;
@@ -46,14 +46,14 @@ abstract class $UserModelCopyWith<$Res> {
       _$UserModelCopyWithImpl<$Res, UserModel>;
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String name,
+      {String? id,
+      String? email,
+      String? name,
       String? avatar,
       String? country,
       String? phone,
       String? language,
-      DateTime? birthday,
+      String? birthday,
       String? requireNote,
       String? level,
       List<TopicModel>? learnTopics,
@@ -74,9 +74,9 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
     Object? avatar = freezed,
     Object? country = freezed,
     Object? phone = freezed,
@@ -89,18 +89,18 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
     Object? studySchedule = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ class _$UserModelCopyWithImpl<$Res, $Val extends UserModel>
       birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
@@ -153,14 +153,14 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String name,
+      {String? id,
+      String? email,
+      String? name,
       String? avatar,
       String? country,
       String? phone,
       String? language,
-      DateTime? birthday,
+      String? birthday,
       String? requireNote,
       String? level,
       List<TopicModel>? learnTopics,
@@ -179,9 +179,9 @@ class __$$_UserModelCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
     Object? avatar = freezed,
     Object? country = freezed,
     Object? phone = freezed,
@@ -194,18 +194,18 @@ class __$$_UserModelCopyWithImpl<$Res>
     Object? studySchedule = freezed,
   }) {
     return _then(_$_UserModel(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -225,7 +225,7 @@ class __$$_UserModelCopyWithImpl<$Res>
       birthday: freezed == birthday
           ? _value.birthday
           : birthday // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+              as String?,
       requireNote: freezed == requireNote
           ? _value.requireNote
           : requireNote // ignore: cast_nullable_to_non_nullable
@@ -254,9 +254,9 @@ class __$$_UserModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UserModel extends _UserModel {
   const _$_UserModel(
-      {required this.id,
-      required this.email,
-      required this.name,
+      {this.id,
+      this.email,
+      this.name,
       this.avatar,
       this.country,
       this.phone,
@@ -275,11 +275,11 @@ class _$_UserModel extends _UserModel {
       _$$_UserModelFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String email;
+  final String? email;
   @override
-  final String name;
+  final String? name;
   @override
   final String? avatar;
   @override
@@ -289,7 +289,7 @@ class _$_UserModel extends _UserModel {
   @override
   final String? language;
   @override
-  final DateTime? birthday;
+  final String? birthday;
   @override
   final String? requireNote;
   @override
@@ -383,14 +383,14 @@ class _$_UserModel extends _UserModel {
 
 abstract class _UserModel extends UserModel {
   const factory _UserModel(
-      {required final String id,
-      required final String email,
-      required final String name,
+      {final String? id,
+      final String? email,
+      final String? name,
       final String? avatar,
       final String? country,
       final String? phone,
       final String? language,
-      final DateTime? birthday,
+      final String? birthday,
       final String? requireNote,
       final String? level,
       final List<TopicModel>? learnTopics,
@@ -402,11 +402,11 @@ abstract class _UserModel extends UserModel {
       _$_UserModel.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get email;
+  String? get email;
   @override
-  String get name;
+  String? get name;
   @override
   String? get avatar;
   @override
@@ -416,7 +416,7 @@ abstract class _UserModel extends UserModel {
   @override
   String? get language;
   @override
-  DateTime? get birthday;
+  String? get birthday;
   @override
   String? get requireNote;
   @override

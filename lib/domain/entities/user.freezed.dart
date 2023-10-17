@@ -20,9 +20,9 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
-  String get id => throw _privateConstructorUsedError;
-  String get email => throw _privateConstructorUsedError;
-  String get name => throw _privateConstructorUsedError;
+  String? get id => throw _privateConstructorUsedError;
+  String? get email => throw _privateConstructorUsedError;
+  String? get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   String? get phone => throw _privateConstructorUsedError;
@@ -45,9 +45,9 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String name,
+      {String? id,
+      String? email,
+      String? name,
       String? avatar,
       String? country,
       String? phone,
@@ -73,9 +73,9 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
     Object? avatar = freezed,
     Object? country = freezed,
     Object? phone = freezed,
@@ -88,18 +88,18 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? studySchedule = freezed,
   }) {
     return _then(_value.copyWith(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -151,9 +151,9 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
-      String email,
-      String name,
+      {String? id,
+      String? email,
+      String? name,
       String? avatar,
       String? country,
       String? phone,
@@ -175,9 +175,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
-    Object? email = null,
-    Object? name = null,
+    Object? id = freezed,
+    Object? email = freezed,
+    Object? name = freezed,
     Object? avatar = freezed,
     Object? country = freezed,
     Object? phone = freezed,
@@ -190,18 +190,18 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? studySchedule = freezed,
   }) {
     return _then(_$_User(
-      id: null == id
+      id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      email: null == email
+              as String?,
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      name: null == name
+              as String?,
+      name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -250,9 +250,9 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {required this.id,
-      required this.email,
-      required this.name,
+      {this.id,
+      this.email,
+      this.name,
       this.avatar,
       this.country,
       this.phone,
@@ -269,11 +269,11 @@ class _$_User implements _User {
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final String id;
+  final String? id;
   @override
-  final String email;
+  final String? email;
   @override
-  final String name;
+  final String? name;
   @override
   final String? avatar;
   @override
@@ -377,9 +377,9 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
-      required final String email,
-      required final String name,
+      {final String? id,
+      final String? email,
+      final String? name,
       final String? avatar,
       final String? country,
       final String? phone,
@@ -394,11 +394,11 @@ abstract class _User implements User {
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  String get id;
+  String? get id;
   @override
-  String get email;
+  String? get email;
   @override
-  String get name;
+  String? get name;
   @override
   String? get avatar;
   @override

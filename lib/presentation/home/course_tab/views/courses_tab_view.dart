@@ -78,14 +78,16 @@ class _CoursesTabViewState extends State<CoursesTabView>
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 10.0),
                           child: CourseCardWidget(
-                              name: course.name ?? "",
-                              imageUrl: course.imageUrl,
-                              description: course.description,
-                              level: course.level,
-                              numOfLesson: course.topics?.length,
-                              onTap: () => Navigator.of(context).pushNamed(
-                                  RouteList.courseDetail,
-                                  arguments: state.courses![index])),
+                            name: course.name ?? "",
+                            imageUrl: course.imageUrl,
+                            description: course.description,
+                            level: course.level,
+                            numOfLesson: course.topics?.length,
+                            onTap: () => Navigator.of(context).pushNamed(
+                              RouteList.courseDetail,
+                              arguments: state.courses![index],
+                            ),
+                          ),
                         );
                       },
                     ),

@@ -27,6 +27,12 @@ _$_TutorModel _$$_TutorModelFromJson(Map<String, dynamic> json) =>
       price: (json['price'] as num?)?.toDouble(),
       totalFeedback: json['totalFeedback'] as int?,
       isFavorite: json['isFavorite'] as bool?,
+      user: json['User'] == null
+          ? null
+          : UserTutorModel.fromJson(json['User'] as Map<String, dynamic>),
+      feedbacks: (json['feedbacks'] as List<dynamic>?)
+          ?.map((e) => FeedBackModel.fromJson(e as Map<String, dynamic>))
+          .toList(),
     );
 
 Map<String, dynamic> _$$_TutorModelToJson(_$_TutorModel instance) =>
@@ -50,4 +56,6 @@ Map<String, dynamic> _$$_TutorModelToJson(_$_TutorModel instance) =>
       'price': instance.price,
       'totalFeedback': instance.totalFeedback,
       'isFavorite': instance.isFavorite,
+      'User': instance.user,
+      'feedbacks': instance.feedbacks,
     };

@@ -46,7 +46,7 @@ class TutorBloc extends Bloc<TutorEvent, TutorState> {
       isLoading: true,
       hasReachedMax: false,
       currentPage: 1,
-      ));
+    ));
     List<Tutor>? tutors = await _tutorUseCase.getTutors(
         page: state.currentPage, perPage: event.perPage);
     emit(

@@ -10,14 +10,14 @@ class UserModel with _$UserModel {
   const UserModel._();
 
   const factory UserModel({
-    required String id,
-    required String email,
-    required String name,
+    String? id,
+    String? email,
+    String? name,
     String? avatar,
     String? country,
     String? phone,
     String? language,
-    DateTime? birthday,
+    String? birthday,
     String? requireNote,
     String? level,
     List<TopicModel>? learnTopics,
@@ -37,7 +37,7 @@ class UserModel with _$UserModel {
       country: country,
       phone: phone,
       language: language,
-      birthday: birthday,
+      birthday: DateTime.parse(birthday ?? ""),
       requireNote: requireNote,
       level: level,
       learnTopics: learnTopics?.map((e) => e.toEntity()).toList(),

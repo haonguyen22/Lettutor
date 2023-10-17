@@ -16,7 +16,7 @@ class TutorRepositoryImpl implements TutorRepository {
   @override
   Future<void> addTutorToFavorite({required String id}) async {
     try {
-      await _tutorService.addTutorToFavorite(body: {"tutorId": id});
+        await _tutorService.addTutorToFavorite(body: {"tutorId": id});
     } catch (e) {
       log(e.toString());
     }
