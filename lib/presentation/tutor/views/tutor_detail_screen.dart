@@ -8,6 +8,7 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/column_info_detail.dart';
 import 'package:let_tutor/core/widget/video.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
+import 'package:let_tutor/dummy/country.dart';
 import 'package:let_tutor/presentation/tutor/bloc/tutor_detail_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
@@ -181,7 +182,8 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 3.0),
                                         child: Text(
-                                          tutor!.country!,
+                                          countryList[tutor!.country!] ??
+                                              tutor.country!,
                                           style: context.textTheme.bodyLarge
                                               ?.copyWith(
                                             color: Theme.of(context).hintColor,

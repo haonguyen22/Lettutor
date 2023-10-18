@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/dummy/data.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -11,7 +12,6 @@ class CourseCardWidget extends StatelessWidget {
   final String? level;
   final int? numOfLesson;
   final VoidCallback? onTap;
-  final int? totalLesson;
 
   const CourseCardWidget({
     super.key,
@@ -22,7 +22,6 @@ class CourseCardWidget extends StatelessWidget {
     this.numOfLesson,
     this.level,
     this.onTap,
-    this.totalLesson,
   });
 
   @override
@@ -35,6 +34,7 @@ class CourseCardWidget extends StatelessWidget {
       Navigator.of(context).pushNamed(RouteList.courseDetail);
     }
 
+    final levelInt = int.parse(level ?? '0');
     return GestureDetector(
       onTap: onTapItem,
       child: Container(
@@ -75,7 +75,7 @@ class CourseCardWidget extends StatelessWidget {
               ),
             Container(
               width: MediaQuery.sizeOf(context).width,
-              padding: const EdgeInsetsDirectional.symmetric(vertical: 14.0),
+              padding: const EdgeInsetsDirectional.only(top: 14.0),
               child: Text(
                 name,
                 style: context.textTheme.titleLarge
@@ -102,11 +102,11 @@ class CourseCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    level ?? '',
+                    levelInt > 6 ? levels[6] : levels[levelInt],
                     style: TextStyle(color: Theme.of(context).hintColor),
                   ),
                   Text(
-                    S.of(context).numOfLessons(totalLesson ?? 0),
+                    S.of(context).numOfLessons(numOfLesson ?? 0),
                     style: TextStyle(color: Theme.of(context).hintColor),
                   )
                 ],

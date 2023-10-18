@@ -48,7 +48,7 @@ class _TutorReportDialogState extends State<TutorReportDialog> {
               Expanded(
                 child: Text(
                   S.of(context).helpUsToUnderstand,
-                  style: Theme.of(context).textTheme.bodyLarge,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ),
             ],

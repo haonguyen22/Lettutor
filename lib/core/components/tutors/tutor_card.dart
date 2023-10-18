@@ -3,6 +3,7 @@ import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/dummy/country.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -30,8 +31,7 @@ class TutorCardWidget extends StatelessWidget {
         onCardTap?.call();
         return;
       }
-      Navigator.of(context)
-          .pushNamed(RouteList.tutorDetail, arguments: tutor);
+      Navigator.of(context).pushNamed(RouteList.tutorDetail, arguments: tutor);
     }
 
     return Container(
@@ -107,7 +107,7 @@ class TutorCardWidget extends StatelessWidget {
                               padding:
                                   const EdgeInsets.symmetric(vertical: 3.0),
                               child: Text(
-                                tutor.country!,
+                                countryList[tutor.country!] ?? tutor.country!,
                                 style: context.textTheme.titleMedium?.copyWith(
                                   color: Theme.of(context).hintColor,
                                 ),

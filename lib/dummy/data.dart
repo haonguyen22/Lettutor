@@ -1,11 +1,11 @@
 const levels = [
-  'Beginner',
-  'Higher Beginner',
-  'Pre-Intermediate',
-  'Intermediate',
-  'Upper-Intermediate',
-  'Advanced',
-  'Proficiency',
+  'Pre A1 (Beginner)',
+  'A1 (Higher Beginner)',
+  'A2 (Pre-Intermediate)',
+  'B1 (Intermediate)',
+  'B2 (Upper-Intermediate)',
+  'C1 (Advanced)',
+  'C2 (Proficiency)',
 ];
 
 const learnTopics = [
