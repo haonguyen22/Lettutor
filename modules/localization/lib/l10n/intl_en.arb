@@ -93,5 +93,7 @@
     "letUsKnowDetailsYourProblem": "Please let us know details about your problems",
     "submit": "Submit",
     "reportSuccessfully": "Report Successfully !!",
-    "reportError": "Report Error, please check again"
+    "reportError": "Report Error, please check again",
+    "lessonTime": "Lesson Time: ",
+    "studentRequest": "Request for lesson: {str}"
 }

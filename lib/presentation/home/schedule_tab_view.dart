@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
-import 'package:let_tutor/presentation/schedule/history/history_tab_view.dart';
-import 'package:let_tutor/presentation/schedule/upcoming/upcoming_tab_view.dart';
+import 'package:let_tutor/presentation/schedule/history/views/history_tab_view.dart';
+import 'package:let_tutor/presentation/schedule/upcoming/views/upcoming_tab_view.dart';
 import 'package:localization/generated/l10n.dart';
 
 class ScheduleTabView extends StatelessWidget {

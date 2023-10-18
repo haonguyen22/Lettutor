@@ -8,6 +8,7 @@ import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
 import 'package:let_tutor/presentation/home/tutor_tab/bloc/search_tutor_bloc.dart';
 import 'package:let_tutor/presentation/home/home_tab/bloc/tutor_bloc.dart';
+import 'package:let_tutor/presentation/schedule/history/bloc/history_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
@@ -32,6 +33,8 @@ class AppDelegate {
         BlocProvider<SearchTutorBloc>(create: (_) => injector.get()),
         BlocProvider<CourseBloc>(
             create: (_) => injector.get()..add(FetchCourseEvent())),
+        BlocProvider<HistoryBloc>(
+            create: (_) => injector.get()..add(FetchHistoryPagination())),
       ],
       themeSaved: savedThemeMode,
       initialRoute: RouteList.login,

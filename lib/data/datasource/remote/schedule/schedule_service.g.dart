@@ -77,7 +77,7 @@ class _ScheduleService implements ScheduleService {
   }
 
   @override
-  Future<BookingInfoModel?> getBookedClass({
+  Future<BookingClassResponse?> getBookedClass({
     required int page,
     required int perPage,
     required int dateTimeLte,
@@ -88,8 +88,8 @@ class _ScheduleService implements ScheduleService {
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
-    final _result = await _dio
-        .fetch<Map<String, dynamic>?>(_setStreamType<BookingInfoModel>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>?>(
+        _setStreamType<BookingClassResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -105,8 +105,9 @@ class _ScheduleService implements ScheduleService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value =
-        _result.data == null ? null : BookingInfoModel.fromJson(_result.data!);
+    final value = _result.data == null
+        ? null
+        : BookingClassResponse.fromJson(_result.data!);
     return value;
   }
 

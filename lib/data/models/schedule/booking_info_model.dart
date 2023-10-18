@@ -28,6 +28,7 @@ class BookingInfoModel with _$BookingInfoModel {
     bool? isDeleted,
     bool? isTrial,
     int? convertedLesson,
+    ScheduleDetailInfoModel? scheduleDetailInfo,
   }) = _BookingInfoModel;
 
   factory BookingInfoModel.fromJson(Map<String, Object?> json) =>
@@ -45,7 +46,7 @@ class ScheduleDetailInfoModel with _$ScheduleDetailInfoModel {
     String? endPeriod,
     DateTime? createdAt,
     DateTime? updatedAt,
-    String? scheduleInfo,
+    ScheduleInfoModel? scheduleInfo,
   }) = _ScheduleDetailInfoModel;
   factory ScheduleDetailInfoModel.fromJson(Map<String, Object?> json) =>
       _$ScheduleDetailInfoModelFromJson(json);
@@ -61,7 +62,7 @@ class ScheduleInfoModel with _$ScheduleInfoModel {
     String? tutorId,
     String? startTime,
     String? endTime,
-    String? isDeleted,
+    bool? isDeleted,
     DateTime? createdAt,
     DateTime? updatedAt,
     TutorModel? tutorInfo,

@@ -74,5 +74,7 @@
     "letUsKnowDetailsYourProblem": "Hãy cho chúng tôi biết chi tiết về vấn đề của bạn",
     "submit": "Gửi",
     "reportSuccessfully": "Báo cáo thành công !!",
-    "reportError": "Lỗi khi báo cáo, vui lòng kiểm tra lại"
+    "reportError": "Lỗi khi báo cáo, vui lòng kiểm tra lại",
+    "lessonTime": "Thời gian buổi học: ",
+    "studentRequest": "Yêu cầu buổi học: {str}"
 }

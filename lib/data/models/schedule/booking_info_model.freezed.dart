@@ -41,6 +41,8 @@ mixin _$BookingInfoModel {
   bool? get isDeleted => throw _privateConstructorUsedError;
   bool? get isTrial => throw _privateConstructorUsedError;
   int? get convertedLesson => throw _privateConstructorUsedError;
+  ScheduleDetailInfoModel? get scheduleDetailInfo =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -75,7 +77,10 @@ abstract class $BookingInfoModelCopyWith<$Res> {
       String? calendarId,
       bool? isDeleted,
       bool? isTrial,
-      int? convertedLesson});
+      int? convertedLesson,
+      ScheduleDetailInfoModel? scheduleDetailInfo});
+
+  $ScheduleDetailInfoModelCopyWith<$Res>? get scheduleDetailInfo;
 }
 
 /// @nodoc
@@ -112,6 +117,7 @@ class _$BookingInfoModelCopyWithImpl<$Res, $Val extends BookingInfoModel>
     Object? isDeleted = freezed,
     Object? isTrial = freezed,
     Object? convertedLesson = freezed,
+    Object? scheduleDetailInfo = freezed,
   }) {
     return _then(_value.copyWith(
       createdAtTimeStamp: freezed == createdAtTimeStamp
@@ -198,7 +204,24 @@ class _$BookingInfoModelCopyWithImpl<$Res, $Val extends BookingInfoModel>
           ? _value.convertedLesson
           : convertedLesson // ignore: cast_nullable_to_non_nullable
               as int?,
+      scheduleDetailInfo: freezed == scheduleDetailInfo
+          ? _value.scheduleDetailInfo
+          : scheduleDetailInfo // ignore: cast_nullable_to_non_nullable
+              as ScheduleDetailInfoModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ScheduleDetailInfoModelCopyWith<$Res>? get scheduleDetailInfo {
+    if (_value.scheduleDetailInfo == null) {
+      return null;
+    }
+
+    return $ScheduleDetailInfoModelCopyWith<$Res>(_value.scheduleDetailInfo!,
+        (value) {
+      return _then(_value.copyWith(scheduleDetailInfo: value) as $Val);
+    });
   }
 }
 
@@ -231,7 +254,11 @@ abstract class _$$_BookingInfoModelCopyWith<$Res>
       String? calendarId,
       bool? isDeleted,
       bool? isTrial,
-      int? convertedLesson});
+      int? convertedLesson,
+      ScheduleDetailInfoModel? scheduleDetailInfo});
+
+  @override
+  $ScheduleDetailInfoModelCopyWith<$Res>? get scheduleDetailInfo;
 }
 
 /// @nodoc
@@ -266,6 +293,7 @@ class __$$_BookingInfoModelCopyWithImpl<$Res>
     Object? isDeleted = freezed,
     Object? isTrial = freezed,
     Object? convertedLesson = freezed,
+    Object? scheduleDetailInfo = freezed,
   }) {
     return _then(_$_BookingInfoModel(
       createdAtTimeStamp: freezed == createdAtTimeStamp
@@ -352,6 +380,10 @@ class __$$_BookingInfoModelCopyWithImpl<$Res>
           ? _value.convertedLesson
           : convertedLesson // ignore: cast_nullable_to_non_nullable
               as int?,
+      scheduleDetailInfo: freezed == scheduleDetailInfo
+          ? _value.scheduleDetailInfo
+          : scheduleDetailInfo // ignore: cast_nullable_to_non_nullable
+              as ScheduleDetailInfoModel?,
     ));
   }
 }
@@ -380,7 +412,8 @@ class _$_BookingInfoModel implements _BookingInfoModel {
       this.calendarId,
       this.isDeleted,
       this.isTrial,
-      this.convertedLesson});
+      this.convertedLesson,
+      this.scheduleDetailInfo});
 
   factory _$_BookingInfoModel.fromJson(Map<String, dynamic> json) =>
       _$$_BookingInfoModelFromJson(json);
@@ -427,10 +460,12 @@ class _$_BookingInfoModel implements _BookingInfoModel {
   final bool? isTrial;
   @override
   final int? convertedLesson;
+  @override
+  final ScheduleDetailInfoModel? scheduleDetailInfo;
 
   @override
   String toString() {
-    return 'BookingInfoModel(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, tutorMeetingLink: $tutorMeetingLink, studentMeetingLink: $studentMeetingLink, googleMeetLink: $googleMeetLink, studentRequest: $studentRequest, tutorReview: $tutorReview, scoreByTutor: $scoreByTutor, createdAt: $createdAt, updatedAt: $updatedAt, recordUrl: $recordUrl, cancelReasonId: $cancelReasonId, lessonPlanId: $lessonPlanId, cancelNote: $cancelNote, calendarId: $calendarId, isDeleted: $isDeleted, isTrial: $isTrial, convertedLesson: $convertedLesson)';
+    return 'BookingInfoModel(createdAtTimeStamp: $createdAtTimeStamp, updatedAtTimeStamp: $updatedAtTimeStamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, tutorMeetingLink: $tutorMeetingLink, studentMeetingLink: $studentMeetingLink, googleMeetLink: $googleMeetLink, studentRequest: $studentRequest, tutorReview: $tutorReview, scoreByTutor: $scoreByTutor, createdAt: $createdAt, updatedAt: $updatedAt, recordUrl: $recordUrl, cancelReasonId: $cancelReasonId, lessonPlanId: $lessonPlanId, cancelNote: $cancelNote, calendarId: $calendarId, isDeleted: $isDeleted, isTrial: $isTrial, convertedLesson: $convertedLesson, scheduleDetailInfo: $scheduleDetailInfo)';
   }
 
   @override
@@ -476,7 +511,9 @@ class _$_BookingInfoModel implements _BookingInfoModel {
                 other.isDeleted == isDeleted) &&
             (identical(other.isTrial, isTrial) || other.isTrial == isTrial) &&
             (identical(other.convertedLesson, convertedLesson) ||
-                other.convertedLesson == convertedLesson));
+                other.convertedLesson == convertedLesson) &&
+            (identical(other.scheduleDetailInfo, scheduleDetailInfo) ||
+                other.scheduleDetailInfo == scheduleDetailInfo));
   }
 
   @JsonKey(ignore: true)
@@ -503,7 +540,8 @@ class _$_BookingInfoModel implements _BookingInfoModel {
         calendarId,
         isDeleted,
         isTrial,
-        convertedLesson
+        convertedLesson,
+        scheduleDetailInfo
       ]);
 
   @JsonKey(ignore: true)
@@ -542,7 +580,8 @@ abstract class _BookingInfoModel implements BookingInfoModel {
       final String? calendarId,
       final bool? isDeleted,
       final bool? isTrial,
-      final int? convertedLesson}) = _$_BookingInfoModel;
+      final int? convertedLesson,
+      final ScheduleDetailInfoModel? scheduleDetailInfo}) = _$_BookingInfoModel;
 
   factory _BookingInfoModel.fromJson(Map<String, dynamic> json) =
       _$_BookingInfoModel.fromJson;
@@ -590,6 +629,8 @@ abstract class _BookingInfoModel implements BookingInfoModel {
   @override
   int? get convertedLesson;
   @override
+  ScheduleDetailInfoModel? get scheduleDetailInfo;
+  @override
   @JsonKey(ignore: true)
   _$$_BookingInfoModelCopyWith<_$_BookingInfoModel> get copyWith =>
       throw _privateConstructorUsedError;
@@ -610,7 +651,7 @@ mixin _$ScheduleDetailInfoModel {
   String? get endPeriod => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
-  String? get scheduleInfo => throw _privateConstructorUsedError;
+  ScheduleInfoModel? get scheduleInfo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -633,7 +674,9 @@ abstract class $ScheduleDetailInfoModelCopyWith<$Res> {
       String? endPeriod,
       DateTime? createdAt,
       DateTime? updatedAt,
-      String? scheduleInfo});
+      ScheduleInfoModel? scheduleInfo});
+
+  $ScheduleInfoModelCopyWith<$Res>? get scheduleInfo;
 }
 
 /// @nodoc
@@ -696,8 +739,20 @@ class _$ScheduleDetailInfoModelCopyWithImpl<$Res,
       scheduleInfo: freezed == scheduleInfo
           ? _value.scheduleInfo
           : scheduleInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ScheduleInfoModel?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ScheduleInfoModelCopyWith<$Res>? get scheduleInfo {
+    if (_value.scheduleInfo == null) {
+      return null;
+    }
+
+    return $ScheduleInfoModelCopyWith<$Res>(_value.scheduleInfo!, (value) {
+      return _then(_value.copyWith(scheduleInfo: value) as $Val);
+    });
   }
 }
 
@@ -718,7 +773,10 @@ abstract class _$$_ScheduleDetailInfoModelCopyWith<$Res>
       String? endPeriod,
       DateTime? createdAt,
       DateTime? updatedAt,
-      String? scheduleInfo});
+      ScheduleInfoModel? scheduleInfo});
+
+  @override
+  $ScheduleInfoModelCopyWith<$Res>? get scheduleInfo;
 }
 
 /// @nodoc
@@ -779,7 +837,7 @@ class __$$_ScheduleDetailInfoModelCopyWithImpl<$Res>
       scheduleInfo: freezed == scheduleInfo
           ? _value.scheduleInfo
           : scheduleInfo // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as ScheduleInfoModel?,
     ));
   }
 }
@@ -818,7 +876,7 @@ class _$_ScheduleDetailInfoModel implements _ScheduleDetailInfoModel {
   @override
   final DateTime? updatedAt;
   @override
-  final String? scheduleInfo;
+  final ScheduleInfoModel? scheduleInfo;
 
   @override
   String toString() {
@@ -889,7 +947,7 @@ abstract class _ScheduleDetailInfoModel implements ScheduleDetailInfoModel {
       final String? endPeriod,
       final DateTime? createdAt,
       final DateTime? updatedAt,
-      final String? scheduleInfo}) = _$_ScheduleDetailInfoModel;
+      final ScheduleInfoModel? scheduleInfo}) = _$_ScheduleDetailInfoModel;
 
   factory _ScheduleDetailInfoModel.fromJson(Map<String, dynamic> json) =
       _$_ScheduleDetailInfoModel.fromJson;
@@ -911,7 +969,7 @@ abstract class _ScheduleDetailInfoModel implements ScheduleDetailInfoModel {
   @override
   DateTime? get updatedAt;
   @override
-  String? get scheduleInfo;
+  ScheduleInfoModel? get scheduleInfo;
   @override
   @JsonKey(ignore: true)
   _$$_ScheduleDetailInfoModelCopyWith<_$_ScheduleDetailInfoModel>
@@ -931,7 +989,7 @@ mixin _$ScheduleInfoModel {
   String? get tutorId => throw _privateConstructorUsedError;
   String? get startTime => throw _privateConstructorUsedError;
   String? get endTime => throw _privateConstructorUsedError;
-  String? get isDeleted => throw _privateConstructorUsedError;
+  bool? get isDeleted => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   TutorModel? get tutorInfo => throw _privateConstructorUsedError;
@@ -956,7 +1014,7 @@ abstract class $ScheduleInfoModelCopyWith<$Res> {
       String? tutorId,
       String? startTime,
       String? endTime,
-      String? isDeleted,
+      bool? isDeleted,
       DateTime? createdAt,
       DateTime? updatedAt,
       TutorModel? tutorInfo});
@@ -1021,7 +1079,7 @@ class _$ScheduleInfoModelCopyWithImpl<$Res, $Val extends ScheduleInfoModel>
       isDeleted: freezed == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1066,7 +1124,7 @@ abstract class _$$_ScheduleInfoModelCopyWith<$Res>
       String? tutorId,
       String? startTime,
       String? endTime,
-      String? isDeleted,
+      bool? isDeleted,
       DateTime? createdAt,
       DateTime? updatedAt,
       TutorModel? tutorInfo});
@@ -1130,7 +1188,7 @@ class __$$_ScheduleInfoModelCopyWithImpl<$Res>
       isDeleted: freezed == isDeleted
           ? _value.isDeleted
           : isDeleted // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as bool?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -1181,7 +1239,7 @@ class _$_ScheduleInfoModel implements _ScheduleInfoModel {
   @override
   final String? endTime;
   @override
-  final String? isDeleted;
+  final bool? isDeleted;
   @override
   final DateTime? createdAt;
   @override
@@ -1259,7 +1317,7 @@ abstract class _ScheduleInfoModel implements ScheduleInfoModel {
       final String? tutorId,
       final String? startTime,
       final String? endTime,
-      final String? isDeleted,
+      final bool? isDeleted,
       final DateTime? createdAt,
       final DateTime? updatedAt,
       final TutorModel? tutorInfo}) = _$_ScheduleInfoModel;
@@ -1282,7 +1340,7 @@ abstract class _ScheduleInfoModel implements ScheduleInfoModel {
   @override
   String? get endTime;
   @override
-  String? get isDeleted;
+  bool? get isDeleted;
   @override
   DateTime? get createdAt;
   @override

@@ -2,6 +2,8 @@ import 'dart:developer';
 
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/datasource/remote/schedule/schedule_service.dart';
+import 'package:let_tutor/data/models/schedule/booking_class_response.dart';
+import 'package:let_tutor/data/models/schedule/booking_info_model.dart';
 import 'package:let_tutor/data/models/schedule/schedule_model.dart';
 import 'package:let_tutor/data/models/schedule/schedule_response.dart';
 import 'package:let_tutor/domain/repositories/schedule_repository.dart';
@@ -34,6 +36,30 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
         "tutorId": tutorId,
       });
       return res?.data;
+    } catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future<List<BookingInfoModel>?> getBookedClasses(
+      {required int page,
+      int perPage = 10,
+      String orderBy = "meeting",
+      String sortBy = "desc"}) async {
+    try {
+      final timeLte = DateTime.now()
+          .subtract(const Duration(minutes: 35))
+          .millisecondsSinceEpoch;
+      BookingClassResponse? res = await _scheduleService.getBookedClass(
+        page: page,
+        perPage: perPage,
+        dateTimeLte: timeLte,
+        orderBy: orderBy,
+        sortBy: sortBy,
+      );
+      return res?.data?.rows;
     } catch (e) {
       log(e.toString());
       return null;

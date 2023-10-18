@@ -989,6 +989,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Lesson Time: `
+  String get lessonTime {
+    return Intl.message(
+      'Lesson Time: ',
+      name: 'lessonTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request for lesson: {str}`
+  String studentRequest(Object str) {
+    return Intl.message(
+      'Request for lesson: $str',
+      name: 'studentRequest',
+      desc: '',
+      args: [str],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

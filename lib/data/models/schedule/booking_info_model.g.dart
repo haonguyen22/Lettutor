@@ -33,6 +33,10 @@ _$_BookingInfoModel _$$_BookingInfoModelFromJson(Map<String, dynamic> json) =>
       isDeleted: json['isDeleted'] as bool?,
       isTrial: json['isTrial'] as bool?,
       convertedLesson: json['convertedLesson'] as int?,
+      scheduleDetailInfo: json['scheduleDetailInfo'] == null
+          ? null
+          : ScheduleDetailInfoModel.fromJson(
+              json['scheduleDetailInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_BookingInfoModelToJson(_$_BookingInfoModel instance) =>
@@ -58,6 +62,7 @@ Map<String, dynamic> _$$_BookingInfoModelToJson(_$_BookingInfoModel instance) =>
       'isDeleted': instance.isDeleted,
       'isTrial': instance.isTrial,
       'convertedLesson': instance.convertedLesson,
+      'scheduleDetailInfo': instance.scheduleDetailInfo,
     };
 
 _$_ScheduleDetailInfoModel _$$_ScheduleDetailInfoModelFromJson(
@@ -75,7 +80,10 @@ _$_ScheduleDetailInfoModel _$$_ScheduleDetailInfoModelFromJson(
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
-      scheduleInfo: json['scheduleInfo'] as String?,
+      scheduleInfo: json['scheduleInfo'] == null
+          ? null
+          : ScheduleInfoModel.fromJson(
+              json['scheduleInfo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_ScheduleDetailInfoModelToJson(
@@ -101,7 +109,7 @@ _$_ScheduleInfoModel _$$_ScheduleInfoModelFromJson(Map<String, dynamic> json) =>
       tutorId: json['tutorId'] as String?,
       startTime: json['startTime'] as String?,
       endTime: json['endTime'] as String?,
-      isDeleted: json['isDeleted'] as String?,
+      isDeleted: json['isDeleted'] as bool?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),

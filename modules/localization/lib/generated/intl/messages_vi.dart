@@ -28,6 +28,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(tutor) => "Báo cáo ${tutor}";
 
+  static String m5(str) => "Yêu cầu buổi học: ${str}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Về chúng tôi"),
@@ -69,6 +71,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "interests": MessageLookupByLibrary.simpleMessage("Sở thích"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "lessonTime":
+            MessageLookupByLibrary.simpleMessage("Thời gian buổi học: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
             "Hãy cho chúng tôi biết chi tiết về vấn đề của bạn"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Chế độ sáng"),
@@ -122,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "specialities": MessageLookupByLibrary.simpleMessage("Chuyên môn"),
         "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),
+        "studentRequest": m5,
         "submit": MessageLookupByLibrary.simpleMessage("Gửi"),
         "teachingExperience":
             MessageLookupByLibrary.simpleMessage("Kinh nghiệm giảng dạy"),

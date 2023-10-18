@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/domain/usecase/tutor_usecase.dart';
-import 'package:meta/meta.dart';
 
 part 'tutor_detail_event.dart';
 part 'tutor_detail_state.dart';

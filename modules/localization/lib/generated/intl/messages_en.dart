@@ -30,6 +30,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(tutor) => "Report ${tutor}";
 
+  static String m5(str) => "Request for lesson: ${str}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -80,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "interests": MessageLookupByLibrary.simpleMessage("Interests"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
+        "lessonTime": MessageLookupByLibrary.simpleMessage("Lesson Time: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
             "Please let us know details about your problems"),
         "lightTheme": MessageLookupByLibrary.simpleMessage("Light theme"),
@@ -136,6 +139,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
+        "studentRequest": m5,
         "studySchedule": MessageLookupByLibrary.simpleMessage("Study schedule"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "teachingExperience":

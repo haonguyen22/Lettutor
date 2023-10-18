@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/data/models/schedule/booking_info_model.dart';
+import 'package:let_tutor/data/models/schedule/booking_class_response.dart';
 import 'package:let_tutor/data/models/schedule/schedule_response.dart';
 import 'package:retrofit/http.dart';
 
@@ -29,7 +29,7 @@ abstract class ScheduleService {
       {@Body() required Map<String, dynamic> body});
 
   @GET(bookedClasses)
-  Future<BookingInfoModel?> getBookedClass({
+  Future<BookingClassResponse?> getBookedClass({
     @Path("page") required int page,
     @Path("perPage") required int perPage,
     @Path("dateTimeLte") required int dateTimeLte,

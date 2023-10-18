@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/presentation/schedule/upcoming/upcoming_card.dart';
+import 'package:let_tutor/presentation/schedule/upcoming/views/upcoming_card.dart';
 import 'package:localization/localization.dart';
 
 class UpcomingTabView extends StatefulWidget {
