@@ -18,7 +18,7 @@ _$_BookingInfoModel _$$_BookingInfoModelFromJson(Map<String, dynamic> json) =>
       googleMeetLink: json['googleMeetLink'] as String?,
       studentRequest: json['studentRequest'] as String?,
       tutorReview: json['tutorReview'] as String?,
-      scoreByTutor: json['scoreByTutor'] as String?,
+      scoreByTutor: json['scoreByTutor'] as int?,
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),

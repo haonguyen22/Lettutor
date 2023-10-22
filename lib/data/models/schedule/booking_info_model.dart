@@ -17,7 +17,7 @@ class BookingInfoModel with _$BookingInfoModel {
     String? googleMeetLink,
     String? studentRequest,
     String? tutorReview,
-    String? scoreByTutor,
+    int? scoreByTutor,
     DateTime? createdAt,
     DateTime? updatedAt,
     String? recordUrl,

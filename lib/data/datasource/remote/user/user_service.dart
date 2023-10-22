@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/models/user_model.dart';
+import 'package:let_tutor/data/models/user_response.dart';
 import 'package:retrofit/http.dart';
 part 'user_service.g.dart';
 
@@ -15,7 +16,7 @@ abstract class UserService {
   factory UserService(Dio dio) = _UserService;
 
   @GET(UserServiceEndPoint.userInfo)
-  Future<UserModel> getUserInformation();
+  Future<UserResponse?> getUserInformation();
 
   @PUT(UserServiceEndPoint.userInfo)
   Future<EditUserResponse> updateUserInformation(

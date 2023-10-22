@@ -24,7 +24,7 @@ abstract class ScheduleService {
   Future<ScheduleResponse?> getScheduleByTutorID(
       {@Body() required Map<String, dynamic> body});
 
-  @DELETE(scheduleApi)
+  @DELETE(bookingApi)
   Future<String?> cancelBookedClass(
       {@Body() required Map<String, dynamic> body});
 

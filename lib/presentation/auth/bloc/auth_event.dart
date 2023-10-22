@@ -24,3 +24,5 @@ class EditUserProfile extends AuthEvent {
 
   EditUserProfile(this.body);
 }
+
+class FetchUser extends AuthEvent {}

@@ -45,6 +45,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
         "bookNumClasses": m0,
+        "booked": MessageLookupByLibrary.simpleMessage("Booked"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "checkValidate": MessageLookupByLibrary.simpleMessage(
             "Please check all of the input again"),

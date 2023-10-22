@@ -8,7 +8,7 @@ class UserUseCase {
 
   const UserUseCase(this._userRepository);
 
-  Future<User> getUserInfo() async {
+  Future<User?> getUserInfo() async {
     final res = await _userRepository.getUserInfo();
     return res;
   }

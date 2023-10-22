@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:intl/intl.dart';
+import 'package:let_tutor/core/components/tutors/book_card.dart';
 import 'package:let_tutor/core/components/tutors/tutor_report_dialog.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
@@ -29,11 +31,13 @@ class TutorDetailScreen extends StatefulWidget {
 class _TutorDetailScreenState extends State<TutorDetailScreen> {
   TutorDetailBloc get tutorDetailBloc => context.read<TutorDetailBloc>();
   late TextEditingController reportTextController;
+  DateTime birthday = DateTime.now();
 
   @override
   void initState() {
     reportTextController = TextEditingController();
     tutorDetailBloc.add(FetchTutorByIdEvent());
+    tutorDetailBloc.add(FetchScheduleByTutorIdEvent());
     super.initState();
   }
 
@@ -70,6 +74,21 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
     }
   }
 
+  void onTapChangeBookDate() async {
+    final now = DateTime.now();
+    final DateTime? value = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(now.year - 50),
+      lastDate: DateTime(now.year + 50),
+    );
+    if (value != null) {
+      setState(() {
+        birthday = value;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -100,6 +119,7 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                     );
                   }
                   final tutor = state.tutor;
+
                   return Stack(
                     children: [
                       Align(
@@ -273,6 +293,57 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                               style: context.textTheme.bodyMedium,
                             ),
                           ),
+                          if (state.isLoadingSchedule)
+                            const Center(child: CircularProgressIndicator()),
+                          if (state.isLoadingSchedule == false)
+                            ColumnInfoDetailWidget(
+                              label: S.of(context).book,
+                              content: GestureDetector(
+                                onTap: onTapChangeBookDate,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 18, horizontal: 14),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: context.textColor!
+                                            .withOpacity(0.6)),
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        DateFormat.yMEd().format(birthday),
+                                      ),
+                                      const Icon(Icons.calendar_month),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ...List.generate(state.schedules?.length ?? 0,
+                              (index) {
+                            final schedule = state.schedules![index];
+                            final startDate =
+                                DateTime.fromMillisecondsSinceEpoch(
+                                    schedule.startTimestamp ?? 0);
+                            if (startDate.day == birthday.day &&
+                                startDate.month == birthday.month &&
+                                startDate.year == birthday.year) {
+                              return BookCardWidget(
+                                date: DateTime.fromMillisecondsSinceEpoch(
+                                  schedule.startTimestamp ??
+                                      DateTime.now().millisecondsSinceEpoch,
+                                ),
+                                enable: true,
+                                isBooked: schedule.isBooked ?? true,
+                                endTime: schedule.endTime,
+                                startTime: schedule.startTime,
+                              );
+                            }
+                            return const SizedBox();
+                          })
                         ],
                       ),
                     ],

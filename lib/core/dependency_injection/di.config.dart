@@ -110,10 +110,12 @@ extension GetItInjectableX on _i1.GetIt {
         _i30.TutorDetailBloc(
           tutorParam,
           gh<_i17.TutorUseCase>(),
+          gh<_i14.ScheduleUseCase>(),
         ));
     gh.factory<_i32.AuthBloc>(() => _i32.AuthBloc(
           gh<_i23.AuthUseCase>(),
           gh<_i20.UserUseCase>(),
+          gh<_i4.SharedPreferencesUseCase>(),
         ));
     gh.factory<_i33.CourseBloc>(
         () => _i33.CourseBloc(gh<_i26.CourseUseCase>()));

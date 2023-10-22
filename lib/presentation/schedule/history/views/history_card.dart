@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/dummy/country.dart';
+import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:localization/localization.dart';
 
 const _kDefaultImage = "assets/icons/logo.png";
@@ -51,9 +53,8 @@ class HistoryCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              DateFormat.yMMMEd("en").format(
-                date,
-              ),
+              DateFormat.yMMMEd(context.read<AppSettingBloc>().state.langCode)
+                  .format(date),
               style: context.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -154,7 +155,15 @@ class HistoryCardWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 16),
-            Text(S.of(context).studentRequest(request ?? "")),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(4),
+              ),
+              child: Text(S.of(context).studentRequest(request ?? "")),
+            ),
             const SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,

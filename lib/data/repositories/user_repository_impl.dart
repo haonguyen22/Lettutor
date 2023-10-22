@@ -9,9 +9,9 @@ class UserRepositoryImplement extends UserRepository {
   UserRepositoryImplement(this._userService);
 
   @override
-  Future<User> getUserInfo() async {
+  Future<User?> getUserInfo() async {
     final res = await _userService.getUserInformation();
-    return res.toEntity();
+    return res?.user?.toEntity();
   }
 
   @override

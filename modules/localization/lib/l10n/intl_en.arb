@@ -95,5 +95,7 @@
     "reportSuccessfully": "Report Successfully !!",
     "reportError": "Report Error, please check again",
     "lessonTime": "Lesson Time: ",
-    "studentRequest": "Request for lesson: {str}"
+    "studentRequest": "Request for lesson: {str}",
+    "booked": "Booked"
+
 }

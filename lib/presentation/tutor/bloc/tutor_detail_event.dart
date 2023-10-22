@@ -17,3 +17,7 @@ class ReportTutorEvent extends TutorDetailEvent {
     required this.onSuccess,
   });
 }
+
+class FetchScheduleByTutorIdEvent extends TutorDetailEvent {
+  FetchScheduleByTutorIdEvent();
+}

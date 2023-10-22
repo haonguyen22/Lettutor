@@ -30,7 +30,7 @@ mixin _$BookingInfoModel {
   String? get googleMeetLink => throw _privateConstructorUsedError;
   String? get studentRequest => throw _privateConstructorUsedError;
   String? get tutorReview => throw _privateConstructorUsedError;
-  String? get scoreByTutor => throw _privateConstructorUsedError;
+  int? get scoreByTutor => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   String? get recordUrl => throw _privateConstructorUsedError;
@@ -67,7 +67,7 @@ abstract class $BookingInfoModelCopyWith<$Res> {
       String? googleMeetLink,
       String? studentRequest,
       String? tutorReview,
-      String? scoreByTutor,
+      int? scoreByTutor,
       DateTime? createdAt,
       DateTime? updatedAt,
       String? recordUrl,
@@ -163,7 +163,7 @@ class _$BookingInfoModelCopyWithImpl<$Res, $Val extends BookingInfoModel>
       scoreByTutor: freezed == scoreByTutor
           ? _value.scoreByTutor
           : scoreByTutor // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -244,7 +244,7 @@ abstract class _$$_BookingInfoModelCopyWith<$Res>
       String? googleMeetLink,
       String? studentRequest,
       String? tutorReview,
-      String? scoreByTutor,
+      int? scoreByTutor,
       DateTime? createdAt,
       DateTime? updatedAt,
       String? recordUrl,
@@ -339,7 +339,7 @@ class __$$_BookingInfoModelCopyWithImpl<$Res>
       scoreByTutor: freezed == scoreByTutor
           ? _value.scoreByTutor
           : scoreByTutor // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -439,7 +439,7 @@ class _$_BookingInfoModel implements _BookingInfoModel {
   @override
   final String? tutorReview;
   @override
-  final String? scoreByTutor;
+  final int? scoreByTutor;
   @override
   final DateTime? createdAt;
   @override
@@ -570,7 +570,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
       final String? googleMeetLink,
       final String? studentRequest,
       final String? tutorReview,
-      final String? scoreByTutor,
+      final int? scoreByTutor,
       final DateTime? createdAt,
       final DateTime? updatedAt,
       final String? recordUrl,
@@ -607,7 +607,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
   @override
   String? get tutorReview;
   @override
-  String? get scoreByTutor;
+  int? get scoreByTutor;
   @override
   DateTime? get createdAt;
   @override

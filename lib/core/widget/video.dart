@@ -91,7 +91,7 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
 
       _youtubeController = YoutubePlayerController.fromVideoId(
         videoId: videoId,
-        autoPlay: widget.autoPlay ?? true,
+        autoPlay: widget.autoPlay ?? false,
         params: const YoutubePlayerParams(
           showControls: false,
           strictRelatedVideos: true,
@@ -144,7 +144,6 @@ class CustomVideoPlayerWidgetState extends State<CustomVideoPlayerWidget>
             ),
           );
   }
-
 
   @override
   Widget build(BuildContext context) {

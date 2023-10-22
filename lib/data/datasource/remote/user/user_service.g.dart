@@ -19,13 +19,13 @@ class _UserService implements UserService {
   String? baseUrl;
 
   @override
-  Future<UserModel> getUserInformation() async {
+  Future<UserResponse?> getUserInformation() async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserModel>(Options(
+        .fetch<Map<String, dynamic>?>(_setStreamType<UserResponse>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -41,7 +41,8 @@ class _UserService implements UserService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserModel.fromJson(_result.data!);
+    final value =
+        _result.data == null ? null : UserResponse.fromJson(_result.data!);
     return value;
   }
 

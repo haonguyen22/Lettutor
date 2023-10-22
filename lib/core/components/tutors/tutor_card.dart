@@ -13,14 +13,12 @@ const _kMaxRating = 5;
 class TutorCardWidget extends StatelessWidget {
   final Tutor tutor;
   final VoidCallback? onCardTap;
-  final VoidCallback? onFavoriteTap;
   final VoidCallback? onBookTap;
 
   const TutorCardWidget({
     super.key,
     required this.tutor,
     this.onCardTap,
-    this.onFavoriteTap,
     this.onBookTap,
   });
 
@@ -172,24 +170,6 @@ class TutorCardWidget extends StatelessWidget {
               ),
               icon: const Icon(Icons.book),
               label: Text(S.of(context).book),
-            ),
-          ),
-          Positioned.directional(
-            textDirection: Directionality.of(context),
-            end: 0,
-            top: 0,
-            child: InkWell(
-              onTap: onFavoriteTap,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  (tutor.isFavorite ?? false)
-                      ? Icons.favorite
-                      : Icons.favorite_outline,
-                  color: context.primaryColor,
-                  size: 30,
-                ),
-              ),
             ),
           ),
         ],

@@ -27,7 +27,13 @@ class _AuthScreenState extends State<AuthScreen> {
 
   String message = '';
 
-  Color get primaryColor => Theme.of(context).primaryColor;
+  Color get primaryColor => context.primaryColor;
+  @override
+  void initState() {
+    context.read<AuthBloc>().add(FetchUser());
+
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -270,8 +276,10 @@ class _AuthScreenState extends State<AuthScreen> {
         buildWhen: (previous, current) => current != previous,
         listener: (BuildContext context, AuthState state) {
           if (state is AuthSuccess) {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil(RouteList.home, (route) => false);
+            if (context.read<AuthBloc>().state.user != null) {
+              Navigator.of(context)
+                  .pushNamedAndRemoveUntil(RouteList.home, (route) => false);
+            }
           }
           if (state is AuthFailed) {
             ScaffoldMessenger.of(context)

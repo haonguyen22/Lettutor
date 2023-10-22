@@ -5,11 +5,15 @@ abstract class TutorDetailState {
   final bool isLoading;
   final Tutor? tutor;
   final String name;
+  final List<ScheduleModel>? schedules;
+  final bool isLoadingSchedule;
 
   const TutorDetailState({
     this.isLoading = false,
     this.tutor,
     this.name = "",
+    this.schedules,
+  this.isLoadingSchedule = false,
   });
 }
 
@@ -18,6 +22,8 @@ final class TutorDetailInitial extends TutorDetailState {
     super.isLoading,
     super.tutor,
     super.name,
+    super.schedules,
+    super.isLoadingSchedule,
   });
 }
 
@@ -28,6 +34,8 @@ final class TutorDetailSuccess extends TutorDetailState {
     super.tutor,
     super.name,
     this.processing = false,
+    super.schedules,
+    super.isLoadingSchedule,
   });
 }
 
@@ -36,5 +44,7 @@ final class TutorDetailFailed extends TutorDetailState {
     super.isLoading,
     super.tutor,
     super.name,
+    super.schedules,
+    super.isLoadingSchedule,
   });
 }

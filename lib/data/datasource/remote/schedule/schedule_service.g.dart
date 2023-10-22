@@ -63,7 +63,7 @@ class _ScheduleService implements ScheduleService {
     )
         .compose(
           _dio.options,
-          '/schedule',
+          '/booking',
           queryParameters: queryParameters,
           data: _data,
         )
