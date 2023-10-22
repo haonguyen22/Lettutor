@@ -22,7 +22,7 @@ class BookingInfoModel with _$BookingInfoModel {
     DateTime? updatedAt,
     String? recordUrl,
     String? cancelReasonId,
-    String? lessonPlanId,
+    int? lessonPlanId,
     String? cancelNote,
     String? calendarId,
     bool? isDeleted,

@@ -1019,6 +1019,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Upcoming Lesson`
+  String get upcomingLesson {
+    return Intl.message(
+      'Upcoming Lesson',
+      name: 'upcomingLesson',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Total lesson is {num} hours {num2} minutes`
+  String totalLessionIs(Object num, Object num2) {
+    return Intl.message(
+      'Total lesson is $num hours $num2 minutes',
+      name: 'totalLessionIs',
+      desc: '',
+      args: [num, num2],
+    );
+  }
+
+  /// `Enter Lesson Room`
+  String get enterLessonRoom {
+    return Intl.message(
+      'Enter Lesson Room',
+      name: 'enterLessonRoom',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

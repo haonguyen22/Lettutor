@@ -32,6 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m5(str) => "Request for lesson: ${str}";
 
+  static String m6(num, num2) => "Total lesson is ${num} hours ${num2} minutes";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -65,6 +67,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("English for Business"),
         "englishForKids":
             MessageLookupByLibrary.simpleMessage("English for kids"),
+        "enterLessonRoom":
+            MessageLookupByLibrary.simpleMessage("Enter Lesson Room"),
         "enterTutorName":
             MessageLookupByLibrary.simpleMessage("Enter tutor name"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
@@ -150,10 +154,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "testPreparations":
             MessageLookupByLibrary.simpleMessage("Test preparations"),
         "topic": MessageLookupByLibrary.simpleMessage("Topic"),
+        "totalLessionIs": m6,
         "tutorAnnoyMe":
             MessageLookupByLibrary.simpleMessage("This tutor is annoying me"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
+        "upcomingLesson":
+            MessageLookupByLibrary.simpleMessage("Upcoming Lesson"),
         "vietnameseTutors":
             MessageLookupByLibrary.simpleMessage("Vietnamese Tutors"),
         "welcomeToLetTutor":

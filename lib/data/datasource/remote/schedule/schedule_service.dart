@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/models/schedule/booking_class_response.dart';
 import 'package:let_tutor/data/models/schedule/schedule_response.dart';
+import 'package:let_tutor/data/models/schedule/upcoming_class_response.dart';
 import 'package:retrofit/http.dart';
 
 part 'schedule_service.g.dart';
@@ -11,7 +12,8 @@ part 'schedule_service.g.dart';
 abstract class ScheduleService {
   static const String bookingApi = '/booking';
   static const String scheduleApi = '/schedule';
-  static const String bookedClasses = '/booking/list/student';
+  static const String bookedClassesApi = '/booking/list/student';
+  static const String upcomingClassesApi = '/booking/next';
 
   @factoryMethod
   factory ScheduleService(Dio dio) = _ScheduleService;
@@ -28,12 +30,17 @@ abstract class ScheduleService {
   Future<String?> cancelBookedClass(
       {@Body() required Map<String, dynamic> body});
 
-  @GET(bookedClasses)
+  @GET(bookedClassesApi)
   Future<BookingClassResponse?> getBookedClass({
     @Path("page") required int page,
     @Path("perPage") required int perPage,
     @Path("dateTimeLte") required int dateTimeLte,
     @Path("orderBy") required String orderBy,
     @Path("sortBy") required String sortBy,
+  });
+
+  @GET(upcomingClassesApi)
+  Future<UpcomingClassResponse?> upcomingClasses({
+    @Path("dateTime") required int dateTime,
   });
 }

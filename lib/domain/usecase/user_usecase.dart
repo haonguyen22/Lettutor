@@ -17,4 +17,9 @@ class UserUseCase {
     final res = await _userRepository.editUserProfile(body: body);
     return res;
   }
+
+  Future<int?> getTotalLearning() async {
+    final res = await _userRepository.getTotalLearning();
+    return res;
+  }
 }

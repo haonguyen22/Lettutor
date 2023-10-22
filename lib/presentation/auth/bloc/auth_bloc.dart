@@ -35,21 +35,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthInitial(isLoading: true));
       final res = await _authUseCase.login(
           email: event.username, password: event.password);
+          
+      final total = await _userUseCase.getTotalLearning();
+          
       if (res?.token != null) {
         emit(AuthSuccess(
           isLoading: false,
           user: res?.user.toEntity(),
+          totalLearning: total,
         ));
       } else {
-        emit(const AuthFailed(
+        emit(AuthFailed(
           message: "Email or password is wrong",
           isLoading: false,
+          totalLearning: state.totalLearning,
         ));
       }
     } catch (e) {
       emit(AuthFailed(
         message: e.toString(),
         isLoading: false,
+        totalLearning: state.totalLearning,
       ));
     }
   }
@@ -59,21 +65,26 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthInitial(isLoading: true));
       final res = await _authUseCase.register(
           email: event.username, password: event.password);
+
+      final total = await _userUseCase.getTotalLearning();
       if (res?.token != null) {
         emit(AuthSuccess(
           isLoading: false,
           user: res?.user.toEntity(),
+          totalLearning: total,
         ));
       } else {
-        emit(const AuthFailed(
+        emit(AuthFailed(
           message: "Email is already exists.",
           isLoading: false,
+          totalLearning: state.totalLearning,
         ));
       }
     } catch (e) {
       emit(AuthFailed(
         message: e.toString(),
         isLoading: false,
+        totalLearning: state.totalLearning,
       ));
     }
   }
@@ -91,12 +102,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(AuthSuccess(
           isLoading: false,
           user: res,
+          totalLearning: state.totalLearning,
         ));
       } else {
         emit(AuthFailed(
           message: "Fail to update user information",
           isLoading: false,
           user: state.user,
+          totalLearning: state.totalLearning,
         ));
       }
     } catch (e) {
@@ -104,6 +117,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         message: e.toString(),
         isLoading: false,
         user: state.user,
+        totalLearning: state.totalLearning,
       ));
     }
   }
@@ -115,15 +129,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
       emit(AuthSuccess(isLoading: true, user: state.user));
       final res = await _userUseCase.getUserInfo();
+      final total = await _userUseCase.getTotalLearning();
       emit(AuthSuccess(
         isLoading: false,
         user: res,
+        totalLearning: total,
       ));
     } catch (e) {
       emit(AuthFailed(
         message: e.toString(),
         isLoading: false,
         user: state.user,
+        totalLearning: state.totalLearning,
       ));
     }
   }

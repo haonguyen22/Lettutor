@@ -96,6 +96,8 @@
     "reportError": "Report Error, please check again",
     "lessonTime": "Lesson Time: ",
     "studentRequest": "Request for lesson: {str}",
-    "booked": "Booked"
-
+    "booked": "Booked",
+    "upcomingLesson": "Upcoming Lesson",
+    "totalLessionIs": "Total lesson is {num} hours {num2} minutes",
+    "enterLessonRoom": "Enter Lesson Room"
 }

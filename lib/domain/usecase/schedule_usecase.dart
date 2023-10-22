@@ -30,4 +30,8 @@ class ScheduleUseCase {
       perPage: perPage,
     );
   }
+
+  Future<List<BookingInfoModel>?> getUpcomingClasses() async {
+    return await _scheduleRepository.getUpcomingClasses();
+  }
 }

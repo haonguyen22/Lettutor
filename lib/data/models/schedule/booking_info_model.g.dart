@@ -27,7 +27,7 @@ _$_BookingInfoModel _$$_BookingInfoModelFromJson(Map<String, dynamic> json) =>
           : DateTime.parse(json['updatedAt'] as String),
       recordUrl: json['recordUrl'] as String?,
       cancelReasonId: json['cancelReasonId'] as String?,
-      lessonPlanId: json['lessonPlanId'] as String?,
+      lessonPlanId: json['lessonPlanId'] as int?,
       cancelNote: json['cancelNote'] as String?,
       calendarId: json['calendarId'] as String?,
       isDeleted: json['isDeleted'] as bool?,

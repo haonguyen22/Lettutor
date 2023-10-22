@@ -35,7 +35,7 @@ mixin _$BookingInfoModel {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   String? get recordUrl => throw _privateConstructorUsedError;
   String? get cancelReasonId => throw _privateConstructorUsedError;
-  String? get lessonPlanId => throw _privateConstructorUsedError;
+  int? get lessonPlanId => throw _privateConstructorUsedError;
   String? get cancelNote => throw _privateConstructorUsedError;
   String? get calendarId => throw _privateConstructorUsedError;
   bool? get isDeleted => throw _privateConstructorUsedError;
@@ -72,7 +72,7 @@ abstract class $BookingInfoModelCopyWith<$Res> {
       DateTime? updatedAt,
       String? recordUrl,
       String? cancelReasonId,
-      String? lessonPlanId,
+      int? lessonPlanId,
       String? cancelNote,
       String? calendarId,
       bool? isDeleted,
@@ -183,7 +183,7 @@ class _$BookingInfoModelCopyWithImpl<$Res, $Val extends BookingInfoModel>
       lessonPlanId: freezed == lessonPlanId
           ? _value.lessonPlanId
           : lessonPlanId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       cancelNote: freezed == cancelNote
           ? _value.cancelNote
           : cancelNote // ignore: cast_nullable_to_non_nullable
@@ -249,7 +249,7 @@ abstract class _$$_BookingInfoModelCopyWith<$Res>
       DateTime? updatedAt,
       String? recordUrl,
       String? cancelReasonId,
-      String? lessonPlanId,
+      int? lessonPlanId,
       String? cancelNote,
       String? calendarId,
       bool? isDeleted,
@@ -359,7 +359,7 @@ class __$$_BookingInfoModelCopyWithImpl<$Res>
       lessonPlanId: freezed == lessonPlanId
           ? _value.lessonPlanId
           : lessonPlanId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       cancelNote: freezed == cancelNote
           ? _value.cancelNote
           : cancelNote // ignore: cast_nullable_to_non_nullable
@@ -449,7 +449,7 @@ class _$_BookingInfoModel implements _BookingInfoModel {
   @override
   final String? cancelReasonId;
   @override
-  final String? lessonPlanId;
+  final int? lessonPlanId;
   @override
   final String? cancelNote;
   @override
@@ -575,7 +575,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
       final DateTime? updatedAt,
       final String? recordUrl,
       final String? cancelReasonId,
-      final String? lessonPlanId,
+      final int? lessonPlanId,
       final String? cancelNote,
       final String? calendarId,
       final bool? isDeleted,
@@ -617,7 +617,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
   @override
   String? get cancelReasonId;
   @override
-  String? get lessonPlanId;
+  int? get lessonPlanId;
   @override
   String? get cancelNote;
   @override

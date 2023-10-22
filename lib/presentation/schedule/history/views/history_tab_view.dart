@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:let_tutor/core/extensions/string_ext.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/schedule/history/bloc/history_bloc.dart';
-import 'package:let_tutor/presentation/schedule/history/views/history_card.dart';
+import 'package:let_tutor/presentation/schedule/widgets/schedule_card.dart';
 
 class HistoryTabView extends StatefulWidget {
   const HistoryTabView({super.key});
@@ -40,13 +39,8 @@ class _HistoryTabViewState extends State<HistoryTabView> with LoadMoreMixin {
                     final scheduleDetailInfo = history?.scheduleDetailInfo;
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
-                      child: HistoryCardWidget(
-                        tutor: scheduleDetailInfo?.scheduleInfo?.tutorInfo
-                            ?.toEntity(),
-                        date: scheduleDetailInfo!.scheduleInfo!.date!
-                            .convertToDateTime(),
-                        timeStart: scheduleDetailInfo.startPeriod,
-                        timeEnd: scheduleDetailInfo.endPeriod,
+                      child: ScheduleCardWidget(
+                        scheduleInfo: scheduleDetailInfo?.scheduleInfo,
                         onTap: () {},
                         request: history?.studentRequest,
                       ),

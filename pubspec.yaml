@@ -42,6 +42,7 @@ dependencies:
     retrofit_generator: ^8.0.0
     dio: ^5.3.3
     easy_debounce: ^2.0.3
+    jitsi_meet_wrapper: ^0.2.0+1
 
 dev_dependencies:
     flutter_test:

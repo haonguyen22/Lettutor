@@ -1,4 +1,7 @@
 part of 'upcoming_bloc.dart';
 
 @immutable
-sealed class UpcomingEvent {}
+abstract class UpcomingEvent {}
+
+class FetchUpcoming extends UpcomingEvent {}
+

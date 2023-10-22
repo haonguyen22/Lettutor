@@ -23,4 +23,10 @@ class UserRepositoryImplement extends UserRepository {
       return null;
     }
   }
+
+  @override
+  Future<int?> getTotalLearning() async {
+    final res = await _userService.getTotalLearning();
+    return res?.total;
+  }
 }

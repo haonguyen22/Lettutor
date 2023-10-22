@@ -25,3 +25,5 @@ class DataBookingClassResponse with _$DataBookingClassResponse {
   factory DataBookingClassResponse.fromJson(Map<String, Object?> json) =>
       _$DataBookingClassResponseFromJson(json);
 }
+
+

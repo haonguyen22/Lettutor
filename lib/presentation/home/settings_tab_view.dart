@@ -155,31 +155,28 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                 icon: const Icon(Icons.contact_mail_outlined, size: 30),
               ),
               const SizedBox(height: 48),
-              BlocBuilder<AuthBloc, AuthState>(
-                builder: (_, __) {
-                  return TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          RouteList.login, (__) => false);
-                    },
-                    style: TextButton.styleFrom(
-                      minimumSize: const Size.fromHeight(44),
-                      backgroundColor: const Color.fromRGBO(255, 0, 0, 0.2),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Icon(Icons.logout, color: Colors.red),
-                        const SizedBox(width: 8),
-                        Text(
-                          S.of(context).logOut,
-                          style: context.textTheme.titleLarge
-                              ?.copyWith(color: Colors.red),
-                        ),
-                      ],
-                    ),
-                  );
+              TextButton(
+                onPressed: () {
+                  context.read<AuthBloc>().add(LogOut());
+                  Navigator.of(context).pushNamedAndRemoveUntil(
+                      RouteList.login, (route) => false);
                 },
+                style: TextButton.styleFrom(
+                  minimumSize: const Size.fromHeight(44),
+                  backgroundColor: const Color.fromRGBO(255, 0, 0, 0.2),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Icon(Icons.logout, color: Colors.red),
+                    const SizedBox(width: 8),
+                    Text(
+                      S.of(context).logOut,
+                      style: context.textTheme.titleLarge
+                          ?.copyWith(color: Colors.red),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 48),
             ],

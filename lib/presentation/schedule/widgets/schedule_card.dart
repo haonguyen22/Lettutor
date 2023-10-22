@@ -1,34 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:intl/intl.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
-import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/core/extensions/integer_ext.dart';
+import 'package:let_tutor/data/models/schedule/booking_info_model.dart';
 import 'package:let_tutor/dummy/country.dart';
-import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:localization/localization.dart';
 
 const _kDefaultImage = "assets/icons/logo.png";
 
-class HistoryCardWidget extends StatelessWidget {
+class ScheduleCardWidget extends StatelessWidget {
   final VoidCallback onTap;
-  final DateTime date;
-  final String? timeStart;
-  final String? timeEnd;
-  final Tutor? tutor;
+  final ScheduleInfoModel? scheduleInfo;
   final String? request;
 
-  const HistoryCardWidget({
+  const ScheduleCardWidget({
     super.key,
-    this.tutor,
     required this.onTap,
-    required this.date,
-    this.timeStart,
-    this.timeEnd,
+    this.scheduleInfo,
     this.request,
   });
 
   @override
   Widget build(BuildContext context) {
+    final tutor = scheduleInfo?.tutorInfo?.toEntity();
     return Container(
       width: double.infinity,
       padding: const EdgeInsetsDirectional.only(
@@ -53,8 +46,7 @@ class HistoryCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              DateFormat.yMMMEd(context.read<AppSettingBloc>().state.langCode)
-                  .format(date),
+              (scheduleInfo?.startTimestamp ?? 0).toyMMMEdFormat(),
               style: context.textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.bold,
               ),
@@ -75,7 +67,7 @@ class HistoryCardWidget extends StatelessWidget {
                     borderRadius: BorderRadius.circular(4),
                   ),
                   child: Text(
-                    timeStart ?? '',
+                    (scheduleInfo?.startTimestamp ?? 0).toDateTime('HH:mm'),
                     style: context.textTheme.bodyLarge?.copyWith(),
                   ),
                 ),
@@ -92,7 +84,7 @@ class HistoryCardWidget extends StatelessWidget {
                     color: Colors.red.withOpacity(0.3),
                   ),
                   child: Text(
-                    timeEnd ?? '',
+                    (scheduleInfo?.endTimestamp ?? 0).toDateTime('HH:mm'),
                     style: context.textTheme.bodyLarge?.copyWith(),
                   ),
                 )

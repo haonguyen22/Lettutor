@@ -21,7 +21,7 @@ class AuthScreen extends StatefulWidget {
 
 class _AuthScreenState extends State<AuthScreen> {
   final TextEditingController email =
-      TextEditingController(text: "phhai@ymail.com");
+      TextEditingController(text: "student@lettutor.com");
   final TextEditingController password = TextEditingController(text: "123456");
   final _formKey = GlobalKey<FormState>();
 
@@ -189,16 +189,6 @@ class _AuthScreenState extends State<AuthScreen> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Text(
-                                      (isLoginScreen
-                                              ? S.of(context).logIn
-                                              : S.of(context).signUp)
-                                          .toUpperCase(),
-                                      style: textTheme.bodyLarge?.copyWith(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                      ),
-                                    ),
                                     state.isLoading
                                         ? Container(
                                             margin: const EdgeInsetsDirectional
@@ -209,6 +199,17 @@ class _AuthScreenState extends State<AuthScreen> {
                                                 const CircularProgressIndicator(),
                                           )
                                         : const SizedBox(),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      (isLoginScreen
+                                              ? S.of(context).logIn
+                                              : S.of(context).signUp)
+                                          .toUpperCase(),
+                                      style: textTheme.bodyLarge?.copyWith(
+                                        color: Colors.white,
+                                        fontSize: 18,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),

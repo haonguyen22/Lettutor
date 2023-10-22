@@ -12,4 +12,6 @@ abstract class ScheduleRepository {
     String orderBy = "meeting",
     String sortBy = "desc",
   });
+
+  Future<List<BookingInfoModel>?> getUpcomingClasses();
 }

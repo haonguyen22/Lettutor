@@ -6,6 +6,7 @@ import 'package:let_tutor/data/models/schedule/booking_class_response.dart';
 import 'package:let_tutor/data/models/schedule/booking_info_model.dart';
 import 'package:let_tutor/data/models/schedule/schedule_model.dart';
 import 'package:let_tutor/data/models/schedule/schedule_response.dart';
+import 'package:let_tutor/data/models/schedule/upcoming_class_response.dart';
 import 'package:let_tutor/domain/repositories/schedule_repository.dart';
 
 @Injectable(as: ScheduleRepository)
@@ -60,6 +61,19 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
         sortBy: sortBy,
       );
       return res?.data?.rows;
+    } catch (e) {
+      log(e.toString());
+      return null;
+    }
+  }
+
+  @override
+  Future<List<BookingInfoModel>?> getUpcomingClasses() async {
+    try {
+      int now = DateTime.now().millisecondsSinceEpoch;
+      UpcomingClassResponse? res =
+          await _scheduleService.upcomingClasses(dateTime: now);
+      return res?.data;
     } catch (e) {
       log(e.toString());
       return null;
