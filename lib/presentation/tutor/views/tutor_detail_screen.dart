@@ -11,6 +11,7 @@ import 'package:let_tutor/core/widget/column_info_detail.dart';
 import 'package:let_tutor/core/widget/video.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:let_tutor/dummy/country.dart';
+import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:let_tutor/presentation/tutor/bloc/tutor_detail_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
@@ -30,8 +31,11 @@ class TutorDetailScreen extends StatefulWidget {
 
 class _TutorDetailScreenState extends State<TutorDetailScreen> {
   TutorDetailBloc get tutorDetailBloc => context.read<TutorDetailBloc>();
+
+  String get langCode => context.read<AppSettingBloc>().state.langCode;
+
   late TextEditingController reportTextController;
-  DateTime birthday = DateTime.now();
+  DateTime bookedDate = DateTime.now();
 
   @override
   void initState() {
@@ -84,7 +88,7 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
     );
     if (value != null) {
       setState(() {
-        birthday = value;
+        bookedDate = value;
       });
     }
   }
@@ -298,52 +302,89 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                           if (state.isLoadingSchedule == false)
                             ColumnInfoDetailWidget(
                               label: S.of(context).book,
-                              content: GestureDetector(
-                                onTap: onTapChangeBookDate,
-                                child: Container(
-                                  padding: const EdgeInsets.symmetric(
-                                      vertical: 18, horizontal: 14),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                        color: context.textColor!
-                                            .withOpacity(0.6)),
-                                    borderRadius: BorderRadius.circular(4),
+                              content: Row(
+                                children: [
+                                  GestureDetector(
+                                    onTap: () => setState(() {
+                                      bookedDate = bookedDate
+                                          .subtract(const Duration(days: 1));
+                                    }),
+                                    child: const Icon(
+                                      Icons.arrow_back_ios_outlined,
+                                      size: 25,
+                                    ),
                                   ),
-                                  child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        DateFormat.yMEd().format(birthday),
+                                  const SizedBox(width: 8),
+                                  Expanded(
+                                    child: GestureDetector(
+                                      onTap: onTapChangeBookDate,
+                                      child: Container(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 18, horizontal: 14),
+                                        decoration: BoxDecoration(
+                                          border: Border.all(
+                                              color: context.textColor!
+                                                  .withOpacity(0.6)),
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                        ),
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              DateFormat.yMMMEd(langCode)
+                                                  .format(bookedDate),
+                                            ),
+                                            const Icon(Icons.calendar_month),
+                                          ],
+                                        ),
                                       ),
-                                      const Icon(Icons.calendar_month),
-                                    ],
+                                    ),
                                   ),
-                                ),
+                                  const SizedBox(width: 8),
+                                  GestureDetector(
+                                    onTap: () => setState(() {
+                                      bookedDate = bookedDate
+                                          .add(const Duration(days: 1));
+                                    }),
+                                    child: const Icon(
+                                      Icons.arrow_forward_ios_outlined,
+                                      size: 25,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                          ...List.generate(state.schedules?.length ?? 0,
-                              (index) {
-                            final schedule = state.schedules![index];
-                            final startDate =
-                                DateTime.fromMillisecondsSinceEpoch(
-                                    schedule.startTimestamp ?? 0);
-                            if (startDate.day == birthday.day &&
-                                startDate.month == birthday.month &&
-                                startDate.year == birthday.year) {
-                              return BookCardWidget(
-                                date: DateTime.fromMillisecondsSinceEpoch(
-                                  schedule.startTimestamp ??
-                                      DateTime.now().millisecondsSinceEpoch,
-                                ),
-                                enable: true,
-                                isBooked: schedule.isBooked ?? true,
-                                endTime: schedule.endTime,
-                                startTime: schedule.startTime,
+                          ...List.generate(
+                            state.schedules?.length ?? 0,
+                            (index) {
+                              final schedule = state.schedules![index];
+                              final startDate =
+                                  DateTime.fromMillisecondsSinceEpoch(
+                                schedule.startTimestamp ?? 0,
                               );
-                            }
-                            return const SizedBox();
-                          })
+
+                              if (startDate.day == bookedDate.day &&
+                                  startDate.month == bookedDate.month &&
+                                  startDate.year == bookedDate.year) {
+                                return BookCardWidget(
+                                  date: startDate,
+                                  enable: true,
+                                  isBooked: schedule.isBooked ?? true,
+                                  endTime: schedule.endTime,
+                                  startTime: schedule.startTime,
+                                  onTap: () {
+                                    context.read<TutorDetailBloc>().add(
+                                          BookClassEvent(
+                                              scheduleDetailId: schedule.id!),
+                                        );
+                                  },
+                                );
+                              }
+                              return const SizedBox();
+                            },
+                          )
                         ],
                       ),
                     ],

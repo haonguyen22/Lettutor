@@ -1,7 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/extensions/integer_ext.dart';
+import 'package:let_tutor/core/mixin/jitsi_meeting_mixin.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
@@ -18,7 +20,8 @@ class HomeTabView extends StatefulWidget {
   State<HomeTabView> createState() => _HomeTabViewState();
 }
 
-class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
+class _HomeTabViewState extends State<HomeTabView>
+    with LoadMoreMixin, JistiMeetingMixin {
   TutorBloc get tutorBloc => context.read<TutorBloc>();
   AuthBloc get authBloc => context.read<AuthBloc>();
   UpcomingBloc get upcomingBloc => context.read<UpcomingBloc>();
@@ -39,6 +42,7 @@ class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
         tutorBloc.add(RefreshTutor());
       },
       child: CustomScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         controller: scrollController,
         slivers: [
           SliverToBoxAdapter(
@@ -48,12 +52,33 @@ class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
               color: context.primaryColor,
               child: BlocBuilder<UpcomingBloc, UpcomingState>(
                 builder: (_, state) {
-                  final upcomingLesson = state.upcomingClasses?.firstOrNull;
+                  final now = DateTime.now().millisecondsSinceEpoch;
+                  final upcomingLesson =
+                      state.upcomingClasses?.firstWhereOrNull((e) {
+                    final scheduleInfo = e.scheduleDetailInfo?.scheduleInfo;
+                    return scheduleInfo != null &&
+                        ((scheduleInfo.startTimestamp != null &&
+                                scheduleInfo.startTimestamp! <= now &&
+                                scheduleInfo.endTimestamp != null &&
+                                scheduleInfo.endTimestamp! >= now) ||
+                            scheduleInfo.startTimestamp != null &&
+                                scheduleInfo.startTimestamp! >= now);
+                  });
 
                   if (upcomingLesson == null) {
                     return Column(
                       mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text(
+                          S.of(context).welcomeToLetTutor,
+                          style: context.textTheme.headlineSmall?.copyWith(
+                            color: context.backgroundColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(height: 8),
                         Text(
                           S.of(context).noUpcommingLesson,
                           style: context.textTheme.titleLarge?.copyWith(
@@ -61,14 +86,7 @@ class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        const SizedBox(height: 20),
-                        Text(
-                          S.of(context).welcomeToLetTutor,
-                          style: context.textTheme.bodySmall?.copyWith(
-                            color: context.backgroundColor,
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
+                        const SizedBox(height: 24),
                         Text(
                           S.of(context).totalLessionIs(
                               ((authBloc.state.totalLearning ?? 0) ~/ 60),
@@ -120,7 +138,9 @@ class _HomeTabViewState extends State<HomeTabView> with LoadMoreMixin {
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () => onTapEnterLessonRoom(
+                          upcomingLesson.studentMeetingLink,
+                        ),
                         icon: const Icon(Icons.play_circle_outline),
                         label: Text(S.of(context).enterLessonRoom),
                       ),

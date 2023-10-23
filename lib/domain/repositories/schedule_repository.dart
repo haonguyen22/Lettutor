@@ -4,8 +4,6 @@ import 'package:let_tutor/data/models/schedule/schedule_model.dart';
 abstract class ScheduleRepository {
   Future<List<ScheduleModel>?> getScheduleByTutorID({required String tutorId});
 
-  Future<String?> cancelBookedClass({required List<String> scheduleDetailIds});
-
   Future<List<BookingInfoModel>?> getBookedClasses({
     required int page,
     int perPage = 10,
@@ -14,4 +12,10 @@ abstract class ScheduleRepository {
   });
 
   Future<List<BookingInfoModel>?> getUpcomingClasses();
+
+  Future<String?> cancelBookedClassById({List<String>? scheduleDetailIds});
+
+
+  // TODO: need to change return type
+  Future<void> bookAClass({required String scheduleDetailId, String note = ""});
 }

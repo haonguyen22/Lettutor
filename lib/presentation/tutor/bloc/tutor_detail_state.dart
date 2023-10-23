@@ -2,10 +2,19 @@ part of 'tutor_detail_bloc.dart';
 
 @immutable
 abstract class TutorDetailState {
+  /// Flag to check if tutor detail is loading
   final bool isLoading;
+
+  /// Tutor detail information
   final Tutor? tutor;
+
+  /// Name of tutor
   final String name;
+
+  /// Schedule of tutor
   final List<ScheduleModel>? schedules;
+
+  /// Flag to check if schedule is loading
   final bool isLoadingSchedule;
 
   const TutorDetailState({
@@ -13,7 +22,7 @@ abstract class TutorDetailState {
     this.tutor,
     this.name = "",
     this.schedules,
-  this.isLoadingSchedule = false,
+    this.isLoadingSchedule = false,
   });
 }
 

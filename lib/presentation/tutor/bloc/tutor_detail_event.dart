@@ -18,6 +18,14 @@ class ReportTutorEvent extends TutorDetailEvent {
   });
 }
 
-class FetchScheduleByTutorIdEvent extends TutorDetailEvent {
-  FetchScheduleByTutorIdEvent();
+class FetchScheduleByTutorIdEvent extends TutorDetailEvent {}
+
+class BookClassEvent extends TutorDetailEvent {
+  final String scheduleDetailId;
+  final String note;
+
+  BookClassEvent({
+    required this.scheduleDetailId,
+    this.note = "",
+  });
 }

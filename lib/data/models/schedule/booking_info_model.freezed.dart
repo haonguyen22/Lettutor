@@ -34,7 +34,7 @@ mixin _$BookingInfoModel {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   String? get recordUrl => throw _privateConstructorUsedError;
-  String? get cancelReasonId => throw _privateConstructorUsedError;
+  int? get cancelReasonId => throw _privateConstructorUsedError;
   int? get lessonPlanId => throw _privateConstructorUsedError;
   String? get cancelNote => throw _privateConstructorUsedError;
   String? get calendarId => throw _privateConstructorUsedError;
@@ -71,7 +71,7 @@ abstract class $BookingInfoModelCopyWith<$Res> {
       DateTime? createdAt,
       DateTime? updatedAt,
       String? recordUrl,
-      String? cancelReasonId,
+      int? cancelReasonId,
       int? lessonPlanId,
       String? cancelNote,
       String? calendarId,
@@ -179,7 +179,7 @@ class _$BookingInfoModelCopyWithImpl<$Res, $Val extends BookingInfoModel>
       cancelReasonId: freezed == cancelReasonId
           ? _value.cancelReasonId
           : cancelReasonId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       lessonPlanId: freezed == lessonPlanId
           ? _value.lessonPlanId
           : lessonPlanId // ignore: cast_nullable_to_non_nullable
@@ -248,7 +248,7 @@ abstract class _$$_BookingInfoModelCopyWith<$Res>
       DateTime? createdAt,
       DateTime? updatedAt,
       String? recordUrl,
-      String? cancelReasonId,
+      int? cancelReasonId,
       int? lessonPlanId,
       String? cancelNote,
       String? calendarId,
@@ -355,7 +355,7 @@ class __$$_BookingInfoModelCopyWithImpl<$Res>
       cancelReasonId: freezed == cancelReasonId
           ? _value.cancelReasonId
           : cancelReasonId // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as int?,
       lessonPlanId: freezed == lessonPlanId
           ? _value.lessonPlanId
           : lessonPlanId // ignore: cast_nullable_to_non_nullable
@@ -447,7 +447,7 @@ class _$_BookingInfoModel implements _BookingInfoModel {
   @override
   final String? recordUrl;
   @override
-  final String? cancelReasonId;
+  final int? cancelReasonId;
   @override
   final int? lessonPlanId;
   @override
@@ -574,7 +574,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
       final DateTime? createdAt,
       final DateTime? updatedAt,
       final String? recordUrl,
-      final String? cancelReasonId,
+      final int? cancelReasonId,
       final int? lessonPlanId,
       final String? cancelNote,
       final String? calendarId,
@@ -615,7 +615,7 @@ abstract class _BookingInfoModel implements BookingInfoModel {
   @override
   String? get recordUrl;
   @override
-  String? get cancelReasonId;
+  int? get cancelReasonId;
   @override
   int? get lessonPlanId;
   @override

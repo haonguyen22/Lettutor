@@ -17,14 +17,12 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
     this._scheduleUseCase,
   ) : super(const UpcomingInitial()) {
     on<FetchUpcoming>(_fetchUpcoming);
+    on<CancelUpcomingClassEvent>(_cancelUpcomingClassEvent);
   }
 
   FutureOr<void> _fetchUpcoming(
       FetchUpcoming event, Emitter<UpcomingState> emit) async {
-    emit(UpcomingSuccess(
-      upcomingClasses: state.upcomingClasses,
-      isLoading: true,
-    ));
+    emit(const UpcomingInitial(isLoading: true));
 
     List<BookingInfoModel>? upcomingClasses =
         await _scheduleUseCase.getUpcomingClasses();
@@ -33,6 +31,31 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
       UpcomingSuccess(
         isLoading: false,
         upcomingClasses: upcomingClasses?.reversed.toList(),
+      ),
+    );
+  }
+
+  FutureOr<void> _cancelUpcomingClassEvent(
+      CancelUpcomingClassEvent event, Emitter<UpcomingState> emit) async {
+    emit(UpcomingSuccess(
+      upcomingClasses: state.upcomingClasses,
+      isLoading: false,
+      isLoadingCancel: true,
+    ));
+
+    String? message = await _scheduleUseCase.cancelBookedClass(
+      scheduleDetailIds: [event.scheduleDetailId],
+    );
+
+    List<BookingInfoModel>? upcomingClasses =
+        await _scheduleUseCase.getUpcomingClasses();
+
+    emit(
+      UpcomingSuccess(
+        isLoading: false,
+        upcomingClasses: upcomingClasses?.reversed.toList(),
+        isLoadingCancel: false,
+        message: message,
       ),
     );
   }

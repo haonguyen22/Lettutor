@@ -9,6 +9,7 @@ class BookCardWidget extends StatelessWidget {
   final String? endTime;
   final bool isBooked;
   final bool enable;
+  final VoidCallback? onTap;
 
   const BookCardWidget({
     super.key,
@@ -17,6 +18,7 @@ class BookCardWidget extends StatelessWidget {
     this.endTime,
     required this.isBooked,
     required this.enable,
+    this.onTap,
   });
 
   @override
@@ -84,7 +86,13 @@ class BookCardWidget extends StatelessWidget {
           ],
         ),
         trailing: ElevatedButton(
-          onPressed: !enable || isBooked ? null : () {},
+          onPressed: !enable || isBooked ? null : onTap,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: isBooked ? Colors.grey : context.primaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+            ),
+          ),
           child: Text(
             isBooked ? S.of(context).booked : S.of(context).book,
             style: context.textTheme.bodyMedium,

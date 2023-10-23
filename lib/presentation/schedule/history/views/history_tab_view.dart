@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/schedule/history/bloc/history_bloc.dart';
-import 'package:let_tutor/presentation/schedule/widgets/schedule_card.dart';
+import 'package:let_tutor/presentation/schedule/history/views/history_card.dart';
 
 class HistoryTabView extends StatefulWidget {
   const HistoryTabView({super.key});
@@ -26,6 +26,7 @@ class _HistoryTabViewState extends State<HistoryTabView> with LoadMoreMixin {
         context.read<HistoryBloc>().add(RefreshHistoryPagination());
       },
       child: SingleChildScrollView(
+        physics: const AlwaysScrollableScrollPhysics(),
         controller: scrollController,
         padding: const EdgeInsets.all(16),
         child: BlocBuilder<HistoryBloc, HistoryState>(
@@ -39,9 +40,8 @@ class _HistoryTabViewState extends State<HistoryTabView> with LoadMoreMixin {
                     final scheduleDetailInfo = history?.scheduleDetailInfo;
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 16.0),
-                      child: ScheduleCardWidget(
+                      child: HistoryCardWidget(
                         scheduleInfo: scheduleDetailInfo?.scheduleInfo,
-                        onTap: () {},
                         request: history?.studentRequest,
                       ),
                     );

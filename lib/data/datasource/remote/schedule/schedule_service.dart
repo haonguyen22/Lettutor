@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/models/schedule/booking_class_response.dart';
+import 'package:let_tutor/data/models/schedule/cancel_booked_response.dart';
 import 'package:let_tutor/data/models/schedule/schedule_response.dart';
 import 'package:let_tutor/data/models/schedule/upcoming_class_response.dart';
 import 'package:retrofit/http.dart';
@@ -18,16 +19,17 @@ abstract class ScheduleService {
   @factoryMethod
   factory ScheduleService(Dio dio) = _ScheduleService;
 
-  // @POST(bookingApi)
-  // Future<TutorsResponse?> postBookAClass(
-  //     {@Body() required Map<String, dynamic> body});
+  // TODO: need to change return type
+  @POST(bookingApi)
+  Future<void> postBookAClass(
+      {@Body() required Map<String, dynamic> body});
 
   @POST(scheduleApi)
   Future<ScheduleResponse?> getScheduleByTutorID(
       {@Body() required Map<String, dynamic> body});
 
   @DELETE(bookingApi)
-  Future<String?> cancelBookedClass(
+  Future<CancelBookedResponse?> cancelBookedClass(
       {@Body() required Map<String, dynamic> body});
 
   @GET(bookedClassesApi)

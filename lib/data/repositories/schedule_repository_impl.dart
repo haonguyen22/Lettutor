@@ -14,19 +14,6 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
   final ScheduleService _scheduleService;
 
   ScheduleRepositoryImpl(this._scheduleService);
-  @override
-  Future<String?> cancelBookedClass(
-      {required List<String> scheduleDetailIds}) async {
-    try {
-      final res = await _scheduleService
-              .cancelBookedClass(body: {"scheduleDetailIds": scheduleDetailIds})
-          as Map<String, dynamic>;
-      return res["message"];
-    } catch (e) {
-      log(e.toString());
-      return null;
-    }
-  }
 
   @override
   Future<List<ScheduleModel>?> getScheduleByTutorID(
@@ -77,6 +64,38 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
     } catch (e) {
       log(e.toString());
       return null;
+    }
+  }
+
+  @override
+  Future<String?> cancelBookedClassById(
+      {List<String>? scheduleDetailIds}) async {
+    try {
+      final res = await _scheduleService.cancelBookedClass(body: {
+        "scheduleDetailIds": scheduleDetailIds,
+      });
+
+      return res?.message;
+    } catch (e) {
+      log(e.toString());
+      return e.toString();
+    }
+  }
+
+  // TODO: need to change return type
+  @override
+  Future<void> bookAClass(
+      {required String scheduleDetailId, String note = ""}) async {
+    try {
+      final res = await _scheduleService.postBookAClass(body: {
+        "scheduleDetailIds": [scheduleDetailId],
+        "note": note,
+      });
+
+      // return res?.message;
+    } catch (e) {
+      log(e.toString());
+      return;
     }
   }
 }

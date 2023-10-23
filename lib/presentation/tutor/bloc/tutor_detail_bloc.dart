@@ -26,6 +26,7 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
     on<FavoriteTutorEvent>(_favoriteTutorEvent);
     on<ReportTutorEvent>(_reportTutorEvent);
     on<FetchScheduleByTutorIdEvent>(_fetchScheduleByTutorIdEvent);
+    on<BookClassEvent>(_bookClassEvent);
   }
 
   FutureOr<void> _fetchTutorByIdEvent(
@@ -109,9 +110,36 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
         isLoading: state.isLoading,
         tutor: state.tutor,
         name: state.name,
-        schedules: res,
+        schedules: res?.toList()
+          ?..sort((a, b) => a.startTimestamp!.compareTo(b.startTimestamp!)),
         isLoadingSchedule: false,
       ),
     );
+  }
+
+  FutureOr<void> _bookClassEvent(
+      BookClassEvent event, Emitter<TutorDetailState> emit) async {
+    emit(TutorDetailSuccess(
+      isLoading: state.isLoading,
+      tutor: state.tutor,
+      name: state.name,
+      schedules: state.schedules,
+      isLoadingSchedule: state.isLoadingSchedule,
+      processing: true,
+    ));
+
+    await _scheduleUseCase.bookAClass(
+      scheduleDetailId: event.scheduleDetailId,
+      note: event.note,
+    );
+
+    emit(TutorDetailSuccess(
+      isLoading: state.isLoading,
+      tutor: state.tutor,
+      name: state.name,
+      schedules: state.schedules,
+      isLoadingSchedule: state.isLoadingSchedule,
+      processing: false,
+    ));
   }
 }

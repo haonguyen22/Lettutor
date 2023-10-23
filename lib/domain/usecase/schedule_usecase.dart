@@ -11,7 +11,7 @@ class ScheduleUseCase {
 
   Future<String?> cancelBookedClass(
       {required List<String> scheduleDetailIds}) async {
-    return await _scheduleRepository.cancelBookedClass(
+    return await _scheduleRepository.cancelBookedClassById(
       scheduleDetailIds: scheduleDetailIds,
     );
   }
@@ -33,5 +33,15 @@ class ScheduleUseCase {
 
   Future<List<BookingInfoModel>?> getUpcomingClasses() async {
     return await _scheduleRepository.getUpcomingClasses();
+  }
+
+  Future<void> bookAClass({
+    required String scheduleDetailId,
+    String note = "",
+  }) async {
+    return await _scheduleRepository.bookAClass(
+      scheduleDetailId: scheduleDetailId,
+      note: note,
+    );
   }
 }

@@ -4,12 +4,14 @@ part of 'upcoming_bloc.dart';
 abstract class UpcomingState {
   final List<BookingInfoModel>? upcomingClasses;
   final bool isLoading;
-  final BookingInfoModel? upcomingNearestClass;
+  final bool isLoadingCancel;
+  final String? message;
 
   const UpcomingState({
     this.upcomingClasses,
     this.isLoading = false,
-    this.upcomingNearestClass,
+    this.isLoadingCancel = false,
+    this.message,
   });
 }
 
@@ -17,7 +19,8 @@ class UpcomingInitial extends UpcomingState {
   const UpcomingInitial({
     super.upcomingClasses,
     super.isLoading,
-    super.upcomingNearestClass,
+    super.isLoadingCancel,
+    super.message,
   });
 }
 
@@ -25,6 +28,7 @@ class UpcomingSuccess extends UpcomingState {
   const UpcomingSuccess({
     super.upcomingClasses,
     super.isLoading,
-    super.upcomingNearestClass,
+    super.isLoadingCancel,
+    super.message,
   });
 }
