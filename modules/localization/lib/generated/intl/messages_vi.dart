@@ -30,25 +30,44 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m5(str) => "Yêu cầu buổi học: ${str}";
 
+  static String m6(num, num2) => "Tổng số bài học là ${num} giờ ${num2} phút";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "Continue": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
         "about": MessageLookupByLibrary.simpleMessage("Về chúng tôi"),
         "account": MessageLookupByLibrary.simpleMessage("Tài khoản"),
+        "addCertificate":
+            MessageLookupByLibrary.simpleMessage("Thêm chứng chỉ mới"),
         "all": MessageLookupByLibrary.simpleMessage("Tất cả"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Đã có tài khoản?"),
         "appearance": MessageLookupByLibrary.simpleMessage("Giao diện"),
+        "approval": MessageLookupByLibrary.simpleMessage("Sự chấp thuận"),
+        "backHome": MessageLookupByLibrary.simpleMessage("Quay lại trang chủ"),
+        "basicInfo": MessageLookupByLibrary.simpleMessage("Thông tin cơ bản"),
         "becomeATutor":
             MessageLookupByLibrary.simpleMessage("Trở thành Gia sư"),
+        "bestStudentWhoAre": MessageLookupByLibrary.simpleMessage(
+            "Tôi giỏi trong việc dạy học sinh là"),
         "book": MessageLookupByLibrary.simpleMessage("Đặt lịch"),
+        "booked": MessageLookupByLibrary.simpleMessage("Đã đặt"),
+        "certificate": MessageLookupByLibrary.simpleMessage("Chứng chỉ"),
         "checkValidate": MessageLookupByLibrary.simpleMessage(
             "Vui lòng kiểm tra lại tất cả các thông tin đã nhập."),
+        "chooseVideo": MessageLookupByLibrary.simpleMessage("Chọn video"),
+        "completeProfile":
+            MessageLookupByLibrary.simpleMessage("Hoàn tất hồ sơ"),
         "contact": MessageLookupByLibrary.simpleMessage("Liên hệ"),
         "conversational": MessageLookupByLibrary.simpleMessage("Giao tiếp"),
         "courseLength": MessageLookupByLibrary.simpleMessage("Độ dài khóa học"),
         "courses": MessageLookupByLibrary.simpleMessage("Khóa học"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
+        "doneAllSteps": MessageLookupByLibrary.simpleMessage(
+            "Bạn đã hoàn thành tất cả các bước"),
         "eBooks": MessageLookupByLibrary.simpleMessage("Sách điện tử"),
+        "editTutorProfileLater": MessageLookupByLibrary.simpleMessage(
+            "Hồ sơ gia sư của bạn là cơ hội để quảng cáo bản thân đến học sinh trên Tutoring. Bạn có thể chỉnh sửa sau trên trang cài đặt hồ sơ của mình."),
         "education": MessageLookupByLibrary.simpleMessage("Học vấn"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "endTime": MessageLookupByLibrary.simpleMessage("Thời gian kết thúc"),
@@ -56,8 +75,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tiếng Anh cho Doanh nghiệp"),
         "englishForKids":
             MessageLookupByLibrary.simpleMessage("Tiếng Anh cho trẻ em"),
+        "enterLessonRoom":
+            MessageLookupByLibrary.simpleMessage("Vào phòng học"),
         "enterTutorName":
             MessageLookupByLibrary.simpleMessage("Nhập tên gia sư"),
+        "experience": MessageLookupByLibrary.simpleMessage("Kinh nghiệm"),
+        "experienceHint": MessageLookupByLibrary.simpleMessage(
+            "Sở thích, sở thích, trải nghiệm cuộc sống đáng nhớ hoặc bất kỳ điều gì bạn muốn chia sẻ!"),
         "favorite": MessageLookupByLibrary.simpleMessage("Yêu thích"),
         "findATutor": MessageLookupByLibrary.simpleMessage("Tìm gia sư"),
         "forgotPassword":
@@ -69,8 +93,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "inappropriatePhoto":
             MessageLookupByLibrary.simpleMessage("Ảnh hồ sơ không phù hợp"),
         "interests": MessageLookupByLibrary.simpleMessage("Sở thích"),
+        "introduction": MessageLookupByLibrary.simpleMessage("Giới thiệu"),
+        "introductionHint": MessageLookupByLibrary.simpleMessage(
+            "Ví dụ: Tôi là bác sĩ trong 35 năm và có thể giúp bạn luyện tập Tiếng Anh kinh doanh hoặc y khoa. Tôi cũng thích dạy người mới bắt đầu vì tôi rất kiên nhẫn và luôn nói chậm và rõ ràng."),
+        "introductionYourselfDesc": MessageLookupByLibrary.simpleMessage(
+            "Hãy cho học sinh biết họ có thể mong đợi gì từ một bài học với bạn bằng cách ghi lại một video giới thiệu phong cách giảng dạy, chuyên môn và tính cách của bạn. Học sinh có thể lo lắng khi nói chuyện với một người nước ngoài, vì vậy việc có một video thân thiện giới thiệu bản thân và mời học sinh gọi điện thoại cho bạn thực sự giúp đỡ."),
+        "introdutionYourself":
+            MessageLookupByLibrary.simpleMessage("Giới thiệu bản thân"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "languageISpeak":
+            MessageLookupByLibrary.simpleMessage("Ngôn ngữ mà tôi nói"),
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+        "languagesHint": MessageLookupByLibrary.simpleMessage(
+            "Ví dụ: Tiếng Anh, Tiếng Việt, ..."),
         "lessonTime":
             MessageLookupByLibrary.simpleMessage("Thời gian buổi học: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
@@ -84,6 +119,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "min8Characters": MessageLookupByLibrary.simpleMessage(
             "Mật khẩu phải có ít nhất 8 ký tự."),
         "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
+        "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
+            "Học sinh mới có thể xem hồ sơ của gia sư để tìm gia sư phù hợp với mục tiêu học tập và tính cách của họ. Học sinh quay lại có thể sử dụng hồ sơ gia sư để tìm gia sư mà họ đã có kinh nghiệm tốt trước đây."),
         "noDataResponse":
             MessageLookupByLibrary.simpleMessage("Không có dữ liệu trả về"),
         "noResultSearch":
@@ -95,6 +132,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chưa là thành viên?"),
         "notValidEmail": MessageLookupByLibrary.simpleMessage(
             "Vui lòng nhập một địa chỉ email hợp lệ."),
+        "nothingSelect":
+            MessageLookupByLibrary.simpleMessage("Không có gì được chọn"),
         "numOfLessons": m2,
         "numOfTopics": m3,
         "orContinueWith":
@@ -103,6 +142,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Mật khẩu"),
         "privacyPolicy":
             MessageLookupByLibrary.simpleMessage("Chính sách bảo mật"),
+        "profession": MessageLookupByLibrary.simpleMessage(
+            "Nghề nghiệp hiện tại hoặc trước đây"),
+        "professionHint": MessageLookupByLibrary.simpleMessage(
+            "Ví dụ: Cử nhân về Tiếng Anh từ Đại học Cambly; Hướng dẫn viên yoga được chứng nhận, Chứng chỉ Học và Dạy Ngôn ngữ thứ hai (SLAT) từ Đại học Cambly"),
         "profilePretendingOrFake": MessageLookupByLibrary.simpleMessage(
             "Hồ sơ này giả vờ là người khác hoặc là giả mạo"),
         "recommendedTutors":
@@ -122,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chọn quốc tịch"),
         "selectTutorTime":
             MessageLookupByLibrary.simpleMessage("Chọn thời gian học:"),
+        "setUpProfile": MessageLookupByLibrary.simpleMessage(
+            "Thiết lập hồ sơ gia sư của bạn"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "specialities": MessageLookupByLibrary.simpleMessage("Chuyên môn"),
@@ -132,13 +177,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kinh nghiệm giảng dạy"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Điều khoản và Điều kiện"),
+        "totalLessionIs": m6,
         "tutorAnnoyMe":
             MessageLookupByLibrary.simpleMessage("Gia sư này làm phiền tôi"),
         "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
+        "upcomingLesson":
+            MessageLookupByLibrary.simpleMessage("Bài học sắp tới"),
+        "videoIntroduction":
+            MessageLookupByLibrary.simpleMessage("Video Giới thiệu"),
+        "videoIntrodution":
+            MessageLookupByLibrary.simpleMessage("Giới thiệu bằng video"),
+        "waitForApproval": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng đợi sự chấp thuận từ quản trị viên"),
         "welcomeToLetTutor": MessageLookupByLibrary.simpleMessage(
             "Chào mừng bạn đến với LetTutor!"),
         "whatWillAbleToDo":
             MessageLookupByLibrary.simpleMessage("Bạn sẽ có khả năng làm gì"),
+        "whoITeach": MessageLookupByLibrary.simpleMessage("Người tôi dạy"),
         "whyTakeThisCourse":
             MessageLookupByLibrary.simpleMessage("Tại sao nên học khóa học này")
       };

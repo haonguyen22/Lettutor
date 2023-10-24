@@ -1049,6 +1049,286 @@ class S {
       args: [],
     );
   }
+
+  /// `Back home`
+  String get backHome {
+    return Intl.message(
+      'Back home',
+      name: 'backHome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get Continue {
+    return Intl.message(
+      'Continue',
+      name: 'Continue',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Complete Profile`
+  String get completeProfile {
+    return Intl.message(
+      'Complete Profile',
+      name: 'completeProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video Introduction`
+  String get videoIntrodution {
+    return Intl.message(
+      'Video Introduction',
+      name: 'videoIntrodution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Approval`
+  String get approval {
+    return Intl.message(
+      'Approval',
+      name: 'approval',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You have done all the steps`
+  String get doneAllSteps {
+    return Intl.message(
+      'You have done all the steps',
+      name: 'doneAllSteps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please, wait for the operator's approval`
+  String get waitForApproval {
+    return Intl.message(
+      'Please, wait for the operator\'s approval',
+      name: 'waitForApproval',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set up your tutor profile`
+  String get setUpProfile {
+    return Intl.message(
+      'Set up your tutor profile',
+      name: 'setUpProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your tutor profile is your chance to market yourself to students on Tutoring. You can make edits later on your profile settings page.`
+  String get editTutorProfileLater {
+    return Intl.message(
+      'Your tutor profile is your chance to market yourself to students on Tutoring. You can make edits later on your profile settings page.',
+      name: 'editTutorProfileLater',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `New students may browse tutor profiles to find a tutor that fits their learning goals and personality. Returning students may use the tutor profiles to find tutors they've had great experiences with already.`
+  String get newStudentMayBrowseTutorProfiles {
+    return Intl.message(
+      'New students may browse tutor profiles to find a tutor that fits their learning goals and personality. Returning students may use the tutor profiles to find tutors they\'ve had great experiences with already.',
+      name: 'newStudentMayBrowseTutorProfiles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Basic info`
+  String get basicInfo {
+    return Intl.message(
+      'Basic info',
+      name: 'basicInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience`
+  String get experience {
+    return Intl.message(
+      'Experience',
+      name: 'experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interests, hobbies, memorable life experiences, or anything else you'd like to share!`
+  String get experienceHint {
+    return Intl.message(
+      'Interests, hobbies, memorable life experiences, or anything else you\'d like to share!',
+      name: 'experienceHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current or Previous Profession`
+  String get profession {
+    return Intl.message(
+      'Current or Previous Profession',
+      name: 'profession',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Example: Bachelor of Arts in English from Cambly University; Certified yoga instructor, Second Language Acquisition and Teaching  (SLAT) certificate from Cambly University`
+  String get professionHint {
+    return Intl.message(
+      'Example: Bachelor of Arts in English from Cambly University; Certified yoga instructor, Second Language Acquisition and Teaching  (SLAT) certificate from Cambly University',
+      name: 'professionHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Certificate`
+  String get certificate {
+    return Intl.message(
+      'Certificate',
+      name: 'certificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Add new certificate`
+  String get addCertificate {
+    return Intl.message(
+      'Add new certificate',
+      name: 'addCertificate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language I speak`
+  String get languageISpeak {
+    return Intl.message(
+      'Language I speak',
+      name: 'languageISpeak',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Example: English, Vietnam, ...`
+  String get languagesHint {
+    return Intl.message(
+      'Example: English, Vietnam, ...',
+      name: 'languagesHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Who I teach`
+  String get whoITeach {
+    return Intl.message(
+      'Who I teach',
+      name: 'whoITeach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Introduction`
+  String get introduction {
+    return Intl.message(
+      'Introduction',
+      name: 'introduction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Example: I was a doctor for 35 years and can help you practice business or medical English. I also enjoy teaching beginners as I am very patient and always speak slowly and clearly. `
+  String get introductionHint {
+    return Intl.message(
+      'Example: I was a doctor for 35 years and can help you practice business or medical English. I also enjoy teaching beginners as I am very patient and always speak slowly and clearly. ',
+      name: 'introductionHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am best at teaching students who are`
+  String get bestStudentWhoAre {
+    return Intl.message(
+      'I am best at teaching students who are',
+      name: 'bestStudentWhoAre',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Introduce yourself`
+  String get introdutionYourself {
+    return Intl.message(
+      'Introduce yourself',
+      name: 'introdutionYourself',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you.`
+  String get introductionYourselfDesc {
+    return Intl.message(
+      'Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you.',
+      name: 'introductionYourselfDesc',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Video Introduction`
+  String get videoIntroduction {
+    return Intl.message(
+      'Video Introduction',
+      name: 'videoIntroduction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Choose video`
+  String get chooseVideo {
+    return Intl.message(
+      'Choose video',
+      name: 'chooseVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Nothing is selected`
+  String get nothingSelect {
+    return Intl.message(
+      'Nothing is selected',
+      name: 'nothingSelect',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

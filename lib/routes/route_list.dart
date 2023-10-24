@@ -7,4 +7,5 @@ class RouteList {
   static const String courseTopicDetail = 'course-topic-detail';
   static const String profile = 'profile';
   static const String review = 'review';
+  static const String becomeTutor = "becomeTutor";
 }

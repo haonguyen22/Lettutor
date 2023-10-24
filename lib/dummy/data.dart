@@ -8,6 +8,12 @@ const levels = [
   'C2 (Proficiency)',
 ];
 
+const teachingLevels = [
+  "Beginner",
+  "Intermediate",
+  "Advanced",
+];
+
 const learnTopics = [
   {
     "id": 3,

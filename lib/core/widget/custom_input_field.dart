@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 
 class CustomInputLabelField extends StatefulWidget {
   final String label;
@@ -41,13 +42,18 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Theme.of(context).hintColor,
+              color: context.textColor,
             ),
           ),
         ),
         TextFormField(
           decoration: InputDecoration(
             hintText: widget.hintText,
+            hintStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).hintColor.withOpacity(0.2),
+            ),
             border: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey)),
             suffixIcon: widget.isObscure

@@ -138,6 +138,8 @@ class _SettingsTabViewState extends State<SettingsTabView> {
               CustomCardWidget(
                 label: S.of(context).becomeATutor,
                 icon: const Icon(Icons.assignment, size: 30),
+                onTap: () =>
+                    Navigator.of(context).pushNamed(RouteList.becomeTutor),
               ),
               const SizedBox(height: 4),
               CustomCardWidget(

@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/domain/entities/course.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
+import 'package:let_tutor/presentation/become_tutor/views/become_tutor_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_topic_detail_screen.dart';
 import 'package:let_tutor/presentation/home/home_screen.dart';
@@ -39,6 +41,13 @@ class Routes {
           );
         }
         return _errorRoute();
+      case RouteList.becomeTutor:
+        return _buildRoute(
+          settings,
+          (context) => BlocProvider<BecomeTutorBloc>(
+              create: (context) => injector.get<BecomeTutorBloc>(),
+              child: const BecomeTutorScreen()),
+        );
 
       case RouteList.courseDetail:
         if (settings.arguments is Course) {
