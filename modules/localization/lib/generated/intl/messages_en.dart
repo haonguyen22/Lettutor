@@ -24,15 +24,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(num) => "Found ${num} result(s)";
 
-  static String m2(num) => "${num} lessons";
+  static String m2(num) => "Lesson is starting in\n${num}";
 
-  static String m3(num) => "${num} topics";
+  static String m3(num) => "${num} lessons";
 
-  static String m4(tutor) => "Report ${tutor}";
+  static String m4(num) => "${num} topics";
 
-  static String m5(str) => "Request for lesson: ${str}";
+  static String m5(tutor) => "Report ${tutor}";
 
-  static String m6(num, num2) => "Total lesson is ${num} hours ${num2} minutes";
+  static String m6(str) => "Request for lesson: ${str}";
+
+  static String m7(num, num2) => "Total lesson is ${num} hours ${num2} minutes";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -118,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
         "languagesHint": MessageLookupByLibrary.simpleMessage(
             "Example: English, Vietnam, ..."),
+        "lessonStartIn": m2,
         "lessonTime": MessageLookupByLibrary.simpleMessage("Lesson Time: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
             "Please let us know details about your problems"),
@@ -146,8 +149,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Please enter a valid email address."),
         "nothingSelect":
             MessageLookupByLibrary.simpleMessage("Nothing is selected"),
-        "numOfLessons": m2,
-        "numOfTopics": m3,
+        "numOfLessons": m3,
+        "numOfTopics": m4,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Or continue with"),
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
@@ -168,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Report Error, please check again"),
         "reportSuccessfully":
             MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
-        "reportTutor": m4,
+        "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
@@ -185,7 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "specialities": MessageLookupByLibrary.simpleMessage("Specialities"),
         "startTime": MessageLookupByLibrary.simpleMessage("Start time"),
-        "studentRequest": m5,
+        "studentRequest": m6,
         "studySchedule": MessageLookupByLibrary.simpleMessage("Study schedule"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "teachingExperience":
@@ -195,7 +198,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "testPreparations":
             MessageLookupByLibrary.simpleMessage("Test preparations"),
         "topic": MessageLookupByLibrary.simpleMessage("Topic"),
-        "totalLessionIs": m6,
+        "totalLessionIs": m7,
         "tutorAnnoyMe":
             MessageLookupByLibrary.simpleMessage("This tutor is annoying me"),
         "tutors": MessageLookupByLibrary.simpleMessage("Tutors"),

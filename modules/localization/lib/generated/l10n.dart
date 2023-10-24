@@ -1339,6 +1339,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Lesson is starting in\n{num}`
+  String lessonStartIn(Object num) {
+    return Intl.message(
+      'Lesson is starting in\n$num',
+      name: 'lessonStartIn',
+      desc: '',
+      args: [num],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

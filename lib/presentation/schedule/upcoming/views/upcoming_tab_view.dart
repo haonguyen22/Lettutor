@@ -14,6 +14,8 @@ class UpcomingTabView extends StatefulWidget {
 
 class _UpcomingTabViewState extends State<UpcomingTabView>
     with LoadMoreMixin, JistiMeetingMixin {
+  bool isMeeting = false;
+
   @override
   void listener() {
     if (isBottom && context.read<UpcomingBloc>().state.isLoading == false) {
@@ -66,6 +68,9 @@ class _UpcomingTabViewState extends State<UpcomingTabView>
                             request: upcomingClass.studentRequest,
                             onTapGoToMeeting: () => onTapEnterLessonRoom(
                               upcomingClass.studentMeetingLink,
+                              upcomingClass.scheduleDetailInfo
+                                      ?.startPeriodTimestamp ??
+                                  0,
                             ),
                             onTapCancelMeeting: () =>
                                 onTapCancelBookedClass(upcomingClass.id!),

@@ -8,4 +8,5 @@ class RouteList {
   static const String profile = 'profile';
   static const String review = 'review';
   static const String becomeTutor = "becomeTutor";
+  static const String waiting = "waiting";
 }

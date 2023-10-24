@@ -138,9 +138,12 @@ class _HomeTabViewState extends State<HomeTabView>
                             borderRadius: BorderRadius.circular(8),
                           ),
                         ),
-                        onPressed: () => onTapEnterLessonRoom(
-                          upcomingLesson.studentMeetingLink,
-                        ),
+                        onPressed: () {
+                          onTapEnterLessonRoom(
+                              upcomingLesson.studentMeetingLink,
+                              upcomingLesson
+                                  .scheduleDetailInfo!.startPeriodTimestamp!);
+                        },
                         icon: const Icon(Icons.play_circle_outline),
                         label: Text(S.of(context).enterLessonRoom),
                       ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
+import 'package:let_tutor/core/widget/countdown_screen.dart';
 import 'package:let_tutor/domain/entities/course.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
@@ -38,6 +39,18 @@ class Routes {
           return _buildRoute(
             settings,
             (context) => ReviewScreen(tutor: data),
+          );
+        }
+        return _errorRoute();
+      case RouteList.waiting:
+        if (settings.arguments is Map<String, dynamic>) {
+          final data = settings.arguments as Map<String, dynamic>;
+          return _buildRoute(
+            settings,
+            (context) => CountDownScreen(
+              startTimestamp: data["startTimestamp"],
+              url: data["url"],
+            ),
           );
         }
         return _errorRoute();

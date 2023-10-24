@@ -128,5 +128,6 @@
     "videoIntroduction": "Video Introduction",
     "chooseVideo": "Choose video",
     "nothingSelect": "Nothing is selected",
-    "done": "Done"
+    "done": "Done",
+    "lessonStartIn": "Lesson is starting in\n{num}"
 }

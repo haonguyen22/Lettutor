@@ -22,15 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(num) => "Tìm thấy ${num} kết quả";
 
-  static String m2(num) => "${num} bài học";
+  static String m3(num) => "${num} bài học";
 
-  static String m3(num) => "${num} chủ đề";
+  static String m4(num) => "${num} chủ đề";
 
-  static String m4(tutor) => "Báo cáo ${tutor}";
+  static String m5(tutor) => "Báo cáo ${tutor}";
 
-  static String m5(str) => "Yêu cầu buổi học: ${str}";
+  static String m6(str) => "Yêu cầu buổi học: ${str}";
 
-  static String m6(num, num2) => "Tổng số bài học là ${num} giờ ${num2} phút";
+  static String m7(num, num2) => "Tổng số bài học là ${num} giờ ${num2} phút";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -134,8 +134,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Vui lòng nhập một địa chỉ email hợp lệ."),
         "nothingSelect":
             MessageLookupByLibrary.simpleMessage("Không có gì được chọn"),
-        "numOfLessons": m2,
-        "numOfTopics": m3,
+        "numOfLessons": m3,
+        "numOfTopics": m4,
         "orContinueWith":
             MessageLookupByLibrary.simpleMessage("Hoặc tiếp tục với"),
         "overview": MessageLookupByLibrary.simpleMessage("Tổng quan"),
@@ -155,7 +155,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Lỗi khi báo cáo, vui lòng kiểm tra lại"),
         "reportSuccessfully":
             MessageLookupByLibrary.simpleMessage("Báo cáo thành công !!"),
-        "reportTutor": m4,
+        "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
         "review": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
@@ -171,13 +171,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUp": MessageLookupByLibrary.simpleMessage("Đăng ký"),
         "specialities": MessageLookupByLibrary.simpleMessage("Chuyên môn"),
         "startTime": MessageLookupByLibrary.simpleMessage("Thời gian bắt đầu"),
-        "studentRequest": m5,
+        "studentRequest": m6,
         "submit": MessageLookupByLibrary.simpleMessage("Gửi"),
         "teachingExperience":
             MessageLookupByLibrary.simpleMessage("Kinh nghiệm giảng dạy"),
         "termAndConditions":
             MessageLookupByLibrary.simpleMessage("Điều khoản và Điều kiện"),
-        "totalLessionIs": m6,
+        "totalLessionIs": m7,
         "tutorAnnoyMe":
             MessageLookupByLibrary.simpleMessage("Gia sư này làm phiền tôi"),
         "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
