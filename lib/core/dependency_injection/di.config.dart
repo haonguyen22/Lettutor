@@ -20,31 +20,32 @@ import '../../data/datasource/remote/schedule/schedule_service.dart' as _i7;
 import '../../data/datasource/remote/tutor/tutor_service.dart' as _i8;
 import '../../data/datasource/remote/user/user_service.dart' as _i9;
 import '../../data/repositories/auth_repository_impl.dart' as _i23;
-import '../../data/repositories/course_repository_impl.dart' as _i26;
+import '../../data/repositories/course_repository_impl.dart' as _i27;
 import '../../data/repositories/schedule_repository_impl.dart' as _i13;
 import '../../data/repositories/tutor_repository_impl.dart' as _i16;
 import '../../data/repositories/user_repository_impl.dart' as _i20;
-import '../../domain/entities/tutor.dart' as _i32;
+import '../../domain/entities/tutor.dart' as _i33;
 import '../../domain/repositories/auth_repository.dart' as _i22;
-import '../../domain/repositories/course_repository.dart' as _i25;
+import '../../domain/repositories/course_repository.dart' as _i26;
 import '../../domain/repositories/schedule_repository.dart' as _i12;
 import '../../domain/repositories/tutor_repository.dart' as _i15;
 import '../../domain/repositories/user_repository.dart' as _i19;
 import '../../domain/usecase/auth_usecase.dart' as _i24;
-import '../../domain/usecase/course_usecase.dart' as _i27;
+import '../../domain/usecase/course_usecase.dart' as _i28;
 import '../../domain/usecase/schedule_usecase.dart' as _i14;
 import '../../domain/usecase/shared_preferences_usecase.dart' as _i4;
 import '../../domain/usecase/tutor_usecase.dart' as _i17;
 import '../../domain/usecase/user_usecase.dart' as _i21;
 import '../../presentation/app_setting/bloc/app_setting_bloc.dart' as _i5;
-import '../../presentation/auth/bloc/auth_bloc.dart' as _i33;
-import '../../presentation/home/course_tab/bloc/course_bloc.dart' as _i34;
-import '../../presentation/home/home_tab/bloc/tutor_bloc.dart' as _i30;
-import '../../presentation/home/tutor_tab/bloc/search_tutor_bloc.dart' as _i29;
-import '../../presentation/schedule/history/bloc/history_bloc.dart' as _i28;
+import '../../presentation/auth/bloc/auth_bloc.dart' as _i34;
+import '../../presentation/become_tutor/bloc/become_tutor_bloc.dart' as _i25;
+import '../../presentation/home/course_tab/bloc/course_bloc.dart' as _i35;
+import '../../presentation/home/home_tab/bloc/tutor_bloc.dart' as _i31;
+import '../../presentation/home/tutor_tab/bloc/search_tutor_bloc.dart' as _i30;
+import '../../presentation/schedule/history/bloc/history_bloc.dart' as _i29;
 import '../../presentation/schedule/upcoming/bloc/upcoming_bloc.dart' as _i18;
-import '../../presentation/tutor/bloc/tutor_detail_bloc.dart' as _i31;
-import 'modules/service_modules.dart' as _i35;
+import '../../presentation/tutor/bloc/tutor_detail_bloc.dart' as _i32;
+import 'modules/service_modules.dart' as _i36;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -97,33 +98,35 @@ extension GetItInjectableX on _i1.GetIt {
           gh<_i22.AuthRepository>(),
           gh<_i3.SharedPreferences>(),
         ));
-    gh.factory<_i25.CourseRepository>(
-        () => _i26.CourseRepositoryImpl(gh<_i11.CourseService>()));
-    gh.factory<_i27.CourseUseCase>(
-        () => _i27.CourseUseCase(gh<_i25.CourseRepository>()));
-    gh.factory<_i28.HistoryBloc>(
-        () => _i28.HistoryBloc(gh<_i14.ScheduleUseCase>()));
-    gh.factory<_i29.SearchTutorBloc>(
-        () => _i29.SearchTutorBloc(gh<_i17.TutorUseCase>()));
-    gh.factory<_i30.TutorBloc>(() => _i30.TutorBloc(gh<_i17.TutorUseCase>()));
-    gh.factoryParam<_i31.TutorDetailBloc, _i32.Tutor, dynamic>((
+    gh.factory<_i25.BecomeTutorBloc>(
+        () => _i25.BecomeTutorBloc(gh<_i17.TutorUseCase>()));
+    gh.factory<_i26.CourseRepository>(
+        () => _i27.CourseRepositoryImpl(gh<_i11.CourseService>()));
+    gh.factory<_i28.CourseUseCase>(
+        () => _i28.CourseUseCase(gh<_i26.CourseRepository>()));
+    gh.factory<_i29.HistoryBloc>(
+        () => _i29.HistoryBloc(gh<_i14.ScheduleUseCase>()));
+    gh.factory<_i30.SearchTutorBloc>(
+        () => _i30.SearchTutorBloc(gh<_i17.TutorUseCase>()));
+    gh.factory<_i31.TutorBloc>(() => _i31.TutorBloc(gh<_i17.TutorUseCase>()));
+    gh.factoryParam<_i32.TutorDetailBloc, _i33.Tutor, dynamic>((
       tutorParam,
       _,
     ) =>
-        _i31.TutorDetailBloc(
+        _i32.TutorDetailBloc(
           tutorParam,
           gh<_i17.TutorUseCase>(),
           gh<_i14.ScheduleUseCase>(),
         ));
-    gh.factory<_i33.AuthBloc>(() => _i33.AuthBloc(
+    gh.factory<_i34.AuthBloc>(() => _i34.AuthBloc(
           gh<_i24.AuthUseCase>(),
           gh<_i21.UserUseCase>(),
           gh<_i4.SharedPreferencesUseCase>(),
         ));
-    gh.factory<_i34.CourseBloc>(
-        () => _i34.CourseBloc(gh<_i27.CourseUseCase>()));
+    gh.factory<_i35.CourseBloc>(
+        () => _i35.CourseBloc(gh<_i28.CourseUseCase>()));
     return this;
   }
 }
 
-class _$ServiceModules extends _i35.ServiceModules {}
+class _$ServiceModules extends _i36.ServiceModules {}

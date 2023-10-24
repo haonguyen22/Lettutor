@@ -6,14 +6,20 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:localization/generated/l10n.dart';
 
 class VideoIntroductionStep extends StatefulWidget {
-  const VideoIntroductionStep({super.key});
+  final File? galleryFile;
+  final Function(File? file)? onVideoSelected;
+
+  const VideoIntroductionStep({
+    super.key,
+    this.galleryFile,
+    this.onVideoSelected,
+  });
 
   @override
   State<VideoIntroductionStep> createState() => _VideoIntroductionStepState();
 }
 
 class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
-  File? galleryFile;
   final picker = ImagePicker();
   @override
   Widget build(BuildContext context) {
@@ -49,7 +55,7 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
           child: Text(S.of(context).chooseVideo),
         ),
         const SizedBox(height: 8),
-        if (galleryFile != null)
+        if (widget.galleryFile != null)
           Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -66,7 +72,7 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
                   const Icon(Icons.video_collection_outlined),
                   Expanded(
                     child: Text(
-                      galleryFile!.path.split('/').last,
+                      widget.galleryFile!.path.split('/').last,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                     ),
@@ -122,7 +128,7 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
     setState(
       () {
         if (xfilePick != null) {
-          galleryFile = File(pickedFile!.path);
+          widget.onVideoSelected!(File(pickedFile!.path));
         } else {
           ScaffoldMessenger.of(context).showSnackBar(// is this context <<<
               SnackBar(content: Text(S.of(context).nothingSelect)));

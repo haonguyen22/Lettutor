@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_request.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
+import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/views/complete_profile_step.dart';
 import 'package:let_tutor/presentation/become_tutor/views/video_introduction_step.dart';
 import 'package:localization/generated/l10n.dart';
@@ -26,7 +30,7 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
         controlsBuilder: (context, details) {
           return Row(
             children: [
-              if (_index < 2)
+              if (_index == 0)
                 ElevatedButton(
                   onPressed: () {
                     setState(() {
@@ -34,6 +38,17 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
                     });
                   },
                   child: Text(S.of(context).Continue),
+                ),
+              if (_index == 1)
+                ElevatedButton(
+                  onPressed: () {
+                    final user = context.read<AuthBloc>().state.user;
+                    context.read<BecomeTutorBloc>().add(BecomeTutor(
+                          becomeTutorRequest:
+                              BecomeTutorRequest(avatar: user?.avatar,),
+                        ));
+                  },
+                  child: Text(S.of(context).done),
                 ),
               if (_index == 2)
                 ElevatedButton(

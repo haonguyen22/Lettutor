@@ -127,5 +127,6 @@
     "introductionYourselfDesc": "Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you.",
     "videoIntroduction": "Video Introduction",
     "chooseVideo": "Choose video",
-    "nothingSelect": "Nothing is selected"
+    "nothingSelect": "Nothing is selected",
+    "done": "Done"
 }

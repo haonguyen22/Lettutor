@@ -70,6 +70,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "courseLength": MessageLookupByLibrary.simpleMessage("Course Length"),
         "courses": MessageLookupByLibrary.simpleMessage("Courses"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Dark theme"),
+        "done": MessageLookupByLibrary.simpleMessage("Done"),
         "doneAllSteps":
             MessageLookupByLibrary.simpleMessage("You have done all the steps"),
         "eBooks": MessageLookupByLibrary.simpleMessage("E-books"),

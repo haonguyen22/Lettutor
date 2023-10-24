@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/datasource/remote/tutor/tutor_service.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_request.dart';
 import 'package:let_tutor/data/models/tutor/search_tutor_response.dart';
 import 'package:let_tutor/data/models/tutor/tutor_model.dart';
 import 'package:let_tutor/data/models/tutor/tutors_response.dart';
@@ -68,6 +69,21 @@ class TutorRepositoryImpl implements TutorRepository {
     } catch (e) {
       log(e.toString());
       return;
+    }
+  }
+
+  @override
+  Future<bool> becomeTutor(
+      {required BecomeTutorRequest becomeTutorRequest}) async {
+    try {
+      final body = becomeTutorRequest.toJson();
+
+      await _tutorService.becomeATutor(
+          body: body, contentType: "multipart/form-data");
+      return true;
+    } catch (e) {
+      log(e.toString());
+      return false;
     }
   }
 }

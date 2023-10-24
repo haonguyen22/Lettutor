@@ -35,11 +35,11 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
   DateTime? birthday;
   String teachingLevelIndex = teachingLevels[0];
   List<File> certificates = [];
+  List<String> specialtiesChoice = [];
 
   List<String> get specialties =>
       List<String>.from(learnTopics.map((e) => e["key"] as String).toList())
         ..addAll(testPreparations.map((e) => e["key"] as String).toList());
-  List<String> specialtiesChoice = [];
 
   @override
   void initState() {
@@ -207,7 +207,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         ),
         const SizedBox(height: 10),
         CustomInputLabelField(
-          label:  S.of(context).interests,
+          label: S.of(context).interests,
           controller: interestsCtrl,
         ),
         const SizedBox(height: 10),
@@ -219,15 +219,13 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         CustomInputLabelField(
           label: S.of(context).experience,
           controller: experienceCtrl,
-          hintText:
-              S.of(context).experienceHint,
+          hintText: S.of(context).experienceHint,
         ),
         const SizedBox(height: 10),
         CustomInputLabelField(
-          label: S.of(context).profession,
-          controller: professionCtrl,
-          hintText: S.of(context).professionHint
-        ),
+            label: S.of(context).profession,
+            controller: professionCtrl,
+            hintText: S.of(context).professionHint),
         const SizedBox(height: 10),
         Align(
           alignment: Alignment.topLeft,
@@ -312,10 +310,9 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         ),
         const SizedBox(height: 10),
         CustomInputLabelField(
-          label: S.of(context).introduction,
-          controller: professionCtrl,
-          hintText: S.of(context).introductionHint
-        ),
+            label: S.of(context).introduction,
+            controller: professionCtrl,
+            hintText: S.of(context).introductionHint),
         const SizedBox(height: 10),
         SelectionInputWidget<String>(
           label: S.of(context).bestStudentWhoAre,
