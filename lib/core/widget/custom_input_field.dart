@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 
 class CustomInputLabelField extends StatefulWidget {
   final String label;
   final TextEditingController controller;
   final bool isObscure;
   final String? hintText;
+  final String? Function(String? input)? onValidator;
 
   const CustomInputLabelField({
     super.key,
@@ -12,6 +14,7 @@ class CustomInputLabelField extends StatefulWidget {
     required this.controller,
     this.hintText,
     this.isObscure = false,
+    this.onValidator,
   });
 
   @override
@@ -39,13 +42,18 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.w600,
-              color: Theme.of(context).hintColor,
+              color: context.textColor,
             ),
           ),
         ),
-        TextField(
+        TextFormField(
           decoration: InputDecoration(
             hintText: widget.hintText,
+            hintStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+              color: Theme.of(context).hintColor.withOpacity(0.2),
+            ),
             border: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.grey)),
             suffixIcon: widget.isObscure
@@ -57,8 +65,10 @@ class _CustomInputLabelFieldState extends State<CustomInputLabelField> {
                   )
                 : null,
           ),
+          autovalidateMode: AutovalidateMode.always,
           controller: widget.controller,
           obscureText: widget.isObscure && _showCancelIconInState,
+          validator: widget.onValidator,
         ),
       ],
     );

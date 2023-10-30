@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
+import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/dummy/country.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -9,26 +11,14 @@ const _kDefaultImage = "assets/icons/logo.png";
 const _kMaxRating = 5;
 
 class TutorCardWidget extends StatelessWidget {
-  final String? imageUrl;
-  final String name;
-  final String? country;
-  final int rating;
-  final List<String>? tags;
-  final String? description;
+  final Tutor tutor;
   final VoidCallback? onCardTap;
-  final VoidCallback? onFavoriteTap;
   final VoidCallback? onBookTap;
 
   const TutorCardWidget({
     super.key,
-    this.imageUrl,
-    required this.name,
-    this.country,
-    this.rating = 0,
-    this.tags,
-    this.description,
+    required this.tutor,
     this.onCardTap,
-    this.onFavoriteTap,
     this.onBookTap,
   });
 
@@ -39,7 +29,7 @@ class TutorCardWidget extends StatelessWidget {
         onCardTap?.call();
         return;
       }
-      Navigator.of(context).pushNamed(RouteList.tutorDetail);
+      Navigator.of(context).pushNamed(RouteList.tutorDetail, arguments: tutor);
     }
 
     return Container(
@@ -63,6 +53,7 @@ class TutorCardWidget extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: onTapCardItem,
+            behavior: HitTestBehavior.translucent,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -70,12 +61,20 @@ class TutorCardWidget extends StatelessWidget {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(50),
-                      child: imageUrl != null
+                      child: tutor.imageUrl != null
                           ? Image.network(
-                              imageUrl!,
+                              tutor.imageUrl!,
                               width: 70,
                               height: 70,
                               fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) {
+                                return Image.asset(
+                                  _kDefaultImage,
+                                  width: 70,
+                                  height: 70,
+                                  fit: BoxFit.cover,
+                                );
+                              },
                             )
                           : Image.asset(
                               _kDefaultImage,
@@ -93,7 +92,7 @@ class TutorCardWidget extends StatelessWidget {
                           SizedBox(
                             width: MediaQuery.sizeOf(context).width * 0.5,
                             child: Text(
-                              name,
+                              tutor.name ?? '',
                               style: context.textTheme.titleMedium
                                   ?.copyWith(fontWeight: FontWeight.bold),
                               textAlign: TextAlign.start,
@@ -101,12 +100,12 @@ class TutorCardWidget extends StatelessWidget {
                               overflow: TextOverflow.ellipsis,
                             ),
                           ),
-                          if (country?.isNotEmpty ?? false)
+                          if (tutor.country?.isNotEmpty ?? false)
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(vertical: 3.0),
                               child: Text(
-                                country!,
+                                countryList[tutor.country!] ?? tutor.country!,
                                 style: context.textTheme.titleMedium?.copyWith(
                                   color: Theme.of(context).hintColor,
                                 ),
@@ -119,7 +118,7 @@ class TutorCardWidget extends StatelessWidget {
                               _kMaxRating,
                               (index) {
                                 return Icon(
-                                  index < rating
+                                  index < (tutor.rating?.floor() ?? 0)
                                       ? Icons.star
                                       : Icons.star_border,
                                   size: 16,
@@ -134,12 +133,12 @@ class TutorCardWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                WrapListWidget(listItem: tags),
-                if (description?.isNotEmpty ?? false) ...[
+                WrapListWidget(listLabel: tutor.specialties?.split(',')),
+                if (tutor.bio?.isNotEmpty ?? false) ...[
                   Padding(
                     padding: const EdgeInsets.only(top: 16.0, bottom: 20),
                     child: Text(
-                      description!,
+                      tutor.bio!,
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: context.textTheme.bodySmall?.copyWith(height: 1.5),
@@ -171,22 +170,6 @@ class TutorCardWidget extends StatelessWidget {
               ),
               icon: const Icon(Icons.book),
               label: Text(S.of(context).book),
-            ),
-          ),
-          Positioned.directional(
-            textDirection: Directionality.of(context),
-            end: 0,
-            top: 0,
-            child: InkWell(
-              onTap: onFavoriteTap,
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.favorite_outline,
-                  color: context.primaryColor,
-                  size: 30,
-                ),
-              ),
             ),
           ),
         ],

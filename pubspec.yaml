@@ -35,12 +35,24 @@ dependencies:
     visibility_detector: ^0.4.0+2
     youtube_player_iframe: ^4.0.4
     syncfusion_flutter_pdfviewer: ^23.1.39
+    
+    freezed_annotation: ^2.4.1
+    json_annotation: ^4.8.1
+    retrofit: ^4.0.2
+    retrofit_generator: ^8.0.0
+    dio: ^5.3.3
+    easy_debounce: ^2.0.3
+    jitsi_meet_wrapper: ^0.2.0+1
+    file_picker: ^6.0.0
+    image_picker: ^1.0.4
 
 dev_dependencies:
     flutter_test:
         sdk: flutter
 
     flutter_lints: ^2.0.0
+    freezed: ^2.4.1
+    json_serializable: ^6.7.1
 
 flutter:
     assets:

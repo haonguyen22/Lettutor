@@ -3,15 +3,13 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 
 class WrapListWidget<T> extends StatefulWidget {
   final int? currentIndex;
-  final List<T>? listItemChoice;
-  final List<T>? listItem;
+  final List<String>? listLabel;
   final Function(int)? onTap;
 
   const WrapListWidget({
     super.key,
     this.currentIndex,
-    this.listItemChoice,
-    this.listItem,
+    this.listLabel,
     this.onTap,
   });
 
@@ -27,7 +25,7 @@ class _WrapListWidgetState extends State<WrapListWidget> {
       spacing: 5,
       runSpacing: 10,
       children: List.generate(
-        widget.listItem?.length ?? 0,
+        widget.listLabel?.length ?? 0,
         (index) => GestureDetector(
           onTap: () => widget.onTap?.call(index),
           child: Container(
@@ -39,7 +37,7 @@ class _WrapListWidgetState extends State<WrapListWidget> {
               borderRadius: BorderRadius.circular(16),
             ),
             child: Text(
-              widget.listItem![index],
+              widget.listLabel![index],
               style: context.textTheme.bodySmall?.copyWith(
                 color: widget.currentIndex == index || widget.onTap == null
                     ? context.primaryColor

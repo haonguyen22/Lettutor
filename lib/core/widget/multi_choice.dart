@@ -4,13 +4,17 @@ import 'package:let_tutor/core/extensions/context_ext.dart';
 class MultiChoiceWidget<T> extends StatefulWidget {
   final List<T>? listItemChoice;
   final List<T>? listItem;
+  final List<T>? listLabel;
   final Function(int)? onTap;
+  final bool Function(int)? onCondition;
 
   const MultiChoiceWidget({
     super.key,
     this.listItemChoice,
     this.listItem,
+    this.listLabel,
     this.onTap,
+    this.onCondition,
   });
 
   @override
@@ -25,9 +29,9 @@ class _MultiChoiceWidgetState extends State<MultiChoiceWidget> {
       spacing: 5,
       runSpacing: 10,
       children: List.generate(widget.listItem?.length ?? 0, (index) {
-        final isContain =
-            (widget.listItemChoice?.contains(widget.listItem?[index]) ?? false);
-        final isSelected = isContain || widget.onTap == null;
+        final isCheck =
+            widget.onCondition != null ? widget.onCondition!(index) : false;
+        final isSelected = isCheck || widget.onTap == null;
         return GestureDetector(
           onTap: () => widget.onTap?.call(index),
           child: Container(
@@ -41,14 +45,14 @@ class _MultiChoiceWidgetState extends State<MultiChoiceWidget> {
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                if (isContain)
+                if (isCheck)
                   Icon(
                     Icons.check,
                     size: 18,
                     color: context.primaryColor,
                   ),
                 Text(
-                  widget.listItem![index],
+                  widget.listLabel![index],
                   style: context.textTheme.bodySmall?.copyWith(
                     color:
                         isSelected ? context.primaryColor : context.textColor,
