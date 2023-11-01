@@ -1379,6 +1379,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Join now`
+  String get joinNow {
+    return Intl.message(
+      'Join now',
+      name: 'joinNow',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

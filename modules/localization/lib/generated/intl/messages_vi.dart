@@ -103,6 +103,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hãy cho học sinh biết họ có thể mong đợi gì từ một bài học với bạn bằng cách ghi lại một video giới thiệu phong cách giảng dạy, chuyên môn và tính cách của bạn. Học sinh có thể lo lắng khi nói chuyện với một người nước ngoài, vì vậy việc có một video thân thiện giới thiệu bản thân và mời học sinh gọi điện thoại cho bạn thực sự giúp đỡ."),
         "introdutionYourself":
             MessageLookupByLibrary.simpleMessage("Giới thiệu bản thân"),
+        "joinNow": MessageLookupByLibrary.simpleMessage("Tham gia ngay"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languageISpeak":
             MessageLookupByLibrary.simpleMessage("Ngôn ngữ mà tôi nói"),

@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you."),
         "introdutionYourself":
             MessageLookupByLibrary.simpleMessage("Introduce yourself"),
+        "joinNow": MessageLookupByLibrary.simpleMessage("Join now"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languageISpeak":
             MessageLookupByLibrary.simpleMessage("Language I speak"),

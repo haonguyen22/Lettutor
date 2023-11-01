@@ -113,5 +113,6 @@
     "lessonStartIn": "Buổi học sẽ bắt đầu trong\n{num}",
     "noUpcomingClass": "Hiện tại chưa có lịch học!",
     "noHistoryClass": "Hiện tại chưa có lịch sử học!",
-    "next": "Tiếp theo"
+    "next": "Tiếp theo",
+    "joinNow": "Tham gia ngay"
 }
