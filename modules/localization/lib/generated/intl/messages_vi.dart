@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(num) => "Tìm thấy ${num} kết quả";
 
+  static String m2(num) => "Buổi học sẽ bắt đầu trong\n${num}";
+
   static String m3(num) => "${num} bài học";
 
   static String m4(num) => "${num} chủ đề";
@@ -63,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "courseLength": MessageLookupByLibrary.simpleMessage("Độ dài khóa học"),
         "courses": MessageLookupByLibrary.simpleMessage("Khóa học"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
+        "done": MessageLookupByLibrary.simpleMessage("Hoàn tất"),
         "doneAllSteps": MessageLookupByLibrary.simpleMessage(
             "Bạn đã hoàn thành tất cả các bước"),
         "eBooks": MessageLookupByLibrary.simpleMessage("Sách điện tử"),
@@ -106,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languagesHint": MessageLookupByLibrary.simpleMessage(
             "Ví dụ: Tiếng Anh, Tiếng Việt, ..."),
+        "lessonStartIn": m2,
         "lessonTime":
             MessageLookupByLibrary.simpleMessage("Thời gian buổi học: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
@@ -121,11 +125,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
         "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
             "Học sinh mới có thể xem hồ sơ của gia sư để tìm gia sư phù hợp với mục tiêu học tập và tính cách của họ. Học sinh quay lại có thể sử dụng hồ sơ gia sư để tìm gia sư mà họ đã có kinh nghiệm tốt trước đây."),
+        "next": MessageLookupByLibrary.simpleMessage("Tiếp theo"),
         "noDataResponse":
             MessageLookupByLibrary.simpleMessage("Không có dữ liệu trả về"),
+        "noHistoryClass": MessageLookupByLibrary.simpleMessage(
+            "Hiện tại chưa có lịch sử học!"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("Không có kết quả tìm kiếm"),
         "noReview": MessageLookupByLibrary.simpleMessage("Không có đánh giá"),
+        "noUpcomingClass":
+            MessageLookupByLibrary.simpleMessage("Hiện tại chưa có lịch học!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":

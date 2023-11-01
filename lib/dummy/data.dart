@@ -1,12 +1,33 @@
-const levels = [
-  'Pre A1 (Beginner)',
-  'A1 (Higher Beginner)',
-  'A2 (Pre-Intermediate)',
-  'B1 (Intermediate)',
-  'B2 (Upper-Intermediate)',
-  'C1 (Advanced)',
-  'C2 (Proficiency)',
-];
+const levels = {
+  '0': {
+    "key": 'BEGINNER',
+    "value": 'Beginner',
+  },
+  '1': {
+    "key": 'HIGHER_BEGINNER',
+    "value": 'Higher Beginner',
+  },
+  '2': {
+    "key": 'PRE_INTERMEDIATE',
+    "value": 'Pre Intermediate',
+  },
+  '3': {
+    "key": 'INTERMEDIATE',
+    "value": 'Intermediate',
+  },
+  '4': {
+    "key": 'UPPER_INTERMEDIATE',
+    "value": 'Upper Intermediate',
+  },
+  '5': {
+    "key": 'ADVANCED',
+    "value": 'Advanced',
+  },
+  '6': {
+    "key": 'PROFICIENCY',
+    "value": 'Proficiency',
+  },
+};
 
 const teachingLevels = [
   "Beginner",

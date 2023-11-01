@@ -16,7 +16,11 @@ import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
 class CompleteProfileStepScreen extends StatefulWidget {
-  const CompleteProfileStepScreen({super.key});
+  final VoidCallback onNext;
+  const CompleteProfileStepScreen({
+    super.key,
+    required this.onNext,
+  });
 
   @override
   State<CompleteProfileStepScreen> createState() =>
@@ -74,6 +78,27 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
     if (value != null) {
       setState(() {
         birthday = value;
+      });
+    }
+  }
+
+  void onTapSpecialties(index) {
+    setState(() {
+      final value = specialties[index];
+      if (specialtiesChoice.contains(value)) {
+        specialtiesChoice.remove(value);
+      } else {
+        specialtiesChoice.add(value);
+      }
+    });
+  }
+
+  void onTapAddCertificate() async {
+    FilePickerResult? result =
+        await FilePicker.platform.pickFiles(allowMultiple: true);
+    if (result != null) {
+      setState(() {
+        certificates = result.paths.map((path) => File(path!)).toList();
       });
     }
   }
@@ -140,6 +165,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
                       const Icon(Icons.person_rounded),
                 ),
         ),
+        const SizedBox(height: 16),
         CustomInputLabelField(
           label: S.of(context).name,
           controller: nameCtrl,
@@ -238,16 +264,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
               ),
               const SizedBox(height: 10),
               ElevatedButton(
-                onPressed: () async {
-                  FilePickerResult? result =
-                      await FilePicker.platform.pickFiles(allowMultiple: true);
-                  if (result != null) {
-                    setState(() {
-                      certificates =
-                          result.paths.map((path) => File(path!)).toList();
-                    });
-                  }
-                },
+                onPressed: onTapAddCertificate,
                 child: Text(S.of(context).addCertificate),
               ),
               const SizedBox(height: 10),
@@ -349,18 +366,26 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
             onCondition: (index) {
               return specialtiesChoice.contains(specialties[index]);
             },
-            onTap: (index) {
-              setState(() {
-                final value = specialties[index];
-                if (specialtiesChoice.contains(value)) {
-                  specialtiesChoice.remove(value);
-                } else {
-                  specialtiesChoice.add(value);
-                }
-              });
-            },
+            onTap: onTapSpecialties,
           ),
         ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: context.widthDevice,
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: context.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(
+                  12,
+                ),
+              ),
+            ),
+            onPressed: widget.onNext,
+            child: Text(S.of(context).next),
+          ),
+        ),
+        const SizedBox(height: 12),
       ],
     );
   }

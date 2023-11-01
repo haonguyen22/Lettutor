@@ -137,11 +137,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
         "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
             "New students may browse tutor profiles to find a tutor that fits their learning goals and personality. Returning students may use the tutor profiles to find tutors they\'ve had great experiences with already."),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noDataResponse":
             MessageLookupByLibrary.simpleMessage("No data response"),
+        "noHistoryClass": MessageLookupByLibrary.simpleMessage(
+            "There is no history schedule yet!"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("No result search"),
         "noReview": MessageLookupByLibrary.simpleMessage("There is no review"),
+        "noUpcomingClass": MessageLookupByLibrary.simpleMessage(
+            "There is no lesson schedule yet!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),

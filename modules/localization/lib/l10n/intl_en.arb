@@ -129,5 +129,8 @@
     "chooseVideo": "Choose video",
     "nothingSelect": "Nothing is selected",
     "done": "Done",
-    "lessonStartIn": "Lesson is starting in\n{num}"
+    "lessonStartIn": "Lesson is starting in\n{num}",
+    "noUpcomingClass": "There is no lesson schedule yet!",
+    "noHistoryClass": "There is no history schedule yet!",
+    "next": "Next"
 }

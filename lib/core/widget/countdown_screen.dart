@@ -72,18 +72,31 @@ class _CountDownScreenState extends State<CountDownScreen>
         backgroundColor: Colors.black,
         body: Column(
           children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: ElevatedButton(
-                child: Text("Join now"),
-                onPressed: () {
-                  onTapEnterLessonRoom(
-                    widget.url,
-                    widget.startTimestamp,
-                    isMeetingNow: true,
-                  );
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Icon(Icons.arrow_back),
+                    )),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: ElevatedButton(
+                    child: Text("Join now"),
+                    onPressed: () {
+                      onTapEnterLessonRoom(
+                        widget.url,
+                        widget.startTimestamp,
+                        isMeetingNow: true,
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
             Expanded(
               child: Center(

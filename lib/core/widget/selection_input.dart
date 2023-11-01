@@ -49,7 +49,7 @@ class _SelectionInputWidgetState<T> extends State<SelectionInputWidget<T>> {
                 (int index, T value) {
                   return DropdownMenuEntry<T>(
                     value: value,
-                    label: widget.listValue[index] as String,
+                    label: widget.listLabel[index],
                   );
                 },
               ).toList(),

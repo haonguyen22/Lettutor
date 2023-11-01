@@ -11,7 +11,7 @@ import 'package:let_tutor/presentation/home/home_tab/bloc/tutor_bloc.dart';
 import 'package:let_tutor/presentation/schedule/upcoming/bloc/upcoming_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
-import '../../../../core/components/tutors/tutor_card.dart';
+import '../../../../core/widget/tutor_card.dart';
 
 class HomeTabView extends StatefulWidget {
   const HomeTabView({super.key});

@@ -1,7 +1,7 @@
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:let_tutor/core/components/courses/course_card.dart';
+import 'package:let_tutor/core/widget/course_card.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';

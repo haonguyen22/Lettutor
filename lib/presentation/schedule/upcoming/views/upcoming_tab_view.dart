@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/jitsi_meeting_mixin.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/schedule/upcoming/bloc/upcoming_bloc.dart';
 import 'package:let_tutor/presentation/schedule/upcoming/views/upcoming_card.dart';
+import 'package:localization/localization.dart';
 
 class UpcomingTabView extends StatefulWidget {
   const UpcomingTabView({super.key});
@@ -49,6 +51,15 @@ class _UpcomingTabViewState extends State<UpcomingTabView>
             }
           },
           builder: (_, state) {
+            if ((state.upcomingClasses?.isEmpty ?? true) &&
+                state.isLoading == false) {
+              return Center(
+                child: Text(
+                  S.of(context).noUpcomingClass,
+                  style: context.textTheme.titleLarge,
+                ),
+              );
+            }
             return Stack(
               children: [
                 Column(

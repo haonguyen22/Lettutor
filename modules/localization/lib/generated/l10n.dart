@@ -1349,6 +1349,36 @@ class S {
       args: [num],
     );
   }
+
+  /// `There is no lesson schedule yet!`
+  String get noUpcomingClass {
+    return Intl.message(
+      'There is no lesson schedule yet!',
+      name: 'noUpcomingClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `There is no history schedule yet!`
+  String get noHistoryClass {
+    return Intl.message(
+      'There is no history schedule yet!',
+      name: 'noHistoryClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Next`
+  String get next {
+    return Intl.message(
+      'Next',
+      name: 'next',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

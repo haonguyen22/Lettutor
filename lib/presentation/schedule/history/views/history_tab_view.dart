@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/presentation/schedule/history/bloc/history_bloc.dart';
 import 'package:let_tutor/presentation/schedule/history/views/history_card.dart';
+import 'package:localization/localization.dart';
 
 class HistoryTabView extends StatefulWidget {
   const HistoryTabView({super.key});
@@ -31,6 +33,14 @@ class _HistoryTabViewState extends State<HistoryTabView> with LoadMoreMixin {
         padding: const EdgeInsets.all(16),
         child: BlocBuilder<HistoryBloc, HistoryState>(
           builder: (_, state) {
+            if ((state.bookedClasses?.isEmpty ?? true) && state.isLoading == false) {
+              return Center(
+                child: Text(
+                  S.of(context).noHistoryClass,
+                  style: context.textTheme.titleLarge,
+                ),
+              );
+            }
             return Column(
               children: [
                 ...List<Widget>.generate(

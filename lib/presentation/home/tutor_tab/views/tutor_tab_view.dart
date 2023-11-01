@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:let_tutor/core/components/tutors/tutor_card.dart';
+import 'package:let_tutor/core/widget/tutor_card.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/load_more_mixin.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';

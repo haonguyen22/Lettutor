@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:let_tutor/core/components/tutors/tutor_review.dart';
+import 'package:let_tutor/core/widget/tutor_review.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:localization/generated/l10n.dart';

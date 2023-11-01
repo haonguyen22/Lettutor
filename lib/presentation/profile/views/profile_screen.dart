@@ -78,7 +78,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       "requireNote": noteCtrl.text,
     };
     context.read<AuthBloc>().add(EditUserProfile(body));
-    if (authState.isLoading == false) {
+    if (authState.isLoading == false && authState is AuthSuccess) {
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("Update successfully !!")));
     }
@@ -241,8 +241,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 const SizedBox(height: 10),
                 SelectionInputWidget<String>(
                   label: S.of(context).myLevel,
-                  listValue: levels.map((e) => e.toUpperCase()).toList(),
-                  listLabel: levels,
+                  listValue: levels.values.map((e) => e['key']!).toList(),
+                  listLabel: levels.values.map((e) => e['value']!).toList(),
                   initialSelection: level,
                   onSelected: (value) {
                     setState(() {

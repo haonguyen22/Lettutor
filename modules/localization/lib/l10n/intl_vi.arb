@@ -108,5 +108,10 @@
     "introductionYourselfDesc": "Hãy cho học sinh biết họ có thể mong đợi gì từ một bài học với bạn bằng cách ghi lại một video giới thiệu phong cách giảng dạy, chuyên môn và tính cách của bạn. Học sinh có thể lo lắng khi nói chuyện với một người nước ngoài, vì vậy việc có một video thân thiện giới thiệu bản thân và mời học sinh gọi điện thoại cho bạn thực sự giúp đỡ.",
     "videoIntroduction": "Video Giới thiệu",
     "chooseVideo": "Chọn video",
-    "nothingSelect": "Không có gì được chọn"
+    "nothingSelect": "Không có gì được chọn",
+    "done": "Hoàn tất",
+    "lessonStartIn": "Buổi học sẽ bắt đầu trong\n{num}",
+    "noUpcomingClass": "Hiện tại chưa có lịch học!",
+    "noHistoryClass": "Hiện tại chưa có lịch sử học!",
+    "next": "Tiếp theo"
 }
