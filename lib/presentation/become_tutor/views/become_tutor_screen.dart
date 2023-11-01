@@ -57,13 +57,11 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
         children: [
           NumberStepper(
             numbers: const [1, 2, 3],
-
-            // activeStep property set to activeStep variable defined above.
             activeStep: _index,
             enableNextPreviousButtons: false,
             enableStepTapping: false,
-
-            // This ensures step-tapping updates the activeStep.
+            stepColor: context.primaryColor.withOpacity(0.2),
+            activeStepColor: context.primaryColor,
             onStepReached: (index) {
               setState(() {
                 _index = index;

@@ -95,6 +95,7 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: context.primaryColor,
+                      foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                           12,
@@ -111,7 +112,8 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red.withOpacity(0.1),
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
                           12,
@@ -121,7 +123,6 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
                     onPressed: widget.onCancel,
                     child: Text(
                       S.of(context).cancel,
-                      style: const TextStyle(color: Colors.red),
                     ),
                   ),
                 ),
