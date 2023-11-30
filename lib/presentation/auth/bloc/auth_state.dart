@@ -19,39 +19,14 @@ class AuthInitial extends AuthState {
     super.user,
     super.totalLearning,
   });
-
-  AuthInitial copyWith({
-    bool? isLoading,
-    User? user,
-    int? totalLearning,
-  }) {
-    return AuthInitial(
-      isLoading: isLoading ?? this.isLoading,
-      user: user ?? this.user,
-      totalLearning: totalLearning ?? this.totalLearning,
-    );
-  }
 }
 
 class AuthSuccess extends AuthState {
   const AuthSuccess({
     super.isLoading,
     super.user,
-    
     super.totalLearning,
   });
-
-  AuthSuccess copyWith({
-    bool? isLoading,
-    User? user,
-    int? totalLearning,
-  }) {
-    return AuthSuccess(
-      isLoading: isLoading ?? this.isLoading,
-      user: user ?? this.user,
-      totalLearning: totalLearning ?? this.totalLearning,
-    );
-  }
 }
 
 class AuthFailed extends AuthState {
@@ -60,21 +35,34 @@ class AuthFailed extends AuthState {
     super.isLoading,
     super.user,
     this.message,
-    
     super.totalLearning,
   });
+}
 
-  AuthFailed copyWith({
-    bool? isLoading,
-    String? message,
-    User? user,
-    int? totalLearning,
-  }) {
-    return AuthFailed(
-      isLoading: isLoading ?? this.isLoading,
-      message: message ?? this.message,
-      user: user ?? this.user,
-      totalLearning: totalLearning ?? this.totalLearning,
-    );
-  }
+class ForgotPasswordLoading extends AuthState {
+  const ForgotPasswordLoading({
+    super.isLoading,
+    super.user,
+    super.totalLearning,
+  });
+}
+
+class ForgotPasswordSuccess extends AuthState {
+  final String? message;
+  const ForgotPasswordSuccess({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class ForgotPasswordFailed extends AuthState {
+  final String? message;
+  const ForgotPasswordFailed({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
 }

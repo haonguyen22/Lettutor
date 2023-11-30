@@ -7,12 +7,15 @@ import 'package:localization/generated/l10n.dart';
 
 class VideoIntroductionStep extends StatefulWidget {
   final File? galleryFile;
+  final VoidCallback onCancel, onDone;
   final Function(File? file)? onVideoSelected;
 
   const VideoIntroductionStep({
     super.key,
     this.galleryFile,
     this.onVideoSelected,
+    required this.onCancel,
+    required this.onDone,
   });
 
   @override
@@ -80,7 +83,54 @@ class _VideoIntroductionStepState extends State<VideoIntroductionStep> {
                 ],
               ),
             ),
-          )
+          ),
+        const SizedBox(height: 12),
+        SizedBox(
+          width: context.widthDevice,
+          child: Row(
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: context.primaryColor,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          12,
+                        ),
+                      ),
+                    ),
+                    onPressed: widget.onDone,
+                    child: Text(S.of(context).done),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(
+                          12,
+                        ),
+                      ),
+                    ),
+                    onPressed: widget.onCancel,
+                    child: Text(
+                      S.of(context).cancel,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(height: 12),
       ],
     );
   }

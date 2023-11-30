@@ -22,6 +22,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m1(num) => "Tìm thấy ${num} kết quả";
 
+  static String m2(num) => "Buổi học sẽ bắt đầu trong\n${num}";
+
   static String m3(num) => "${num} bài học";
 
   static String m4(num) => "${num} chủ đề";
@@ -63,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "courseLength": MessageLookupByLibrary.simpleMessage("Độ dài khóa học"),
         "courses": MessageLookupByLibrary.simpleMessage("Khóa học"),
         "darkTheme": MessageLookupByLibrary.simpleMessage("Chế độ tối"),
+        "done": MessageLookupByLibrary.simpleMessage("Hoàn tất"),
         "doneAllSteps": MessageLookupByLibrary.simpleMessage(
             "Bạn đã hoàn thành tất cả các bước"),
         "eBooks": MessageLookupByLibrary.simpleMessage("Sách điện tử"),
@@ -100,12 +103,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Hãy cho học sinh biết họ có thể mong đợi gì từ một bài học với bạn bằng cách ghi lại một video giới thiệu phong cách giảng dạy, chuyên môn và tính cách của bạn. Học sinh có thể lo lắng khi nói chuyện với một người nước ngoài, vì vậy việc có một video thân thiện giới thiệu bản thân và mời học sinh gọi điện thoại cho bạn thực sự giúp đỡ."),
         "introdutionYourself":
             MessageLookupByLibrary.simpleMessage("Giới thiệu bản thân"),
+        "joinNow": MessageLookupByLibrary.simpleMessage("Tham gia ngay"),
         "language": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languageISpeak":
             MessageLookupByLibrary.simpleMessage("Ngôn ngữ mà tôi nói"),
         "languages": MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
         "languagesHint": MessageLookupByLibrary.simpleMessage(
             "Ví dụ: Tiếng Anh, Tiếng Việt, ..."),
+        "lessonStartIn": m2,
         "lessonTime":
             MessageLookupByLibrary.simpleMessage("Thời gian buổi học: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
@@ -121,11 +126,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "nationality": MessageLookupByLibrary.simpleMessage("Quốc tịch"),
         "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
             "Học sinh mới có thể xem hồ sơ của gia sư để tìm gia sư phù hợp với mục tiêu học tập và tính cách của họ. Học sinh quay lại có thể sử dụng hồ sơ gia sư để tìm gia sư mà họ đã có kinh nghiệm tốt trước đây."),
+        "next": MessageLookupByLibrary.simpleMessage("Tiếp theo"),
         "noDataResponse":
             MessageLookupByLibrary.simpleMessage("Không có dữ liệu trả về"),
+        "noHistoryClass": MessageLookupByLibrary.simpleMessage(
+            "Hiện tại chưa có lịch sử học!"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("Không có kết quả tìm kiếm"),
         "noReview": MessageLookupByLibrary.simpleMessage("Không có đánh giá"),
+        "noUpcomingClass":
+            MessageLookupByLibrary.simpleMessage("Hiện tại chưa có lịch học!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "Bạn không có bài học sắp tới."),
         "notAMember":
@@ -157,6 +167,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Báo cáo thành công !!"),
         "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
+        "resetPassword":
+            MessageLookupByLibrary.simpleMessage("Đặt lại Mật khẩu"),
+        "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng nhập địa chỉ email của bạn để tìm kiếm tài khoản của bạn."),
+        "resetPasswordError": MessageLookupByLibrary.simpleMessage(
+            "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại."),
+        "resetPasswordSuccess": MessageLookupByLibrary.simpleMessage(
+            "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới"),
         "review": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
@@ -165,6 +183,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chọn quốc tịch"),
         "selectTutorTime":
             MessageLookupByLibrary.simpleMessage("Chọn thời gian học:"),
+        "sendResetLink":
+            MessageLookupByLibrary.simpleMessage("Gửi Liên kết Đặt lại"),
         "setUpProfile": MessageLookupByLibrary.simpleMessage(
             "Thiết lập hồ sơ gia sư của bạn"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),

@@ -102,7 +102,9 @@ class CourseCardWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    levelInt > 6 ? levels[6] : levels[levelInt],
+                    levelInt > 6
+                        ? levels['6']!['value']!
+                        : levels['$levelInt']!['value']!,
                     style: TextStyle(color: Theme.of(context).hintColor),
                   ),
                   Text(

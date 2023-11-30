@@ -1,9 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:let_tutor/data/models/forgot_password/forgot_password_response.dart';
 import 'package:let_tutor/data/models/token/sign_in_model.dart';
 import 'package:let_tutor/data/models/token/token.dart';
-import 'package:let_tutor/data/models/user_model.dart';
 import 'package:retrofit/http.dart';
+import 'package:retrofit/retrofit.dart';
 
 part 'auth_service.g.dart';
 
@@ -26,7 +27,7 @@ abstract class AuthService {
   Future<AuthResponse?> login({@Body() required Map<String, dynamic> body});
 
   @POST(forgotPwApi)
-  Future<UserModel> forgotPassword(
+  Future<ForgotPasswordResponse> forgotPassword(
       {@Body() required Map<String, dynamic> body});
 
   @POST(registerApi)

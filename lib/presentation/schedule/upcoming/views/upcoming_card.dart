@@ -19,12 +19,14 @@ class UpcomingCardWidget extends StatelessWidget {
     this.onTapCancelMeeting,
     this.onTapGoToMeeting,
     this.request,
-
   });
 
   @override
   Widget build(BuildContext context) {
     final tutor = scheduleInfo?.tutorInfo?.toEntity();
+    final now = DateTime.now().millisecondsSinceEpoch;
+    final startTime = scheduleInfo?.startTimestamp;
+
     return Container(
       width: double.infinity,
       padding: const EdgeInsetsDirectional.only(
@@ -132,9 +134,7 @@ class UpcomingCardWidget extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 3.0),
                         child: Text(
-                          countryList[tutor?.country!] ??
-                              tutor?.country ??
-                              "",
+                          countryList[tutor?.country!] ?? tutor?.country ?? "",
                           style: context.textTheme.titleMedium?.copyWith(
                             color: Theme.of(context).hintColor,
                           ),
@@ -162,11 +162,11 @@ class UpcomingCardWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               TextButton(
-                onPressed: onTapCancelMeeting,
+                onPressed: startTime! - now < 7200 ? null : onTapCancelMeeting,
                 child: Text(
                   S.of(context).cancel,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: Colors.red,
+                    color: startTime - now < 7200 ? Colors.grey : Colors.red,
                     fontWeight: FontWeight.bold,
                   ),
                 ),

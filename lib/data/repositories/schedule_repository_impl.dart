@@ -82,7 +82,6 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
     }
   }
 
-  // TODO: need to change return type
   @override
   Future<void> bookAClass(
       {required String scheduleDetailId, String note = ""}) async {

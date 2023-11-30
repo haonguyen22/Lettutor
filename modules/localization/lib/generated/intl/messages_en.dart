@@ -114,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you."),
         "introdutionYourself":
             MessageLookupByLibrary.simpleMessage("Introduce yourself"),
+        "joinNow": MessageLookupByLibrary.simpleMessage("Join now"),
         "language": MessageLookupByLibrary.simpleMessage("Language"),
         "languageISpeak":
             MessageLookupByLibrary.simpleMessage("Language I speak"),
@@ -137,11 +138,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
         "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
             "New students may browse tutor profiles to find a tutor that fits their learning goals and personality. Returning students may use the tutor profiles to find tutors they\'ve had great experiences with already."),
+        "next": MessageLookupByLibrary.simpleMessage("Next"),
         "noDataResponse":
             MessageLookupByLibrary.simpleMessage("No data response"),
+        "noHistoryClass": MessageLookupByLibrary.simpleMessage(
+            "There is no history schedule yet!"),
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("No result search"),
         "noReview": MessageLookupByLibrary.simpleMessage("There is no review"),
+        "noUpcomingClass": MessageLookupByLibrary.simpleMessage(
+            "There is no lesson schedule yet!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
             "You have no upcoming lesson."),
         "notAMember": MessageLookupByLibrary.simpleMessage("Not a member yet?"),
@@ -173,6 +179,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
         "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email address to search for your account."),
+        "resetPasswordError": MessageLookupByLibrary.simpleMessage(
+            "Reset password error, please check your email again."),
+        "resetPasswordSuccess": MessageLookupByLibrary.simpleMessage(
+            "Reset password successfully, please check your email to get new password"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
@@ -182,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select tutor nationality"),
         "selectTutorTime": MessageLookupByLibrary.simpleMessage(
             "Select available tutoring time:"),
+        "sendResetLink":
+            MessageLookupByLibrary.simpleMessage("Send Reset Link"),
         "setUpProfile":
             MessageLookupByLibrary.simpleMessage("Set up your tutor profile"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),

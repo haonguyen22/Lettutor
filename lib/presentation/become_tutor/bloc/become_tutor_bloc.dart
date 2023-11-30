@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/data/models/tutor/become_tutor_request.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/domain/usecase/tutor_usecase.dart';
 import 'package:meta/meta.dart';
 
@@ -12,36 +12,51 @@ part 'become_tutor_state.dart';
 @injectable
 class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
   final TutorUseCase _tutorUseCase;
+
   BecomeTutorBloc(
     this._tutorUseCase,
   ) : super(const BecomeTutorInitial()) {
-    on<BecomeTutor>(_becomeTutorEvent);
-    on<UpdateBecomeTutorRequest>(_updateBecomeTutorRequestEvent);
+    on<SendBecomeTutorEvent>(_becomeTutorEvent);
+    on<UpdateInformationEvent>(_updateBecomeTutorRequestEvent);
   }
 
   FutureOr<void> _becomeTutorEvent(
-      BecomeTutor event, Emitter<BecomeTutorState> emit) async {
-    emit(const BecomeTutorLoading());
-    try {
-      final bool isBecomeTutor = await _tutorUseCase.becomeTutor(
-          becomeTutorRequest: event.becomeTutorRequest);
-      if (isBecomeTutor) {
-        emit(const BecomeTutorSuccess());
-      } else {
-        emit(const BecomeTutorFailure('Become tutor failed'));
-      }
-    } catch (e) {
-      emit(BecomeTutorFailure(e.toString()));
+    SendBecomeTutorEvent event,
+    Emitter<BecomeTutorState> emit,
+  ) async {
+    emit(BecomeTutorLoading(becomeTutorData: state.becomeTutorData));
+
+    if (state.becomeTutorData == null) {
+      emit(
+        BecomeTutorFailure(
+          'Become tutor failed',
+          becomeTutorData: state.becomeTutorData,
+        ),
+      );
+      return;
+    }
+
+    final isBecomeTutor = await _tutorUseCase.becomeTutor(
+        becomeTutorData: state.becomeTutorData!);
+    if (isBecomeTutor) {
+      emit(BecomeTutorSuccess(becomeTutorData: state.becomeTutorData));
+    } else {
+      emit(
+        BecomeTutorFailure(
+          'Become tutor failed',
+          becomeTutorData: state.becomeTutorData,
+        ),
+      );
     }
   }
 
   FutureOr<void> _updateBecomeTutorRequestEvent(
-      UpdateBecomeTutorRequest event, Emitter<BecomeTutorState> emit) {
+      UpdateInformationEvent event, Emitter<BecomeTutorState> emit) {
     emit(
       BecomeTutorInitial(
-        becomeTutorRequest: mergeBecomeTutorRequest(
-          state.becomeTutorRequest,
-          event.becomeTutorRequest,
+        becomeTutorData: mergeBecomeTutorData(
+          state.becomeTutorData,
+          event.becomeTutorData,
         ),
       ),
     );

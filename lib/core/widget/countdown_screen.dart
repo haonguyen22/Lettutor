@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/mixin/jitsi_meeting_mixin.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -72,18 +73,40 @@ class _CountDownScreenState extends State<CountDownScreen>
         backgroundColor: Colors.black,
         body: Column(
           children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: ElevatedButton(
-                child: Text("Join now"),
-                onPressed: () {
-                  onTapEnterLessonRoom(
-                    widget.url,
-                    widget.startTimestamp,
-                    isMeetingNow: true,
-                  );
-                },
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 24.0),
+                      child: Icon(
+                        Icons.arrow_back,
+                        color: Colors.white,
+                      ),
+                    )),
+                Align(
+                  alignment: Alignment.topRight,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: context.primaryColor,
+                    ),
+                    child: Text(
+                      S.of(context).joinNow,
+                      style: const TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {
+                      onTapEnterLessonRoom(
+                        widget.url,
+                        widget.startTimestamp,
+                        isMeetingNow: true,
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
             Expanded(
               child: Center(

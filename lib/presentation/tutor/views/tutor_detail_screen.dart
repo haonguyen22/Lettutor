@@ -3,8 +3,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
-import 'package:let_tutor/core/components/tutors/book_card.dart';
-import 'package:let_tutor/core/components/tutors/tutor_report_dialog.dart';
+import 'package:let_tutor/core/extensions/string_ext.dart';
+import 'package:let_tutor/core/widget/book_card.dart';
+import 'package:let_tutor/core/widget/tutor_report_dialog.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/core/widget/column_info_detail.dart';
@@ -280,7 +281,7 @@ class _TutorDetailScreenState extends State<TutorDetailScreen> {
                           ColumnInfoDetailWidget(
                             label: S.of(context).specialities,
                             content: WrapListWidget(
-                              listLabel: tutor?.specialties?.split(','),
+                              listLabel: tutor?.specialties?.toSpecialties(),
                             ),
                           ),
                           ColumnInfoDetailWidget(

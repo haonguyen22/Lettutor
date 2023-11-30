@@ -7,7 +7,7 @@ mixin LoadMoreMixin<T extends StatefulWidget> on State<T> {
     if (!scrollController.hasClients) return false;
     final maxScroll = scrollController.position.maxScrollExtent;
     final currentScroll = scrollController.offset;
-    return currentScroll >= maxScroll;
+    return currentScroll >= maxScroll * 0.9;
   }
 
   void listener() {}

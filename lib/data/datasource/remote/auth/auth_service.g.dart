@@ -48,14 +48,15 @@ class _AuthService implements AuthService {
   }
 
   @override
-  Future<UserModel> forgotPassword({required Map<String, dynamic> body}) async {
+  Future<ForgotPasswordResponse> forgotPassword(
+      {required Map<String, dynamic> body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     _data.addAll(body);
-    final _result = await _dio
-        .fetch<Map<String, dynamic>>(_setStreamType<UserModel>(Options(
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<ForgotPasswordResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -71,7 +72,7 @@ class _AuthService implements AuthService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UserModel.fromJson(_result.data!);
+    final value = ForgotPasswordResponse.fromJson(_result.data!);
     return value;
   }
 

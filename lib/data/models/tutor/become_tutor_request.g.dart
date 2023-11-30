@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'become_tutor_request.dart';
+part of 'become_tutor_data.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator

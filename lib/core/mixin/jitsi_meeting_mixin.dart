@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:jitsi_meet_wrapper/jitsi_meet_wrapper.dart';
+import 'package:let_tutor/core/extensions/date_time_ext.dart';
 import 'package:let_tutor/domain/entities/user.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
@@ -12,9 +13,11 @@ mixin JistiMeetingMixin<T extends StatefulWidget> on State<T> {
 
   void onTapEnterLessonRoom(String? url, int startTime,
       {bool isMeetingNow = false}) async {
-    if (DateTime.fromMillisecondsSinceEpoch(startTime)
-            .isAfter(DateTime.now()) &&
-        isMeetingNow == false) {
+    final start = DateTime.fromMillisecondsSinceEpoch(startTime);
+    final now = DateTime.now();
+    if (start.isAfter(now) &&
+        isMeetingNow == false &&
+        now.isLessMoreThanNHours(start, 0.5)) {
       Navigator.of(context).pushNamed(RouteList.waiting,
           arguments: {"startTimestamp": startTime, "url": url});
     } else {

@@ -4,8 +4,8 @@ part 'become_tutor_request.freezed.dart';
 part 'become_tutor_request.g.dart';
 
 @freezed
-class BecomeTutorRequest with _$BecomeTutorRequest {
-  const factory BecomeTutorRequest({
+class BecomeTutorData with _$BecomeTutorData {
+  const factory BecomeTutorData({
     String? name,
     String? country,
     DateTime? birthDay,
@@ -23,15 +23,15 @@ class BecomeTutorRequest with _$BecomeTutorRequest {
     int? price,
   }) = _BecomeTutorRequest;
 
-  factory BecomeTutorRequest.fromJson(Map<String, dynamic> json) =>
+  factory BecomeTutorData.fromJson(Map<String, dynamic> json) =>
       _$BecomeTutorRequestFromJson(json);
 }
 
-BecomeTutorRequest mergeBecomeTutorRequest(
-  BecomeTutorRequest? old,
-  BecomeTutorRequest? newRequest,
+BecomeTutorData mergeBecomeTutorData(
+  BecomeTutorData? old,
+  BecomeTutorData? newRequest,
 ) {
-  return BecomeTutorRequest(
+  return BecomeTutorData(
     name: newRequest?.name ?? old?.name,
     country: newRequest?.country ?? old?.country,
     birthDay: newRequest?.birthDay ?? old?.birthDay,
