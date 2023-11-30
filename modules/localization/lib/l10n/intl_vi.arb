@@ -114,5 +114,10 @@
     "noUpcomingClass": "Hiện tại chưa có lịch học!",
     "noHistoryClass": "Hiện tại chưa có lịch sử học!",
     "next": "Tiếp theo",
-    "joinNow": "Tham gia ngay"
+    "joinNow": "Tham gia ngay",
+    "resetPassword": "Đặt lại Mật khẩu",
+    "resetPasswordDescription": "Vui lòng nhập địa chỉ email của bạn để tìm kiếm tài khoản của bạn.",
+    "sendResetLink": "Gửi Liên kết Đặt lại",
+    "resetPasswordSuccess": "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới",
+    "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại."
 }

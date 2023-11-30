@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:injectable/injectable.dart';
 import 'package:let_tutor/data/datasource/local/preference.dart';
+import 'package:let_tutor/data/models/forgot_password/forgot_password_response.dart';
 import 'package:let_tutor/data/models/token/sign_in_model.dart';
 import 'package:let_tutor/domain/repositories/auth_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -48,5 +51,9 @@ class AuthUseCase {
     _sharedPreferences.remove(Preference.accessToken);
     _sharedPreferences.remove(Preference.expireTime);
     _sharedPreferences.remove(Preference.refreshToken);
+  }
+
+  Future<ForgotPasswordResponse> resetPassword({required String email}) async {
+    return await _authRepository.resetPassword(email: email);
   }
 }

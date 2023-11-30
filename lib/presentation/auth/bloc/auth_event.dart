@@ -26,3 +26,9 @@ class EditUserProfile extends AuthEvent {
 }
 
 class FetchUser extends AuthEvent {}
+
+class ForgotPassword extends AuthEvent {
+  final String email;
+
+  ForgotPassword(this.email);
+}

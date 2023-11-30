@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/extensions/string_ext.dart';
 import 'package:let_tutor/core/widget/custom_input_field.dart';
 import 'package:let_tutor/core/widget/multi_choice.dart';
 import 'package:let_tutor/core/widget/selection_input.dart';
@@ -362,7 +363,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
           child: MultiChoiceWidget(
             listItem: specialties,
             listItemChoice: specialtiesChoice,
-            listLabel: specialties.map((e) => e).toList(),
+            listLabel: specialties.join(",").toSpecialties(),
             onCondition: (index) {
               return specialtiesChoice.contains(specialties[index]);
             },

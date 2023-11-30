@@ -9,4 +9,5 @@ class RouteList {
   static const String review = 'review';
   static const String becomeTutor = "becomeTutor";
   static const String waiting = "waiting";
+  static const String forgotPassword = "forgotPassword";
 }

@@ -1,9 +1,12 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:let_tutor/core/constants/colors.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/extensions/string_ext.dart';
 import 'package:let_tutor/core/widget/wrap_list.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/dummy/country.dart';
+import 'package:let_tutor/dummy/data.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
 
@@ -31,6 +34,10 @@ class TutorCardWidget extends StatelessWidget {
       }
       Navigator.of(context).pushNamed(RouteList.tutorDetail, arguments: tutor);
     }
+
+    final allSpecialties = tutor.specialties != null
+        ? tutor.specialties!.toSpecialties()
+        : <String>[];
 
     return Container(
       width: double.infinity,
@@ -133,7 +140,14 @@ class TutorCardWidget extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 10),
-                WrapListWidget(listLabel: tutor.specialties?.split(',')),
+                WrapListWidget(
+                  listLabel: allSpecialties,
+                ),
+                // listLabel: tutor.specialties != null
+                //     ? tutor.specialties!.split(',').map((s) =>
+                //         specialties.firstWhereOrNull(
+                //             (element) => element['key'] == s)?['name'])
+                //     : []),
                 if (tutor.bio?.isNotEmpty ?? false) ...[
                   Padding(
                     padding: const EdgeInsets.only(top: 16.0, bottom: 20),

@@ -149,7 +149,8 @@ class _AuthScreenState extends State<AuthScreen> {
                           Row(
                             children: [
                               TextButton(
-                                onPressed: () {},
+                                onPressed: () => Navigator.of(context)
+                                    .pushNamed(RouteList.forgotPassword),
                                 child: Text(
                                   S.of(context).forgotPassword,
                                   textAlign: TextAlign.start,

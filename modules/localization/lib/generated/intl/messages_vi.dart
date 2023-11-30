@@ -167,6 +167,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Báo cáo thành công !!"),
         "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
+        "resetPassword":
+            MessageLookupByLibrary.simpleMessage("Đặt lại Mật khẩu"),
+        "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng nhập địa chỉ email của bạn để tìm kiếm tài khoản của bạn."),
+        "resetPasswordError": MessageLookupByLibrary.simpleMessage(
+            "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại."),
+        "resetPasswordSuccess": MessageLookupByLibrary.simpleMessage(
+            "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới"),
         "review": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "schedule": MessageLookupByLibrary.simpleMessage("Lịch học"),
         "search": MessageLookupByLibrary.simpleMessage("Tìm kiếm"),
@@ -175,6 +183,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Chọn quốc tịch"),
         "selectTutorTime":
             MessageLookupByLibrary.simpleMessage("Chọn thời gian học:"),
+        "sendResetLink":
+            MessageLookupByLibrary.simpleMessage("Gửi Liên kết Đặt lại"),
         "setUpProfile": MessageLookupByLibrary.simpleMessage(
             "Thiết lập hồ sơ gia sư của bạn"),
         "settings": MessageLookupByLibrary.simpleMessage("Cài đặt"),

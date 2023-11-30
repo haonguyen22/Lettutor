@@ -117,3 +117,8 @@ const testPreparations = [
     "updatedAt": "2021-09-03T13:27:18.820Z"
   }
 ];
+
+const specialties = [
+  ...learnTopics,
+  ...testPreparations,
+];

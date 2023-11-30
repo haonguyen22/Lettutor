@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<Register>(register);
     on<EditUserProfile>(editUserProfile);
     on<FetchUser>(fetchUser);
+    on<ForgotPassword>(forgotPassword);
   }
 
   FutureOr<void> login(Login event, Emitter emit) async {
@@ -35,9 +37,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(const AuthInitial(isLoading: true));
       final res = await _authUseCase.login(
           email: event.username, password: event.password);
-          
+
       final total = await _userUseCase.getTotalLearning();
-          
+
       if (res?.token != null) {
         emit(AuthSuccess(
           isLoading: false,
@@ -138,6 +140,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } catch (e) {
       emit(AuthFailed(
         message: e.toString(),
+        isLoading: false,
+        user: state.user,
+        totalLearning: state.totalLearning,
+      ));
+    }
+  }
+
+  FutureOr<void> forgotPassword(
+      ForgotPassword event, Emitter<AuthState> emit) async {
+    emit(ForgotPasswordLoading(
+      isLoading: true,
+      user: state.user,
+      totalLearning: state.totalLearning,
+    ));
+    final res = await _authUseCase.resetPassword(email: event.email);
+    if (res.statusCode == HttpStatus.ok) {
+      emit(ForgotPasswordSuccess(
+        isLoading: false,
+        user: state.user,
+        totalLearning: state.totalLearning,
+        message: res.message,
+      ));
+    } else {
+      emit(ForgotPasswordFailed(
+        message: res.message,
         isLoading: false,
         user: state.user,
         totalLearning: state.totalLearning,

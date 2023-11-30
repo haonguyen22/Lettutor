@@ -4,6 +4,7 @@ import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/core/widget/countdown_screen.dart';
 import 'package:let_tutor/domain/entities/course.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/presentation/auth/view/forgot_password_screen.dart';
 import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/views/become_tutor_screen.dart';
 import 'package:let_tutor/presentation/course/views/course_detail_screen.dart';
@@ -22,6 +23,7 @@ class Routes {
   static final Map<String, WidgetBuilder> _routes = {
     RouteList.login: (context) => const AuthScreen.login(),
     RouteList.signUp: (context) => const AuthScreen.signUp(),
+    RouteList.forgotPassword: (context) => const ForgotPasswordScreen(),
     RouteList.profile: (context) => const ProfileScreen(),
   };
 

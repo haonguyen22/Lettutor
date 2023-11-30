@@ -179,6 +179,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
         "reportTutor": m5,
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
+        "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+        "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
+            "Please enter your email address to search for your account."),
+        "resetPasswordError": MessageLookupByLibrary.simpleMessage(
+            "Reset password error, please check your email again."),
+        "resetPasswordSuccess": MessageLookupByLibrary.simpleMessage(
+            "Reset password successfully, please check your email to get new password"),
         "review": MessageLookupByLibrary.simpleMessage("Review"),
         "save": MessageLookupByLibrary.simpleMessage("Save"),
         "schedule": MessageLookupByLibrary.simpleMessage("Schedule"),
@@ -188,6 +195,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Select tutor nationality"),
         "selectTutorTime": MessageLookupByLibrary.simpleMessage(
             "Select available tutoring time:"),
+        "sendResetLink":
+            MessageLookupByLibrary.simpleMessage("Send Reset Link"),
         "setUpProfile":
             MessageLookupByLibrary.simpleMessage("Set up your tutor profile"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),

@@ -133,5 +133,10 @@
     "noUpcomingClass": "There is no lesson schedule yet!",
     "noHistoryClass": "There is no history schedule yet!",
     "next": "Next",
-    "joinNow": "Join now"
+    "joinNow": "Join now",
+    "resetPassword": "Reset Password",
+    "resetPasswordDescription": "Please enter your email address to search for your account.",
+    "sendResetLink": "Send Reset Link",
+    "resetPasswordSuccess": "Reset password successfully, please check your email to get new password",
+    "resetPasswordError": "Reset password error, please check your email again."
 }
