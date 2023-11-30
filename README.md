@@ -40,6 +40,8 @@ To use LetTutor, follow these steps:
 ## Demo
 Here is the link demo of the project.
 
+Milestone 2: [demo-milestone2.mp4](https://studenthcmusedu-my.sharepoint.com/:v:/g/personal/20120470_student_hcmus_edu_vn/EYJIjk-9nqNKjPWT1NMMhJgBd03iIS8p95lxv1NErALdkw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Gmqv9G)
+
 
 ## Contact Information
 
