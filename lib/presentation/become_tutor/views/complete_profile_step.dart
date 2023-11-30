@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:collection/collection.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,14 +9,17 @@ import 'package:let_tutor/core/extensions/string_ext.dart';
 import 'package:let_tutor/core/widget/custom_input_field.dart';
 import 'package:let_tutor/core/widget/multi_choice.dart';
 import 'package:let_tutor/core/widget/selection_input.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/domain/entities/user.dart';
 import 'package:let_tutor/dummy/country.dart';
 import 'package:let_tutor/dummy/data.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
+import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:localization/generated/l10n.dart';
 
 class CompleteProfileStepScreen extends StatefulWidget {
-  final VoidCallback onNext;
+  final Function(BecomeTutorData) onNext;
+
   const CompleteProfileStepScreen({
     super.key,
     required this.onNext,
@@ -31,11 +33,17 @@ class CompleteProfileStepScreen extends StatefulWidget {
 class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
   User? get user => context.read<AuthBloc>().state.user;
 
+  BecomeTutorData? get becomeTutorData =>
+      context.read<BecomeTutorBloc>().state.becomeTutorData;
+
   late TextEditingController nameCtrl;
   late TextEditingController interestsCtrl;
   late TextEditingController educationCtrl;
   late TextEditingController experienceCtrl;
   late TextEditingController professionCtrl;
+  late TextEditingController languageCtrl;
+  late TextEditingController bioCtrl;
+
   String? country;
   DateTime? birthday;
   String teachingLevelIndex = teachingLevels[0];
@@ -48,13 +56,20 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
 
   @override
   void initState() {
-    country = user?.country ?? '';
-    nameCtrl = TextEditingController(text: user?.name);
-    interestsCtrl = TextEditingController(text: user?.phone);
+    final specialtiesUser = user?.testPreparations?.map((e) => e.key).toList();
+    specialtiesUser
+        ?.addAll(user?.learnTopics?.map((e) => e.key).toList() ?? []);
+
+    specialtiesChoice = becomeTutorData?.specialties ?? specialtiesUser ?? [];
+    country = becomeTutorData?.country ?? user?.country;
+    nameCtrl = TextEditingController(text: becomeTutorData?.name ?? user?.name);
+    interestsCtrl = TextEditingController();
     educationCtrl = TextEditingController();
     experienceCtrl = TextEditingController();
     professionCtrl = TextEditingController();
-    birthday = user?.birthday;
+    languageCtrl = TextEditingController();
+    bioCtrl = TextEditingController();
+    birthday = becomeTutorData?.birthDay ?? user?.birthday;
     super.initState();
   }
 
@@ -72,7 +87,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
     final now = DateTime.now();
     final DateTime? value = await showDatePicker(
       context: context,
-      initialDate: user?.birthday ?? DateTime.now(),
+      initialDate: birthday ?? DateTime.now(),
       firstDate: DateTime(now.year - 100),
       lastDate: DateTime(now.year + 100),
     );
@@ -176,11 +191,8 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         SelectionInputWidget<String>(
           label: S.of(context).country,
           listValue: countryList.values.toList(),
-          listLabel: countryList.values
-              .mapIndexed((index, element) =>
-                  '${countryList.keys.toList()[index]} - $element')
-              .toList(),
-          initialSelection: countryList[user?.country],
+          listLabel: countryList.values.toList(),
+          initialSelection: country,
           onSelected: (value) {
             setState(() {
               country = value ?? '';
@@ -312,7 +324,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         const SizedBox(height: 10),
         CustomInputLabelField(
           label: S.of(context).languages,
-          controller: professionCtrl,
+          controller: languageCtrl,
           hintText: S.of(context).languagesHint,
         ),
         const SizedBox(height: 10),
@@ -329,7 +341,7 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
         const SizedBox(height: 10),
         CustomInputLabelField(
             label: S.of(context).introduction,
-            controller: professionCtrl,
+            controller: bioCtrl,
             hintText: S.of(context).introductionHint),
         const SizedBox(height: 10),
         SelectionInputWidget<String>(
@@ -378,12 +390,26 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen> {
               backgroundColor: context.primaryColor,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(
-                  12,
-                ),
+                borderRadius: BorderRadius.circular(12),
               ),
             ),
-            onPressed: widget.onNext,
+            onPressed: () => widget.onNext(
+              BecomeTutorData(
+                avatar: user?.avatar,
+                name: nameCtrl.text,
+                country: country,
+                birthDay: birthday,
+                interest: interestsCtrl.text,
+                education: educationCtrl.text,
+                experience: experienceCtrl.text,
+                profession: professionCtrl.text,
+                certificates: certificates,
+                languages: languageCtrl.text,
+                bio: bioCtrl.text,
+                targetStudent: teachingLevelIndex,
+                specialties: specialtiesChoice,
+              ),
+            ),
             child: Text(S.of(context).next),
           ),
         ),

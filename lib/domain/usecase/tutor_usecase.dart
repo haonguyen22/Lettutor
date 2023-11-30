@@ -1,5 +1,5 @@
 import 'package:injectable/injectable.dart';
-import 'package:let_tutor/data/models/tutor/become_tutor_request.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/data/models/tutor/search_tutor_response.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 import 'package:let_tutor/domain/repositories/tutor_repository.dart';
@@ -33,9 +33,7 @@ class TutorUseCase {
         tutorId: tutorId, content: content);
   }
 
-  Future<bool> becomeTutor(
-      {required BecomeTutorRequest becomeTutorRequest}) async {
-    return await _tutorRepository.becomeTutor(
-        becomeTutorRequest: becomeTutorRequest);
+  Future<bool> becomeTutor({required BecomeTutorData becomeTutorData}) async {
+    return await _tutorRepository.becomeTutor(becomeTutorData: becomeTutorData);
   }
 }

@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/core/widget/countdown_screen.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/domain/entities/course.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/auth/view/forgot_password_screen.dart';
 import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/views/become_tutor_screen.dart';
@@ -60,7 +62,18 @@ class Routes {
         return _buildRoute(
           settings,
           (context) => BlocProvider<BecomeTutorBloc>(
-              create: (context) => injector.get<BecomeTutorBloc>(),
+              create: (_) {
+                final user = context.read<AuthBloc>().state.user;
+                return injector.get<BecomeTutorBloc>()
+                  ..add(UpdateInformationEvent(
+                    becomeTutorData: BecomeTutorData(
+                      avatar: user?.avatar,
+                      name: user?.name,
+                      country: user?.country,
+                      birthDay: user?.birthday,
+                    ),
+                  ));
+              },
               child: const BecomeTutorScreen()),
         );
 

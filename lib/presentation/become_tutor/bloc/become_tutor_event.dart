@@ -1,16 +1,15 @@
 part of 'become_tutor_bloc.dart';
 
 @immutable
-sealed class BecomeTutorEvent {}
-
-final class BecomeTutor extends BecomeTutorEvent {
-  final BecomeTutorRequest becomeTutorRequest;
-
-  BecomeTutor({required this.becomeTutorRequest});
+abstract class BecomeTutorEvent {
+  const BecomeTutorEvent();
 }
 
-class UpdateBecomeTutorRequest extends BecomeTutorEvent {
-  final BecomeTutorRequest becomeTutorRequest;
+class SendBecomeTutorEvent extends BecomeTutorEvent {
+  const SendBecomeTutorEvent();
+}
 
-  UpdateBecomeTutorRequest({required this.becomeTutorRequest});
+class UpdateInformationEvent extends BecomeTutorEvent {
+  final BecomeTutorData becomeTutorData;
+  const UpdateInformationEvent({required this.becomeTutorData});
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:im_stepper/stepper.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
-import 'package:let_tutor/data/models/tutor/become_tutor_request.dart';
+import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/views/complete_profile_step.dart';
@@ -18,24 +18,20 @@ class BecomeTutorScreen extends StatefulWidget {
 }
 
 class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
+  BecomeTutorBloc get becomeTutorBloc => context.read<BecomeTutorBloc>();
   int _index = 0;
 
-  void onNextStep() {
+  void onNextStep(BecomeTutorData becomeTutorData) {
+    becomeTutorBloc.add(UpdateInformationEvent(
+      becomeTutorData: becomeTutorData,
+    ));
     setState(() {
       _index += 1;
     });
   }
 
   void onTapDone() {
-    final user = context.read<AuthBloc>().state.user;
-    context.read<BecomeTutorBloc>().add(BecomeTutor(
-          becomeTutorRequest: BecomeTutorRequest(
-            avatar: user?.avatar,
-          ),
-        ));
-    setState(() {
-      _index += 1;
-    });
+    context.read<BecomeTutorBloc>().add(const SendBecomeTutorEvent());
   }
 
   void onBackStep() {
@@ -48,36 +44,51 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(S.of(context).becomeATutor),
-        backgroundColor: context.primaryColor.withOpacity(0.4),
-      ),
-      body: Column(
-        children: [
-          NumberStepper(
-            numbers: const [1, 2, 3],
-            activeStep: _index,
-            enableNextPreviousButtons: false,
-            enableStepTapping: false,
-            stepColor: context.primaryColor.withOpacity(0.2),
-            activeStepColor: context.primaryColor,
-            onStepReached: (index) {
-              setState(() {
-                _index = index;
-              });
-            },
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: renderBody(),
+    return BlocConsumer<BecomeTutorBloc, BecomeTutorState>(
+      listener: (_, state) {
+        if (state is BecomeTutorSuccess) {
+          setState(() {
+            _index += 1;
+          });
+        }
+        if (state is BecomeTutorFailure) {
+          setState(() {
+            _index += 1;
+          });
+        }
+      },
+      buildWhen: (previous, current) => current != previous,
+      builder: (_, state) => Scaffold(
+        appBar: AppBar(
+          title: Text(S.of(context).becomeATutor),
+          backgroundColor: context.primaryColor.withOpacity(0.4),
+        ),
+        body: Column(
+          children: [
+            NumberStepper(
+              numbers: const [1, 2, 3],
+              activeStep: _index,
+              enableNextPreviousButtons: false,
+              enableStepTapping: false,
+              stepColor: context.primaryColor.withOpacity(0.2),
+              activeStepColor: context.primaryColor,
+              onStepReached: (index) {
+                setState(() {
+                  _index = index;
+                });
+              },
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 16.0, vertical: 8.0),
+                  child: renderBody(),
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -92,6 +103,15 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
         return VideoIntroductionStep(
           onDone: onTapDone,
           onCancel: onBackStep,
+          onVideoSelected: (file) {
+            context.read<BecomeTutorBloc>().add(
+                  UpdateInformationEvent(
+                    becomeTutorData: BecomeTutorData(
+                      video: file,
+                    ),
+                  ),
+                );
+          },
         );
       default:
         return WaitingApprovalStep(

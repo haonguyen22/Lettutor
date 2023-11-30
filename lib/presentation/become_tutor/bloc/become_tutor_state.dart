@@ -2,25 +2,25 @@ part of 'become_tutor_bloc.dart';
 
 @immutable
 abstract class BecomeTutorState {
-  final BecomeTutorRequest? becomeTutorRequest;
+  final BecomeTutorData? becomeTutorData;
 
-  const BecomeTutorState({this.becomeTutorRequest});
+  const BecomeTutorState({this.becomeTutorData});
 }
 
 class BecomeTutorInitial extends BecomeTutorState {
-  const BecomeTutorInitial({super.becomeTutorRequest});
+  const BecomeTutorInitial({super.becomeTutorData});
 }
 
 class BecomeTutorLoading extends BecomeTutorState {
-  const BecomeTutorLoading({super.becomeTutorRequest});
+  const BecomeTutorLoading({super.becomeTutorData});
 }
 
 class BecomeTutorSuccess extends BecomeTutorState {
-  const BecomeTutorSuccess({super.becomeTutorRequest});
+  const BecomeTutorSuccess({super.becomeTutorData});
 }
 
 final class BecomeTutorFailure extends BecomeTutorState {
   final String message;
 
-  const BecomeTutorFailure(this.message, {super.becomeTutorRequest});
+  const BecomeTutorFailure(this.message, {super.becomeTutorData});
 }

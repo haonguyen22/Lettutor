@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'become_tutor_request.dart';
+part of 'become_tutor_data.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-BecomeTutorRequest _$BecomeTutorRequestFromJson(Map<String, dynamic> json) {
+BecomeTutorData _$BecomeTutorRequestFromJson(Map<String, dynamic> json) {
   return _BecomeTutorRequest.fromJson(json);
 }
 
 /// @nodoc
-mixin _$BecomeTutorRequest {
+mixin _$BecomeTutorData {
   String? get name => throw _privateConstructorUsedError;
   String? get country => throw _privateConstructorUsedError;
   DateTime? get birthDay => throw _privateConstructorUsedError;
@@ -38,15 +38,15 @@ mixin _$BecomeTutorRequest {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BecomeTutorRequestCopyWith<BecomeTutorRequest> get copyWith =>
+  $BecomeTutorRequestCopyWith<BecomeTutorData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $BecomeTutorRequestCopyWith<$Res> {
   factory $BecomeTutorRequestCopyWith(
-          BecomeTutorRequest value, $Res Function(BecomeTutorRequest) then) =
-      _$BecomeTutorRequestCopyWithImpl<$Res, BecomeTutorRequest>;
+          BecomeTutorData value, $Res Function(BecomeTutorData) then) =
+      _$BecomeTutorRequestCopyWithImpl<$Res, BecomeTutorData>;
   @useResult
   $Res call(
       {String? name,
@@ -67,7 +67,7 @@ abstract class $BecomeTutorRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BecomeTutorRequestCopyWithImpl<$Res, $Val extends BecomeTutorRequest>
+class _$BecomeTutorRequestCopyWithImpl<$Res, $Val extends BecomeTutorData>
     implements $BecomeTutorRequestCopyWith<$Res> {
   _$BecomeTutorRequestCopyWithImpl(this._value, this._then);
 
@@ -352,7 +352,7 @@ class _$_BecomeTutorRequest implements _BecomeTutorRequest {
 
   @override
   String toString() {
-    return 'BecomeTutorRequest(name: $name, country: $country, birthDay: $birthDay, interest: $interest, education: $education, experience: $experience, profession: $profession, languages: $languages, bio: $bio, targetStudent: $targetStudent, specialties: $specialties, certificates: $certificates, avatar: $avatar, video: $video, price: $price)';
+    return 'BecomeTutorData(name: $name, country: $country, birthDay: $birthDay, interest: $interest, education: $education, experience: $experience, profession: $profession, languages: $languages, bio: $bio, targetStudent: $targetStudent, specialties: $specialties, certificates: $certificates, avatar: $avatar, video: $video, price: $price)';
   }
 
   @override
@@ -421,7 +421,7 @@ class _$_BecomeTutorRequest implements _BecomeTutorRequest {
   }
 }
 
-abstract class _BecomeTutorRequest implements BecomeTutorRequest {
+abstract class _BecomeTutorRequest implements BecomeTutorData {
   const factory _BecomeTutorRequest(
       {final String? name,
       final String? country,

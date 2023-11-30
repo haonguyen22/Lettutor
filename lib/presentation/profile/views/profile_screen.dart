@@ -191,11 +191,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 SelectionInputWidget<String>(
                   label: S.of(context).country,
                   listValue: countryList.values.toList(),
-                  listLabel: countryList.values
-                      .mapIndexed((index, element) =>
-                          '${countryList.keys.toList()[index]} - $element')
-                      .toList(),
-                  initialSelection: countryList[user?.country],
+                  listLabel: countryList.values.toList(),
+                  initialSelection: user?.country,
                   onSelected: (value) {
                     setState(() {
                       country = value ?? '';
