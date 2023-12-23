@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'become_tutor_request.freezed.dart';
-part 'become_tutor_request.g.dart';
+part 'become_tutor_data.freezed.dart';
+part 'become_tutor_data.g.dart';
 
 @freezed
 class BecomeTutorData with _$BecomeTutorData {
@@ -21,10 +21,10 @@ class BecomeTutorData with _$BecomeTutorData {
     String? avatar,
     dynamic video,
     int? price,
-  }) = _BecomeTutorRequest;
+  }) = _BecomeTutorData;
 
   factory BecomeTutorData.fromJson(Map<String, dynamic> json) =>
-      _$BecomeTutorRequestFromJson(json);
+      _$BecomeTutorDataFromJson(json);
 }
 
 BecomeTutorData mergeBecomeTutorData(

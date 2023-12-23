@@ -9,9 +9,17 @@ import 'package:let_tutor/domain/entities/user.dart';
 import 'package:let_tutor/domain/usecase/auth_usecase.dart';
 import 'package:let_tutor/domain/usecase/shared_preferences_usecase.dart';
 import 'package:let_tutor/domain/usecase/user_usecase.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
+
+GoogleSignIn _googleSignIn = GoogleSignIn(
+  scopes: <String>[
+    'email',
+    'https://www.googleapis.com/auth/contacts.readonly',
+  ],
+);
 
 @injectable
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
@@ -30,6 +38,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<EditUserProfile>(editUserProfile);
     on<FetchUser>(fetchUser);
     on<ForgotPassword>(forgotPassword);
+    on<GoogleLogin>(googleLogin);
+    on<FacebookLogin>(facebookLogin);
   }
 
   FutureOr<void> login(Login event, Emitter emit) async {
@@ -171,4 +181,40 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       ));
     }
   }
+
+  Future<FutureOr<void>> googleLogin(
+      GoogleLogin event, Emitter<AuthState> emit) async {
+    emit(const AuthInitial(isLoading: true));
+
+    try {
+      final res = await _googleSignIn.signIn();
+      final accessToken =
+          await res?.authentication.then((googleKey) => googleKey.accessToken);
+      final user = await _authUseCase.loginByGoogle(token: accessToken!);
+      final total = await _userUseCase.getTotalLearning();
+      if (user?.token != null) {
+        emit(AuthSuccess(
+          isLoading: false,
+          user: user?.user.toEntity(),
+          totalLearning: total,
+        ));
+      } else {
+        emit(AuthFailed(
+          message: "Fail to login with google",
+          isLoading: false,
+          user: state.user,
+          totalLearning: state.totalLearning,
+        ));
+      }
+    } catch (error) {
+      emit(AuthFailed(
+        message: error.toString(),
+        isLoading: false,
+        user: state.user,
+        totalLearning: state.totalLearning,
+      ));
+    }
+  }
+
+  FutureOr<void> facebookLogin(FacebookLogin event, Emitter<AuthState> emit) {}
 }

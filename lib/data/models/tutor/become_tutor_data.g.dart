@@ -6,9 +6,8 @@ part of 'become_tutor_data.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_BecomeTutorRequest _$$_BecomeTutorRequestFromJson(
-        Map<String, dynamic> json) =>
-    _$_BecomeTutorRequest(
+_$_BecomeTutorData _$$_BecomeTutorDataFromJson(Map<String, dynamic> json) =>
+    _$_BecomeTutorData(
       name: json['name'] as String?,
       country: json['country'] as String?,
       birthDay: json['birthDay'] == null
@@ -30,8 +29,7 @@ _$_BecomeTutorRequest _$$_BecomeTutorRequestFromJson(
       price: json['price'] as int?,
     );
 
-Map<String, dynamic> _$$_BecomeTutorRequestToJson(
-        _$_BecomeTutorRequest instance) =>
+Map<String, dynamic> _$$_BecomeTutorDataToJson(_$_BecomeTutorData instance) =>
     <String, dynamic>{
       'name': instance.name,
       'country': instance.country,

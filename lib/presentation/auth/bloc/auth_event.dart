@@ -32,3 +32,7 @@ class ForgotPassword extends AuthEvent {
 
   ForgotPassword(this.email);
 }
+
+class GoogleLogin extends AuthEvent {}
+
+class FacebookLogin extends AuthEvent {}

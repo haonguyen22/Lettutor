@@ -14,8 +14,8 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-BecomeTutorData _$BecomeTutorRequestFromJson(Map<String, dynamic> json) {
-  return _BecomeTutorRequest.fromJson(json);
+BecomeTutorData _$BecomeTutorDataFromJson(Map<String, dynamic> json) {
+  return _BecomeTutorData.fromJson(json);
 }
 
 /// @nodoc
@@ -38,15 +38,15 @@ mixin _$BecomeTutorData {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BecomeTutorRequestCopyWith<BecomeTutorData> get copyWith =>
+  $BecomeTutorDataCopyWith<BecomeTutorData> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BecomeTutorRequestCopyWith<$Res> {
-  factory $BecomeTutorRequestCopyWith(
+abstract class $BecomeTutorDataCopyWith<$Res> {
+  factory $BecomeTutorDataCopyWith(
           BecomeTutorData value, $Res Function(BecomeTutorData) then) =
-      _$BecomeTutorRequestCopyWithImpl<$Res, BecomeTutorData>;
+      _$BecomeTutorDataCopyWithImpl<$Res, BecomeTutorData>;
   @useResult
   $Res call(
       {String? name,
@@ -67,9 +67,9 @@ abstract class $BecomeTutorRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$BecomeTutorRequestCopyWithImpl<$Res, $Val extends BecomeTutorData>
-    implements $BecomeTutorRequestCopyWith<$Res> {
-  _$BecomeTutorRequestCopyWithImpl(this._value, this._then);
+class _$BecomeTutorDataCopyWithImpl<$Res, $Val extends BecomeTutorData>
+    implements $BecomeTutorDataCopyWith<$Res> {
+  _$BecomeTutorDataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -161,11 +161,11 @@ class _$BecomeTutorRequestCopyWithImpl<$Res, $Val extends BecomeTutorData>
 }
 
 /// @nodoc
-abstract class _$$_BecomeTutorRequestCopyWith<$Res>
-    implements $BecomeTutorRequestCopyWith<$Res> {
-  factory _$$_BecomeTutorRequestCopyWith(_$_BecomeTutorRequest value,
-          $Res Function(_$_BecomeTutorRequest) then) =
-      __$$_BecomeTutorRequestCopyWithImpl<$Res>;
+abstract class _$$_BecomeTutorDataCopyWith<$Res>
+    implements $BecomeTutorDataCopyWith<$Res> {
+  factory _$$_BecomeTutorDataCopyWith(
+          _$_BecomeTutorData value, $Res Function(_$_BecomeTutorData) then) =
+      __$$_BecomeTutorDataCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -187,11 +187,11 @@ abstract class _$$_BecomeTutorRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_BecomeTutorRequestCopyWithImpl<$Res>
-    extends _$BecomeTutorRequestCopyWithImpl<$Res, _$_BecomeTutorRequest>
-    implements _$$_BecomeTutorRequestCopyWith<$Res> {
-  __$$_BecomeTutorRequestCopyWithImpl(
-      _$_BecomeTutorRequest _value, $Res Function(_$_BecomeTutorRequest) _then)
+class __$$_BecomeTutorDataCopyWithImpl<$Res>
+    extends _$BecomeTutorDataCopyWithImpl<$Res, _$_BecomeTutorData>
+    implements _$$_BecomeTutorDataCopyWith<$Res> {
+  __$$_BecomeTutorDataCopyWithImpl(
+      _$_BecomeTutorData _value, $Res Function(_$_BecomeTutorData) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -213,7 +213,7 @@ class __$$_BecomeTutorRequestCopyWithImpl<$Res>
     Object? video = freezed,
     Object? price = freezed,
   }) {
-    return _then(_$_BecomeTutorRequest(
+    return _then(_$_BecomeTutorData(
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -280,8 +280,8 @@ class __$$_BecomeTutorRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_BecomeTutorRequest implements _BecomeTutorRequest {
-  const _$_BecomeTutorRequest(
+class _$_BecomeTutorData implements _BecomeTutorData {
+  const _$_BecomeTutorData(
       {this.name,
       this.country,
       this.birthDay,
@@ -300,8 +300,8 @@ class _$_BecomeTutorRequest implements _BecomeTutorRequest {
       : _specialties = specialties,
         _certificates = certificates;
 
-  factory _$_BecomeTutorRequest.fromJson(Map<String, dynamic> json) =>
-      _$$_BecomeTutorRequestFromJson(json);
+  factory _$_BecomeTutorData.fromJson(Map<String, dynamic> json) =>
+      _$$_BecomeTutorDataFromJson(json);
 
   @override
   final String? name;
@@ -359,7 +359,7 @@ class _$_BecomeTutorRequest implements _BecomeTutorRequest {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_BecomeTutorRequest &&
+            other is _$_BecomeTutorData &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.birthDay, birthDay) ||
@@ -409,20 +409,19 @@ class _$_BecomeTutorRequest implements _BecomeTutorRequest {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_BecomeTutorRequestCopyWith<_$_BecomeTutorRequest> get copyWith =>
-      __$$_BecomeTutorRequestCopyWithImpl<_$_BecomeTutorRequest>(
-          this, _$identity);
+  _$$_BecomeTutorDataCopyWith<_$_BecomeTutorData> get copyWith =>
+      __$$_BecomeTutorDataCopyWithImpl<_$_BecomeTutorData>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_BecomeTutorRequestToJson(
+    return _$$_BecomeTutorDataToJson(
       this,
     );
   }
 }
 
-abstract class _BecomeTutorRequest implements BecomeTutorData {
-  const factory _BecomeTutorRequest(
+abstract class _BecomeTutorData implements BecomeTutorData {
+  const factory _BecomeTutorData(
       {final String? name,
       final String? country,
       final DateTime? birthDay,
@@ -437,10 +436,10 @@ abstract class _BecomeTutorRequest implements BecomeTutorData {
       final List<dynamic>? certificates,
       final String? avatar,
       final dynamic video,
-      final int? price}) = _$_BecomeTutorRequest;
+      final int? price}) = _$_BecomeTutorData;
 
-  factory _BecomeTutorRequest.fromJson(Map<String, dynamic> json) =
-      _$_BecomeTutorRequest.fromJson;
+  factory _BecomeTutorData.fromJson(Map<String, dynamic> json) =
+      _$_BecomeTutorData.fromJson;
 
   @override
   String? get name;
@@ -474,6 +473,6 @@ abstract class _BecomeTutorRequest implements BecomeTutorData {
   int? get price;
   @override
   @JsonKey(ignore: true)
-  _$$_BecomeTutorRequestCopyWith<_$_BecomeTutorRequest> get copyWith =>
+  _$$_BecomeTutorDataCopyWith<_$_BecomeTutorData> get copyWith =>
       throw _privateConstructorUsedError;
 }

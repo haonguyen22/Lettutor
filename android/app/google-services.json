@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "743337691161",
+    "project_id": "lettutor-69dc3",
+    "storage_bucket": "lettutor-69dc3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743337691161:android:32c5fdbbab20c4f4238288",
+        "android_client_info": {
+          "package_name": "com.example.let_tutor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743337691161-3q7tah1k0jsrjkbkp51qklvhdd8ek2v9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.let_tutor",
+            "certificate_hash": "7b14598271b7507e702bfb6c59308d6d7b7e90ee"
+          }
+        },
+        {
+          "client_id": "743337691161-vppacsdqeevq2tlr76qaaer3fk9a61s0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDlscwUjzQQVxyEgKzYYHDwIgnGS-TR-GA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743337691161-vppacsdqeevq2tlr76qaaer3fk9a61s0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "743337691161-jc8eitp2o38knl4cri1aqtlrfcvlfa07.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.letTutor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

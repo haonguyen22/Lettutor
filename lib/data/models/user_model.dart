@@ -37,7 +37,7 @@ class UserModel with _$UserModel {
       country: country,
       phone: phone,
       language: language,
-      birthday: DateTime.parse(birthday ?? ""),
+      birthday: DateTime.tryParse(birthday ?? ""),
       requireNote: requireNote,
       level: level,
       learnTopics: learnTopics?.map((e) => e.toEntity()).toList(),

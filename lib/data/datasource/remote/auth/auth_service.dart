@@ -35,4 +35,8 @@ abstract class AuthService {
 
   @POST(refreshTokenApi)
   Future<Token?> refreshToken({@Body() required Map<String, dynamic> body});
+
+  @POST(loginByGoogleApi)
+  Future<AuthResponse?> loginByGoogle(
+      {@Body() required Map<String, dynamic> body});
 }

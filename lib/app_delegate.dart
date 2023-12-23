@@ -13,6 +13,8 @@ import 'package:let_tutor/presentation/schedule/upcoming/bloc/upcoming_bloc.dart
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 import 'application.dart';
 
@@ -48,6 +50,9 @@ class AppDelegate {
     await runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
 
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
       configurationInjection();
 
       final app = await build();
