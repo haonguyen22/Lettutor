@@ -57,3 +57,39 @@ final class TutorDetailFailed extends TutorDetailState {
     super.isLoadingSchedule,
   });
 }
+
+final class BookClassInitial extends TutorDetailState {
+  const BookClassInitial({
+    super.isLoading,
+    super.tutor,
+    super.name,
+    super.schedules,
+    super.isLoadingSchedule,
+  });
+}
+
+final class BookClassSuccess extends TutorDetailState {
+  final bool processing;
+  const BookClassSuccess({
+    super.isLoading,
+    super.tutor,
+    super.name,
+    this.processing = false,
+    super.schedules,
+    super.isLoadingSchedule,
+  });
+}
+
+final class BookClassFailed extends TutorDetailState {
+  final String message;
+
+  const BookClassFailed({
+    super.isLoading,
+    super.tutor,
+    super.name,
+    super.schedules,
+    super.isLoadingSchedule,
+    this.message = "",
+    
+  });
+}

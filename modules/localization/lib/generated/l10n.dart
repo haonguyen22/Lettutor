@@ -1459,6 +1459,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Reserved`
+  String get reserved {
+    return Intl.message(
+      'Reserved',
+      name: 'reserved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This tutor has no schedule yet`
+  String get noScheduleTutor {
+    return Intl.message(
+      'This tutor has no schedule yet',
+      name: 'noScheduleTutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book successfully`
+  String get bookSuccessfully {
+    return Intl.message(
+      'Book successfully',
+      name: 'bookSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book error, please check again`
+  String get bookError {
+    return Intl.message(
+      'Book error, please check again',
+      name: 'bookError',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

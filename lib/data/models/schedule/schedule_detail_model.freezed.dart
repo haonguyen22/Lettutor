@@ -23,6 +23,8 @@ mixin _$ScheduleDetailModel {
   int? get startPeriodTimestamp => throw _privateConstructorUsedError;
   int? get endPeriodTimestamp => throw _privateConstructorUsedError;
   String? get id => throw _privateConstructorUsedError;
+  String? get userId => throw _privateConstructorUsedError;
+  String? get scheduleDetailId => throw _privateConstructorUsedError;
   String? get scheduleId => throw _privateConstructorUsedError;
   String? get startPeriod => throw _privateConstructorUsedError;
   String? get endPeriod => throw _privateConstructorUsedError;
@@ -47,6 +49,8 @@ abstract class $ScheduleDetailModelCopyWith<$Res> {
       {int? startPeriodTimestamp,
       int? endPeriodTimestamp,
       String? id,
+      String? userId,
+      String? scheduleDetailId,
       String? scheduleId,
       String? startPeriod,
       String? endPeriod,
@@ -72,6 +76,8 @@ class _$ScheduleDetailModelCopyWithImpl<$Res, $Val extends ScheduleDetailModel>
     Object? startPeriodTimestamp = freezed,
     Object? endPeriodTimestamp = freezed,
     Object? id = freezed,
+    Object? userId = freezed,
+    Object? scheduleDetailId = freezed,
     Object? scheduleId = freezed,
     Object? startPeriod = freezed,
     Object? endPeriod = freezed,
@@ -92,6 +98,14 @@ class _$ScheduleDetailModelCopyWithImpl<$Res, $Val extends ScheduleDetailModel>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scheduleDetailId: freezed == scheduleDetailId
+          ? _value.scheduleDetailId
+          : scheduleDetailId // ignore: cast_nullable_to_non_nullable
               as String?,
       scheduleId: freezed == scheduleId
           ? _value.scheduleId
@@ -137,6 +151,8 @@ abstract class _$$_ScheduleDetailModelCopyWith<$Res>
       {int? startPeriodTimestamp,
       int? endPeriodTimestamp,
       String? id,
+      String? userId,
+      String? scheduleDetailId,
       String? scheduleId,
       String? startPeriod,
       String? endPeriod,
@@ -160,6 +176,8 @@ class __$$_ScheduleDetailModelCopyWithImpl<$Res>
     Object? startPeriodTimestamp = freezed,
     Object? endPeriodTimestamp = freezed,
     Object? id = freezed,
+    Object? userId = freezed,
+    Object? scheduleDetailId = freezed,
     Object? scheduleId = freezed,
     Object? startPeriod = freezed,
     Object? endPeriod = freezed,
@@ -180,6 +198,14 @@ class __$$_ScheduleDetailModelCopyWithImpl<$Res>
       id: freezed == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String?,
+      userId: freezed == userId
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String?,
+      scheduleDetailId: freezed == scheduleDetailId
+          ? _value.scheduleDetailId
+          : scheduleDetailId // ignore: cast_nullable_to_non_nullable
               as String?,
       scheduleId: freezed == scheduleId
           ? _value.scheduleId
@@ -220,6 +246,8 @@ class _$_ScheduleDetailModel implements _ScheduleDetailModel {
       {this.startPeriodTimestamp,
       this.endPeriodTimestamp,
       this.id,
+      this.userId,
+      this.scheduleDetailId,
       this.scheduleId,
       this.startPeriod,
       this.endPeriod,
@@ -238,6 +266,10 @@ class _$_ScheduleDetailModel implements _ScheduleDetailModel {
   final int? endPeriodTimestamp;
   @override
   final String? id;
+  @override
+  final String? userId;
+  @override
+  final String? scheduleDetailId;
   @override
   final String? scheduleId;
   @override
@@ -263,7 +295,7 @@ class _$_ScheduleDetailModel implements _ScheduleDetailModel {
 
   @override
   String toString() {
-    return 'ScheduleDetailModel(startPeriodTimestamp: $startPeriodTimestamp, endPeriodTimestamp: $endPeriodTimestamp, id: $id, scheduleId: $scheduleId, startPeriod: $startPeriod, endPeriod: $endPeriod, createdAt: $createdAt, updatedAt: $updatedAt, bookingInfo: $bookingInfo, isBooked: $isBooked)';
+    return 'ScheduleDetailModel(startPeriodTimestamp: $startPeriodTimestamp, endPeriodTimestamp: $endPeriodTimestamp, id: $id, userId: $userId, scheduleDetailId: $scheduleDetailId, scheduleId: $scheduleId, startPeriod: $startPeriod, endPeriod: $endPeriod, createdAt: $createdAt, updatedAt: $updatedAt, bookingInfo: $bookingInfo, isBooked: $isBooked)';
   }
 
   @override
@@ -276,6 +308,9 @@ class _$_ScheduleDetailModel implements _ScheduleDetailModel {
             (identical(other.endPeriodTimestamp, endPeriodTimestamp) ||
                 other.endPeriodTimestamp == endPeriodTimestamp) &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.userId, userId) || other.userId == userId) &&
+            (identical(other.scheduleDetailId, scheduleDetailId) ||
+                other.scheduleDetailId == scheduleDetailId) &&
             (identical(other.scheduleId, scheduleId) ||
                 other.scheduleId == scheduleId) &&
             (identical(other.startPeriod, startPeriod) ||
@@ -299,6 +334,8 @@ class _$_ScheduleDetailModel implements _ScheduleDetailModel {
       startPeriodTimestamp,
       endPeriodTimestamp,
       id,
+      userId,
+      scheduleDetailId,
       scheduleId,
       startPeriod,
       endPeriod,
@@ -327,6 +364,8 @@ abstract class _ScheduleDetailModel implements ScheduleDetailModel {
       {final int? startPeriodTimestamp,
       final int? endPeriodTimestamp,
       final String? id,
+      final String? userId,
+      final String? scheduleDetailId,
       final String? scheduleId,
       final String? startPeriod,
       final String? endPeriod,
@@ -344,6 +383,10 @@ abstract class _ScheduleDetailModel implements ScheduleDetailModel {
   int? get endPeriodTimestamp;
   @override
   String? get id;
+  @override
+  String? get userId;
+  @override
+  String? get scheduleDetailId;
   @override
   String? get scheduleId;
   @override

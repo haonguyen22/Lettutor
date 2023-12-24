@@ -119,27 +119,41 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
 
   FutureOr<void> _bookClassEvent(
       BookClassEvent event, Emitter<TutorDetailState> emit) async {
-    emit(TutorDetailSuccess(
+    emit(BookClassInitial(
       isLoading: state.isLoading,
       tutor: state.tutor,
       name: state.name,
       schedules: state.schedules,
       isLoadingSchedule: state.isLoadingSchedule,
-      processing: true,
     ));
 
-    await _scheduleUseCase.bookAClass(
-      scheduleDetailId: event.scheduleDetailId,
-      note: event.note,
-    );
-
-    emit(TutorDetailSuccess(
-      isLoading: state.isLoading,
-      tutor: state.tutor,
-      name: state.name,
-      schedules: state.schedules,
-      isLoadingSchedule: state.isLoadingSchedule,
-      processing: false,
-    ));
+    try {
+      await _scheduleUseCase.bookAClass(
+        scheduleDetailId: event.scheduleDetailId,
+        note: event.note,
+      );
+      emit(BookClassSuccess(
+        isLoading: state.isLoading,
+        tutor: state.tutor,
+        name: state.name,
+        schedules: state.schedules?.map((e) {
+          if (e.id == event.scheduleDetailId) {
+            return e.copyWith(isBooked: true);
+          }
+          return e;
+        }).toList(),
+        isLoadingSchedule: state.isLoadingSchedule,
+        processing: false,
+      ));
+    } catch (e) {
+      emit(BookClassFailed(
+        isLoading: state.isLoading,
+        tutor: state.tutor,
+        name: state.name,
+        schedules: state.schedules,
+        isLoadingSchedule: state.isLoadingSchedule,
+        message: e.toString(),
+      ));
+    }
   }
 }

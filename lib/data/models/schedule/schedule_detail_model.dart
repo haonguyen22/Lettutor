@@ -10,6 +10,8 @@ class ScheduleDetailModel with _$ScheduleDetailModel {
     int? startPeriodTimestamp,
     int? endPeriodTimestamp,
     String? id,
+    String? userId,
+    String? scheduleDetailId,
     String? scheduleId,
     String? startPeriod,
     String? endPeriod,

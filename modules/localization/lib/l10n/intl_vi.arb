@@ -121,5 +121,9 @@
     "resetPasswordSuccess": "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới",
     "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại.",
     "updateProfileSuccess": "Cập nhật hồ sơ thành công",
-    "updateProfileFailed": "Lỗi khi cập nhật hồ sơ, vui lòng kiểm tra lại"
+    "updateProfileFailed": "Lỗi khi cập nhật hồ sơ, vui lòng kiểm tra lại",
+    "reserved": "Đã đặt",
+    "noScheduleTutor": "Gia sư chưa có lịch dạy",
+    "bookError": "Lỗi khi đặt lịch, vui lòng kiểm tra lại",
+    "bookSuccessfully": "Đặt lịch thành công"
 }

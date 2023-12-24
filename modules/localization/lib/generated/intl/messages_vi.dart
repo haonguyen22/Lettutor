@@ -53,6 +53,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "bestStudentWhoAre": MessageLookupByLibrary.simpleMessage(
             "Tôi giỏi trong việc dạy học sinh là"),
         "book": MessageLookupByLibrary.simpleMessage("Đặt lịch"),
+        "bookError": MessageLookupByLibrary.simpleMessage(
+            "Lỗi khi đặt lịch, vui lòng kiểm tra lại"),
+        "bookSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Đặt lịch thành công"),
         "booked": MessageLookupByLibrary.simpleMessage("Đã đặt"),
         "certificate": MessageLookupByLibrary.simpleMessage("Chứng chỉ"),
         "checkValidate": MessageLookupByLibrary.simpleMessage(
@@ -134,6 +138,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("Không có kết quả tìm kiếm"),
         "noReview": MessageLookupByLibrary.simpleMessage("Không có đánh giá"),
+        "noScheduleTutor":
+            MessageLookupByLibrary.simpleMessage("Gia sư chưa có lịch dạy"),
         "noUpcomingClass":
             MessageLookupByLibrary.simpleMessage("Hiện tại chưa có lịch học!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
@@ -166,6 +172,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSuccessfully":
             MessageLookupByLibrary.simpleMessage("Báo cáo thành công !!"),
         "reportTutor": m5,
+        "reserved": MessageLookupByLibrary.simpleMessage("Đã đặt"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Đặt lại bộ lọc"),
         "resetPassword":
             MessageLookupByLibrary.simpleMessage("Đặt lại Mật khẩu"),

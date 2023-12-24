@@ -140,5 +140,9 @@
     "resetPasswordSuccess": "Reset password successfully, please check your email to get new password",
     "resetPasswordError": "Reset password error, please check your email again.",
     "updateProfileSuccess": "Update profile successfully",
-    "updateProfileFailed": "Update profile error, please check again"
+    "updateProfileFailed": "Update profile error, please check again",
+    "reserved": "Reserved",
+    "noScheduleTutor": "This tutor has no schedule yet",
+    "bookSuccessfully": "Book successfully",
+    "bookError": "Book error, please check again"
 }

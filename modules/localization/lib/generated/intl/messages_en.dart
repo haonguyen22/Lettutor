@@ -56,7 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "I am best at teaching students who are"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "bookError": MessageLookupByLibrary.simpleMessage(
+            "Book error, please check again"),
         "bookNumClasses": m0,
+        "bookSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Book successfully"),
         "booked": MessageLookupByLibrary.simpleMessage("Booked"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "certificate": MessageLookupByLibrary.simpleMessage("Certificate"),
@@ -146,6 +150,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("No result search"),
         "noReview": MessageLookupByLibrary.simpleMessage("There is no review"),
+        "noScheduleTutor": MessageLookupByLibrary.simpleMessage(
+            "This tutor has no schedule yet"),
         "noUpcomingClass": MessageLookupByLibrary.simpleMessage(
             "There is no lesson schedule yet!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
@@ -178,6 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSuccessfully":
             MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
         "reportTutor": m5,
+        "reserved": MessageLookupByLibrary.simpleMessage("Reserved"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
