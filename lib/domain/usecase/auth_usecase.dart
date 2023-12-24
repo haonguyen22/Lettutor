@@ -68,4 +68,18 @@ class AuthUseCase {
     }
     return res;
   }
+
+  Future<AuthResponse?> loginByFacebook({required String token}) async {
+    final res = await _authRepository.loginByFacebook(token: token);
+    final tokenRes = res?.token;
+    if (tokenRes != null) {
+      _sharedPreferences.setString(
+          Preference.accessToken, tokenRes.access.token);
+      _sharedPreferences.setString(
+          Preference.refreshToken, tokenRes.refresh.token);
+      _sharedPreferences.setInt(Preference.expireTime,
+          tokenRes.refresh.expires.millisecondsSinceEpoch);
+    }
+    return res;
+  }
 }

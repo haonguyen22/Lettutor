@@ -64,4 +64,15 @@ class AuthRepositoryImpl implements AuthRepository {
       return null;
     }
   }
+
+  @override
+  Future<AuthResponse?> loginByFacebook({required String token}) async {
+    try {
+      final res =
+          await _authService.loginByFacebook(body: {"access_token": token});
+      return res;
+    } catch (e) {
+      return null;
+    }
+  }
 }

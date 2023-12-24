@@ -66,3 +66,33 @@ class ForgotPasswordFailed extends AuthState {
     super.totalLearning,
   });
 }
+
+class UpdateUserProfileLoading extends AuthState {
+  final String? message;
+  const UpdateUserProfileLoading({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class UpdateUserProfileSuccess extends AuthState {
+  final String? message;
+  const UpdateUserProfileSuccess({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class UpdateUserProfileFailed extends AuthState {
+  final String? message;
+  const UpdateUserProfileFailed({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}

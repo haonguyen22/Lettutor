@@ -86,12 +86,10 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
   Future<void> bookAClass(
       {required String scheduleDetailId, String note = ""}) async {
     try {
-      final res = await _scheduleService.postBookAClass(body: {
+      await _scheduleService.postBookAClass(body: {
         "scheduleDetailIds": [scheduleDetailId],
         "note": note,
       });
-
-      // return res?.message;
     } catch (e) {
       log(e.toString());
       return;

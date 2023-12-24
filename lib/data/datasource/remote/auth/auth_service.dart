@@ -39,4 +39,8 @@ abstract class AuthService {
   @POST(loginByGoogleApi)
   Future<AuthResponse?> loginByGoogle(
       {@Body() required Map<String, dynamic> body});
+
+  @POST(loginByFacebookApi)
+  Future<AuthResponse?> loginByFacebook(
+      {@Body() required Map<String, dynamic> body});
 }

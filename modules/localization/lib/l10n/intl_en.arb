@@ -138,5 +138,7 @@
     "resetPasswordDescription": "Please enter your email address to search for your account.",
     "sendResetLink": "Send Reset Link",
     "resetPasswordSuccess": "Reset password successfully, please check your email to get new password",
-    "resetPasswordError": "Reset password error, please check your email again."
+    "resetPasswordError": "Reset password error, please check your email again.",
+    "updateProfileSuccess": "Update profile successfully",
+    "updateProfileFailed": "Update profile error, please check again"
 }

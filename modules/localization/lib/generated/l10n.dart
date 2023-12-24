@@ -1439,6 +1439,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Update profile successfully`
+  String get updateProfileSuccess {
+    return Intl.message(
+      'Update profile successfully',
+      name: 'updateProfileSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update profile error, please check again`
+  String get updateProfileFailed {
+    return Intl.message(
+      'Update profile error, please check again',
+      name: 'updateProfileFailed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -203,6 +203,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "tutors": MessageLookupByLibrary.simpleMessage("Gia sư"),
         "upcomingLesson":
             MessageLookupByLibrary.simpleMessage("Bài học sắp tới"),
+        "updateProfileFailed": MessageLookupByLibrary.simpleMessage(
+            "Lỗi khi cập nhật hồ sơ, vui lòng kiểm tra lại"),
+        "updateProfileSuccess":
+            MessageLookupByLibrary.simpleMessage("Cập nhật hồ sơ thành công"),
         "videoIntroduction":
             MessageLookupByLibrary.simpleMessage("Video Giới thiệu"),
         "videoIntrodution":

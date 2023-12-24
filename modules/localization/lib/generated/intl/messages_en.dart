@@ -220,6 +220,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "upcomingLesson":
             MessageLookupByLibrary.simpleMessage("Upcoming Lesson"),
+        "updateProfileFailed": MessageLookupByLibrary.simpleMessage(
+            "Update profile error, please check again"),
+        "updateProfileSuccess":
+            MessageLookupByLibrary.simpleMessage("Update profile successfully"),
         "videoIntroduction":
             MessageLookupByLibrary.simpleMessage("Video Introduction"),
         "videoIntrodution":

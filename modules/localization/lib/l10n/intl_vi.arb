@@ -119,5 +119,7 @@
     "resetPasswordDescription": "Vui lòng nhập địa chỉ email của bạn để tìm kiếm tài khoản của bạn.",
     "sendResetLink": "Gửi Liên kết Đặt lại",
     "resetPasswordSuccess": "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới",
-    "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại."
+    "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại.",
+    "updateProfileSuccess": "Cập nhật hồ sơ thành công",
+    "updateProfileFailed": "Lỗi khi cập nhật hồ sơ, vui lòng kiểm tra lại"
 }
