@@ -1,8 +1,11 @@
-import 'package:collection/collection.dart';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
+import 'package:let_tutor/core/mixin/image_picker_mixin.dart';
 import 'package:let_tutor/core/widget/custom_input_field.dart';
 import 'package:let_tutor/core/widget/multi_choice.dart';
 import 'package:let_tutor/core/widget/selection_input.dart';
@@ -22,7 +25,7 @@ class ProfileScreen extends StatefulWidget {
   State<ProfileScreen> createState() => _ProfileScreenState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenState extends State<ProfileScreen> with ImagePickerMixin {
   final TextEditingController nameCtrl = TextEditingController();
   final TextEditingController phoneNumberCtrl = TextEditingController();
   final TextEditingController noteCtrl = TextEditingController();
@@ -33,6 +36,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   List<int> tests = [];
   late DateTime? birthday;
   late String dropdownValue;
+
+  final picker = ImagePicker();
 
   AuthState get authState => context.read<AuthBloc>().state;
   User? get user => authState.user;
@@ -97,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthBloc, AuthState>(
+    return BlocConsumer<AuthBloc, AuthState>(
       listener: (_, state) {
         if (state is UpdateUserProfileSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -116,7 +121,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           );
         }
       },
-      child: Scaffold(
+      builder: (_, state) => Scaffold(
           appBar: AppBar(
             title: Text(S.of(context).profile),
             backgroundColor: context.primaryColor.withOpacity(0.4),
@@ -147,13 +152,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                       0, 1), // changes position of shadow
                                 ),
                               ]),
-                          child: user?.avatar != null
-                              ? Image.network(
-                                  user!.avatar!,
-                                  fit: BoxFit.cover,
-                                  errorBuilder: (context, error, stackTrace) =>
-                                      const Icon(Icons.person_rounded),
-                                )
+                          child: state.user?.avatar != null
+                              ? state.user?.avatar?.contains('http') ?? false
+                                  ? Image.network(
+                                      state.user!.avatar!,
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              const Icon(Icons.person_rounded),
+                                    )
+                                  : Image.file(
+                                      File(state.user!.avatar!),
+                                      fit: BoxFit.cover,
+                                      errorBuilder:
+                                          (context, error, stackTrace) =>
+                                              const Icon(Icons.person_rounded),
+                                    )
                               : Image.asset(
                                   'assets/icons/logo.png',
                                   fit: BoxFit.cover,
@@ -165,17 +179,26 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           textDirection: Directionality.of(context),
                           bottom: 0,
                           end: 0,
-                          child: Container(
-                            width: 30,
-                            height: 30,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: context.primaryColor,
+                          child: GestureDetector(
+                            onTap: () => showImagePicker(
+                              onSelected: (file) {
+                                context
+                                    .read<AuthBloc>()
+                                    .add(UploadAvatar(file.path));
+                              },
                             ),
-                            child: const Icon(
-                              Icons.edit,
-                              size: 20,
-                              color: Colors.white,
+                            child: Container(
+                              width: 30,
+                              height: 30,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: context.primaryColor,
+                              ),
+                              child: const Icon(
+                                Icons.edit,
+                                size: 20,
+                                color: Colors.white,
+                              ),
                             ),
                           ),
                         ),

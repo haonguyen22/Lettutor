@@ -144,5 +144,15 @@
     "reserved": "Reserved",
     "noScheduleTutor": "This tutor has no schedule yet",
     "bookSuccessfully": "Book successfully",
-    "bookError": "Book error, please check again"
+    "bookError": "Book error, please check again",
+    "nameIsRequired": "Name is required",
+    "languagesIsRequired": "Languages is required",
+    "introductionIsRequired": "Introduction is required",
+    "interestsIsRequired": "Interests is required",
+    "educationIsRequired": "Education is required",
+    "experienceIsRequired": "Experience is required",
+    "professionIsRequired": "Profession is required",
+    "pleaseFillInAllFields": "Please fill in all fields",
+    "pleaseInputVideo": "Please input video",
+    "emailHasBeenSent": "Email has been sent"
 }

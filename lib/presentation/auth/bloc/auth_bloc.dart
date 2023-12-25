@@ -2,15 +2,18 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:bloc/bloc.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/domain/entities/user.dart';
 import 'package:let_tutor/domain/usecase/auth_usecase.dart';
 import 'package:let_tutor/domain/usecase/shared_preferences_usecase.dart';
 import 'package:let_tutor/domain/usecase/user_usecase.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:localization/generated/l10n.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -41,6 +44,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<ForgotPassword>(forgotPassword);
     on<GoogleLogin>(googleLogin);
     on<FacebookLogin>(facebookLogin);
+    on<UploadAvatar>(uploadAvatar);
   }
 
   FutureOr<void> login(Login event, Emitter emit) async {
@@ -52,9 +56,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final total = await _userUseCase.getTotalLearning();
 
       if (res?.token != null) {
-        emit(AuthSuccess(
+        emit(RegisterSuccess(
           isLoading: false,
           user: res?.user.toEntity(),
+          message: S.current.emailHasBeenSent,
           totalLearning: total,
         ));
       } else {
@@ -249,5 +254,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         totalLearning: state.totalLearning,
       ));
     }
+  }
+
+  FutureOr<void> uploadAvatar(
+      UploadAvatar event, Emitter<AuthState> emit) async {
+    try {
+      await injector.get<Dio>().post("/user/uploadAvatar",
+          data: FormData()
+            ..files.add(
+              MapEntry(
+                "avatar",
+                MultipartFile.fromFileSync(
+                  event.path,
+                  filename: event.path.split("/").last,
+                ),
+              ),
+            ));
+      emit(UpdateUserProfileSuccess(
+        isLoading: false,
+        user: state.user?.copyWith(avatar: event.path),
+        totalLearning: state.totalLearning,
+      ));
+    } catch (e) {}
   }
 }

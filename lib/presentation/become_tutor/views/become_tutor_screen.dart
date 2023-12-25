@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:im_stepper/stepper.dart';
 import 'package:let_tutor/core/extensions/context_ext.dart';
 import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
-import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/bloc/become_tutor_bloc.dart';
 import 'package:let_tutor/presentation/become_tutor/views/complete_profile_step.dart';
 import 'package:let_tutor/presentation/become_tutor/views/video_introduction_step.dart';
@@ -22,9 +21,8 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
   int _index = 0;
 
   void onNextStep(BecomeTutorData becomeTutorData) {
-    becomeTutorBloc.add(UpdateInformationEvent(
-      becomeTutorData: becomeTutorData,
-    ));
+    becomeTutorBloc
+        .add(UpdateInformationEvent(becomeTutorData: becomeTutorData));
     setState(() {
       _index += 1;
     });
@@ -83,7 +81,7 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: 16.0, vertical: 8.0),
-                  child: renderBody(),
+                  child: renderBody(state),
                 ),
               ),
             ),
@@ -93,7 +91,7 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
     );
   }
 
-  Widget renderBody() {
+  Widget renderBody(BecomeTutorState state) {
     switch (_index) {
       case 0:
         return CompleteProfileStepScreen(
@@ -107,11 +105,13 @@ class _BecomeTutorScreenState extends State<BecomeTutorScreen> {
             context.read<BecomeTutorBloc>().add(
                   UpdateInformationEvent(
                     becomeTutorData: BecomeTutorData(
-                      video: file,
+                      video: file?.path ?? "",
                     ),
                   ),
                 );
+            setState(() {});
           },
+          galleryFile: state.becomeTutorData?.video?.split('/').last,
         );
       default:
         return WaitingApprovalStep(

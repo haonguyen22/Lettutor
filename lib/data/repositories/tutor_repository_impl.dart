@@ -1,6 +1,8 @@
 import 'dart:developer';
 
+import 'package:dio/dio.dart';
 import 'package:injectable/injectable.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/data/datasource/remote/tutor/tutor_service.dart';
 import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
 import 'package:let_tutor/data/models/tutor/search_tutor_response.dart';
@@ -73,13 +75,16 @@ class TutorRepositoryImpl implements TutorRepository {
   }
 
   @override
-  Future<bool> becomeTutor({required BecomeTutorData becomeTutorData}) async {
+  Future<bool> becomeTutor({required FormData data}) async {
     try {
-      final body = becomeTutorData.toJson();
-
-      await _tutorService.becomeATutor(
-          body: body, contentType: "multipart/form-data");
-      return true;
+      final res = await injector.get<Dio>().put(TutorService.becomeTutorApi,
+          data: data,
+          options: Options(contentType: Headers.multipartFormDataContentType));
+      if (res.statusCode == 200) {
+        return true;
+      } else {
+        return false;
+      }
     } catch (e) {
       log(e.toString());
       return false;

@@ -1499,6 +1499,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Name is required`
+  String get nameIsRequired {
+    return Intl.message(
+      'Name is required',
+      name: 'nameIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Languages is required`
+  String get languagesIsRequired {
+    return Intl.message(
+      'Languages is required',
+      name: 'languagesIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Introduction is required`
+  String get introductionIsRequired {
+    return Intl.message(
+      'Introduction is required',
+      name: 'introductionIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interests is required`
+  String get interestsIsRequired {
+    return Intl.message(
+      'Interests is required',
+      name: 'interestsIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Education is required`
+  String get educationIsRequired {
+    return Intl.message(
+      'Education is required',
+      name: 'educationIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience is required`
+  String get experienceIsRequired {
+    return Intl.message(
+      'Experience is required',
+      name: 'experienceIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profession is required`
+  String get professionIsRequired {
+    return Intl.message(
+      'Profession is required',
+      name: 'professionIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in all fields`
+  String get pleaseFillInAllFields {
+    return Intl.message(
+      'Please fill in all fields',
+      name: 'pleaseFillInAllFields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input video`
+  String get pleaseInputVideo {
+    return Intl.message(
+      'Please input video',
+      name: 'pleaseInputVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email has been sent`
+  String get emailHasBeenSent {
+    return Intl.message(
+      'Email has been sent',
+      name: 'emailHasBeenSent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

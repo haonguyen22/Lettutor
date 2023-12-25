@@ -47,8 +47,5 @@ abstract class TutorService {
   });
 
   @PUT(becomeTutorApi)
-  Future<void> becomeATutor({
-    @Body() required Map<String, dynamic> body,
-    @Header("Content-Type") required String contentType,
-  });
+  Future<void> becomeATutor({@Body() required FormData body});
 }

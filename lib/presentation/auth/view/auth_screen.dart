@@ -303,6 +303,11 @@ class _AuthScreenState extends State<AuthScreen> {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message ?? '')));
           }
+
+          if (state is RegisterSuccess) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.message ?? '')));
+          }
         },
       ),
     );
