@@ -34,6 +34,7 @@ class TutorUseCase {
   }
 
   Future<bool> becomeTutor({required BecomeTutorData becomeTutorData}) async {
-    return await _tutorRepository.becomeTutor(becomeTutorData: becomeTutorData);
+    final formData = becomeTutorData.toFormData();
+    return await _tutorRepository.becomeTutor(data: formData);
   }
 }

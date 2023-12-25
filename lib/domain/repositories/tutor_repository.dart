@@ -1,4 +1,4 @@
-import 'package:let_tutor/data/models/tutor/become_tutor_data.dart';
+import 'package:dio/dio.dart';
 import 'package:let_tutor/data/models/tutor/search_tutor_response.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
 
@@ -9,5 +9,5 @@ abstract class TutorRepository {
       {required Map<String, dynamic> body});
   Future<void> addTutorToFavorite({required String id});
   Future<void> reportTutor({required String tutorId, required String content});
-  Future<bool> becomeTutor({required BecomeTutorData becomeTutorData});
+  Future<bool> becomeTutor({required FormData data});
 }

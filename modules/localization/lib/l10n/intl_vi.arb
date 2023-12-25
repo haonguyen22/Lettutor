@@ -119,5 +119,20 @@
     "resetPasswordDescription": "Vui lòng nhập địa chỉ email của bạn để tìm kiếm tài khoản của bạn.",
     "sendResetLink": "Gửi Liên kết Đặt lại",
     "resetPasswordSuccess": "Đặt lại mật khẩu thành công, vui lòng kiểm tra email của bạn để nhận mật khẩu mới",
-    "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại."
+    "resetPasswordError": "Lỗi đặt lại mật khẩu, vui lòng kiểm tra email của bạn lại.",
+    "updateProfileSuccess": "Cập nhật hồ sơ thành công",
+    "updateProfileFailed": "Lỗi khi cập nhật hồ sơ, vui lòng kiểm tra lại",
+    "reserved": "Đã đặt",
+    "noScheduleTutor": "Gia sư chưa có lịch dạy",
+    "bookError": "Lỗi khi đặt lịch, vui lòng kiểm tra lại",
+    "bookSuccessfully": "Đặt lịch thành công",
+    "nameIsRequired": "Tên là bắt buộc",
+    "languagesIsRequired": "Ngôn ngữ là bắt buộc",
+    "introductionIsRequired": "Giới thiệu là bắt buộc",
+    "interestsIsRequired": "Sở thích là bắt buộc",
+    "educationIsRequired": "Học vấn là bắt buộc",
+    "experienceIsRequired": "Kinh nghiệm là bắt buộc",
+    "professionIsRequired": "Nghề nghiệp là bắt buộc",
+    "pleaseFillInAllFields": "Vui lòng điền đầy đủ thông tin",
+    "pleaseInputVideo": "Vui lòng nhập video"
 }

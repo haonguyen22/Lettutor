@@ -56,7 +56,11 @@ class MessageLookup extends MessageLookupByLibrary {
             "I am best at teaching students who are"),
         "birthday": MessageLookupByLibrary.simpleMessage("Birthday"),
         "book": MessageLookupByLibrary.simpleMessage("Book"),
+        "bookError": MessageLookupByLibrary.simpleMessage(
+            "Book error, please check again"),
         "bookNumClasses": m0,
+        "bookSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Book successfully"),
         "booked": MessageLookupByLibrary.simpleMessage("Booked"),
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "certificate": MessageLookupByLibrary.simpleMessage("Certificate"),
@@ -79,8 +83,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "editTutorProfileLater": MessageLookupByLibrary.simpleMessage(
             "Your tutor profile is your chance to market yourself to students on Tutoring. You can make edits later on your profile settings page."),
         "education": MessageLookupByLibrary.simpleMessage("Education"),
+        "educationIsRequired":
+            MessageLookupByLibrary.simpleMessage("Education is required"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "emailAddress": MessageLookupByLibrary.simpleMessage("Email Address"),
+        "emailHasBeenSent":
+            MessageLookupByLibrary.simpleMessage("Email has been sent"),
         "endTime": MessageLookupByLibrary.simpleMessage("End time"),
         "englishForBusiness":
             MessageLookupByLibrary.simpleMessage("English for Business"),
@@ -93,6 +101,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "experience": MessageLookupByLibrary.simpleMessage("Experience"),
         "experienceHint": MessageLookupByLibrary.simpleMessage(
             "Interests, hobbies, memorable life experiences, or anything else you\'d like to share!"),
+        "experienceIsRequired":
+            MessageLookupByLibrary.simpleMessage("Experience is required"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
         "findATutor": MessageLookupByLibrary.simpleMessage("Find a tutor"),
         "foreignTutors": MessageLookupByLibrary.simpleMessage("Foreign Tutors"),
@@ -107,9 +117,13 @@ class MessageLookup extends MessageLookupByLibrary {
         "inappropriatePhoto":
             MessageLookupByLibrary.simpleMessage("Inappropriate profile photo"),
         "interests": MessageLookupByLibrary.simpleMessage("Interests"),
+        "interestsIsRequired":
+            MessageLookupByLibrary.simpleMessage("Interests is required"),
         "introduction": MessageLookupByLibrary.simpleMessage("Introduction"),
         "introductionHint": MessageLookupByLibrary.simpleMessage(
             "Example: I was a doctor for 35 years and can help you practice business or medical English. I also enjoy teaching beginners as I am very patient and always speak slowly and clearly. "),
+        "introductionIsRequired":
+            MessageLookupByLibrary.simpleMessage("Introduction is required"),
         "introductionYourselfDesc": MessageLookupByLibrary.simpleMessage(
             "Let students know what they can expect from a lesson with you by recording a video highlighting your teaching style, expertise and personality. Students can be nervous to speak with a foreigner, so it really helps to have a friendly video that introduces yourself and invites students to call you."),
         "introdutionYourself":
@@ -121,6 +135,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "languages": MessageLookupByLibrary.simpleMessage("Languages"),
         "languagesHint": MessageLookupByLibrary.simpleMessage(
             "Example: English, Vietnam, ..."),
+        "languagesIsRequired":
+            MessageLookupByLibrary.simpleMessage("Languages is required"),
         "lessonStartIn": m2,
         "lessonTime": MessageLookupByLibrary.simpleMessage("Lesson Time: "),
         "letUsKnowDetailsYourProblem": MessageLookupByLibrary.simpleMessage(
@@ -135,6 +151,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Password must be at least 8 characters long."),
         "myLevel": MessageLookupByLibrary.simpleMessage("My Level"),
         "name": MessageLookupByLibrary.simpleMessage("Name"),
+        "nameIsRequired":
+            MessageLookupByLibrary.simpleMessage("Name is required"),
         "nationality": MessageLookupByLibrary.simpleMessage("Nationality"),
         "newStudentMayBrowseTutorProfiles": MessageLookupByLibrary.simpleMessage(
             "New students may browse tutor profiles to find a tutor that fits their learning goals and personality. Returning students may use the tutor profiles to find tutors they\'ve had great experiences with already."),
@@ -146,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noResultSearch":
             MessageLookupByLibrary.simpleMessage("No result search"),
         "noReview": MessageLookupByLibrary.simpleMessage("There is no review"),
+        "noScheduleTutor": MessageLookupByLibrary.simpleMessage(
+            "This tutor has no schedule yet"),
         "noUpcomingClass": MessageLookupByLibrary.simpleMessage(
             "There is no lesson schedule yet!"),
         "noUpcommingLesson": MessageLookupByLibrary.simpleMessage(
@@ -162,11 +182,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "overview": MessageLookupByLibrary.simpleMessage("Overview"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "phone": MessageLookupByLibrary.simpleMessage("Phone number"),
+        "pleaseFillInAllFields":
+            MessageLookupByLibrary.simpleMessage("Please fill in all fields"),
+        "pleaseInputVideo":
+            MessageLookupByLibrary.simpleMessage("Please input video"),
         "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
         "profession": MessageLookupByLibrary.simpleMessage(
             "Current or Previous Profession"),
         "professionHint": MessageLookupByLibrary.simpleMessage(
             "Example: Bachelor of Arts in English from Cambly University; Certified yoga instructor, Second Language Acquisition and Teaching  (SLAT) certificate from Cambly University"),
+        "professionIsRequired":
+            MessageLookupByLibrary.simpleMessage("Profession is required"),
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "profilePretendingOrFake": MessageLookupByLibrary.simpleMessage(
             "This profile is pretending be someone or is fake"),
@@ -178,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportSuccessfully":
             MessageLookupByLibrary.simpleMessage("Report Successfully !!"),
         "reportTutor": m5,
+        "reserved": MessageLookupByLibrary.simpleMessage("Reserved"),
         "resetFilters": MessageLookupByLibrary.simpleMessage("Reset Filters"),
         "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
         "resetPasswordDescription": MessageLookupByLibrary.simpleMessage(
@@ -220,6 +247,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "upcoming": MessageLookupByLibrary.simpleMessage("Upcoming"),
         "upcomingLesson":
             MessageLookupByLibrary.simpleMessage("Upcoming Lesson"),
+        "updateProfileFailed": MessageLookupByLibrary.simpleMessage(
+            "Update profile error, please check again"),
+        "updateProfileSuccess":
+            MessageLookupByLibrary.simpleMessage("Update profile successfully"),
         "videoIntroduction":
             MessageLookupByLibrary.simpleMessage("Video Introduction"),
         "videoIntrodution":

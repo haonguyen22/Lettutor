@@ -162,21 +162,15 @@ class _TutorService implements TutorService {
   }
 
   @override
-  Future<void> becomeATutor({
-    required Map<String, dynamic> body,
-    required String contentType,
-  }) async {
+  Future<void> becomeATutor({required FormData body}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{r'Content-Type': contentType};
-    _headers.removeWhere((k, v) => v == null);
-    final _data = <String, dynamic>{};
-    _data.addAll(body);
+    final _headers = <String, dynamic>{};
+    final _data = body;
     await _dio.fetch<void>(_setStreamType<void>(Options(
       method: 'PUT',
       headers: _headers,
       extra: _extra,
-      contentType: contentType,
     )
         .compose(
           _dio.options,

@@ -33,11 +33,14 @@ class _HistoryTabViewState extends State<HistoryTabView> with LoadMoreMixin {
         padding: const EdgeInsets.all(16),
         child: BlocBuilder<HistoryBloc, HistoryState>(
           builder: (_, state) {
-            if ((state.bookedClasses?.isEmpty ?? true) && state.isLoading == false) {
-              return Center(
-                child: Text(
-                  S.of(context).noHistoryClass,
-                  style: context.textTheme.titleLarge,
+            if ((state.bookedClasses?.isEmpty ?? true) &&
+                state.isLoading == false) {
+              return Expanded(
+                child: Center(
+                  child: Text(
+                    S.of(context).noHistoryClass,
+                    style: context.textTheme.titleMedium,
+                  ),
                 ),
               );
             }

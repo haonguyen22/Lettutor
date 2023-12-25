@@ -23,9 +23,11 @@ class FetchScheduleByTutorIdEvent extends TutorDetailEvent {}
 class BookClassEvent extends TutorDetailEvent {
   final String scheduleDetailId;
   final String note;
+  final int index;
 
   BookClassEvent({
     required this.scheduleDetailId,
     this.note = "",
+    required this.index,
   });
 }

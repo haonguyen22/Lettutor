@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,12 +49,19 @@ class _SettingsTabViewState extends State<SettingsTabView> {
                         ),
                       ]),
                   child: user?.avatar != null
-                      ? Image.network(
-                          user!.avatar!,
-                          fit: BoxFit.cover,
-                          errorBuilder: (context, error, stackTrace) =>
-                              const Icon(Icons.person_rounded),
-                        )
+                      ? user?.avatar?.contains('http') ?? false
+                          ? Image.network(
+                              user!.avatar!,
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.person_rounded),
+                            )
+                          : Image.file(
+                              File(user!.avatar!),
+                              fit: BoxFit.cover,
+                              errorBuilder: (context, error, stackTrace) =>
+                                  const Icon(Icons.person_rounded),
+                            )
                       : Image.asset(
                           'assets/icons/logo.png',
                           fit: BoxFit.cover,

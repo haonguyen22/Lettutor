@@ -53,4 +53,26 @@ class AuthRepositoryImpl implements AuthRepository {
       );
     }
   }
+
+  @override
+  Future<AuthResponse?> loginByGoogle({required String token}) async {
+    try {
+      final res =
+          await _authService.loginByGoogle(body: {"access_token": token});
+      return res;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  @override
+  Future<AuthResponse?> loginByFacebook({required String token}) async {
+    try {
+      final res =
+          await _authService.loginByFacebook(body: {"access_token": token});
+      return res;
+    } catch (e) {
+      return null;
+    }
+  }
 }

@@ -19,10 +19,8 @@ abstract class ScheduleService {
   @factoryMethod
   factory ScheduleService(Dio dio) = _ScheduleService;
 
-  // TODO: need to change return type
   @POST(bookingApi)
-  Future<void> postBookAClass(
-      {@Body() required Map<String, dynamic> body});
+  Future<void> postBookAClass({@Body() required Map<String, dynamic> body});
 
   @POST(scheduleApi)
   Future<ScheduleResponse?> getScheduleByTutorID(

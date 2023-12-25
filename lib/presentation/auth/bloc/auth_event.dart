@@ -32,3 +32,13 @@ class ForgotPassword extends AuthEvent {
 
   ForgotPassword(this.email);
 }
+
+class UploadAvatar extends AuthEvent {
+  final String path;
+
+  UploadAvatar(this.path);
+}
+
+class GoogleLogin extends AuthEvent {}
+
+class FacebookLogin extends AuthEvent {}

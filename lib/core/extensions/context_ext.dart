@@ -14,4 +14,16 @@ extension ContextTheme on BuildContext {
   double get widthDevice => MediaQuery.sizeOf(this).width;
 
   double get heightDevice => MediaQuery.sizeOf(this).height;
+
+  showSnackBar({
+    required String message,
+    required Color color,
+  }) {
+    ScaffoldMessenger.of(this).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: color,
+      ),
+    );
+  }
 }

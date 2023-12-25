@@ -1439,6 +1439,166 @@ class S {
       args: [],
     );
   }
+
+  /// `Update profile successfully`
+  String get updateProfileSuccess {
+    return Intl.message(
+      'Update profile successfully',
+      name: 'updateProfileSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update profile error, please check again`
+  String get updateProfileFailed {
+    return Intl.message(
+      'Update profile error, please check again',
+      name: 'updateProfileFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reserved`
+  String get reserved {
+    return Intl.message(
+      'Reserved',
+      name: 'reserved',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This tutor has no schedule yet`
+  String get noScheduleTutor {
+    return Intl.message(
+      'This tutor has no schedule yet',
+      name: 'noScheduleTutor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book successfully`
+  String get bookSuccessfully {
+    return Intl.message(
+      'Book successfully',
+      name: 'bookSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book error, please check again`
+  String get bookError {
+    return Intl.message(
+      'Book error, please check again',
+      name: 'bookError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name is required`
+  String get nameIsRequired {
+    return Intl.message(
+      'Name is required',
+      name: 'nameIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Languages is required`
+  String get languagesIsRequired {
+    return Intl.message(
+      'Languages is required',
+      name: 'languagesIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Introduction is required`
+  String get introductionIsRequired {
+    return Intl.message(
+      'Introduction is required',
+      name: 'introductionIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Interests is required`
+  String get interestsIsRequired {
+    return Intl.message(
+      'Interests is required',
+      name: 'interestsIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Education is required`
+  String get educationIsRequired {
+    return Intl.message(
+      'Education is required',
+      name: 'educationIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Experience is required`
+  String get experienceIsRequired {
+    return Intl.message(
+      'Experience is required',
+      name: 'experienceIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Profession is required`
+  String get professionIsRequired {
+    return Intl.message(
+      'Profession is required',
+      name: 'professionIsRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please fill in all fields`
+  String get pleaseFillInAllFields {
+    return Intl.message(
+      'Please fill in all fields',
+      name: 'pleaseFillInAllFields',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please input video`
+  String get pleaseInputVideo {
+    return Intl.message(
+      'Please input video',
+      name: 'pleaseInputVideo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email has been sent`
+  String get emailHasBeenSent {
+    return Intl.message(
+      'Email has been sent',
+      name: 'emailHasBeenSent',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -53,10 +53,12 @@ class _UpcomingTabViewState extends State<UpcomingTabView>
           builder: (_, state) {
             if ((state.upcomingClasses?.isEmpty ?? true) &&
                 state.isLoading == false) {
-              return Center(
-                child: Text(
-                  S.of(context).noUpcomingClass,
-                  style: context.textTheme.titleLarge,
+              return Expanded(
+                child: Center(
+                  child: Text(
+                    S.of(context).noUpcomingClass,
+                    style: context.textTheme.titleMedium,
+                  ),
                 ),
               );
             }

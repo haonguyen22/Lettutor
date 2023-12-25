@@ -34,14 +34,7 @@ class AuthUseCase {
   }) async {
     final res =
         await _authRepository.register(email: email, password: password);
-    final token = res?.token;
-    if (token != null) {
-      _sharedPreferences.setString(Preference.accessToken, token.access.token);
-      _sharedPreferences.setString(
-          Preference.refreshToken, token.refresh.token);
-      _sharedPreferences.setInt(
-          Preference.expireTime, token.refresh.expires.millisecondsSinceEpoch);
-    }
+
     return res;
   }
 
@@ -53,5 +46,33 @@ class AuthUseCase {
 
   Future<ForgotPasswordResponse> resetPassword({required String email}) async {
     return await _authRepository.resetPassword(email: email);
+  }
+
+  Future<AuthResponse?> loginByGoogle({required String token}) async {
+    final res = await _authRepository.loginByGoogle(token: token);
+    final tokenRes = res?.token;
+    if (tokenRes != null) {
+      _sharedPreferences.setString(
+          Preference.accessToken, tokenRes.access.token);
+      _sharedPreferences.setString(
+          Preference.refreshToken, tokenRes.refresh.token);
+      _sharedPreferences.setInt(Preference.expireTime,
+          tokenRes.refresh.expires.millisecondsSinceEpoch);
+    }
+    return res;
+  }
+
+  Future<AuthResponse?> loginByFacebook({required String token}) async {
+    final res = await _authRepository.loginByFacebook(token: token);
+    final tokenRes = res?.token;
+    if (tokenRes != null) {
+      _sharedPreferences.setString(
+          Preference.accessToken, tokenRes.access.token);
+      _sharedPreferences.setString(
+          Preference.refreshToken, tokenRes.refresh.token);
+      _sharedPreferences.setInt(Preference.expireTime,
+          tokenRes.refresh.expires.millisecondsSinceEpoch);
+    }
+    return res;
   }
 }

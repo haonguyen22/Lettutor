@@ -67,7 +67,6 @@ class Routes {
                 return injector.get<BecomeTutorBloc>()
                   ..add(UpdateInformationEvent(
                     becomeTutorData: BecomeTutorData(
-                      avatar: user?.avatar,
                       name: user?.name,
                       country: user?.country,
                       birthDay: user?.birthday,

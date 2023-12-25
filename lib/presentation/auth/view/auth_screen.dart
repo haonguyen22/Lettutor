@@ -20,9 +20,8 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final TextEditingController email =
-      TextEditingController(text: "student@lettutor.com");
-  final TextEditingController password = TextEditingController(text: "123456");
+  late final TextEditingController email;
+  late final TextEditingController password;
   final _formKey = GlobalKey<FormState>();
 
   String message = '';
@@ -30,6 +29,10 @@ class _AuthScreenState extends State<AuthScreen> {
   Color get primaryColor => context.primaryColor;
   @override
   void initState() {
+    email = TextEditingController(
+        text: widget.isLoginScreen ? "student@lettutor.com" : "");
+    password =
+        TextEditingController(text: widget.isLoginScreen ? "123456" : "");
     context.read<AuthBloc>().add(FetchUser());
 
     super.initState();
@@ -226,21 +229,34 @@ class _AuthScreenState extends State<AuthScreen> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: ['facebook', 'gmail']
-                              .expand(
-                                (element) => [
-                                  Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 12.0),
-                                    child: SvgPicture.asset(
-                                      'assets/icons/$element.svg',
-                                      width: 40,
-                                      height: 40,
-                                    ),
-                                  ),
-                                ],
-                              )
-                              .toList(),
+                          children: [
+                            GestureDetector(
+                              onTap: () =>
+                                  context.read<AuthBloc>().add(GoogleLogin()),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0),
+                                child: SvgPicture.asset(
+                                  'assets/icons/gmail.svg',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ),
+                            ),
+                            GestureDetector(
+                              onTap: () =>
+                                  context.read<AuthBloc>().add(FacebookLogin()),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 12.0),
+                                child: SvgPicture.asset(
+                                  'assets/icons/facebook.svg',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         const SizedBox(height: 10),
                         Row(
@@ -275,7 +291,6 @@ class _AuthScreenState extends State<AuthScreen> {
             ],
           );
         },
-        buildWhen: (previous, current) => current != previous,
         listener: (BuildContext context, AuthState state) {
           if (state is AuthSuccess) {
             if (context.read<AuthBloc>().state.user != null) {
@@ -284,6 +299,11 @@ class _AuthScreenState extends State<AuthScreen> {
             }
           }
           if (state is AuthFailed) {
+            ScaffoldMessenger.of(context)
+                .showSnackBar(SnackBar(content: Text(state.message ?? '')));
+          }
+
+          if (state is RegisterSuccess) {
             ScaffoldMessenger.of(context)
                 .showSnackBar(SnackBar(content: Text(state.message ?? '')));
           }

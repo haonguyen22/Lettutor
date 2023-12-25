@@ -9,4 +9,8 @@ abstract class AuthRepository {
       {required String email, required String password});
 
   Future<ForgotPasswordResponse> resetPassword({required String email});
+
+  Future<AuthResponse?> loginByGoogle({required String token});
+
+  Future<AuthResponse?> loginByFacebook({required String token});
 }

@@ -8,7 +8,7 @@ class BookCardWidget extends StatelessWidget {
   final String? startTime;
   final String? endTime;
   final bool isBooked;
-  final bool enable;
+  final bool isBookedBySelf;
   final VoidCallback? onTap;
 
   const BookCardWidget({
@@ -17,7 +17,7 @@ class BookCardWidget extends StatelessWidget {
     this.startTime,
     this.endTime,
     required this.isBooked,
-    required this.enable,
+    required this.isBookedBySelf,
     this.onTap,
   });
 
@@ -86,16 +86,28 @@ class BookCardWidget extends StatelessWidget {
           ],
         ),
         trailing: ElevatedButton(
-          onPressed: !enable || isBooked ? null : onTap,
+          onPressed: !isBooked ? onTap : null,
           style: ElevatedButton.styleFrom(
-            backgroundColor: isBooked ? Colors.grey : context.primaryColor,
+            backgroundColor: isBooked
+                ? isBookedBySelf
+                    ? Colors.green
+                    : Colors.grey
+                : context.primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(8),
             ),
           ),
           child: Text(
-            isBooked ? S.of(context).booked : S.of(context).book,
-            style: context.textTheme.bodyMedium,
+            isBooked
+                ? isBookedBySelf
+                    ? S.of(context).booked
+                    : S.of(context).reserved
+                : S.of(context).book,
+            style: context.textTheme.bodyMedium?.copyWith(
+              color:
+                  isBooked && isBookedBySelf ? Colors.green : context.textColor,
+              fontWeight: isBookedBySelf ? FontWeight.bold : FontWeight.normal,
+            ),
           ),
         ),
       ),

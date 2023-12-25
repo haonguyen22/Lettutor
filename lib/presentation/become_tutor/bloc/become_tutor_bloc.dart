@@ -54,10 +54,9 @@ class BecomeTutorBloc extends Bloc<BecomeTutorEvent, BecomeTutorState> {
       UpdateInformationEvent event, Emitter<BecomeTutorState> emit) {
     emit(
       BecomeTutorInitial(
-        becomeTutorData: mergeBecomeTutorData(
-          state.becomeTutorData,
-          event.becomeTutorData,
-        ),
+        becomeTutorData:
+            (state.becomeTutorData)?.copyEntityWith(event.becomeTutorData) ??
+                event.becomeTutorData,
       ),
     );
   }

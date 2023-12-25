@@ -138,5 +138,21 @@
     "resetPasswordDescription": "Please enter your email address to search for your account.",
     "sendResetLink": "Send Reset Link",
     "resetPasswordSuccess": "Reset password successfully, please check your email to get new password",
-    "resetPasswordError": "Reset password error, please check your email again."
+    "resetPasswordError": "Reset password error, please check your email again.",
+    "updateProfileSuccess": "Update profile successfully",
+    "updateProfileFailed": "Update profile error, please check again",
+    "reserved": "Reserved",
+    "noScheduleTutor": "This tutor has no schedule yet",
+    "bookSuccessfully": "Book successfully",
+    "bookError": "Book error, please check again",
+    "nameIsRequired": "Name is required",
+    "languagesIsRequired": "Languages is required",
+    "introductionIsRequired": "Introduction is required",
+    "interestsIsRequired": "Interests is required",
+    "educationIsRequired": "Education is required",
+    "experienceIsRequired": "Experience is required",
+    "professionIsRequired": "Profession is required",
+    "pleaseFillInAllFields": "Please fill in all fields",
+    "pleaseInputVideo": "Please input video",
+    "emailHasBeenSent": "Email has been sent"
 }

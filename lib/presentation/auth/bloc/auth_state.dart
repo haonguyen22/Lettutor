@@ -29,6 +29,15 @@ class AuthSuccess extends AuthState {
   });
 }
 
+class RegisterSuccess extends AuthState {
+  final String? message;
+
+  const RegisterSuccess({
+    super.isLoading,
+    this.message,
+  });
+}
+
 class AuthFailed extends AuthState {
   final String? message;
   const AuthFailed({
@@ -60,6 +69,36 @@ class ForgotPasswordSuccess extends AuthState {
 class ForgotPasswordFailed extends AuthState {
   final String? message;
   const ForgotPasswordFailed({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class UpdateUserProfileLoading extends AuthState {
+  final String? message;
+  const UpdateUserProfileLoading({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class UpdateUserProfileSuccess extends AuthState {
+  final String? message;
+  const UpdateUserProfileSuccess({
+    super.isLoading,
+    super.user,
+    this.message,
+    super.totalLearning,
+  });
+}
+
+class UpdateUserProfileFailed extends AuthState {
+  final String? message;
+  const UpdateUserProfileFailed({
     super.isLoading,
     super.user,
     this.message,
