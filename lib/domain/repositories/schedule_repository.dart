@@ -16,6 +16,5 @@ abstract class ScheduleRepository {
   Future<String?> cancelBookedClassById({List<String>? scheduleDetailIds});
 
 
-  // TODO: need to change return type
   Future<void> bookAClass({required String scheduleDetailId, String note = ""});
 }

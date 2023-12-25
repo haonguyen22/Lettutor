@@ -104,7 +104,8 @@ class BookCardWidget extends StatelessWidget {
                     : S.of(context).reserved
                 : S.of(context).book,
             style: context.textTheme.bodyMedium?.copyWith(
-              color: isBookedBySelf ? Colors.green : context.textColor,
+              color:
+                  isBooked && isBookedBySelf ? Colors.green : context.textColor,
               fontWeight: isBookedBySelf ? FontWeight.bold : FontWeight.normal,
             ),
           ),

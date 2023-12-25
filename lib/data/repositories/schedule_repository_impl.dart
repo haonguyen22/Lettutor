@@ -85,14 +85,9 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
   @override
   Future<void> bookAClass(
       {required String scheduleDetailId, String note = ""}) async {
-    try {
-      await _scheduleService.postBookAClass(body: {
-        "scheduleDetailIds": [scheduleDetailId],
-        "note": note,
-      });
-    } catch (e) {
-      log(e.toString());
-      return;
-    }
+    await _scheduleService.postBookAClass(body: {
+      "scheduleDetailIds": [scheduleDetailId],
+      "note": note,
+    });
   }
 }

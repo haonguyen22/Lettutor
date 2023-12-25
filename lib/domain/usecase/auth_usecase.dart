@@ -34,14 +34,7 @@ class AuthUseCase {
   }) async {
     final res =
         await _authRepository.register(email: email, password: password);
-    final token = res?.token;
-    if (token != null) {
-      _sharedPreferences.setString(Preference.accessToken, token.access.token);
-      _sharedPreferences.setString(
-          Preference.refreshToken, token.refresh.token);
-      _sharedPreferences.setInt(
-          Preference.expireTime, token.refresh.expires.millisecondsSinceEpoch);
-    }
+
     return res;
   }
 

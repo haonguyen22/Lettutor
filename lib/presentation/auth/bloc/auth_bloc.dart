@@ -56,10 +56,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final total = await _userUseCase.getTotalLearning();
 
       if (res?.token != null) {
-        emit(RegisterSuccess(
+        emit(AuthSuccess(
           isLoading: false,
           user: res?.user.toEntity(),
-          message: S.current.emailHasBeenSent,
           totalLearning: total,
         ));
       } else {
@@ -84,25 +83,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final res = await _authUseCase.register(
           email: event.username, password: event.password);
 
-      final total = await _userUseCase.getTotalLearning();
       if (res?.token != null) {
-        emit(AuthSuccess(
+        emit(RegisterSuccess(
           isLoading: false,
-          user: res?.user.toEntity(),
-          totalLearning: total,
+          message: S.current.emailHasBeenSent,
         ));
       } else {
-        emit(AuthFailed(
+        emit(const AuthFailed(
           message: "Email is already exists.",
           isLoading: false,
-          totalLearning: state.totalLearning,
         ));
       }
     } catch (e) {
       emit(AuthFailed(
         message: e.toString(),
         isLoading: false,
-        totalLearning: state.totalLearning,
       ));
     }
   }

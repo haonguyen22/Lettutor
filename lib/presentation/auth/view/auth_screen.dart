@@ -291,7 +291,6 @@ class _AuthScreenState extends State<AuthScreen> {
             ],
           );
         },
-        buildWhen: (previous, current) => current != previous,
         listener: (BuildContext context, AuthState state) {
           if (state is AuthSuccess) {
             if (context.read<AuthBloc>().state.user != null) {

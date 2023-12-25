@@ -1,12 +1,16 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:let_tutor/core/dependency_injection/di.dart';
 import 'package:let_tutor/data/models/schedule/schedule_model.dart';
 import 'package:let_tutor/domain/entities/tutor.dart';
+import 'package:let_tutor/domain/entities/user.dart';
 import 'package:let_tutor/domain/usecase/schedule_usecase.dart';
 import 'package:let_tutor/domain/usecase/tutor_usecase.dart';
+import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 
 part 'tutor_detail_event.dart';
 part 'tutor_detail_state.dart';
@@ -16,6 +20,7 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
   final Tutor tutorParam;
   final TutorUseCase _tutorUseCase;
   final ScheduleUseCase _scheduleUseCase;
+  User? user = injector.get<AuthBloc>().state.user;
 
   TutorDetailBloc(
     @factoryParam this.tutorParam,
@@ -136,11 +141,33 @@ class TutorDetailBloc extends Bloc<TutorDetailEvent, TutorDetailState> {
         isLoading: state.isLoading,
         tutor: state.tutor,
         name: state.name,
-        schedules: state.schedules?.map((e) {
-          if (e.id == event.scheduleDetailId) {
-            return e.copyWith(isBooked: true);
+        // schedules: state.schedules?.map((e, index) {
+        //   if (e.id == event.scheduleDetailId) {
+        //     return e.copyWith(
+        //         isBooked: true,
+        //         scheduleDetails: e.scheduleDetails?.map((e) {
+        //           if (e.id == event.scheduleDetailId) {
+        //             return e.copyWith(isBooked: true, userId: user?.id);
+        //           }
+        //           return e;
+        //         }).toList());
+        //   }
+        //   return e;
+        // }).toList(),
+        schedules: state.schedules?.mapIndexed((index, element) {
+          if (index == event.index) {
+            return element.copyWith(
+                isBooked: true,
+                scheduleDetails: element.scheduleDetails?.mapIndexed(
+                  (index, e) {
+                    if (e.id == event.scheduleDetailId) {
+                      return e.copyWith(isBooked: true, userId: user?.id);
+                    }
+                    return e;
+                  },
+                ).toList());
           }
-          return e;
+          return element;
         }).toList(),
         isLoadingSchedule: state.isLoadingSchedule,
         processing: false,

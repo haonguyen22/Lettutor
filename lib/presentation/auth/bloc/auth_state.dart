@@ -29,15 +29,12 @@ class AuthSuccess extends AuthState {
   });
 }
 
-
 class RegisterSuccess extends AuthState {
   final String? message;
 
   const RegisterSuccess({
     super.isLoading,
     this.message,
-    super.user,
-    super.totalLearning,
   });
 }
 
