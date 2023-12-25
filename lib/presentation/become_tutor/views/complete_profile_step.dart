@@ -67,19 +67,14 @@ class _CompleteProfileStepScreenState extends State<CompleteProfileStepScreen>
     specialtiesChoice = becomeTutorData?.specialties ?? specialtiesUser ?? [];
     country =
         becomeTutorData?.country ?? user?.country ?? countryList.values.first;
-    nameCtrl = TextEditingController(
-        text: becomeTutorData?.name ?? user?.name ?? "abs");
-    interestsCtrl =
-        TextEditingController(text: becomeTutorData?.interests ?? "abs");
-    educationCtrl =
-        TextEditingController(text: becomeTutorData?.education ?? "abs");
-    experienceCtrl =
-        TextEditingController(text: becomeTutorData?.experience ?? "abs");
-    professionCtrl =
-        TextEditingController(text: becomeTutorData?.profession ?? "abs");
-    languageCtrl = TextEditingController(
-        text: becomeTutorData?.languages?.join(',') ?? "abs");
-    bioCtrl = TextEditingController(text: becomeTutorData?.bio ?? "abs");
+    nameCtrl = TextEditingController(text: becomeTutorData?.name ?? user?.name);
+    interestsCtrl = TextEditingController(text: becomeTutorData?.interests);
+    educationCtrl = TextEditingController(text: becomeTutorData?.education);
+    experienceCtrl = TextEditingController(text: becomeTutorData?.experience);
+    professionCtrl = TextEditingController(text: becomeTutorData?.profession);
+    languageCtrl =
+        TextEditingController(text: becomeTutorData?.languages?.join(','));
+    bioCtrl = TextEditingController(text: becomeTutorData?.bio);
     birthday = becomeTutorData?.birthDay ??
         user?.birthday ??
         DateTime.now().copyWith(year: 2000);
