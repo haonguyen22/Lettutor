@@ -4,6 +4,8 @@ import 'dart:developer';
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:let_tutor/core/configurations/configurations.dart';
+import 'package:let_tutor/env.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/presentation/home/course_tab/bloc/course_bloc.dart';
 import 'package:let_tutor/presentation/home/tutor_tab/bloc/search_tutor_bloc.dart';
@@ -49,6 +51,8 @@ class AppDelegate {
   Future<void> run() async {
     await runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
+
+      Configurations().setConfigurationValues(environment);
 
       await Firebase.initializeApp(
         options: DefaultFirebaseOptions.currentPlatform,
