@@ -9,6 +9,7 @@ import 'package:let_tutor/presentation/app_setting/bloc/app_setting_bloc.dart';
 import 'package:let_tutor/presentation/auth/bloc/auth_bloc.dart';
 import 'package:let_tutor/routes/route_list.dart';
 import 'package:localization/generated/l10n.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsTabView extends StatefulWidget {
   const SettingsTabView({Key? key}) : super(key: key);
@@ -154,11 +155,24 @@ class _SettingsTabViewState extends State<SettingsTabView> {
               CustomCardWidget(
                 label: S.of(context).privacyPolicy,
                 icon: const Icon(Icons.privacy_tip_outlined, size: 30),
+                onTap: () async {
+                  final Uri url =
+                      Uri.parse('https://lettutor.com/tos.html');
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
               ),
               const SizedBox(height: 4),
               CustomCardWidget(
                 label: S.of(context).termAndConditions,
                 icon: const Icon(Icons.newspaper_outlined, size: 30),
+                onTap: () async {
+                  final Uri url = Uri.parse('https://lettutor.com/tos.html');
+                  if (!await launchUrl(url)) {
+                    throw Exception('Could not launch $url');
+                  }
+                },
               ),
               const SizedBox(height: 4),
               CustomCardWidget(
