@@ -38,13 +38,15 @@ To use LetTutor, follow these steps:
 ![Untitled Diagram drawio](https://github.com/haonguyen22/Lettutor/assets/83975213/d83f2aa6-b3f2-428d-a322-80f10d12ed3e)
 
 ## Demo
+Scoring sheet: [DoAnCuoiKi-PhieuChamDiem-LetTutor-2023.pdf](https://github.com/haonguyen22/Lettutor/files/14060477/DoAnCuoiKi-PhieuChamDiem-LetTutor-2023.pdf)
+
 Here is the link demo of the project.
 
 Milestone 2: [demo-milestone2.mp4](https://studenthcmusedu-my.sharepoint.com/:v:/g/personal/20120470_student_hcmus_edu_vn/EYJIjk-9nqNKjPWT1NMMhJgBd03iIS8p95lxv1NErALdkw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Gmqv9G)
 
 Milestone 3: [demo-milestone3.mp4](https://studenthcmusedu-my.sharepoint.com/:v:/g/personal/20120470_student_hcmus_edu_vn/EblZ_ySh8BpLiEHVwy8eomABr54NRn2xiq5nZ64GxdvS6w?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=Z5vTE3)
 
-Milestone 4: [demo-milestone4.mp4](https://studenthcmusedu-my.sharepoint.com/:v:/g/personal/20120470_student_hcmus_edu_vn/Efr1ZvGywYFFhkAeF3w3S-AB4lnGYpJ-SEgp_1Asbb7b1Q?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=85Kj1f)
+Milestone 4: [demo-milestone4.mp4](https://youtu.be/W6brcZR8dCQ)
 
 
 ## Contact Information
