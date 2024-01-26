@@ -25,12 +25,16 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
     emit(const UpcomingInitial(isLoading: true));
 
     List<BookingInfoModel>? upcomingClasses =
-        await _scheduleUseCase.getUpcomingClasses();
+        (await _scheduleUseCase.getUpcomingClasses())?.toList();
+
+    upcomingClasses?.sort((a, b) => a
+        .scheduleDetailInfo!.scheduleInfo!.startTimestamp!
+        .compareTo(b.scheduleDetailInfo!.scheduleInfo!.startTimestamp!));
 
     emit(
       UpcomingSuccess(
         isLoading: false,
-        upcomingClasses: upcomingClasses?.reversed.toList(),
+        upcomingClasses: upcomingClasses?.toList(),
       ),
     );
   }
@@ -50,10 +54,14 @@ class UpcomingBloc extends Bloc<UpcomingEvent, UpcomingState> {
     List<BookingInfoModel>? upcomingClasses =
         await _scheduleUseCase.getUpcomingClasses();
 
+    upcomingClasses?.sort((a, b) => a
+        .scheduleDetailInfo!.scheduleInfo!.startTimestamp!
+        .compareTo(b.scheduleDetailInfo!.scheduleInfo!.startTimestamp!));
+
     emit(
       UpcomingSuccess(
         isLoading: false,
-        upcomingClasses: upcomingClasses?.reversed.toList(),
+        upcomingClasses: upcomingClasses?.toList(),
         isLoadingCancel: false,
         message: message,
       ),

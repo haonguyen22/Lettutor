@@ -161,16 +161,17 @@ class UpcomingCardWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              TextButton(
-                onPressed: startTime! - now < 7200 ? null : onTapCancelMeeting,
-                child: Text(
-                  S.of(context).cancel,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: startTime - now < 7200 ? Colors.grey : Colors.red,
-                    fontWeight: FontWeight.bold,
+              if (startTime! - now > 2 * 60 * 60 * 1000 && startTime - now > 0)
+                TextButton(
+                  onPressed: onTapCancelMeeting,
+                  child: Text(
+                    S.of(context).cancel,
+                    style: context.textTheme.bodyMedium?.copyWith(
+                      color: startTime - now < 7200 ? Colors.grey : Colors.red,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
               TextButton(
                 onPressed: onTapGoToMeeting,
                 child: Text(
